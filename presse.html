@@ -351,7 +351,70 @@
           <span class="section-tag" data-fr="🎙️ Radio" data-en="🎙️ Radio">🎙️ Radio</span>
           <h2 style="font-family:Merriweather,serif;font-weight:300;font-size:28px;color:var(--white);margin:12px 0 8px;" data-fr="Radio" data-en="Radio">Radio</h2>
           <p style="font-size:14px;color:var(--text-muted);margin-bottom:24px;" data-fr="39 passages sur plus de 15 stations en France et à l'international" data-en="39 appearances on over 15 stations in France and internationally">39 passages sur plus de 15 stations en France et à l'international</p>
-          <p style="font-size:13px;color:var(--text-muted);font-style:italic;" data-fr="Lecteur audio bientôt disponible" data-en="Audio player coming soon">Lecteur audio bientôt disponible</p>
+          <div class="radio-carousel" style="position:relative;margin-top:24px;">
+            <div style="background:#0d1a26;border-radius:6px;padding:20px;max-width:700px;">
+              <p id="radioLabel" style="font-size:14px;color:var(--off-white);margin-bottom:12px;font-weight:600;"></p>
+              <iframe id="radioPlayer" src="" style="width:100%;height:60px;border:none;border-radius:4px;" allow="autoplay"></iframe>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;">
+                <button onclick="radioNav(-1)" style="background:none;border:1px solid rgba(95,168,211,0.3);color:var(--accent);padding:6px 16px;border-radius:4px;cursor:pointer;font-size:14px;">&#8592; Précédent</button>
+                <span id="radioCount" style="font-size:12px;color:var(--text-muted);"></span>
+                <button onclick="radioNav(1)" style="background:none;border:1px solid rgba(95,168,211,0.3);color:var(--accent);padding:6px 16px;border-radius:4px;cursor:pointer;font-size:14px;">Suivant &#8594;</button>
+              </div>
+            </div>
+          </div>
+          <script>
+          var radioTracks = [
+            {id:"14Bp1ftN3JvIBcMMkgNpUIqXhzorKlQSv",name:"Europe 1 — Circuits courts, Le portrait du jour"},
+            {id:"1E_3tptYoaTygYUnSJqgT7dtuYkQVnLgY",name:"France Bleu — Femme de Paname"},
+            {id:"1k-4qDJ7fLBKxmr-ZuPeUXTOzz24qgmH8",name:"France Info — Les aventuriers (02.07.2013)"},
+            {id:"0B0RkbHBUrWAxb3JCWGotNmdjYXc",name:"France Info — Les aventuriers (03.08.2013)"},
+            {id:"0B0RkbHBUrWAxbzVwWjFqOXAzazQ",name:"France Info — Les aventuriers (07.09.2013)"},
+            {id:"0B0RkbHBUrWAxLWw2Q2J2SVpTTVE",name:"France Info — Les aventuriers (10.08.2013)"},
+            {id:"0B0RkbHBUrWAxNVlCMXUxZXJvUnc",name:"France Info — Les aventuriers (12.07.2013)"},
+            {id:"0B0RkbHBUrWAxa25sWWhNeFI2N3c",name:"France Info — Les aventuriers (17.08.2013)"},
+            {id:"0B0RkbHBUrWAxMGtKZTlBeGt6UTQ",name:"France Info — Les aventuriers (20.07.2013)"},
+            {id:"0B7hlqx_DFkSfWVhYU0pvb0MydGM",name:"France Info — Les aventuriers (22.06.2013)"},
+            {id:"0B0RkbHBUrWAxc0gzdy1IdEFxZGc",name:"France Info — Les aventuriers (24.08.2013)"},
+            {id:"1BqcSDdy_-Af0OlhlkH7fSEynOWOHsU4Z",name:"France Info — Les aventuriers (27.07.2013)"},
+            {id:"1ccAq7CvKck8qTowMHtzOkd5htMZ81BeB",name:"France Inter — Esprit d'initiative (23.11.2017)"},
+            {id:"0B0RkbHBUrWAxMVROLXg5R3JCZEU",name:"France Inter — La Tête au Carré (12.06.2015)"},
+            {id:"0B0RkbHBUrWAxRjBjbmlocTM3cXc",name:"France Inter — La tête au carré (21.03.2014)"},
+            {id:"0B0RkbHBUrWAxVlN1NWVhM0dxTFk",name:"France Inter — Le club de la tête au carré (30.07.2016)"},
+            {id:"0B0RkbHBUrWAxVlZuaU1uNk83NkU",name:"France Inter — Le temps d'un bivouac (01.07.2013)"},
+            {id:"1YX56CVv3H4qoPzAG11gv7kGA_3mPdf-n",name:"France Inter — Le Temps d'un Bivouac (05.07.2016)"},
+            {id:"1L9Z0ZTK5EW52u7gYze3Un1ZV169q0Qjt",name:"France Inter — En direct du salon du livre"},
+            {id:"0B0RkbHBUrWAxZ2VpRlVnVElWYVE",name:"France Inter — Le temps d'un bivouac (02.07.2013)"},
+            {id:"0B0RkbHBUrWAxVzMwNVdwVGFHLW8",name:"Guyane Première (18.09.2012)"},
+            {id:"0B7hlqx_DFkSfZF8tUGtsOEVmZzg",name:"Radio Ahora Calafate, Argentine (20.04.2016)"},
+            {id:"0B0RkbHBUrWAxZmZmME45d08xUGs",name:"Radio Dijon Campus (10.10.2015)"},
+            {id:"0B0RkbHBUrWAxMUUtQWFLZWx4dlk",name:"Radio Nova — Le contrôle douanier (28.06.2014)"},
+            {id:"1VnLBfP4e6koC2Ske-ENSt13tMhJDF9DW",name:"Radio Nova — À l'aventure (10.11.2017)"},
+            {id:"0B0RkbHBUrWAxdzAzcjVmRzBWVkE",name:"Radio Ville-Marie — Passeport Matin (30.07.2012)"},
+            {id:"0B0RkbHBUrWAxOGxYSkxUXzh5YXc",name:"Radio Ville-Marie — Passeport Matin (91,3 FM)"},
+            {id:"0B7hlqx_DFkSfcVBZUlNmaVNfa2M",name:"Radio-Canada — L'été du monde (20.07.2012)"},
+            {id:"0B0RkbHBUrWAxX2NhSnZ3NUtoaTg",name:"RCF — Questions d'actualité (10.10.2013)"},
+            {id:"0B7hlqx_DFkSfOHdQTkVOX3VxQ28",name:"RCF — Question d'actualité, Bourgogne (15.10.2013)"},
+            {id:"0B7hlqx_DFkSfakN0NFF1RGxVekU",name:"RCF — Questions d'actualité (8 et 10.10.2013)"},
+            {id:"1PkV4rTwhG4wgWhh3gJLMum2GcT26VMc7",name:"RFI — Autour de la question (19.12.2017)"},
+            {id:"1T01fbmwLQ4-FpfWVTdBtumPmmGSSpBNY",name:"RTL — La curiosité est un vilain défaut (26.10.2015)"},
+            {id:"0B0RkbHBUrWAxbHo3UHRJYUdHa2s",name:"RTL — La Curiosité Est Un Vilain Défaut (29.06.2015)"},
+            {id:"1us3H3WKH97HVAOdOiS0uoh2_k6kiXVEz",name:"RTL — La curiosité est un vilain défaut (18.11.2015)"},
+            {id:"14I3jAj34ISr-lVh4RQ_l_ZnC2mxFfI6a",name:"RTL — La curiosité est un vilain défaut (03.03.2015)"},
+            {id:"18GGvI4VEaQXZZIg8ZSIC_NnIgC4IJkgG",name:"RTL — La curiosité est un vilain défaut (09.06.2016)"},
+            {id:"0B0RkbHBUrWAxMXdWTzBGUGN1RU0",name:"RTL soir — L'Entretien du jour (28.11.2017)"},
+            {id:"1lZ5Y-5DJwY4ASsm-E53HaSW-K_SCxZ_p",name:"RTL — La Curiosité Est Un Vilain Défaut (29.06.2015) (2)"}
+          ];
+          var radioIdx = 0;
+          function radioShow(i) {
+            radioIdx = i;
+            var t = radioTracks[i];
+            document.getElementById('radioPlayer').src = 'https://drive.google.com/file/d/' + t.id + '/preview';
+            document.getElementById('radioLabel').textContent = t.name;
+            document.getElementById('radioCount').textContent = (i+1) + ' / ' + radioTracks.length;
+          }
+          function radioNav(d) { radioShow((radioIdx + d + radioTracks.length) % radioTracks.length); }
+          radioShow(0);
+          </script>
         </div>
         <img src="images/icon_radio.png" alt="Radio" style="width:120px;height:auto;flex-shrink:0;opacity:0.5;" loading="lazy">
       </div>
