@@ -162,62 +162,94 @@
     window.setLang = function(lang) { if(origSetLang) origSetLang(lang); pressLang = lang; pressShow(pressIdx); };
     </script>
     <span class="section-tag" style="margin-top:48px;display:block;" data-fr="Presse écrite, radio et en ligne — 434 articles" data-en="Print, radio and online press — 434 articles">Presse écrite, radio et en ligne — 434 articles</span>
-    <div id="logoCloud" style="position:relative;width:100%;max-width:800px;height:400px;margin:24px auto 0;border-radius:8px;background:rgba(95,168,211,0.03);border:1px solid rgba(95,168,211,0.1);overflow:hidden;cursor:pointer;" onclick="window.open('https://drive.google.com/drive/folders/0B0RkbHBUrWAxbk05Ym9WZnk2WUE?resourcekey=0-tm8fai4LSAtT-Ts3zfEP5g','_blank')">
-      <p style="position:absolute;bottom:16px;left:0;right:0;text-align:center;font-size:14px;color:var(--accent);font-weight:600;pointer-events:none;z-index:2;" data-fr="Cliquez pour voir les 434 articles →" data-en="Click to see all 434 articles →">Cliquez pour voir les 434 articles →</p>
+    <div id="textCloud" style="position:relative;width:100%;max-width:800px;height:380px;margin:24px auto 0;border-radius:8px;background:rgba(95,168,211,0.03);border:1px solid rgba(95,168,211,0.1);overflow:hidden;cursor:pointer;" onclick="window.open('https://drive.google.com/drive/folders/0B0RkbHBUrWAxbk05Ym9WZnk2WUE?resourcekey=0-tm8fai4LSAtT-Ts3zfEP5g','_blank')">
+      <p style="position:absolute;bottom:14px;left:0;right:0;text-align:center;font-size:14px;color:var(--accent);font-weight:600;pointer-events:none;z-index:2;" data-fr="Cliquez pour voir les 434 articles →" data-en="Click to see all 434 articles →">Cliquez pour voir les 434 articles →</p>
     </div>
     <script>
     (function(){
-      var logos = [
-        {src:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Logo_Le_Monde.svg/320px-Logo_Le_Monde.svg.png",w:120},
-        {src:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Arte_Logo_2017.svg/200px-Arte_Logo_2017.svg.png",w:70},
-        {src:"https://upload.wikimedia.org/wikipedia/fr/thumb/2/22/Logo_France_Inter_2021.svg/200px-Logo_France_Inter_2021.svg.png",w:90},
-        {src:"https://upload.wikimedia.org/wikipedia/fr/thumb/b/b0/Logo_RTL_2015.svg/200px-Logo_RTL_2015.svg.png",w:80},
-        {src:"https://upload.wikimedia.org/wikipedia/fr/thumb/a/a4/Logo_Europe_1_%282010%29.svg/200px-Logo_Europe_1_%282010%29.svg.png",w:90},
-        {src:"https://upload.wikimedia.org/wikipedia/fr/thumb/0/04/France_3_-_logo_2016.svg/200px-France_3_-_logo_2016.svg.png",w:80},
-        {src:"https://upload.wikimedia.org/wikipedia/fr/thumb/b/b4/Logo_franceinfo_2016.svg/200px-Logo_franceinfo_2016.svg.png",w:100},
-        {src:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/TV5Monde_Logo.svg/200px-TV5Monde_Logo.svg.png",w:90},
-        {src:"https://upload.wikimedia.org/wikipedia/fr/thumb/9/9f/Rfi_logo.svg/200px-Rfi_logo.svg.png",w:70},
-        {src:"https://upload.wikimedia.org/wikipedia/fr/thumb/b/ba/Logo_Radio_Nova.svg/200px-Logo_Radio_Nova.svg.png",w:80},
-        {src:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Globo_logo_and_wordmark.svg/200px-Globo_logo_and_wordmark.svg.png",w:80},
-        {src:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Radio-Canada.svg/200px-Radio-Canada.svg.png",w:70},
-        {src:"https://upload.wikimedia.org/wikipedia/fr/thumb/0/0c/France_Bleu_-_logo_2015.svg/200px-France_Bleu_-_logo_2015.svg.png",w:80},
-        {src:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/RTL_Télé_Lëtzebuerg_logo.svg/200px-RTL_Télé_Lëtzebuerg_logo.svg.png",w:70}
+      var words = [
+        /* Presse écrite */
+        {t:"LE MONDE",s:32,fw:"800",c:"#f5f0eb"},
+        {t:"L'ESSENTIEL",s:16,fw:"600",c:"#5fa8d3"},
+        {t:"LA PRESSE",s:17,fw:"600",c:"#f5f0eb"},
+        {t:"ESO",s:18,fw:"700",c:"#5fa8d3"},
+        {t:"EUFAR",s:13,fw:"600",c:"#f5f0eb"},
+        {t:"EAA AIRVENTURE",s:12,fw:"600",c:"#5fa8d3"},
+        {t:"SCIENCE.LU",s:14,fw:"600",c:"#f5f0eb"},
+        {t:"PASSION AVIATION",s:12,fw:"600",c:"#5fa8d3"},
+        {t:"AEROVFR",s:13,fw:"600",c:"#f5f0eb"},
+        /* TV France */
+        {t:"ARTE",s:28,fw:"800",c:"#5fa8d3"},
+        {t:"FRANCE 3",s:22,fw:"700",c:"#f5f0eb"},
+        {t:"TV5 MONDE",s:21,fw:"700",c:"#5fa8d3"},
+        {t:"FRANCE Ô",s:17,fw:"700",c:"#f5f0eb"},
+        {t:"TERRE TV",s:16,fw:"600",c:"#5fa8d3"},
+        {t:"L'ESPRIT SORCIER",s:15,fw:"600",c:"#f5f0eb"},
+        {t:"MARTINIQUE 1ÈRE",s:14,fw:"600",c:"#5fa8d3"},
+        {t:"GUYANE 1ÈRE",s:15,fw:"600",c:"#f5f0eb"},
+        {t:"INFO 1ÈRE",s:14,fw:"600",c:"#5fa8d3"},
+        /* Radio France */
+        {t:"FRANCE INTER",s:23,fw:"700",c:"#f5f0eb"},
+        {t:"FRANCE INFO",s:20,fw:"700",c:"#5fa8d3"},
+        {t:"FRANCE BLEU",s:19,fw:"700",c:"#f5f0eb"},
+        {t:"RTL",s:28,fw:"800",c:"#5fa8d3"},
+        {t:"EUROPE 1",s:24,fw:"700",c:"#f5f0eb"},
+        {t:"RFI",s:24,fw:"800",c:"#5fa8d3"},
+        {t:"RADIO NOVA",s:18,fw:"700",c:"#f5f0eb"},
+        {t:"RCF",s:16,fw:"700",c:"#5fa8d3"},
+        {t:"RADIO DIJON CAMPUS",s:11,fw:"600",c:"#f5f0eb"},
+        /* International TV */
+        {t:"TV GLOBO",s:20,fw:"700",c:"#5fa8d3"},
+        {t:"RTL LUXEMBOURG",s:17,fw:"700",c:"#f5f0eb"},
+        {t:"HANGAR 21",s:14,fw:"600",c:"#5fa8d3"},
+        {t:"ULAGOS TV",s:13,fw:"600",c:"#f5f0eb"},
+        {t:"SIETE NOTICIAS",s:13,fw:"600",c:"#5fa8d3"},
+        {t:"LA GACETA",s:14,fw:"600",c:"#f5f0eb"},
+        {t:"PHUKET TV",s:14,fw:"600",c:"#5fa8d3"},
+        {t:"PUERTO RICO TV",s:12,fw:"600",c:"#f5f0eb"},
+        /* International Radio */
+        {t:"RADIO-CANADA",s:17,fw:"600",c:"#5fa8d3"},
+        {t:"RADIO VILLE-MARIE",s:12,fw:"600",c:"#f5f0eb"},
+        {t:"RADIO AHORA",s:13,fw:"600",c:"#5fa8d3"},
+        /* Événements */
+        {t:"SALON DU BOURGET",s:16,fw:"700",c:"#f5f0eb"},
+        {t:"ÉTONNANTS VOYAGEURS",s:13,fw:"600",c:"#5fa8d3"}
       ];
-      var container = document.getElementById('logoCloud');
-      var W = container.clientWidth, H = container.clientHeight;
+      var box = document.getElementById('textCloud');
+      var W = box.clientWidth, H = box.clientHeight;
       var items = [];
-      logos.forEach(function(logo){
-        var img = document.createElement('img');
-        img.src = logo.src;
-        img.style.cssText = 'position:absolute;pointer-events:none;filter:brightness(1.2);transition:none;';
-        img.style.width = logo.w + 'px';
-        img.style.height = 'auto';
-        container.appendChild(img);
+      words.forEach(function(w){
+        var el = document.createElement('span');
+        el.textContent = w.t;
+        el.style.cssText = 'position:absolute;top:0;left:0;white-space:nowrap;pointer-events:none;font-family:Raleway,sans-serif;letter-spacing:0.08em;';
+        el.style.fontSize = w.s + 'px';
+        el.style.fontWeight = w.fw;
+        el.style.color = w.c;
+        el.style.opacity = 0.5 + Math.random() * 0.4;
+        box.appendChild(el);
         items.push({
-          el: img,
-          x: Math.random() * (W - logo.w),
-          y: Math.random() * (H - 60),
-          vx: (Math.random() - 0.5) * 0.8,
-          vy: (Math.random() - 0.5) * 0.5,
-          w: logo.w
+          el: el,
+          x: Math.random() * (W - 100),
+          y: 20 + Math.random() * (H - 80),
+          vx: (Math.random() - 0.5) * 0.7,
+          vy: (Math.random() - 0.5) * 0.45
         });
       });
-      function animate(){
-        W = container.clientWidth;
-        H = container.clientHeight;
+      function loop(){
+        W = box.clientWidth; H = box.clientHeight;
         for(var i=0;i<items.length;i++){
           var p = items[i];
-          p.x += p.vx;
-          p.y += p.vy;
-          if(p.x <= 0 || p.x >= W - p.w) p.vx *= -1;
-          if(p.y <= 0 || p.y >= H - 60) p.vy *= -1;
-          p.x = Math.max(0, Math.min(p.x, W - p.w));
-          p.y = Math.max(0, Math.min(p.y, H - 60));
-          p.el.style.transform = 'translate(' + p.x + 'px,' + p.y + 'px)';
+          p.x += p.vx; p.y += p.vy;
+          var ew = p.el.offsetWidth || 80;
+          if(p.x <= 0 || p.x >= W - ew) p.vx *= -1;
+          if(p.y <= 10 || p.y >= H - 50) p.vy *= -1;
+          p.x = Math.max(0, Math.min(p.x, W - ew));
+          p.y = Math.max(10, Math.min(p.y, H - 50));
+          p.el.style.transform = 'translate('+p.x+'px,'+p.y+'px)';
         }
-        requestAnimationFrame(animate);
+        requestAnimationFrame(loop);
       }
-      animate();
+      loop();
     })();
     </script>
     <div style="margin-top:48px;text-align:center;">
