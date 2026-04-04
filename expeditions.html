@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Par des Expéditions aéronautiques – Wings for Science</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .aircraft-block { margin-bottom: 60px; }
+    .aircraft-block h2 { font-family:'Merriweather',serif; font-size:26px; font-weight:300; color:var(--white); margin-bottom:8px; }
+    .aircraft-block .aircraft-sub { font-size:12px; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--accent); margin-bottom:20px; }
+    .aircraft-photos { display:grid; grid-template-columns:repeat(3,1fr); gap:3px; margin-bottom:24px; }
+    .aircraft-photos img { width:100%; aspect-ratio:3/2; object-fit:cover; filter:brightness(.8); transition:filter .3s; }
+    .aircraft-photos img:hover { filter:brightness(1); }
+    .specs-table { width:100%; border-collapse:collapse; margin-bottom:24px; }
+    .specs-table td { padding:10px 14px; font-size:13px; border-bottom:1px solid rgba(95,168,211,0.08); }
+    .specs-table td:first-child { font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--accent); font-size:10px; width:40%; }
+    .specs-table td:last-child { color:var(--off-white); }
+    .aircraft-links { display:flex; gap:12px; flex-wrap:wrap; }
+    .divider { border:none; border-top:1px solid rgba(95,168,211,0.1); margin:60px 0; }
+    @media(max-width:700px){ .aircraft-photos { grid-template-columns:repeat(2,1fr); } }
+  </style>
+</head>
+<body>
+<header>
+  <a class="logo-wrap" href="index.html"><img src="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png/v1/fill/w_162,h_163,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/LOGO%20wingsforscience%20copie.png" alt="Logo"><div class="logo-text"><span data-fr="Des Ailes pour la Science" data-en="Wings for Science">Des Ailes pour la Science</span></div></a>
+  <nav>
+    <div class="nav-item"><a class="nav-link active" href="mission.html"><span data-fr="Notre mission" data-en="Our mission">Notre mission</span> <span class="chevron">▼</span></a><div class="dropdown"><a href="science-environnement.html" data-fr="Appuyer la Science et l&apos;Environnement" data-en="Supporting Science and the Environment">Appuyer la Science et l&apos;Environnement</a><a href="expeditions.html" data-fr="Par des Expéditions aéronautiques" data-en="Through Aeronautical Expeditions">Par des Expéditions aéronautiques</a><a href="sensibilisation.html" data-fr="Et de la sensibilisation" data-en="And Public Awareness">Et de la sensibilisation</a></div></div>
+    <div class="nav-item"><a class="nav-link" href="actions.html"><span data-fr="Nos actions" data-en="Our actions">Nos actions</span> <span class="chevron">▼</span></a><div class="dropdown"><a href="campagne-scientifique.html" data-fr="Campagne scientifique" data-en="Scientific Campaign">Campagne scientifique</a><a href="conferences.html" data-fr="Conférences" data-en="Conferences">Conférences</a><a href="reportages.html" data-fr="Reportages" data-en="Documentaries">Reportages</a><a href="livres.html" data-fr="Livres" data-en="Books">Livres</a><a href="presse.html" data-fr="Presse" data-en="Press">Presse</a></div></div>
+    <div class="nav-item"><a class="nav-link" href="reseau.html"><span data-fr="Notre réseau" data-en="Our network">Notre réseau</span> <span class="chevron">▼</span></a><div class="dropdown"><a href="confondateurs.html" data-fr="Les cofondateurs et parrains" data-en="Co-founders and Patrons">Les cofondateurs et parrains</a><a href="equipe.html" data-fr="L&apos;équipe" data-en="The Team">L&apos;équipe</a><a href="partenaires.html" data-fr="Les partenaires et sponsors" data-en="Partners and Sponsors">Les partenaires et sponsors</a></div></div>
+    <a class="nav-link" href="actu.html" data-fr="Notre Actualité" data-en="Our News">Notre Actualité</a>
+    <a class="btn btn-primary" href="contact.html" style="padding:9px 20px;font-size:11px;" data-fr="Contact" data-en="Contact">Contact</a>
+  </nav>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+  <div class="lang-switch"><button class="lang-btn active" data-lang="fr" onclick="setLang('fr')">🇫🇷 FR</button><span class="lang-sep">|</span><button class="lang-btn" data-lang="en" onclick="setLang('en')">🇬🇧 EN</button></div>
+</header>
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-section-title" data-fr="Notre mission" data-en="Our mission">Notre mission</div>
+  <div class="mobile-sub"><a href="mission.html">Vue d'ensemble</a><a href="science-environnement.html">Appuyer la Science et l'Environnement</a><a href="expeditions.html">Par des Expéditions aéronautiques</a><a href="sensibilisation.html">Et de la sensibilisation</a></div>
+  <div class="mobile-section-title" data-fr="Nos actions" data-en="Our actions">Nos actions</div>
+  <div class="mobile-sub"><a href="actions.html">Vue d'ensemble</a><a href="campagne-scientifique.html">Campagne scientifique</a><a href="conferences.html">Conférences</a><a href="reportages.html">Reportages</a><a href="livres.html">Livres</a><a href="presse.html">Presse</a></div>
+  <div class="mobile-section-title" data-fr="Notre réseau" data-en="Our network">Notre réseau</div>
+  <div class="mobile-sub"><a href="reseau.html">Vue d'ensemble</a><a href="confondateurs.html">Les cofondateurs et parrains</a><a href="equipe.html">L'équipe</a><a href="partenaires.html">Les partenaires et sponsors</a></div>
+  <a href="actu.html" data-fr="Notre Actualité" data-en="Our News">Notre Actualité</a>
+  <a href="contact.html" data-fr="Contact" data-en="Contact">Contact</a>
+  <div class="mobile-lang"><button class="active" data-lang="fr" onclick="setLang('fr');toggleMenu()">🇫🇷 Français</button><button data-lang="en" onclick="setLang('en');toggleMenu()">🇬🇧 English</button></div>
+</div>
+
+<section class="page-hero" style="background-image:url('https://www.zeppelin-geo.com/galeries/monde/wings_for_science/images/045.jpg');">
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <span class="section-tag" data-fr="Notre mission — 02" data-en="Our mission — 02">Notre mission — 02</span>
+    <h1 class="page-hero-title" data-fr="Organiser des expéditions aéronautiques <em>pour protéger la planète</em>" data-en="Organising aeronautical expeditions <em>to protect the planet</em>">Organiser des expéditions aéronautiques <em>pour protéger la planète</em></h1>
+  </div>
+</section>
+
+<div class="content-section">
+  <div class="content-inner narrow">
+    <p class="lead-text" data-fr="Les ULMs que nous utilisons ont chacun été conçus, en partenariat avec les fabricants aéronautiques, pour répondre à nos objectifs : acquérir les données scientifiques nouvelles qui permettront aux scientifiques de mieux étudier, comprendre et protéger notre planète — tout en réduisant au maximum notre impact sur l'environnement." data-en="Each of our ULMs was designed in partnership with aeronautical manufacturers to meet our objectives: acquiring new scientific data to help scientists better study, understand and protect our planet — while minimising our environmental impact.">Les ULMs que nous utilisons ont chacun été conçus, en partenariat avec les fabricants aéronautiques, pour répondre à nos objectifs : acquérir les données scientifiques nouvelles qui permettront aux scientifiques de mieux étudier, comprendre et protéger notre planète — tout en réduisant au maximum notre impact sur l'environnement.</p>
+  </div>
+</div>
+
+<div class="content-section" style="padding-top:0;">
+  <div class="content-inner">
+
+    <!-- AVION 1 -->
+    <div class="aircraft-block">
+      <div class="aircraft-sub" data-fr="Aéronef 01 — Tour du Monde" data-en="Aircraft 01 — Round the world">Aéronef 01 — Tour du Monde</div>
+      <h2 data-fr="Pipistrel Virus SW S80, entièrement modifié" data-en="Pipistrel Virus SW S80, fully modified">Pipistrel Virus SW S80, entièrement modifié</h2>
+      <div class="aircraft-photos">
+        <img src="https://www.zeppelin-geo.com/galeries/monde/wings_for_science/images/058.jpg" alt="Virus SW S80">
+        <img src="https://www.zeppelin-geo.com/galeries/monde/wings_for_science/images/013.jpg" alt="Virus SW S80 en vol">
+        <img src="https://www.zeppelin-geo.com/galeries/monde/wings_for_science/images/044.jpg" alt="Virus SW S80 Andes">
+      </div>
+      <table class="specs-table">
+        <tr><td data-fr="Fabricant" data-en="Manufacturer">Fabricant</td><td>Pipistrel</td></tr>
+        <tr><td data-fr="Dates" data-en="Dates">Dates</td><td data-fr="Juin 2012 – Juin 2013" data-en="June 2012 – June 2013">Juin 2012 – Juin 2013</td></tr>
+        <tr><td data-fr="Heures de vol" data-en="Flight hours">Heures de vol</td><td>450 h</td></tr>
+        <tr><td data-fr="Distance parcourue" data-en="Distance covered">Distance parcourue</td><td>54 000 km</td></tr>
+        <tr><td data-fr="Pays survolés" data-en="Countries overflown">Pays survolés</td><td>50</td></tr>
+        <tr><td data-fr="Trajet" data-en="Route">Trajet</td><td data-fr="Tour du monde" data-en="Round the world">Tour du monde</td></tr>
+        <tr><td data-fr="Étapes réalisées" data-en="Stages completed">Étapes réalisées</td><td>102</td></tr>
+        <tr><td data-fr="Vitesse de croisière" data-en="Cruise speed">Vitesse de croisière</td><td>120 kts</td></tr>
+        <tr><td data-fr="Consommation" data-en="Fuel consumption">Consommation</td><td>12 L/h</td></tr>
+      </table>
+      <div class="aircraft-links">
+        <a class="btn btn-primary" href="actu.html#arrivee-au-salon-du-bourget" data-fr="Arrivée au Bourget →" data-en="Arrival at Le Bourget →">Arrivée au Bourget →</a>
+        <a class="btn btn-primary" href="https://docs.google.com/spreadsheets/d/159wf_mlcPG3rBdnbq8_lyZDaC5-tovUxTnKGCpKbhL0/edit?gid=0#gid=0" target="_blank" rel="noopener" id="listLink" data-fr="Liste des missions →" data-en="List of missions →">Liste des missions →</a>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- AVION 2 -->
+    <div class="aircraft-block">
+      <div class="aircraft-sub" data-fr="Aéronef 02 — Traversée des Amériques" data-en="Aircraft 02 — Crossing the Americas">Aéronef 02 — Traversée des Amériques</div>
+      <h2 data-fr="Edra Super Petrel LS, entièrement modifié" data-en="Edra Super Petrel LS, fully modified">Edra Super Petrel LS, entièrement modifié</h2>
+      <div class="aircraft-photos">
+        <img src="https://www.zeppelin-geo.com/galeries/monde/wings_for_science/images/031.jpg" alt="Super Petrel LS">
+        <img src="https://www.zeppelin-geo.com/galeries/monde/wings_for_science/images/032.jpg" alt="Super Petrel LS mer">
+        <img src="https://www.zeppelin-geo.com/galeries/monde/wings_for_science/images/047.jpg" alt="Super Petrel LS survol">
+      </div>
+      <table class="specs-table">
+        <tr><td data-fr="Fabricant" data-en="Manufacturer">Fabricant</td><td>Edra Aeronáutica</td></tr>
+        <tr><td data-fr="Dates" data-en="Dates">Dates</td><td data-fr="Janvier 2016 – Novembre 2017" data-en="January 2016 – November 2017">Janvier 2016 – Novembre 2017</td></tr>
+        <tr><td data-fr="Trajet" data-en="Route">Trajet</td><td data-fr="Traversée des Amériques du sud au nord" data-en="Crossing the Americas from south to north">Traversée des Amériques du sud au nord</td></tr>
+        <tr><td data-fr="Vitesse de croisière" data-en="Cruise speed">Vitesse de croisière</td><td>90 kts</td></tr>
+        <tr><td data-fr="Consommation" data-en="Fuel consumption">Consommation</td><td>18 L/h</td></tr>
+        <tr><td data-fr="Type" data-en="Type">Type</td><td data-fr="Hydravion amphibie" data-en="Amphibious flying boat">Hydravion amphibie</td></tr>
+      </table>
+      <div class="aircraft-links">
+        <a class="btn btn-primary" href="posts/design-du-nouvel-avion.html" data-fr="Le concours de design →" data-en="The design contest →">Le concours de design →</a>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- TRAJETS / CARTE -->
+    <div style="text-align:center; padding:20px 0 40px;">
+      <span class="section-tag" data-fr="Nos trajets" data-en="Our routes">Nos trajets</span>
+      <h2 class="section-heading" data-fr="Et nous avons effectué ces trajets" data-en="And we have completed these routes">Et nous avons effectué ces trajets</h2>
+      <p style="color:var(--text-muted);margin-bottom:28px;" data-fr="Retrouvez la carte interactive de toutes nos expéditions et missions scientifiques." data-en="Find the interactive map of all our expeditions and scientific missions.">Retrouvez la carte interactive de toutes nos expéditions et missions scientifiques.</p>
+      <a class="btn btn-primary" href="missions.html" data-fr="Voir la carte des missions →" data-en="View the missions map →">Voir la carte des missions →</a>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+    <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="logo-wrap" href="index.html"><img src="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png/v1/fill/w_162,h_163,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/LOGO%20wingsforscience%20copie.png" alt="Logo"><div class="logo-text"><span data-fr="Des Ailes pour la Science" data-en="Wings for Science">Des Ailes pour la Science</span></div></a>
+      <p data-fr="Association à but non lucratif œuvrant pour la science et la protection de l'environnement depuis 2008." data-en="Non-profit association working for science and environmental protection since 2008.">Association à but non lucratif œuvrant pour la science et la protection de l'environnement depuis 2008.</p>
+      <address class="footer-address" style="display:inline;">Maison des associations, 38 bd Henri IV, 75004 Paris</address>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title" data-fr="Nos actions" data-en="Our actions">Nos actions</div>
+      <ul>
+        <li><a href="campagne-scientifique.html" data-fr="Campagne scientifique" data-en="Scientific Campaign">Campagne scientifique</a></li>
+        <li><a href="conferences.html" data-fr="Conférences" data-en="Conferences">Conférences</a></li>
+        <li><a href="reportages.html" data-fr="Reportages" data-en="Documentaries">Reportages</a></li>
+        <li><a href="livres.html" data-fr="Livres" data-en="Books">Livres</a></li>
+        <li><a href="presse.html" data-fr="Presse" data-en="Press">Presse</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title" data-fr="Notre mission" data-en="Our mission">Notre mission</div>
+      <ul>
+        <li><a href="science-environnement.html" data-fr="Science &amp; Environnement" data-en="Science &amp; Environment">Science &amp; Environnement</a></li>
+        <li><a href="expeditions.html" data-fr="Expéditions aéronautiques" data-en="Aeronautical Expeditions">Expéditions aéronautiques</a></li>
+        <li><a href="sensibilisation.html" data-fr="Sensibilisation" data-en="Public Awareness">Sensibilisation</a></li>
+        <li style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(95,168,211,0.15);"><a href="actu.html" style="color:var(--accent);font-weight:600;" data-fr="Notre Actualité" data-en="Our News">Notre Actualité</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title" data-fr="Notre réseau" data-en="Our network">Notre réseau</div>
+      <ul>
+        <li><a href="confondateurs.html" data-fr="Cofondateurs &amp; parrains" data-en="Co-founders &amp; Patrons">Cofondateurs &amp; parrains</a></li>
+        <li><a href="equipe.html" data-fr="L&apos;équipe" data-en="The Team">L&apos;équipe</a></li>
+        <li><a href="partenaires.html" data-fr="Partenaires &amp; sponsors" data-en="Partners &amp; Sponsors">Partenaires &amp; sponsors</a></li>
+        <li style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(95,168,211,0.15);"><a href="contact.html" style="color:var(--accent);font-weight:600;" data-fr="Contact" data-en="Contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom"><span class="footer-copy" data-fr="© 2024 Des Ailes pour la Science / Wings for Science. Association de loi 1901." data-en="© 2024 Wings for Science. Non-profit association.">© 2024 Des Ailes pour la Science / Wings for Science. Association de loi 1901.</span><div class="social-links"><a href="http://wingsforscience.blogspot.com/" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/70b1c5a67d2349e3933570b344b1d54d.png/v1/fill/w_35,h_35,al_c,enc_avif,quality_auto/70b1c5a67d2349e3933570b344b1d54d.png" alt="Blogger"></a><a href="http://www.facebook.com/wingsforscience" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/4057345bcf57474b96976284050c00df.png/v1/fill/w_35,h_35,al_c,enc_avif,quality_auto/4057345bcf57474b96976284050c00df.png" alt="Facebook"></a><a href="https://www.youtube.com/playlist?list=PL8A32C328768F858A" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/45bce1d726f64f1999c49feae57f6298.png/v1/fill/w_35,h_35,al_c,enc_avif,quality_auto/45bce1d726f64f1999c49feae57f6298.png" alt="YouTube"></a></div></div>
+</footer>
+<script src="lang.js"></script>
+<script>
+(function() {
+  var listFR = "https://docs.google.com/spreadsheets/d/159wf_mlcPG3rBdnbq8_lyZDaC5-tovUxTnKGCpKbhL0/edit?gid=0#gid=0";
+  var listEN = "https://docs.google.com/spreadsheets/d/1p3c-l-JtmbS4U_tzKH7DFNulEg-SEisjpv-rceplfx8/edit";
+  var orig = window.setLang;
+  window.setLang = function(lang) {
+    if (orig) orig(lang);
+    var el = document.getElementById('listLink');
+    if (el) el.href = (lang === 'en') ? listEN : listFR;
+  };
+})();
+</script>
+<script>
+function toggleMenu(){var n=document.getElementById('mobileNav'),b=document.getElementById('hamburger');n.classList.toggle('open');b.classList.toggle('open');document.body.style.overflow=n.classList.contains('open')?'hidden':'';}
+window.addEventListener('resize',function(){if(window.innerWidth>960){var n=document.getElementById('mobileNav'),b=document.getElementById('hamburger');if(n)n.classList.remove('open');if(b)b.classList.remove('open');document.body.style.overflow='';}});
+</script>
+</body>
+</html>

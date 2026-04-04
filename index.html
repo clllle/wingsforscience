@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wings for Science – Des Ailes pour la Science</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <a class="logo-wrap" href="index.html">
+    <img src="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png/v1/fill/w_162,h_163,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/LOGO%20wingsforscience%20copie.png" alt="Logo">
+    <div class="logo-text">
+      <span data-fr="Des Ailes pour la Science" data-en="Wings for Science">Des Ailes pour la Science</span>
+    </div>
+  </a>
+  <nav>
+    <div class="nav-item">
+      <a class="nav-link" href="mission.html"><span data-fr="Notre mission" data-en="Our mission">Notre mission</span> <span class="chevron">▼</span></a>
+      <div class="dropdown">
+        <a href="science-environnement.html" data-fr="Appuyer la Science et l&apos;Environnement" data-en="Supporting Science and the Environment">Appuyer la Science et l&apos;Environnement</a>
+        <a href="expeditions.html" data-fr="Par des Expéditions aéronautiques" data-en="Through Aeronautical Expeditions">Par des Expéditions aéronautiques</a>
+        <a href="sensibilisation.html" data-fr="Et de la sensibilisation" data-en="And Public Awareness">Et de la sensibilisation</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <a class="nav-link" href="actions.html"><span data-fr="Nos actions" data-en="Our actions">Nos actions</span> <span class="chevron">▼</span></a>
+      <div class="dropdown">
+        <a href="campagne-scientifique.html" data-fr="Campagne scientifique" data-en="Scientific Campaign">Campagne scientifique</a>
+        <a href="conferences.html" data-fr="Conférences" data-en="Conferences">Conférences</a>
+        <a href="reportages.html" data-fr="Reportages" data-en="Documentaries">Reportages</a>
+        <a href="livres.html" data-fr="Livres" data-en="Books">Livres</a>
+        <a href="presse.html" data-fr="Presse" data-en="Press">Presse</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <a class="nav-link" href="reseau.html"><span data-fr="Notre réseau" data-en="Our network">Notre réseau</span> <span class="chevron">▼</span></a>
+      <div class="dropdown">
+        <a href="confondateurs.html" data-fr="Les cofondateurs et parrains" data-en="Co-founders and Patrons">Les cofondateurs et parrains</a>
+        <a href="equipe.html" data-fr="L&apos;équipe" data-en="The Team">L&apos;équipe</a>
+        <a href="partenaires.html" data-fr="Les partenaires et sponsors" data-en="Partners and Sponsors">Les partenaires et sponsors</a>
+      </div>
+    </div>
+    <a class="nav-link" href="actu.html" data-fr="Notre Actualité" data-en="Our News">Notre Actualité</a>
+    <a class="btn btn-primary" href="contact.html" style="padding:9px 20px;font-size:11px;" data-fr="Contact" data-en="Contact">Contact</a>
+  </nav>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="lang-switch">
+    <button class="lang-btn active" data-lang="fr" onclick="setLang('fr')">🇫🇷 FR</button>
+    <span class="lang-sep">|</span>
+    <button class="lang-btn" data-lang="en" onclick="setLang('en')">🇬🇧 EN</button>
+  </div>
+</header>
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-section-title" data-fr="Notre mission" data-en="Our mission">Notre mission</div>
+  <div class="mobile-sub">
+    <a href="mission.html" data-fr="Vue d'ensemble" data-en="Overview">Vue d'ensemble</a>
+    <a href="science-environnement.html" data-fr="Science et Environnement" data-en="Science and Environment">Science et Environnement</a>
+    <a href="expeditions.html" data-fr="Expéditions aéronautiques" data-en="Aeronautical Expeditions">Expéditions aéronautiques</a>
+    <a href="sensibilisation.html" data-fr="Sensibilisation" data-en="Public Awareness">Sensibilisation</a>
+  </div>
+  <div class="mobile-section-title" data-fr="Nos actions" data-en="Our actions">Nos actions</div>
+  <div class="mobile-sub">
+    <a href="actions.html" data-fr="Vue d'ensemble" data-en="Overview">Vue d'ensemble</a>
+    <a href="campagne-scientifique.html" data-fr="Campagne scientifique" data-en="Scientific Campaign">Campagne scientifique</a>
+    <a href="conferences.html" data-fr="Conférences" data-en="Conferences">Conférences</a>
+    <a href="reportages.html" data-fr="Reportages" data-en="Documentaries">Reportages</a>
+    <a href="livres.html" data-fr="Livres" data-en="Books">Livres</a>
+    <a href="presse.html" data-fr="Presse" data-en="Press">Presse</a>
+  </div>
+  <div class="mobile-section-title" data-fr="Notre réseau" data-en="Our network">Notre réseau</div>
+  <div class="mobile-sub">
+    <a href="reseau.html" data-fr="Vue d'ensemble" data-en="Overview">Vue d'ensemble</a>
+    <a href="confondateurs.html" data-fr="Cofondateurs et parrains" data-en="Co-founders and Patrons">Cofondateurs et parrains</a>
+    <a href="equipe.html" data-fr="L'équipe" data-en="The Team">L'équipe</a>
+    <a href="partenaires.html" data-fr="Partenaires et sponsors" data-en="Partners and Sponsors">Partenaires et sponsors</a>
+  </div>
+  <a href="actu.html" data-fr="Notre Actualité" data-en="Our News">Notre Actualité</a>
+  <a href="contact.html" data-fr="Contact" data-en="Contact">Contact</a>
+  <div class="mobile-lang">
+    <button class="active" data-lang="fr" onclick="setLang('fr');toggleMenu()">🇫🇷 Français</button>
+    <button data-lang="en" onclick="setLang('en');toggleMenu()">🇬🇧 English</button>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="slideshow">
+    <div class="slide active" style="background-image:url('https://www.zeppelin-geo.com/galeries/monde/wings_for_science/images/013.jpg')">
+      <div class="slide-info">
+        <div class="slide-info-title" data-fr="Glacier Upsala, Argentine" data-en="Upsala Glacier, Argentina">Glacier Upsala, Argentine</div>
+        <div class="slide-info-desc" data-fr="Des milliers de photos sont nécessaires pour la photogrammétrie, mais sans chauffage dans l'ULM, les mains sont vite endolories par le froid. Clémentine et Adrien alternent aux commandes pour tenir le plus longtemps possible. Parc national Los Glaciares, Argentine." data-en="Thousands of photos are needed for photogrammetry, but with no heating in the ULM, hands quickly become numb with cold. Clémentine and Adrien take turns at the controls to last as long as possible. Los Glaciares National Park, Argentina.">Des milliers de photos sont nécessaires pour la photogrammétrie, mais sans chauffage dans l'ULM, les mains sont vite endolories par le froid. Clémentine et Adrien alternent aux commandes pour tenir le plus longtemps possible. Parc national Los Glaciares, Argentine.</div>
+      </div>
+    </div>
+    <div class="slide" style="background-image:url('https://www.zeppelin-geo.com/galeries/monde/wings_for_science/images/031.jpg')">
+      <div class="slide-info">
+        <div class="slide-info-title" data-fr="Rio de Janeiro, Brésil" data-en="Rio de Janeiro, Brazil">Rio de Janeiro, Brésil</div>
+        <div class="slide-info-desc" data-fr="Survol d'Arpoador, le quartier entre les plages d'Ipanema et de Copacabana. Rio de Janeiro, Brésil." data-en="Overflight of Arpoador, the neighbourhood between Ipanema and Copacabana beaches. Rio de Janeiro, Brazil.">Survol d'Arpoador, le quartier entre les plages d'Ipanema et de Copacabana. Rio de Janeiro, Brésil.</div>
+      </div>
+    </div>
+    <div class="slide" style="background-image:url('https://www.zeppelin-geo.com/galeries/monde/wings_for_science/images/032.jpg')">
+      <div class="slide-info">
+        <div class="slide-info-title" data-fr="Au large de Myconos, Grèce" data-en="Off Mykonos, Greece">Au large de Myconos, Grèce</div>
+        <div class="slide-info-desc" data-fr="Wings for Science détermine la quantité de cachalots repérés par les biologistes à l'hydrophone. Trois individus ont été identifiés depuis l'ULM, dont une maman allaitant son petit. Vol en collaboration avec l'Institut Archipelagos, à Samos. Au large de Myconos, Grèce." data-en="Wings for Science locates sperm whales detected by biologists via hydrophone. Three individuals were spotted from the ULM, including a mother nursing her calf. Flight in collaboration with the Archipelagos Institute, Samos. Off Mykonos, Greece.">Wings for Science détermine la quantité de cachalots repérés par les biologistes à l'hydrophone. Trois individus ont été identifiés depuis l'ULM, dont une maman allaitant son petit. Vol en collaboration avec l'Institut Archipelagos, à Samos. Au large de Myconos, Grèce.</div>
+      </div>
+    </div>
+    <div class="slide" style="background-image:url('https://www.zeppelin-geo.com/galeries/monde/wings_for_science/images/035.jpg')">
+      <div class="slide-info">
+        <div class="slide-info-title" data-fr="Golfe de San Matías, Patagonie" data-en="Gulf of San Matías, Patagonia">Golfe de San Matías, Patagonie</div>
+        <div class="slide-info-desc" data-fr="L'aéronef survole les salines de Patagonie. Le rose profond des eaux est dû à la concentration d'artémies — minuscules crustacés aux trois yeux et onze paires de pattes. Golfe de San Matías, Patagonie." data-en="The aircraft flies over the Patagonian salt flats. The deep pink of the water is due to the concentration of brine shrimp — tiny crustaceans with three eyes and eleven pairs of legs. Gulf of San Matías, Patagonia.">L'aéronef survole les salines de Patagonie. Le rose profond des eaux est dû à la concentration d'artémies — minuscules crustacés aux trois yeux et onze paires de pattes. Golfe de San Matías, Patagonie.</div>
+      </div>
+    </div>
+    <div class="slide" style="background-image:url('https://www.zeppelin-geo.com/galeries/monde/wings_for_science/images/044.jpg')">
+      <div class="slide-info">
+        <div class="slide-info-title" data-fr="Lac Todos los Santos, Chili" data-en="Lake Todos los Santos, Chile">Lac Todos los Santos, Chili</div>
+        <div class="slide-info-desc" data-fr="L'équipe survole les Andes d'ouest en est jusqu'à Bariloche. En ce début d'automne, une semaine d'attente a été nécessaire pour trouver les conditions favorables à la traversée. Lac Todos los Santos, Chili." data-en="The team crosses the Andes from west to east towards Bariloche. In early autumn, a week's wait was needed to find favourable conditions for the crossing. Lake Todos los Santos, Chile.">L'équipe survole les Andes d'ouest en est jusqu'à Bariloche. En ce début d'automne, une semaine d'attente a été nécessaire pour trouver les conditions favorables à la traversée. Lac Todos los Santos, Chili.</div>
+      </div>
+    </div>
+    <div class="slide" style="background-image:url('https://www.zeppelin-geo.com/galeries/monde/wings_for_science/images/045.jpg')">
+      <div class="slide-info">
+        <div class="slide-info-title" data-fr="Cordillère des Andes, Argentine" data-en="Andes Cordillera, Argentina">Cordillère des Andes, Argentine</div>
+        <div class="slide-info-desc" data-fr=""Une dizaine de nœuds de vent arrière nous poussent souplement dans le dédale des montagnes et des volcans," rapporte Adrien. À l'est du volcan Tronador, Argentine." data-en=""About ten knots of tailwind gently push us through the maze of mountains and volcanoes," reports Adrien. East of Tronador volcano, Argentina.">"Une dizaine de nœuds de vent arrière nous poussent souplement dans le dédale des montagnes et des volcans," rapporte Adrien. À l'est du volcan Tronador, Argentine.</div>
+      </div>
+    </div>
+    <div class="slide" style="background-image:url('https://www.zeppelin-geo.com/galeries/monde/wings_for_science/images/047.jpg')">
+      <div class="slide-info">
+        <div class="slide-info-title" data-fr="Province de Barranca, Pérou" data-en="Barranca Province, Peru">Province de Barranca, Pérou</div>
+        <div class="slide-info-desc" data-fr="Aux alentours de Caral, l'équipe découvre un géoglyphe de 70 mètres encore inconnu des archéologues. Invisible depuis le sol, le motif n'est lisible que depuis les airs. Province de Barranca, Pérou." data-en="Near Caral, the team discovers a 70-metre geoglyph unknown to archaeologists. Invisible from the ground, the pattern can only be seen from the air. Barranca Province, Peru.">Aux alentours de Caral, l'équipe découvre un géoglyphe de 70 mètres encore inconnu des archéologues. Invisible depuis le sol, le motif n'est lisible que depuis les airs. Province de Barranca, Pérou.</div>
+      </div>
+    </div>
+    <div class="slide" style="background-image:url('https://www.zeppelin-geo.com/galeries/monde/wings_for_science/images/051.jpg')">
+      <div class="slide-info">
+        <div class="slide-info-title" data-fr="Camp de base, Paris" data-en="Base camp, Paris">Camp de base, Paris</div>
+        <div class="slide-info-desc" data-fr="Adrien et Clémentine posent devant le modèle topographique du volcan Vulcano réalisé pour l'IPGP. Wings for Science a également acquis les topographies du Yasur (Vanuatu) et du Stromboli." data-en="Adrien and Clémentine pose before the topographic model of Vulcano volcano made for the IPGP. Wings for Science also acquired topographies of Yasur (Vanuatu) and Stromboli.">Adrien et Clémentine posent devant le modèle topographique du volcan Vulcano réalisé pour l'IPGP. Wings for Science a également acquis les topographies du Yasur (Vanuatu) et du Stromboli.</div>
+      </div>
+    </div>
+    <div class="slide" style="background-image:url('https://www.zeppelin-geo.com/galeries/monde/wings_for_science/images/055.jpg')">
+      <div class="slide-info">
+        <div class="slide-info-title" data-fr="Volcan Huyanaputina, Pérou" data-en="Huyanaputina Volcano, Peru">Volcan Huyanaputina, Pérou</div>
+        <div class="slide-info-desc" data-fr="Mapping thermique du cratère du volcan Huyanaputina. Les anomalies thermiques révèlent une activité hydrothermale et des lignes de fractures concentriques." data-en="Thermal mapping of Huyanaputina volcano's crater. Thermal anomalies reveal underlying hydrothermal activity and concentric fracture lines.">Mapping thermique du cratère du volcan Huyanaputina. Les anomalies thermiques révèlent une activité hydrothermale et des lignes de fractures concentriques.</div>
+      </div>
+    </div>
+    <div class="slide" style="background-image:url('https://www.zeppelin-geo.com/galeries/monde/wings_for_science/images/058.jpg')">
+      <div class="slide-info">
+        <div class="slide-info-title" data-fr="Fleuve Paraná, Brésil" data-en="Paraná River, Brazil">Fleuve Paraná, Brésil</div>
+        <div class="slide-info-desc" data-fr="Lors de la prise en main de l'ULM, l'équipage se pose sur le fleuve pour discuter des procédures. Ils saluent un Air Tractor agricole qui les survole. Fleuve Paraná, Brésil." data-en="During the ULM handover, the crew lands on the river to discuss procedures. They wave to an agricultural Air Tractor flying over. Paraná River, Brazil.">Lors de la prise en main de l'ULM, l'équipage se pose sur le fleuve pour discuter des procédures. Ils saluent un Air Tractor agricole qui les survole. Fleuve Paraná, Brésil.</div>
+      </div>
+    </div>
+    <div class="slide" style="background-image:url('https://www.zeppelin-geo.com/galeries/monde/wings_for_science/images/012.jpg')">
+      <div class="slide-info">
+        <div class="slide-info-title" data-fr="Glacier Upsala, Argentine" data-en="Upsala Glacier, Argentina">Glacier Upsala, Argentine</div>
+        <div class="slide-info-desc" data-fr="L'eau bleue azur, colorée par des sédiments minéraux en suspension, contraste avec le rouge de la roche. Survol du glacier Upsala pour le musée de glaciologie d'El Calafate. Parc national Los Glaciares, Argentine." data-en="The azure blue water, coloured by suspended mineral sediments, contrasts with the red rock. Overflight of Upsala Glacier for the El Calafate glaciology museum. Los Glaciares National Park, Argentina.">L'eau bleue azur, colorée par des sédiments minéraux en suspension, contraste avec le rouge de la roche. Survol du glacier Upsala pour le musée de glaciologie d'El Calafate. Parc national Los Glaciares, Argentine.</div>
+      </div>
+    </div>
+    <div class="slide-overlay"></div>
+    <div class="slide-dots">
+    <button class="slide-dot active" onclick="goToSlide(0)"></button>
+    <button class="slide-dot" onclick="goToSlide(1)"></button>
+    <button class="slide-dot" onclick="goToSlide(2)"></button>
+    <button class="slide-dot" onclick="goToSlide(3)"></button>
+    <button class="slide-dot" onclick="goToSlide(4)"></button>
+    <button class="slide-dot" onclick="goToSlide(5)"></button>
+    <button class="slide-dot" onclick="goToSlide(6)"></button>
+    <button class="slide-dot" onclick="goToSlide(7)"></button>
+    <button class="slide-dot" onclick="goToSlide(8)"></button>
+    <button class="slide-dot" onclick="goToSlide(9)"></button>
+    <button class="slide-dot" onclick="goToSlide(10)"></button>
+    </div>
+    <button class="slide-arrow slide-prev" onclick="prevSlide()">&#8592;</button>
+    <button class="slide-arrow slide-next" onclick="nextSlide()">&#8594;</button>
+  </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow" data-fr="Association de loi 1901 · Fondée en 2008" data-en="Non-profit association · Founded in 2008">Association de loi 1901 · Fondée en 2008</p>
+    <h1 class="hero-title">
+      <span data-fr="Donner des" data-en="Giving">Donner des</span> <em><span data-fr="Ailes" data-en="Wings">Ailes</span></em> <span data-fr="à la Nature, par la Science" data-en="to Nature, through Science">à la Nature, par la Science</span>
+    </h1>
+    <p class="hero-subtitle" data-fr="Expéditions aéronautiques au service de la recherche et de l'environnement" data-en="Aeronautical expeditions in the service of research and the environment">Expéditions aéronautiques au service de la recherche et de l'environnement</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="mission.html" data-fr="Notre mission" data-en="Our mission">Notre mission</a>
+      <a class="btn btn-outline" href="actions.html" data-fr="Nos actions" data-en="Our actions">Nos actions</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span class="scroll-label" data-fr="Découvrir" data-en="Explore">Découvrir</span>
+  </div>
+</section>
+
+<script>
+var currentSlide = 0;
+var slideTimer;
+var infoTimer;
+var slides, dots;
+
+function initSlideshow() {
+  var el = document.querySelector('.slideshow');
+  slides = [];
+  var children = el.children;
+  for (var i = 0; i < children.length; i++) {
+    if (children[i].classList.contains('slide')) slides.push(children[i]);
+  }
+  dots = document.querySelectorAll('.slide-dot');
+  startTimer();
+  infoTimer = setTimeout(function() {
+    var info = slides[0] && slides[0].querySelector('.slide-info');
+    if (info) info.classList.add('visible');
+  }, 1500);
+}
+
+function showSlide(n) {
+  if (!slides || slides.length === 0) return;
+  slides[currentSlide].classList.remove('active');
+  dots[currentSlide].classList.remove('active');
+  var info = slides[currentSlide].querySelector('.slide-info');
+  if (info) info.classList.remove('visible');
+  currentSlide = (n + slides.length) % slides.length;
+  slides[currentSlide].classList.add('active');
+  dots[currentSlide].classList.add('active');
+  clearTimeout(infoTimer);
+  infoTimer = setTimeout(function() {
+    var newInfo = slides[currentSlide].querySelector('.slide-info');
+    if (newInfo) newInfo.classList.add('visible');
+  }, 1500);
+}
+
+function nextSlide() { clearInterval(slideTimer); showSlide(currentSlide + 1); startTimer(); }
+function prevSlide() { clearInterval(slideTimer); showSlide(currentSlide - 1); startTimer(); }
+function goToSlide(n) { clearInterval(slideTimer); showSlide(n); startTimer(); }
+function startTimer() { slideTimer = setInterval(function() { showSlide(currentSlide + 1); }, 6000); }
+
+document.addEventListener('DOMContentLoaded', initSlideshow);
+</script>
+
+<div class="dest-band">
+  <div class="dest-track">
+    <span class="dest-item"><span class="dot"></span>Upsala, Argentina</span>
+    <span class="dest-item"><span class="dot"></span>Canada</span>
+    <span class="dest-item"><span class="dot"></span>Kulusuk, Greenland</span>
+    <span class="dest-item"><span class="dot"></span>Krakatau, Indonesia</span>
+    <span class="dest-item"><span class="dot"></span>Kuala Lumpur, Malaysia</span>
+    <span class="dest-item"><span class="dot"></span>Amazonia, Brazil</span>
+    <span class="dest-item"><span class="dot"></span>Mediterranean, Greece</span>
+    <span class="dest-item"><span class="dot"></span>Paraná, Brazil</span>
+    <span class="dest-item"><span class="dot"></span>Rio de Janeiro, Brazil</span>
+    <span class="dest-item"><span class="dot"></span>Trelew, Argentina</span>
+    <span class="dest-item"><span class="dot"></span>Salar, Argentina</span>
+    <span class="dest-item"><span class="dot"></span>Upsala, Argentina</span>
+    <span class="dest-item"><span class="dot"></span>Canada</span>
+    <span class="dest-item"><span class="dot"></span>Kulusuk, Greenland</span>
+    <span class="dest-item"><span class="dot"></span>Krakatau, Indonesia</span>
+    <span class="dest-item"><span class="dot"></span>Kuala Lumpur, Malaysia</span>
+    <span class="dest-item"><span class="dot"></span>Amazonia, Brazil</span>
+    <span class="dest-item"><span class="dot"></span>Mediterranean, Greece</span>
+    <span class="dest-item"><span class="dot"></span>Paraná, Brazil</span>
+    <span class="dest-item"><span class="dot"></span>Rio de Janeiro, Brazil</span>
+    <span class="dest-item"><span class="dot"></span>Trelew, Argentina</span>
+    <span class="dest-item"><span class="dot"></span>Salar, Argentina</span>
+  </div>
+</div>
+
+<div class="section">
+  <span class="section-tag" data-fr="Notre mission" data-en="Our mission">Notre mission</span>
+  <h2 class="section-title" data-fr="Des centaines de scientifiques tentent de comprendre et préserver la planète" data-en="Hundreds of scientists are working to understand and protect our planet">Des centaines de scientifiques tentent de comprendre et préserver la planète</h2>
+  <p class="section-lead" data-fr="Nos expéditions sont à leur service, et au vôtre. Depuis 2008, nous œuvrons pour la production scientifique, l'action politique et l'éducation en faveur de l'environnement." data-en="Our expeditions are at their service, and yours. Since 2008, we have been working for scientific production, political action and environmental education.">Nos expéditions sont à leur service, et au vôtre. Depuis 2008, nous œuvrons pour la production scientifique, l'action politique et l'éducation en faveur de l'environnement.</p>
+  <div class="mission-grid">
+    <div class="mission-card">
+      <img src="https://static.wixstatic.com/media/c88cd1_8a5ffe56f8a44ba0a9eeca2a1c739dc2~mv2.jpg" alt="" loading="lazy">
+      <div class="mission-card-overlay">
+        <div class="mission-card-num" data-fr="01 / Appuyer" data-en="01 / Support">01 / Appuyer</div>
+        <h3 class="mission-card-title" data-fr="La Science &amp; l'Environnement" data-en="Science &amp; the Environment">La Science &amp; l'Environnement</h3>
+        <p class="mission-card-text" data-fr="Soutenir la production scientifique indépendante et l'action politique en faveur de l'environnement." data-en="Supporting independent scientific production and political action in favour of the environment.">Soutenir la production scientifique indépendante et l'action politique en faveur de l'environnement.</p>
+        <a class="mission-card-link" href="science-environnement.html" data-fr="En savoir plus" data-en="Learn more">En savoir plus</a>
+      </div>
+    </div>
+    <div class="mission-card mission-card--placeholder">
+      <div class="mission-card-overlay">
+        <div class="mission-card-num" data-fr="02 / Explorer" data-en="02 / Explore">02 / Explorer</div>
+        <h3 class="mission-card-title" data-fr="Des Expéditions aéronautiques" data-en="Aeronautical Expeditions">Des Expéditions aéronautiques</h3>
+        <p class="mission-card-text" data-fr="Développer des réseaux de pilotes et d'aéroclubs partout sur terre pour créer des partenariats avec les chercheurs." data-en="Developing networks of pilots and flying clubs around the world to create partnerships with researchers.">Développer des réseaux de pilotes et d'aéroclubs partout sur terre pour créer des partenariats avec les chercheurs.</p>
+        <a class="mission-card-link" href="expeditions.html" data-fr="En savoir plus" data-en="Learn more">En savoir plus</a>
+      </div>
+    </div>
+    <div class="mission-card">
+      <img src="https://static.wixstatic.com/media/c88cd1_ad6059c043d14e74979ef02231fb7d34~mv2.jpg" alt="" loading="lazy">
+      <div class="mission-card-overlay">
+        <div class="mission-card-num" data-fr="03 / Sensibiliser" data-en="03 / Educate">03 / Sensibiliser</div>
+        <h3 class="mission-card-title" data-fr="Et de la Sensibilisation" data-en="And Public Awareness">Et de la Sensibilisation</h3>
+        <p class="mission-card-text" data-fr="Éduquer le grand public, les jeunes et leurs enseignants à la science et à la protection de l'environnement." data-en="Educating the general public, young people and their teachers about science and environmental protection.">Éduquer le grand public, les jeunes et leurs enseignants à la science et à la protection de l'environnement.</p>
+        <a class="mission-card-link" href="sensibilisation.html" data-fr="En savoir plus" data-en="Learn more">En savoir plus</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="actions-section">
+  <div class="section">
+    <span class="section-tag" data-fr="Nos actions" data-en="Our actions">Nos actions</span>
+    <h2 class="section-title" data-fr="Nous déployons nos moyens pour œuvrer aux côtés des scientifiques" data-en="We deploy our resources to work alongside scientists">Nous déployons nos moyens pour œuvrer aux côtés des scientifiques</h2>
+    <p class="section-lead" data-fr="Campagnes scientifiques, conférences, reportages, livres et présence dans les médias." data-en="Scientific campaigns, conferences, documentaries, books and media presence.">Campagnes scientifiques, conférences, reportages, livres et présence dans les médias.</p>
+    <div class="actions-grid">
+      <a class="action-tile" href="campagne-scientifique.html"><img src="https://static.wixstatic.com/media/c88cd1_30c45b10acd148329136466168be94f9~mv2.png" alt="" loading="lazy"><div class="action-tile-label"><span class="action-tile-name" data-fr="Science" data-en="Science">Science</span></div></a>
+      <a class="action-tile" href="reportages.html"><img src="https://static.wixstatic.com/media/c88cd1_6e6e7a7eb8894df3beafdb01eec2b52e~mv2.jpg" alt="" loading="lazy"><div class="action-tile-label"><span class="action-tile-name" data-fr="Reportages" data-en="Documentaries">Reportages</span></div></a>
+      <a class="action-tile" href="conferences.html"><img src="https://static.wixstatic.com/media/c88cd1_22231ad001a04489bdf76a1fedeb6729~mv2.jpg" alt="" loading="lazy"><div class="action-tile-label"><span class="action-tile-name" data-fr="Conférences" data-en="Conferences">Conférences</span></div></a>
+      <a class="action-tile" href="livres.html"><img src="https://static.wixstatic.com/media/c88cd1_8e631791f47649cd9d942bf663d8ede9~mv2.jpg" alt="" loading="lazy"><div class="action-tile-label"><span class="action-tile-name" data-fr="Livres" data-en="Books">Livres</span></div></a>
+      <a class="action-tile" href="presse.html"><img src="https://static.wixstatic.com/media/c88cd1_079e6fd8717f450d8477c341718ce97a~mv2.jpg" alt="" loading="lazy"><div class="action-tile-label"><span class="action-tile-name" data-fr="Médias" data-en="Media">Médias</span></div></a>
+    </div>
+  </div>
+</section>
+
+<div class="about-strip">
+  <div class="about-image-wrap">
+    <img src="https://static.wixstatic.com/media/c88cd1_ad6059c043d14e74979ef02231fb7d34~mv2.jpg" alt="" loading="lazy">
+  </div>
+  <div>
+    <span class="section-tag" data-fr="Qui sommes-nous" data-en="About us">Qui sommes-nous</span>
+    <h2 class="section-title" data-fr="Une association au service de la planète depuis 2008" data-en="An association serving the planet since 2008">Une association au service de la planète depuis 2008</h2>
+    <div class="about-stat-row">
+      <div class="about-stat"><div class="about-stat-num">15+</div><div class="about-stat-label" data-fr="Années d'action" data-en="Years of action">Années d'action</div></div>
+      <div class="about-stat"><div class="about-stat-num">4</div><div class="about-stat-label" data-fr="Continents" data-en="Continents">Continents</div></div>
+      <div class="about-stat"><div class="about-stat-num">100+</div><div class="about-stat-label" data-fr="Scientifiques" data-en="Scientists">Scientifiques</div></div>
+    </div>
+    <p class="about-body" data-fr="DES AILES POUR LA SCIENCE est une association de loi 1901 à but non lucratif fondée en 2008, dont la mission est d'œuvrer pour la production scientifique, l'action politique et l'éducation en faveur de l'environnement." data-en="WINGS FOR SCIENCE is a non-profit association founded in 2008, whose mission is to work for scientific production, political action and environmental education.">DES AILES POUR LA SCIENCE est une association de loi 1901 à but non lucratif fondée en 2008, dont la mission est d'œuvrer pour la production scientifique, l'action politique et l'éducation en faveur de l'environnement.</p>
+    <a class="btn btn-outline" href="reseau.html" data-fr="Notre réseau →" data-en="Our network →">Notre réseau →</a>
+  </div>
+</div>
+
+
+
+<footer>
+    <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="logo-wrap" href="index.html"><img src="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png/v1/fill/w_162,h_163,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/LOGO%20wingsforscience%20copie.png" alt="Logo"><div class="logo-text"><span data-fr="Des Ailes pour la Science" data-en="Wings for Science">Des Ailes pour la Science</span></div></a>
+      <p data-fr="Association à but non lucratif œuvrant pour la science et la protection de l'environnement depuis 2008." data-en="Non-profit association working for science and environmental protection since 2008.">Association à but non lucratif œuvrant pour la science et la protection de l'environnement depuis 2008.</p>
+      <address class="footer-address" style="display:inline;">Maison des associations, 38 bd Henri IV, 75004 Paris</address>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title" data-fr="Nos actions" data-en="Our actions">Nos actions</div>
+      <ul>
+        <li><a href="campagne-scientifique.html" data-fr="Campagne scientifique" data-en="Scientific Campaign">Campagne scientifique</a></li>
+        <li><a href="conferences.html" data-fr="Conférences" data-en="Conferences">Conférences</a></li>
+        <li><a href="reportages.html" data-fr="Reportages" data-en="Documentaries">Reportages</a></li>
+        <li><a href="livres.html" data-fr="Livres" data-en="Books">Livres</a></li>
+        <li><a href="presse.html" data-fr="Presse" data-en="Press">Presse</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title" data-fr="Notre mission" data-en="Our mission">Notre mission</div>
+      <ul>
+        <li><a href="science-environnement.html" data-fr="Science &amp; Environnement" data-en="Science &amp; Environment">Science &amp; Environnement</a></li>
+        <li><a href="expeditions.html" data-fr="Expéditions aéronautiques" data-en="Aeronautical Expeditions">Expéditions aéronautiques</a></li>
+        <li><a href="sensibilisation.html" data-fr="Sensibilisation" data-en="Public Awareness">Sensibilisation</a></li>
+        <li style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(95,168,211,0.15);"><a href="actu.html" style="color:var(--accent);font-weight:600;" data-fr="Notre Actualité" data-en="Our News">Notre Actualité</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title" data-fr="Notre réseau" data-en="Our network">Notre réseau</div>
+      <ul>
+        <li><a href="confondateurs.html" data-fr="Cofondateurs &amp; parrains" data-en="Co-founders &amp; Patrons">Cofondateurs &amp; parrains</a></li>
+        <li><a href="equipe.html" data-fr="L&apos;équipe" data-en="The Team">L&apos;équipe</a></li>
+        <li><a href="partenaires.html" data-fr="Partenaires &amp; sponsors" data-en="Partners &amp; Sponsors">Partenaires &amp; sponsors</a></li>
+        <li style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(95,168,211,0.15);"><a href="contact.html" style="color:var(--accent);font-weight:600;" data-fr="Contact" data-en="Contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy" data-fr="© 2024 Des Ailes pour la Science / Wings for Science. Association de loi 1901." data-en="© 2024 Wings for Science / Des Ailes pour la Science. Non-profit association.">© 2024 Des Ailes pour la Science / Wings for Science. Association de loi 1901.</span>
+    <div class="social-links">
+      <a href="http://wingsforscience.blogspot.com/" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/70b1c5a67d2349e3933570b344b1d54d.png/v1/fill/w_35,h_35,al_c,enc_avif,quality_auto/70b1c5a67d2349e3933570b344b1d54d.png" alt="Blogger"></a>
+      <a href="http://www.facebook.com/wingsforscience" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/4057345bcf57474b96976284050c00df.png/v1/fill/w_35,h_35,al_c,enc_avif,quality_auto/4057345bcf57474b96976284050c00df.png" alt="Facebook"></a>
+      <a href="https://www.youtube.com/playlist?list=PL8A32C328768F858A" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/45bce1d726f64f1999c49feae57f6298.png/v1/fill/w_35,h_35,al_c,enc_avif,quality_auto/45bce1d726f64f1999c49feae57f6298.png" alt="YouTube"></a>
+    </div>
+  </div>
+</footer>
+
+<script src="lang.js"></script>
+</body>
+</html>

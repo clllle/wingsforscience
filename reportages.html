@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reportages – Wings for Science</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .series-block{margin-bottom:70px}
+    .series-header{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid rgba(95,168,211,0.12)}
+    .series-tag{font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(95,168,211,.3);padding:4px 12px;border-radius:20px;margin-bottom:8px;display:inline-block}
+    .series-title{font-family:'Merriweather',serif;font-size:clamp(20px,2.8vw,28px);font-weight:300;color:var(--white);line-height:1.3}
+    .series-desc{font-size:13px;color:var(--text-muted);line-height:1.7;max-width:600px;margin-top:8px}
+    .series-count{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(176,184,196,.5);flex-shrink:0}
+    .video-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:3px}
+    .video-card{background:rgba(10,20,32,.7);border:1px solid rgba(95,168,211,.07);overflow:hidden;cursor:pointer;transition:border-color .25s,transform .2s}
+    .video-card:hover{border-color:rgba(95,168,211,.35);transform:translateY(-2px)}
+    .video-thumb{position:relative;aspect-ratio:16/9;overflow:hidden;background:rgba(5,15,28,.95)}
+    .video-thumb img{width:100%;height:100%;object-fit:cover;filter:brightness(.65) saturate(.7);transition:filter .4s,transform .5s;display:block}
+    .video-card:hover .video-thumb img{filter:brightness(.85) saturate(1);transform:scale(1.04)}
+    .thumb-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:32px;background:linear-gradient(135deg,rgba(10,20,32,.95),rgba(20,40,60,.9))}
+    .play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;background:rgba(95,168,211,.85);display:flex;align-items:center;justify-content:center;transition:all .2s}
+    .video-card:hover .play-btn{background:var(--accent);transform:translate(-50%,-50%) scale(1.1)}
+    .play-btn svg{width:17px;height:17px;fill:#0d1c2b;margin-left:3px}
+    .src-badge{position:absolute;top:8px;right:8px;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:3px}
+    .bd{background:rgba(66,133,244,.85);color:#fff}
+    .by{background:rgba(255,0,0,.85);color:#fff}
+    .ep-num{position:absolute;bottom:8px;left:10px;font-size:10px;font-weight:700;color:rgba(255,255,255,.7);background:rgba(0,0,0,.6);padding:2px 7px;border-radius:3px}
+    .video-info{padding:14px 15px}
+    .video-series{font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:5px}
+    .video-title{font-size:13px;font-weight:600;color:var(--off-white);line-height:1.4}
+    .placeholder-block{padding:40px;background:rgba(14,26,40,.5);border:1px dashed rgba(95,168,211,.2);border-radius:4px;text-align:center;color:var(--text-muted);font-size:13px}
+    .video-hero{position:relative;height:85vh;min-height:520px;display:flex;align-items:flex-end;overflow:hidden;margin-top:0}
+    .video-hero-bg{position:absolute;inset:0}
+    .video-hero-img{width:100%;height:100%;object-fit:cover;filter:brightness(.5) saturate(.8)}
+    .video-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,20,32,.95) 0%,rgba(10,20,32,.4) 50%,rgba(10,20,32,.2) 100%)}
+    .video-hero-content{position:relative;padding:60px;max-width:800px}
+    .video-hero-title{font-family:'Merriweather',serif;font-size:clamp(32px,5vw,60px);font-weight:300;color:var(--white);line-height:1.15;margin-bottom:16px}
+    .video-hero-desc{font-size:16px;line-height:1.8;color:rgba(245,240,235,.75);max-width:560px;margin-bottom:32px}
+    .video-hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+    @media(max-width:700px){.video-hero-content{padding:30px 20px}.video-hero-actions{flex-direction:column}}
+    .modal-overlay{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.92);align-items:center;justify-content:center}
+    .modal-overlay.open{display:flex}
+    .modal-box{background:#0d1c2b;border:1px solid rgba(95,168,211,.2);border-radius:6px;overflow:hidden;width:92%;max-width:940px;position:relative}
+    .modal-close{position:absolute;top:10px;right:14px;z-index:10;font-size:22px;color:var(--text-muted);cursor:pointer;background:none;border:none;line-height:1;transition:color .2s}
+    .modal-close:hover{color:var(--white)}
+    .modal-embed{aspect-ratio:16/9}
+    .modal-embed iframe{width:100%;height:100%;border:none;display:block}
+    .modal-info{padding:14px 18px}
+    .modal-series{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+    .modal-title{font-size:15px;font-weight:700;color:var(--white)}
+
+    .hero-video-grid { display:grid; grid-template-columns:1fr 340px; gap:40px; align-items:center; }
+    @media(max-width:900px){ .hero-video-grid { grid-template-columns:1fr; } }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <a class="logo-wrap" href="index.html"><img src="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png/v1/fill/w_162,h_163,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/LOGO%20wingsforscience%20copie.png" alt="Logo"><div class="logo-text"><span data-fr="Des Ailes pour la Science" data-en="Wings for Science">Des Ailes pour la Science</span></div></a>
+  <nav>
+    <div class="nav-item">
+      <a class="nav-link" href="mission.html"><span data-fr="Notre mission" data-en="Our mission">Notre mission</span> <span class="chevron">▼</span></a>
+      <div class="dropdown">
+        <a href="science-environnement.html" data-fr="Appuyer la Science et l&apos;Environnement" data-en="Supporting Science and the Environment">Appuyer la Science et l&apos;Environnement</a>
+        <a href="expeditions.html" data-fr="Par des Expéditions aéronautiques" data-en="Through Aeronautical Expeditions">Par des Expéditions aéronautiques</a>
+        <a href="sensibilisation.html" data-fr="Et de la sensibilisation" data-en="And Public Awareness">Et de la sensibilisation</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <a class="nav-link" href="actions.html"><span data-fr="Nos actions" data-en="Our actions">Nos actions</span> <span class="chevron">▼</span></a>
+      <div class="dropdown">
+        <a href="campagne-scientifique.html" data-fr="Campagne scientifique" data-en="Scientific Campaign">Campagne scientifique</a>
+        <a href="conferences.html" data-fr="Conférences" data-en="Conferences">Conférences</a>
+        <a href="reportages.html" data-fr="Reportages" data-en="Documentaries">Reportages</a>
+        <a href="livres.html" data-fr="Livres" data-en="Books">Livres</a>
+        <a href="presse.html" data-fr="Presse" data-en="Press">Presse</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <a class="nav-link" href="reseau.html"><span data-fr="Notre réseau" data-en="Our network">Notre réseau</span> <span class="chevron">▼</span></a>
+      <div class="dropdown">
+        <a href="confondateurs.html" data-fr="Les cofondateurs et parrains" data-en="Co-founders and Patrons">Les cofondateurs et parrains</a>
+        <a href="equipe.html" data-fr="L&apos;équipe" data-en="The Team">L&apos;équipe</a>
+        <a href="partenaires.html" data-fr="Les partenaires et sponsors" data-en="Partners and Sponsors">Les partenaires et sponsors</a>
+      </div>
+    </div>
+    <a class="nav-link" href="actu.html" data-fr="Notre Actualité" data-en="Our News">Notre Actualité</a>
+    <a class="btn btn-primary" href="contact.html" style="padding:9px 20px;font-size:11px;" data-fr="Contact" data-en="Contact">Contact</a>
+  </nav>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="lang-switch">
+    <button class="lang-btn active" data-lang="fr" onclick="setLang('fr')">🇫🇷 FR</button>
+    <span class="lang-sep">|</span>
+    <button class="lang-btn" data-lang="en" onclick="setLang('en')">🇬🇧 EN</button>
+  </div>
+</header>
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-section-title" data-fr="Notre mission" data-en="Our mission">Notre mission</div>
+  <div class="mobile-sub">
+    <a href="mission.html" data-fr="Vue d'ensemble" data-en="Overview">Vue d'ensemble</a>
+    <a href="science-environnement.html" data-fr="Science et Environnement" data-en="Science and Environment">Science et Environnement</a>
+    <a href="expeditions.html" data-fr="Expéditions aéronautiques" data-en="Aeronautical Expeditions">Expéditions aéronautiques</a>
+    <a href="sensibilisation.html" data-fr="Sensibilisation" data-en="Public Awareness">Sensibilisation</a>
+  </div>
+  <div class="mobile-section-title" data-fr="Nos actions" data-en="Our actions">Nos actions</div>
+  <div class="mobile-sub">
+    <a href="actions.html" data-fr="Vue d'ensemble" data-en="Overview">Vue d'ensemble</a>
+    <a href="campagne-scientifique.html" data-fr="Campagne scientifique" data-en="Scientific Campaign">Campagne scientifique</a>
+    <a href="conferences.html" data-fr="Conférences" data-en="Conferences">Conférences</a>
+    <a href="reportages.html" data-fr="Reportages" data-en="Documentaries">Reportages</a>
+    <a href="livres.html" data-fr="Livres" data-en="Books">Livres</a>
+    <a href="presse.html" data-fr="Presse" data-en="Press">Presse</a>
+  </div>
+  <div class="mobile-section-title" data-fr="Notre réseau" data-en="Our network">Notre réseau</div>
+  <div class="mobile-sub">
+    <a href="reseau.html" data-fr="Vue d'ensemble" data-en="Overview">Vue d'ensemble</a>
+    <a href="confondateurs.html" data-fr="Cofondateurs et parrains" data-en="Co-founders and Patrons">Cofondateurs et parrains</a>
+    <a href="equipe.html" data-fr="L'équipe" data-en="The Team">L'équipe</a>
+    <a href="partenaires.html" data-fr="Partenaires et sponsors" data-en="Partners and Sponsors">Partenaires et sponsors</a>
+  </div>
+  <a href="actu.html" data-fr="Notre Actualité" data-en="Our News">Notre Actualité</a>
+  <a href="contact.html" data-fr="Contact" data-en="Contact">Contact</a>
+  <div class="mobile-lang">
+    <button class="active" data-lang="fr" onclick="setLang('fr');toggleMenu()">🇫🇷 Français</button>
+    <button data-lang="en" onclick="setLang('en');toggleMenu()">🇬🇧 English</button>
+  </div>
+</div>
+
+<!-- VIDEO HERO -->
+<section class="video-hero">
+  <div class="video-hero-bg">
+    <img src="https://drive.google.com/thumbnail?id=13ayvdB643yAiybnkrywqWey1duqi_Bhq&sz=w1200-h675" alt="Wings for Science" class="video-hero-img">
+    <div class="video-hero-overlay"></div>
+  </div>
+  <div class="video-hero-content">
+    <span class="section-tag" data-fr="Longs métrages" data-en="Feature films">Longs métrages</span>
+    <h1 class="video-hero-title" data-fr="Des Ailes pour la Science" data-en="Wings for Science">Des Ailes pour la Science</h1>
+    <p class="video-hero-desc">Deux aventuriers, un ULM, 54 000 km et une quinzaine de missions scientifiques à travers le monde. La série documentaire complète.</p>
+    <div class="video-hero-actions">
+      <button class="btn btn-primary" onclick="openModal('https://drive.google.com/file/d/13ayvdB643yAiybnkrywqWey1duqi_Bhq/preview','Longs métrages','Bande annonce — Des Ailes pour la Science')">
+        ▶ Voir la bande annonce
+      </button>
+      <button class="btn btn-outline" onclick="openModal('https://drive.google.com/file/d/1dQVtRqDagd-sm4-heM0jdxSXybqIuYLo/preview','Longs métrages','Trailer — Wings for Science')">
+        ▶ Trailer (EN)
+      </button>
+      <a class="btn btn-outline" href="contact.html">Commander les DVDs →</a>
+    </div>
+  </div>
+</section>
+
+<nav class="breadcrumb">
+  <a href="index.html">Accueil</a><span class="sep">›</span><a href="actions.html" data-fr="Nos actions" data-en="Our actions">Nos actions</a><span class="sep">›</span><span class="current" data-fr="Reportages" data-en="Documentaries">Reportages</span>
+</nav>
+
+<!-- HERO VIDEO — Bande annonce en grand -->
+<div style="background:#000;position:relative;">
+  <div style="max-width:1200px;margin:0 auto;padding:40px 60px 0;">
+    <div class="hero-video-grid">
+      
+      <!-- Lecteur principal -->
+      <div style="position:relative;aspect-ratio:16/9;background:#000;border-radius:4px;overflow:hidden;">
+        <iframe class="hero-iframe"
+          src="https://drive.google.com/file/d/13ayvdB643yAiybnkrywqWey1duqi_Bhq/preview" 
+          allowfullscreen 
+          allow="autoplay; encrypted-media"
+          style="width:100%;height:100%;border:none;display:block;">
+        </iframe>
+      </div>
+
+      <!-- Infos film -->
+      <div style="padding:20px 0;">
+        <div style="font-size:9px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;">Longs métrages — Bande annonce</div>
+        <h2 style="font-family:'Merriweather',serif;font-size:clamp(22px,2.5vw,32px);font-weight:300;color:var(--white);line-height:1.3;margin-bottom:16px;">Des Ailes pour la Science</h2>
+        <p style="font-size:14px;line-height:1.8;color:var(--text-muted);margin-bottom:28px;">4 épisodes de 26 minutes retraçant nos expéditions scientifiques à travers le monde — Groenland, Canada, Pérou, Chili, Australie, Indonésie, Jordanie...</p>
+        
+        <!-- Bouton trailer EN -->
+        <div style="margin-bottom:16px;">
+          <button onclick="document.querySelector('.hero-iframe').src='https://drive.google.com/file/d/1dQVtRqDagd-sm4-heM0jdxSXybqIuYLo/preview'" 
+            style="width:100%;padding:12px 20px;background:rgba(95,168,211,0.1);border:1px solid rgba(95,168,211,0.3);border-radius:4px;color:var(--accent);font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:all 0.2s;text-align:left;">
+            ▶ Voir le trailer en anglais
+          </button>
+        </div>
+
+        <!-- Bouton commander -->
+        <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;box-sizing:border-box;">Commander les DVDs →</a>
+        
+        <p style="font-size:11px;color:rgba(176,184,196,0.4);margin-top:16px;text-align:center;">Accès streaming bientôt disponible</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="content-section">
+  <div class="content-inner">
+
+    <!-- SÉRIE 1 -->
+    <div class="series-block">
+      <div class="series-header">
+        <div>
+          <div class="series-tag">Web-série — 9 épisodes</div>
+          <div class="series-title" data-fr="Les Chercheurs du bout du monde" data-en="Researchers from the ends of the earth">Les Chercheurs du bout du monde</div>
+          <p class="series-desc">Des scientifiques racontent leur métier, filmés en plein travail dans des décors naturels à couper le souffle. Pour donner envie aux jeunes d'explorer, de comprendre et de protéger notre planète.</p>
+        </div>
+        <div class="series-count" data-fr="9 <span data-fr="épisodes · ~9 min" data-en="episodes · ~9 min">épisodes · ~9 min</span>" data-en="9 episodes · ~9 min">9 <span data-fr="épisodes · ~9 min" data-en="episodes · ~9 min">épisodes · ~9 min</span></div>
+      </div>
+      <div class="video-grid">
+
+        <div class="video-card" onclick="openModal('https://drive.google.com/file/d/0B0viuDynuy13S1dZM2tZaXBmYXM/preview','Les Chercheurs du bout du monde','Les prairies de Posidonies — biologiste en Grèce')">
+          <div class="video-thumb"><img src="https://drive.google.com/thumbnail?id=0B0viuDynuy13S1dZM2tZaXBmYXM&sz=w400-h225" alt="Posidonie Grèce" loading="lazy"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><span class="ep-num">Ép. 1</span></div>
+          <div class="video-info"><div class="video-series">Les Chercheurs du bout du monde</div><div class="video-title">Les prairies de Posidonies — biologiste en Grèce</div></div>
+        </div>
+
+        <div class="video-card" onclick="openModal('https://drive.google.com/file/d/17KNwSONI2yKj73FmYt2KN-pQ1wXEgqsz/preview','Les Chercheurs du bout du monde','Au cœur des pierres — archéologue en Jordanie')">
+          <div class="video-thumb"><img src="https://drive.google.com/thumbnail?id=17KNwSONI2yKj73FmYt2KN-pQ1wXEgqsz&sz=w400-h225" alt="Archéologue Jordanie" loading="lazy"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><span class="ep-num">Ép. 2</span></div>
+          <div class="video-info"><div class="video-series">Les Chercheurs du bout du monde</div><div class="video-title">Au cœur des pierres — archéologue en Jordanie</div></div>
+        </div>
+
+        <div class="video-card" onclick="openModal('https://drive.google.com/file/d/1Gclf41TH-XrKxCzRV3_FFS-HCGjzOWXx/preview','Les Chercheurs du bout du monde','Gardien des étoiles — astronome au Chili')">
+          <div class="video-thumb"><img src="https://drive.google.com/thumbnail?id=1Gclf41TH-XrKxCzRV3_FFS-HCGjzOWXx&sz=w400-h225" alt="Astronome Chili" loading="lazy"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><span class="ep-num">Ép. 3</span></div>
+          <div class="video-info"><div class="video-series">Les Chercheurs du bout du monde</div><div class="video-title">Gardien des étoiles — astronome au Chili</div></div>
+        </div>
+
+        <div class="video-card" onclick="openModal('https://drive.google.com/file/d/1VPBQkddL9Q-G65WxaC1M3ZigO9OD-d0t/preview','Les Chercheurs du bout du monde','Sous les vagues de Thaïlande — biologiste marine')">
+          <div class="video-thumb"><img src="https://drive.google.com/thumbnail?id=1VPBQkddL9Q-G65WxaC1M3ZigO9OD-d0t&sz=w400-h225" alt="Biologiste Thaïlande" loading="lazy"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><span class="ep-num">Ép. 4</span></div>
+          <div class="video-info"><div class="video-series">Les Chercheurs du bout du monde</div><div class="video-title">Sous les vagues de Thaïlande — biologiste marine</div></div>
+        </div>
+
+        <div class="video-card" onclick="openModal('https://drive.google.com/file/d/1Gp1Yv4f667Ze7wjGSzUu4X20b2kNY9gi/preview','Les Chercheurs du bout du monde','Sur les traces des dinosaures — paléontologue en Australie')">
+          <div class="video-thumb"><img src="https://drive.google.com/thumbnail?id=1Gp1Yv4f667Ze7wjGSzUu4X20b2kNY9gi&sz=w400-h225" alt="Paléontologue Australie" loading="lazy"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><span class="ep-num">Ép. 5</span></div>
+          <div class="video-info"><div class="video-series">Les Chercheurs du bout du monde</div><div class="video-title">Sur les traces des dinosaures — paléontologue en Australie</div></div>
+        </div>
+
+        <div class="video-card" onclick="openModal('https://drive.google.com/file/d/1KnNQQMrwRlxmpBzhKK0X9cR2Opic28HT/preview','Les Chercheurs du bout du monde','Dans le ventre de la Terre — spéléologue en Nouvelle-Zélande')">
+          <div class="video-thumb"><img src="https://drive.google.com/thumbnail?id=1KnNQQMrwRlxmpBzhKK0X9cR2Opic28HT&sz=w400-h225" alt="Spéléologue Nouvelle-Zélande" loading="lazy"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><span class="ep-num">Ép. 6</span></div>
+          <div class="video-info"><div class="video-series">Les Chercheurs du bout du monde</div><div class="video-title">Dans le ventre de la Terre — spéléologue en Nouvelle-Zélande</div></div>
+        </div>
+
+        <div class="video-card" onclick="openModal('https://drive.google.com/file/d/1pYbcY0dy8f3dYAwgbjS4r037GEW1OUay/preview','Les Chercheurs du bout du monde','À la rencontre des baleines — biologiste au Canada')">
+          <div class="video-thumb"><img src="https://drive.google.com/thumbnail?id=1pYbcY0dy8f3dYAwgbjS4r037GEW1OUay&sz=w400-h225" alt="Baleines Canada" loading="lazy"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><span class="ep-num">Ép. 7</span></div>
+          <div class="video-info"><div class="video-series">Les Chercheurs du bout du monde</div><div class="video-title">À la rencontre des baleines — biologiste au Canada</div></div>
+        </div>
+
+        <div class="video-card" onclick="openModal('https://www.youtube.com/embed/yBRD8hKIuiw','Les Chercheurs du bout du monde','Le monde des oiseaux — ornithologue en Islande')">
+          <div class="video-thumb"><img src="https://i.ytimg.com/vi/yBRD8hKIuiw/mqdefault.jpg" alt="Islande" loading="lazy"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><span class="ep-num">Ép. 8</span></div>
+          <div class="video-info"><div class="video-series">Les Chercheurs du bout du monde</div><div class="video-title">Le monde des oiseaux — ornithologue en Islande</div></div>
+        </div>
+
+        <div class="video-card" onclick="openModal('https://www.youtube.com/embed/ZnjXWo7nQi8','Les Chercheurs du bout du monde','Les secrets de Caral — archéologue au Pérou')">
+          <div class="video-thumb"><img src="https://i.ytimg.com/vi/ZnjXWo7nQi8/mqdefault.jpg" alt="Pérou" loading="lazy"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><span class="ep-num">Ép. 9</span></div>
+          <div class="video-info"><div class="video-series">Les Chercheurs du bout du monde</div><div class="video-title">Les secrets de Caral — archéologue au Pérou</div></div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- SÉRIE 2 -->
+    <div class="series-block">
+      <div class="series-header">
+        <div>
+          <div class="series-tag">Web-série — 9 épisodes</div>
+          <div class="series-title">Les Expéditions scientifiques — nos missions</div>
+          <p class="series-desc">Plongez au cœur de nos missions de terrain : comment on collecte des données scientifiques aux quatre coins du globe, au service des chercheurs qui protègent la planète.</p>
+        </div>
+        <div class="series-count" data-fr="9 <span data-fr="épisodes · ~9 min" data-en="episodes · ~9 min">épisodes · ~9 min</span>" data-en="9 episodes · ~9 min">9 <span data-fr="épisodes · ~9 min" data-en="episodes · ~9 min">épisodes · ~9 min</span></div>
+      </div>
+      <div class="video-grid">
+
+        <div class="video-card" onclick="openModal('https://drive.google.com/file/d/10Ichfl7NfScPCdIgSABAzNSV_qkMo--U/preview','Les Expéditions scientifiques','À la rescousse des géants des mers — Canada')">
+          <div class="video-thumb"><img src="https://drive.google.com/thumbnail?id=10Ichfl7NfScPCdIgSABAzNSV_qkMo--U&sz=w400-h225" alt="Baleines Canada" loading="lazy"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><span class="ep-num">Ép. 1</span></div>
+          <div class="video-info"><div class="video-series">Les Expéditions scientifiques</div><div class="video-title">À la rescousse des géants des mers — Canada</div></div>
+        </div>
+
+        <div class="video-card" onclick="openModal('https://drive.google.com/file/d/1YZS9T64zGZ0plN6jrc7IiSI4Hw7QBMId/preview','Les Expéditions scientifiques','L'eau qui tombe du ciel pour sauver des vies — Chili')">
+          <div class="video-thumb"><img src="https://drive.google.com/thumbnail?id=1YZS9T64zGZ0plN6jrc7IiSI4Hw7QBMId&sz=w400-h225" alt="Eau Chili" loading="lazy"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><span class="ep-num">Ép. 2</span></div>
+          <div class="video-info"><div class="video-series">Les Expéditions scientifiques</div><div class="video-title">L'eau qui tombe du ciel pour sauver des vies — Chili</div></div>
+        </div>
+
+        <div class="video-card" onclick="openModal('https://drive.google.com/file/d/1mNCfb4gm2KdFuljzaB0r_k7J6J9Uxb_Y/preview','Les Expéditions scientifiques','Sous les vagues grecques, un trésor invisible')">
+          <div class="video-thumb"><img src="https://drive.google.com/thumbnail?id=1mNCfb4gm2KdFuljzaB0r_k7J6J9Uxb_Y&sz=w400-h225" alt="Posidonie Grèce" loading="lazy"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><span class="ep-num">Ép. 3</span></div>
+          <div class="video-info"><div class="video-series">Les Expéditions scientifiques</div><div class="video-title">Sous les vagues grecques, un trésor invisible</div></div>
+        </div>
+
+        <div class="video-card" onclick="openModal('https://drive.google.com/file/d/15AJsy7bCXLlTLQ2Xd7gJIRS6jeZsu4tL/preview','Les Expéditions scientifiques','Vivre sur un volcan en fusion — Indonésie')">
+          <div class="video-thumb"><img src="https://drive.google.com/thumbnail?id=15AJsy7bCXLlTLQ2Xd7gJIRS6jeZsu4tL&sz=w400-h225" alt="Volcan Indonésie" loading="lazy"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><span class="ep-num">Ép. 4</span></div>
+          <div class="video-info"><div class="video-series">Les Expéditions scientifiques</div><div class="video-title">Vivre sur un volcan en fusion — Indonésie</div></div>
+        </div>
+
+        <div class="video-card" onclick="openModal('https://drive.google.com/file/d/0B0viuDynuy13SDNwQVp0WVh4NUE/preview','Les Expéditions scientifiques','L'île secrète des gazelles — Émirats')">
+          <div class="video-thumb"><img src="https://drive.google.com/thumbnail?id=0B0viuDynuy13SDNwQVp0WVh4NUE&sz=w400-h225" alt="Gazelles Emirats" loading="lazy"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><span class="ep-num">Ép. 5</span></div>
+          <div class="video-info"><div class="video-series">Les Expéditions scientifiques</div><div class="video-title">L'île secrète des gazelles — Émirats</div></div>
+        </div>
+
+        <div class="video-card" onclick="openModal('https://drive.google.com/file/d/0B0viuDynuy13c29CUENQT01Cb2c/preview','Les Expéditions scientifiques','Les manchots face à l'océan — Australie')">
+          <div class="video-thumb"><img src="https://drive.google.com/thumbnail?id=0B0viuDynuy13c29CUENQT01Cb2c&sz=w400-h225" alt="Manchots Australie" loading="lazy"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><span class="ep-num">Ép. 6</span></div>
+          <div class="video-info"><div class="video-series">Les Expéditions scientifiques</div><div class="video-title">Les manchots face à l'océan — Australie</div></div>
+        </div>
+
+        <div class="video-card" onclick="openModal('https://drive.google.com/file/d/0B0viuDynuy13SUd0bV9wdXpKeWs/preview','Les Expéditions scientifiques','Les pierres précieuses des aborigènes — Australie')">
+          <div class="video-thumb"><img src="https://drive.google.com/thumbnail?id=0B0viuDynuy13SUd0bV9wdXpKeWs&sz=w400-h225" alt="Opales Australie" loading="lazy"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><span class="ep-num">Ép. 7</span></div>
+          <div class="video-info"><div class="video-series">Les Expéditions scientifiques</div><div class="video-title">Les pierres précieuses des aborigènes — Australie</div></div>
+        </div>
+
+        <div class="video-card" onclick="openModal('https://drive.google.com/file/d/0B0viuDynuy13M1lhbTEzSVE4Vmc/preview','Les Expéditions scientifiques','Les cités englouties par le désert — Jordanie')">
+          <div class="video-thumb"><img src="https://drive.google.com/thumbnail?id=0B0viuDynuy13M1lhbTEzSVE4Vmc&sz=w400-h225" alt="Jordanie" loading="lazy"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><span class="ep-num">Ép. 8</span></div>
+          <div class="video-info"><div class="video-series">Les Expéditions scientifiques</div><div class="video-title">Les cités englouties par le désert — Jordanie</div></div>
+        </div>
+
+        <div class="video-card" onclick="openModal('https://drive.google.com/file/d/0B0viuDynuy13RVJhWmpucDVqeFU/preview','Les Expéditions scientifiques','Caral, la civilisation oubliée — Pérou')">
+          <div class="video-thumb"><img src="https://drive.google.com/thumbnail?id=0B0viuDynuy13RVJhWmpucDVqeFU&sz=w400-h225" alt="Pérou" loading="lazy"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><span class="ep-num">Ép. 9</span></div>
+          <div class="video-info"><div class="video-series">Les Expéditions scientifiques</div><div class="video-title">Caral, la civilisation oubliée — Pérou</div></div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- SÉRIE 3 -->
+    <div class="series-block">
+      <div class="series-header">
+        <div>
+          <div class="series-tag">Web-série — 9 épisodes</div>
+          <div class="series-title" data-fr="On a survolé la Terre" data-en="We flew over the Earth">On a survolé la Terre</div>
+          <p class="series-desc">Des images aériennes à couper le souffle de chaque zone géographique survolée, avec un message inspirant et éducatif sur l'environnement et les enjeux locaux.</p>
+        </div>
+        <div class="series-count" data-fr="9 <span data-fr="épisodes · ~9 min" data-en="episodes · ~9 min">épisodes · ~9 min</span>" data-en="9 episodes · ~9 min">9 <span data-fr="épisodes · ~9 min" data-en="episodes · ~9 min">épisodes · ~9 min</span></div>
+      </div>
+      <div class="video-grid">
+
+        <div class="video-card" onclick="openModal('https://drive.google.com/file/d/19VdRU6ezrbDpZmwvCOgAP7CqDGJ9GLAL/preview','On a survolé la Terre','Là où la glace et le feu se rencontrent')">
+          <div class="video-thumb"><img src="https://drive.google.com/thumbnail?id=19VdRU6ezrbDpZmwvCOgAP7CqDGJ9GLAL&sz=w400-h225" alt="Islande Groenland" loading="lazy"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><span class="ep-num">Ép. 1</span></div>
+          <div class="video-info"><div class="video-series">On a survolé la Terre</div><div class="video-title">Là où la glace et le feu se rencontrent</div></div>
+        </div>
+
+        <div class="video-card" onclick="openModal('https://drive.google.com/file/d/1k6EZ0jWop3xEfcCqm0fUIZIrpc1EXG3s/preview','On a survolé la Terre','L'infini du désert vu du ciel')">
+          <div class="video-thumb"><img src="https://drive.google.com/thumbnail?id=1k6EZ0jWop3xEfcCqm0fUIZIrpc1EXG3s&sz=w400-h225" alt="Péninsule arabique" loading="lazy"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><span class="ep-num">Ép. 2</span></div>
+          <div class="video-info"><div class="video-series">On a survolé la Terre</div><div class="video-title">L'infini du désert vu du ciel</div></div>
+        </div>
+
+        <div class="video-card" onclick="openModal('https://drive.google.com/file/d/1o9dUwT0hfdSFN5NSg5VOTSovSSQvRo6i/preview','On a survolé la Terre','Les canyons rouges du bout du monde')">
+          <div class="video-thumb"><img src="https://drive.google.com/thumbnail?id=1o9dUwT0hfdSFN5NSg5VOTSovSSQvRo6i&sz=w400-h225" alt="Jordanie" loading="lazy"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><span class="ep-num">Ép. 3</span></div>
+          <div class="video-info"><div class="video-series">On a survolé la Terre</div><div class="video-title">Les canyons rouges du bout du monde</div></div>
+        </div>
+
+        <div class="video-card" onclick="openModal('https://drive.google.com/file/d/1RSs9mETqorwzH_iPnSM9kX7vCNQpcJjd/preview','On a survolé la Terre','Survoler des volcans en fusion')">
+          <div class="video-thumb"><img src="https://drive.google.com/thumbnail?id=1RSs9mETqorwzH_iPnSM9kX7vCNQpcJjd&sz=w400-h225" alt="Indonésie volcans" loading="lazy"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><span class="ep-num">Ép. 4</span></div>
+          <div class="video-info"><div class="video-series">On a survolé la Terre</div><div class="video-title">Survoler des volcans en fusion</div></div>
+        </div>
+
+        <div class="video-card" onclick="openModal('https://drive.google.com/file/d/1At__sjcVhpDeVKbmEaya8c8WdqvIrfLe/preview','On a survolé la Terre','Le désert le plus hostile de la planète')">
+          <div class="video-thumb"><img src="https://drive.google.com/thumbnail?id=1At__sjcVhpDeVKbmEaya8c8WdqvIrfLe&sz=w400-h225" alt="Atacama Chili" loading="lazy"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><span class="ep-num">Ép. 5</span></div>
+          <div class="video-info"><div class="video-series">On a survolé la Terre</div><div class="video-title">Le désert le plus hostile de la planète</div></div>
+        </div>
+
+        <div class="video-card" onclick="openModal('https://drive.google.com/file/d/0B0viuDynuy13dW1CeFBCVjZueDA/preview','On a survolé la Terre','Le cœur brûlant d'un continent')">
+          <div class="video-thumb"><img src="https://drive.google.com/thumbnail?id=0B0viuDynuy13dW1CeFBCVjZueDA&sz=w400-h225" alt="Australie outback" loading="lazy"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><span class="ep-num">Ép. 6</span></div>
+          <div class="video-info"><div class="video-series">On a survolé la Terre</div><div class="video-title">Le cœur brûlant d'un continent</div></div>
+        </div>
+
+        <div class="video-card" onclick="openModal('https://drive.google.com/file/d/0B0viuDynuy13ckh2dEY1YV9xREk/preview','On a survolé la Terre','La mer la plus menacée du monde')">
+          <div class="video-thumb"><img src="https://drive.google.com/thumbnail?id=0B0viuDynuy13ckh2dEY1YV9xREk&sz=w400-h225" alt="Méditerranée" loading="lazy"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><span class="ep-num">Ép. 7</span></div>
+          <div class="video-info"><div class="video-series">On a survolé la Terre</div><div class="video-title">La mer la plus menacée du monde</div></div>
+        </div>
+
+        <div class="video-card" onclick="openModal('https://drive.google.com/file/d/0B0viuDynuy13bDNqWmxmQnZJVEk/preview','On a survolé la Terre','La forêt qui sauve la planète')">
+          <div class="video-thumb"><img src="https://drive.google.com/thumbnail?id=0B0viuDynuy13bDNqWmxmQnZJVEk&sz=w400-h225" alt="Amazonie" loading="lazy"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><span class="ep-num">Ép. 8</span></div>
+          <div class="video-info"><div class="video-series">On a survolé la Terre</div><div class="video-title">La forêt qui sauve la planète</div></div>
+        </div>
+
+        <div class="video-card" onclick="openModal('https://drive.google.com/file/d/0B0viuDynuy13X2RfMXFWaXl0cTg/preview','On a survolé la Terre','Dans les secrets du peuple aborigène')">
+          <div class="video-thumb"><img src="https://drive.google.com/thumbnail?id=0B0viuDynuy13X2RfMXFWaXl0cTg&sz=w400-h225" alt="Aborigènes Australie" loading="lazy"><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><span class="ep-num">Ép. 9</span></div>
+          <div class="video-info"><div class="video-series">On a survolé la Terre</div><div class="video-title">Dans les secrets du peuple aborigène</div></div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="videoModal" onclick="closeModalOutside(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-embed" id="modalEmbed"></div>
+    <div class="modal-info"><div class="modal-series" id="modalSeries"></div><div class="modal-title" id="modalTitle"></div></div>
+  </div>
+</div>
+
+<footer>
+    <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="logo-wrap" href="index.html"><img src="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png/v1/fill/w_162,h_163,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/LOGO%20wingsforscience%20copie.png" alt="Logo"><div class="logo-text"><span data-fr="Des Ailes pour la Science" data-en="Wings for Science">Des Ailes pour la Science</span></div></a>
+      <p data-fr="Association à but non lucratif œuvrant pour la science et la protection de l'environnement depuis 2008." data-en="Non-profit association working for science and environmental protection since 2008.">Association à but non lucratif œuvrant pour la science et la protection de l'environnement depuis 2008.</p>
+      <address class="footer-address" style="display:inline;">Maison des associations, 38 bd Henri IV, 75004 Paris</address>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title" data-fr="Nos actions" data-en="Our actions">Nos actions</div>
+      <ul>
+        <li><a href="campagne-scientifique.html" data-fr="Campagne scientifique" data-en="Scientific Campaign">Campagne scientifique</a></li>
+        <li><a href="conferences.html" data-fr="Conférences" data-en="Conferences">Conférences</a></li>
+        <li><a href="reportages.html" data-fr="Reportages" data-en="Documentaries">Reportages</a></li>
+        <li><a href="livres.html" data-fr="Livres" data-en="Books">Livres</a></li>
+        <li><a href="presse.html" data-fr="Presse" data-en="Press">Presse</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title" data-fr="Notre mission" data-en="Our mission">Notre mission</div>
+      <ul>
+        <li><a href="science-environnement.html" data-fr="Science &amp; Environnement" data-en="Science &amp; Environment">Science &amp; Environnement</a></li>
+        <li><a href="expeditions.html" data-fr="Expéditions aéronautiques" data-en="Aeronautical Expeditions">Expéditions aéronautiques</a></li>
+        <li><a href="sensibilisation.html" data-fr="Sensibilisation" data-en="Public Awareness">Sensibilisation</a></li>
+        <li style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(95,168,211,0.15);"><a href="actu.html" style="color:var(--accent);font-weight:600;" data-fr="Notre Actualité" data-en="Our News">Notre Actualité</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title" data-fr="Notre réseau" data-en="Our network">Notre réseau</div>
+      <ul>
+        <li><a href="confondateurs.html" data-fr="Cofondateurs &amp; parrains" data-en="Co-founders &amp; Patrons">Cofondateurs &amp; parrains</a></li>
+        <li><a href="equipe.html" data-fr="L&apos;équipe" data-en="The Team">L&apos;équipe</a></li>
+        <li><a href="partenaires.html" data-fr="Partenaires &amp; sponsors" data-en="Partners &amp; Sponsors">Partenaires &amp; sponsors</a></li>
+        <li style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(95,168,211,0.15);"><a href="contact.html" style="color:var(--accent);font-weight:600;" data-fr="Contact" data-en="Contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom"><span class="footer-copy" data-fr="© 2024 Des Ailes pour la Science / Wings for Science. Association de loi 1901." data-en="© 2024 Wings for Science / Des Ailes pour la Science. Non-profit association.">© 2024 Des Ailes pour la Science / Wings for Science. Association de loi 1901.</span><div class="social-links"><a href="http://wingsforscience.blogspot.com/" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/70b1c5a67d2349e3933570b344b1d54d.png/v1/fill/w_35,h_35,al_c,enc_avif,quality_auto/70b1c5a67d2349e3933570b344b1d54d.png" alt="Blogger"></a><a href="http://www.facebook.com/wingsforscience" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/4057345bcf57474b96976284050c00df.png/v1/fill/w_35,h_35,al_c,enc_avif,quality_auto/4057345bcf57474b96976284050c00df.png" alt="Facebook"></a><a href="https://www.youtube.com/playlist?list=PL8A32C328768F858A" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/45bce1d726f64f1999c49feae57f6298.png/v1/fill/w_35,h_35,al_c,enc_avif,quality_auto/45bce1d726f64f1999c49feae57f6298.png" alt="YouTube"></a></div></div>
+</footer>
+
+<script>
+function openModal(src,series,title){
+  document.getElementById('modalSeries').textContent=series;
+  document.getElementById('modalTitle').textContent=title;
+  document.getElementById('modalEmbed').innerHTML=`<iframe src="${src}" allowfullscreen allow="autoplay; encrypted-media"></iframe>`;
+  document.getElementById('videoModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){
+  document.getElementById('videoModal').classList.remove('open');
+  document.getElementById('modalEmbed').innerHTML='';
+  document.body.style.overflow='';
+}
+function closeModalOutside(e){if(e.target===document.getElementById('videoModal'))closeModal();}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+</script>
+<script src="lang.js"></script>
+</body>
+</html>
