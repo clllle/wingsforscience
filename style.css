@@ -355,16 +355,14 @@ nav { display: flex; align-items: center; gap: 4px; margin-left: auto; }
   transition: background 0.2s, border-color 0.2s;
 }
 .partner-logo:hover {
-  background: rgba(255,255,255,0.1);
-  border-color: rgba(95,168,211,0.3);
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(95,168,211,0.1);
 }
 .partner-logo img {
   max-height: 48px; max-width: 140px;
   object-fit: contain;
-  filter: brightness(0) invert(0.75);
-  transition: filter 0.2s;
 }
-.partner-logo:hover img { filter: brightness(0) invert(1); }
+.partner-logo:hover img { }
 
 /* ── SENSIBILISATION — LINKS GRID ── */
 .sens-links {
