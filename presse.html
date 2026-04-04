@@ -356,7 +356,7 @@
       </div>
       <div style="margin-top:24px;">
             <div id="radioNowPlaying" style="font-size:15px;color:var(--off-white);font-weight:600;margin-bottom:12px;"></div>
-            <audio id="radioAudio" controls style="width:100%;height:40px;border-radius:4px;"></audio>
+            <iframe id="radioFrame" src="" style="width:100%;height:80px;border:none;border-radius:4px;" allow="autoplay"></iframe>
             <div id="radioPlaylist" style="max-height:400px;overflow-y:auto;margin-top:16px;border:1px solid rgba(95,168,211,0.1);border-radius:6px;"></div>
           </div>
           <script>
@@ -402,18 +402,15 @@
             {id:"1lZ5Y-5DJwY4ASsm-E53HaSW-K_SCxZ_p",name:"RTL — La curiosité est un vilain défaut (29.06.2015) (2)"}
           ];
           var radioIdx = 0;
-          var audioEl = document.getElementById('radioAudio');
           var playlist = document.getElementById('radioPlaylist');
           function radioPlay(i) {
             radioIdx = i;
             var t = radioTracks[i];
-            audioEl.src = 'https://drive.google.com/uc?export=download&id=' + t.id;
-            audioEl.play();
+            document.getElementById('radioFrame').src = 'https://drive.google.com/file/d/' + t.id + '/preview';
             document.getElementById('radioNowPlaying').textContent = t.name;
             var rows = playlist.querySelectorAll('.radio-row');
             rows.forEach(function(r,j){ r.style.background = j===i ? 'rgba(95,168,211,0.15)' : 'transparent'; r.style.color = j===i ? '#5fa8d3' : '#b0b8c4'; });
           }
-          audioEl.addEventListener('ended', function(){ radioPlay((radioIdx+1) % radioTracks.length); });
           // Build playlist
           radioTracks.forEach(function(t,i){
             var row = document.createElement('div');
