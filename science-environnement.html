@@ -94,6 +94,30 @@
   </div>
 </div>
 
+<!-- CARTE DES MISSIONS -->
+<div class="content-section" style="background:rgba(14,26,40,0.3);">
+  <div class="content-inner">
+    <span class="section-tag" data-fr="Carte interactive" data-en="Interactive map">Carte interactive</span>
+    <h2 class="section-heading" data-fr="Nos missions à travers le monde" data-en="Our missions around the world">Nos missions à travers le monde</h2>
+    <iframe src="missions.html" style="width:100%;height:500px;border:1px solid rgba(95,168,211,0.15);border-radius:6px;" loading="lazy"></iframe>
+  </div>
+</div>
+
+<!-- TABLEAU DES MISSIONS -->
+<div class="content-section">
+  <div class="content-inner">
+    <span class="section-tag" data-fr="Liste complète" data-en="Complete list">Liste complète</span>
+    <h2 class="section-heading" data-fr="34 missions scientifiques" data-en="34 scientific missions">34 missions scientifiques</h2>
+    <div style="position:relative;margin-top:16px;">
+      <div id="missionsTable" style="max-height:500px;overflow-y:auto;border:1px solid rgba(95,168,211,0.1);border-radius:6px;scroll-behavior:smooth;">
+        <iframe src="https://docs.google.com/spreadsheets/d/159wf_mlcPG3rBdnbq8_lyZDaC5-tovUxTnKGCpKbhL0/gviz/tq?tqx=out:html" style="width:100%;height:1200px;border:none;" loading="lazy"></iframe>
+      </div>
+      <button onclick="document.getElementById('missionsTable').scrollBy(0,-200)" style="position:absolute;top:-18px;right:50px;background:rgba(20,32,48,0.9);border:1px solid rgba(95,168,211,0.3);color:#5fa8d3;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:16px;">&#8593;</button>
+      <button onclick="document.getElementById('missionsTable').scrollBy(0,200)" style="position:absolute;top:-18px;right:8px;background:rgba(20,32,48,0.9);border:1px solid rgba(95,168,211,0.3);color:#5fa8d3;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:16px;">&#8595;</button>
+    </div>
+  </div>
+</div>
+
 <!-- PARTENAIRES SCIENTIFIQUES -->
 <div class="content-section" style="background:rgba(14,26,40,0.5);">
   <div class="content-inner">
