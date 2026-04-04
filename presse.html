@@ -351,20 +351,14 @@
           <span class="section-tag" data-fr="🎙️ Radio" data-en="🎙️ Radio">🎙️ Radio</span>
           <h2 style="font-family:Merriweather,serif;font-weight:300;font-size:28px;color:var(--white);margin:12px 0 8px;" data-fr="Radio" data-en="Radio">Radio</h2>
           <p style="font-size:14px;color:var(--text-muted);margin-bottom:24px;" data-fr="39 passages sur plus de 15 stations en France et à l'international" data-en="39 appearances on over 15 stations in France and internationally">39 passages sur plus de 15 stations en France et à l'international</p>
-          <div class="radio-carousel" style="position:relative;margin-top:24px;">
-            <div style="background:#0d1a26;border-radius:6px;padding:20px;max-width:700px;">
-              <p id="radioLabel" style="font-size:14px;color:var(--off-white);margin-bottom:12px;font-weight:600;"></p>
-              <iframe id="radioPlayer" src="" style="width:100%;height:60px;border:none;border-radius:4px;" allow="autoplay"></iframe>
-              <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;">
-                <button onclick="radioNav(-1)" style="background:none;border:1px solid rgba(95,168,211,0.3);color:var(--accent);padding:6px 16px;border-radius:4px;cursor:pointer;font-size:14px;">&#8592; Précédent</button>
-                <span id="radioCount" style="font-size:12px;color:var(--text-muted);"></span>
-                <button onclick="radioNav(1)" style="background:none;border:1px solid rgba(95,168,211,0.3);color:var(--accent);padding:6px 16px;border-radius:4px;cursor:pointer;font-size:14px;">Suivant &#8594;</button>
-              </div>
-            </div>
+          <div style="margin-top:24px;max-width:800px;margin-left:auto;margin-right:auto;">
+            <div id="radioNowPlaying" style="font-size:15px;color:var(--off-white);font-weight:600;margin-bottom:12px;"></div>
+            <audio id="radioAudio" controls style="width:100%;height:40px;border-radius:4px;"></audio>
+            <div id="radioPlaylist" style="max-height:400px;overflow-y:auto;margin-top:16px;border:1px solid rgba(95,168,211,0.1);border-radius:6px;"></div>
           </div>
           <script>
           var radioTracks = [
-            {id:"14Bp1ftN3JvIBcMMkgNpUIqXhzorKlQSv",name:"Europe 1 — Circuits courts, Le portrait du jour"},
+            {id:"14Bp1ftN3JvIBcMMkgNpUIqXhzorKlQSv",name:"Europe 1 — Circuits courts"},
             {id:"1E_3tptYoaTygYUnSJqgT7dtuYkQVnLgY",name:"France Bleu — Femme de Paname"},
             {id:"1k-4qDJ7fLBKxmr-ZuPeUXTOzz24qgmH8",name:"France Info — Les aventuriers (02.07.2013)"},
             {id:"0B0RkbHBUrWAxb3JCWGotNmdjYXc",name:"France Info — Les aventuriers (03.08.2013)"},
@@ -385,7 +379,7 @@
             {id:"1L9Z0ZTK5EW52u7gYze3Un1ZV169q0Qjt",name:"France Inter — En direct du salon du livre"},
             {id:"0B0RkbHBUrWAxZ2VpRlVnVElWYVE",name:"France Inter — Le temps d'un bivouac (02.07.2013)"},
             {id:"0B0RkbHBUrWAxVzMwNVdwVGFHLW8",name:"Guyane Première (18.09.2012)"},
-            {id:"0B7hlqx_DFkSfZF8tUGtsOEVmZzg",name:"Radio Ahora Calafate, Argentine (20.04.2016)"},
+            {id:"0B7hlqx_DFkSfZF8tUGtsOEVmZzg",name:"Radio Ahora — Calafate, Argentine (20.04.2016)"},
             {id:"0B0RkbHBUrWAxZmZmME45d08xUGs",name:"Radio Dijon Campus (10.10.2015)"},
             {id:"0B0RkbHBUrWAxMUUtQWFLZWx4dlk",name:"Radio Nova — Le contrôle douanier (28.06.2014)"},
             {id:"1VnLBfP4e6koC2Ske-ENSt13tMhJDF9DW",name:"Radio Nova — À l'aventure (10.11.2017)"},
@@ -393,27 +387,43 @@
             {id:"0B0RkbHBUrWAxOGxYSkxUXzh5YXc",name:"Radio Ville-Marie — Passeport Matin (91,3 FM)"},
             {id:"0B7hlqx_DFkSfcVBZUlNmaVNfa2M",name:"Radio-Canada — L'été du monde (20.07.2012)"},
             {id:"0B0RkbHBUrWAxX2NhSnZ3NUtoaTg",name:"RCF — Questions d'actualité (10.10.2013)"},
-            {id:"0B7hlqx_DFkSfOHdQTkVOX3VxQ28",name:"RCF — Question d'actualité, Bourgogne (15.10.2013)"},
+            {id:"0B7hlqx_DFkSfOHdQTkVOX3VxQ28",name:"RCF — Bourgogne (15.10.2013)"},
             {id:"0B7hlqx_DFkSfakN0NFF1RGxVekU",name:"RCF — Questions d'actualité (8 et 10.10.2013)"},
             {id:"1PkV4rTwhG4wgWhh3gJLMum2GcT26VMc7",name:"RFI — Autour de la question (19.12.2017)"},
             {id:"1T01fbmwLQ4-FpfWVTdBtumPmmGSSpBNY",name:"RTL — La curiosité est un vilain défaut (26.10.2015)"},
-            {id:"0B0RkbHBUrWAxbHo3UHRJYUdHa2s",name:"RTL — La Curiosité Est Un Vilain Défaut (29.06.2015)"},
+            {id:"0B0RkbHBUrWAxbHo3UHRJYUdHa2s",name:"RTL — La curiosité est un vilain défaut (29.06.2015)"},
             {id:"1us3H3WKH97HVAOdOiS0uoh2_k6kiXVEz",name:"RTL — La curiosité est un vilain défaut (18.11.2015)"},
             {id:"14I3jAj34ISr-lVh4RQ_l_ZnC2mxFfI6a",name:"RTL — La curiosité est un vilain défaut (03.03.2015)"},
             {id:"18GGvI4VEaQXZZIg8ZSIC_NnIgC4IJkgG",name:"RTL — La curiosité est un vilain défaut (09.06.2016)"},
             {id:"0B0RkbHBUrWAxMXdWTzBGUGN1RU0",name:"RTL soir — L'Entretien du jour (28.11.2017)"},
-            {id:"1lZ5Y-5DJwY4ASsm-E53HaSW-K_SCxZ_p",name:"RTL — La Curiosité Est Un Vilain Défaut (29.06.2015) (2)"}
+            {id:"1lZ5Y-5DJwY4ASsm-E53HaSW-K_SCxZ_p",name:"RTL — La curiosité est un vilain défaut (29.06.2015) (2)"}
           ];
           var radioIdx = 0;
-          function radioShow(i) {
+          var audioEl = document.getElementById('radioAudio');
+          var playlist = document.getElementById('radioPlaylist');
+          function radioPlay(i) {
             radioIdx = i;
             var t = radioTracks[i];
-            document.getElementById('radioPlayer').src = 'https://drive.google.com/file/d/' + t.id + '/preview';
-            document.getElementById('radioLabel').textContent = t.name;
-            document.getElementById('radioCount').textContent = (i+1) + ' / ' + radioTracks.length;
+            audioEl.src = 'https://drive.google.com/uc?export=download&id=' + t.id;
+            audioEl.play();
+            document.getElementById('radioNowPlaying').textContent = t.name;
+            var rows = playlist.querySelectorAll('.radio-row');
+            rows.forEach(function(r,j){ r.style.background = j===i ? 'rgba(95,168,211,0.15)' : 'transparent'; r.style.color = j===i ? '#5fa8d3' : '#b0b8c4'; });
           }
-          function radioNav(d) { radioShow((radioIdx + d + radioTracks.length) % radioTracks.length); }
-          radioShow(0);
+          audioEl.addEventListener('ended', function(){ radioPlay((radioIdx+1) % radioTracks.length); });
+          // Build playlist
+          radioTracks.forEach(function(t,i){
+            var row = document.createElement('div');
+            row.className = 'radio-row';
+            row.style.cssText = 'display:flex;align-items:center;padding:12px 16px;cursor:pointer;border-bottom:1px solid rgba(95,168,211,0.06);font-size:13px;color:#b0b8c4;transition:background .2s;';
+            row.onmouseover = function(){ if(i!==radioIdx) this.style.background='rgba(95,168,211,0.08)'; };
+            row.onmouseout = function(){ if(i!==radioIdx) this.style.background='transparent'; };
+            row.onclick = function(){ radioPlay(i); };
+            row.innerHTML = '<span style="width:30px;flex-shrink:0;font-size:11px;opacity:0.5;">'+(i+1)+'</span><span style="flex:1;">'+t.name+'</span>';
+            playlist.appendChild(row);
+          });
+          radioPlay(0);
+          audioEl.pause();
           </script>
         </div>
         <img src="images/icon_radio.png" alt="Radio" style="width:120px;height:auto;flex-shrink:0;opacity:0.5;" loading="lazy">
