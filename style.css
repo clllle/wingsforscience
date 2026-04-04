@@ -204,6 +204,13 @@ nav { display: flex; align-items: center; gap: 4px; margin-left: auto; }
 }
 .steps-list li {
   display: flex; gap: 18px; align-items: flex-start;
+  padding: 12px 16px; border-radius: 6px;
+  transition: background 0.2s, transform 0.2s;
+  cursor: default;
+}
+.steps-list li:hover {
+  background: rgba(95,168,211,0.08);
+  transform: translateX(6px);
 }
 .steps-list li .step-num {
   flex-shrink: 0;
