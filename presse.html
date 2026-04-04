@@ -162,7 +162,16 @@
     window.setLang = function(lang) { if(origSetLang) origSetLang(lang); pressLang = lang; pressShow(pressIdx); };
     </script>
     <span class="section-tag" style="margin-top:48px;display:block;" data-fr="Presse écrite et en ligne — 434 articles" data-en="Print and online press — 434 articles">Presse écrite et en ligne — 434 articles</span>
-    <div id="textCloud" style="position:relative;width:100%;max-width:800px;height:420px;margin:24px auto 0;border-radius:8px;background:linear-gradient(135deg,rgba(30,42,55,0.95),rgba(20,32,48,0.95)),url('https://images.unsplash.com/photo-1504711434969-e33886168d6c?w=800&q=60') center/cover;border:1px solid rgba(95,168,211,0.1);overflow:hidden;cursor:pointer;" onclick="window.open('https://drive.google.com/drive/folders/0B0RkbHBUrWAxbk05Ym9WZnk2WUE?resourcekey=0-tm8fai4LSAtT-Ts3zfEP5g','_blank')">
+    <style>
+      #textCloud::before {
+        content:"PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS PRESS";
+        position:absolute;top:0;left:0;right:0;bottom:0;
+        font-size:14px;letter-spacing:4px;line-height:1.8;
+        color:rgba(95,168,211,0.04);font-weight:800;
+        word-break:break-all;overflow:hidden;pointer-events:none;z-index:0;
+      }
+    </style>
+    <div id="textCloud" style="position:relative;width:100%;max-width:800px;height:420px;margin:24px auto 0;border-radius:8px;background:rgba(20,32,48,0.97);border:1px solid rgba(95,168,211,0.1);overflow:hidden;cursor:pointer;" onclick="window.open('https://drive.google.com/drive/folders/0B0RkbHBUrWAxbk05Ym9WZnk2WUE?resourcekey=0-tm8fai4LSAtT-Ts3zfEP5g','_blank')">
       <p style="position:absolute;bottom:14px;left:0;right:0;text-align:center;font-size:14px;color:var(--accent);font-weight:600;pointer-events:none;z-index:2;" data-fr="Cliquez pour voir les 434 articles →" data-en="Click to see all 434 articles →">Cliquez pour voir les 434 articles →</p>
     </div>
     <script>
