@@ -181,7 +181,7 @@ nav { display: flex; align-items: center; gap: 4px; margin-left: auto; }
   margin: 0 auto;
 }
 .content-inner { width: 100%; }
-.content-inner.narrow { max-width: 740px; }
+.content-inner.narrow { max-width: 740px; margin: 0 auto; }
 
 .lead-text {
   font-family: 'Merriweather', serif;
