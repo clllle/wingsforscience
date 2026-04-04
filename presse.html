@@ -355,51 +355,54 @@
         <img src="images/icon_radio.png" alt="Radio" style="width:120px;height:auto;flex-shrink:0;opacity:0.5;" loading="lazy">
       </div>
       <div style="margin-top:24px;">
-            <div id="radioNowPlaying" style="font-size:15px;color:var(--off-white);font-weight:600;margin-bottom:12px;"></div>
+            <div style="display:flex;align-items:center;gap:16px;margin-bottom:12px;">
+              <img id="radioLogo" src="" style="width:50px;height:50px;object-fit:contain;border-radius:4px;background:#fff;padding:4px;" alt="">
+              <div id="radioNowPlaying" style="font-size:15px;color:var(--off-white);font-weight:600;"></div>
+            </div>
             <iframe id="radioFrame" src="" style="width:100%;height:80px;border:none;border-radius:4px;" allow="autoplay"></iframe>
             <div id="radioPlaylist" style="margin-top:16px;border:1px solid rgba(95,168,211,0.1);border-radius:6px;"></div>
           </div>
           <script>
           var radioTracks = [
-            {id:"14Bp1ftN3JvIBcMMkgNpUIqXhzorKlQSv",name:"Europe 1 — Circuits courts"},
-            {id:"1E_3tptYoaTygYUnSJqgT7dtuYkQVnLgY",name:"France Bleu — Femme de Paname"},
-            {id:"1k-4qDJ7fLBKxmr-ZuPeUXTOzz24qgmH8",name:"France Info — Les aventuriers (02.07.2013)"},
-            {id:"0B0RkbHBUrWAxb3JCWGotNmdjYXc",name:"France Info — Les aventuriers (03.08.2013)"},
-            {id:"0B0RkbHBUrWAxbzVwWjFqOXAzazQ",name:"France Info — Les aventuriers (07.09.2013)"},
-            {id:"0B0RkbHBUrWAxLWw2Q2J2SVpTTVE",name:"France Info — Les aventuriers (10.08.2013)"},
-            {id:"0B0RkbHBUrWAxNVlCMXUxZXJvUnc",name:"France Info — Les aventuriers (12.07.2013)"},
-            {id:"0B0RkbHBUrWAxa25sWWhNeFI2N3c",name:"France Info — Les aventuriers (17.08.2013)"},
-            {id:"0B0RkbHBUrWAxMGtKZTlBeGt6UTQ",name:"France Info — Les aventuriers (20.07.2013)"},
-            {id:"0B7hlqx_DFkSfWVhYU0pvb0MydGM",name:"France Info — Les aventuriers (22.06.2013)"},
-            {id:"0B0RkbHBUrWAxc0gzdy1IdEFxZGc",name:"France Info — Les aventuriers (24.08.2013)"},
-            {id:"1BqcSDdy_-Af0OlhlkH7fSEynOWOHsU4Z",name:"France Info — Les aventuriers (27.07.2013)"},
-            {id:"1ccAq7CvKck8qTowMHtzOkd5htMZ81BeB",name:"France Inter — Esprit d'initiative (23.11.2017)"},
-            {id:"0B0RkbHBUrWAxMVROLXg5R3JCZEU",name:"France Inter — La Tête au Carré (12.06.2015)"},
-            {id:"0B0RkbHBUrWAxRjBjbmlocTM3cXc",name:"France Inter — La tête au carré (21.03.2014)"},
-            {id:"0B0RkbHBUrWAxVlN1NWVhM0dxTFk",name:"France Inter — Le club de la tête au carré (30.07.2016)"},
-            {id:"0B0RkbHBUrWAxVlZuaU1uNk83NkU",name:"France Inter — Le temps d'un bivouac (01.07.2013)"},
-            {id:"1YX56CVv3H4qoPzAG11gv7kGA_3mPdf-n",name:"France Inter — Le Temps d'un Bivouac (05.07.2016)"},
-            {id:"1L9Z0ZTK5EW52u7gYze3Un1ZV169q0Qjt",name:"France Inter — En direct du salon du livre"},
-            {id:"0B0RkbHBUrWAxZ2VpRlVnVElWYVE",name:"France Inter — Le temps d'un bivouac (02.07.2013)"},
-            {id:"0B0RkbHBUrWAxVzMwNVdwVGFHLW8",name:"Guyane Première (18.09.2012)"},
-            {id:"0B7hlqx_DFkSfZF8tUGtsOEVmZzg",name:"Radio Ahora — Calafate, Argentine (20.04.2016)"},
-            {id:"0B0RkbHBUrWAxZmZmME45d08xUGs",name:"Radio Dijon Campus (10.10.2015)"},
-            {id:"0B0RkbHBUrWAxMUUtQWFLZWx4dlk",name:"Radio Nova — Le contrôle douanier (28.06.2014)"},
-            {id:"1VnLBfP4e6koC2Ske-ENSt13tMhJDF9DW",name:"Radio Nova — À l'aventure (10.11.2017)"},
-            {id:"0B0RkbHBUrWAxdzAzcjVmRzBWVkE",name:"Radio Ville-Marie — Passeport Matin (30.07.2012)"},
-            {id:"0B0RkbHBUrWAxOGxYSkxUXzh5YXc",name:"Radio Ville-Marie — Passeport Matin (91,3 FM)"},
-            {id:"0B7hlqx_DFkSfcVBZUlNmaVNfa2M",name:"Radio-Canada — L'été du monde (20.07.2012)"},
-            {id:"0B0RkbHBUrWAxX2NhSnZ3NUtoaTg",name:"RCF — Questions d'actualité (10.10.2013)"},
-            {id:"0B7hlqx_DFkSfOHdQTkVOX3VxQ28",name:"RCF — Bourgogne (15.10.2013)"},
-            {id:"0B7hlqx_DFkSfakN0NFF1RGxVekU",name:"RCF — Questions d'actualité (8 et 10.10.2013)"},
-            {id:"1PkV4rTwhG4wgWhh3gJLMum2GcT26VMc7",name:"RFI — Autour de la question (19.12.2017)"},
-            {id:"1T01fbmwLQ4-FpfWVTdBtumPmmGSSpBNY",name:"RTL — La curiosité est un vilain défaut (26.10.2015)"},
-            {id:"0B0RkbHBUrWAxbHo3UHRJYUdHa2s",name:"RTL — La curiosité est un vilain défaut (29.06.2015)"},
-            {id:"1us3H3WKH97HVAOdOiS0uoh2_k6kiXVEz",name:"RTL — La curiosité est un vilain défaut (18.11.2015)"},
-            {id:"14I3jAj34ISr-lVh4RQ_l_ZnC2mxFfI6a",name:"RTL — La curiosité est un vilain défaut (03.03.2015)"},
-            {id:"18GGvI4VEaQXZZIg8ZSIC_NnIgC4IJkgG",name:"RTL — La curiosité est un vilain défaut (09.06.2016)"},
-            {id:"0B0RkbHBUrWAxMXdWTzBGUGN1RU0",name:"RTL soir — L'Entretien du jour (28.11.2017)"},
-            {id:"1lZ5Y-5DJwY4ASsm-E53HaSW-K_SCxZ_p",name:"RTL — La curiosité est un vilain défaut (29.06.2015) (2)"}
+            {id:"14Bp1ftN3JvIBcMMkgNpUIqXhzorKlQSv",name:"Europe 1 — Circuits courts",logo:"images/radio/europe1.png"},
+            {id:"1E_3tptYoaTygYUnSJqgT7dtuYkQVnLgY",name:"France Bleu — Femme de Paname",logo:"images/radio/francebleu.png"},
+            {id:"1k-4qDJ7fLBKxmr-ZuPeUXTOzz24qgmH8",name:"France Info — Les aventuriers (02.07.2013)",logo:"images/radio/franceinfo.png"},
+            {id:"0B0RkbHBUrWAxb3JCWGotNmdjYXc",name:"France Info — Les aventuriers (03.08.2013)",logo:"images/radio/franceinfo.png"},
+            {id:"0B0RkbHBUrWAxbzVwWjFqOXAzazQ",name:"France Info — Les aventuriers (07.09.2013)",logo:"images/radio/franceinfo.png"},
+            {id:"0B0RkbHBUrWAxLWw2Q2J2SVpTTVE",name:"France Info — Les aventuriers (10.08.2013)",logo:"images/radio/franceinfo.png"},
+            {id:"0B0RkbHBUrWAxNVlCMXUxZXJvUnc",name:"France Info — Les aventuriers (12.07.2013)",logo:"images/radio/franceinfo.png"},
+            {id:"0B0RkbHBUrWAxa25sWWhNeFI2N3c",name:"France Info — Les aventuriers (17.08.2013)",logo:"images/radio/franceinfo.png"},
+            {id:"0B0RkbHBUrWAxMGtKZTlBeGt6UTQ",name:"France Info — Les aventuriers (20.07.2013)",logo:"images/radio/franceinfo.png"},
+            {id:"0B7hlqx_DFkSfWVhYU0pvb0MydGM",name:"France Info — Les aventuriers (22.06.2013)",logo:"images/radio/franceinfo.png"},
+            {id:"0B0RkbHBUrWAxc0gzdy1IdEFxZGc",name:"France Info — Les aventuriers (24.08.2013)",logo:"images/radio/franceinfo.png"},
+            {id:"1BqcSDdy_-Af0OlhlkH7fSEynOWOHsU4Z",name:"France Info — Les aventuriers (27.07.2013)",logo:"images/radio/franceinfo.png"},
+            {id:"1ccAq7CvKck8qTowMHtzOkd5htMZ81BeB",name:"France Inter — Esprit d'initiative (23.11.2017)",logo:"images/radio/franceinter.png"},
+            {id:"0B0RkbHBUrWAxMVROLXg5R3JCZEU",name:"France Inter — La Tête au Carré (12.06.2015)",logo:"images/radio/franceinter.png"},
+            {id:"0B0RkbHBUrWAxRjBjbmlocTM3cXc",name:"France Inter — La tête au carré (21.03.2014)",logo:"images/radio/franceinter.png"},
+            {id:"0B0RkbHBUrWAxVlN1NWVhM0dxTFk",name:"France Inter — Le club de la tête au carré (30.07.2016)",logo:"images/radio/franceinter.png"},
+            {id:"0B0RkbHBUrWAxVlZuaU1uNk83NkU",name:"France Inter — Le temps d'un bivouac (01.07.2013)",logo:"images/radio/franceinter.png"},
+            {id:"1YX56CVv3H4qoPzAG11gv7kGA_3mPdf-n",name:"France Inter — Le Temps d'un Bivouac (05.07.2016)",logo:"images/radio/franceinter.png"},
+            {id:"1L9Z0ZTK5EW52u7gYze3Un1ZV169q0Qjt",name:"France Inter — En direct du salon du livre",logo:"images/radio/franceinter.png"},
+            {id:"0B0RkbHBUrWAxZ2VpRlVnVElWYVE",name:"France Inter — Le temps d'un bivouac (02.07.2013)",logo:"images/radio/franceinter.png"},
+            {id:"0B0RkbHBUrWAxVzMwNVdwVGFHLW8",name:"Guyane Première (18.09.2012)",logo:"images/radio/guyane1ere.png"},
+            {id:"0B7hlqx_DFkSfZF8tUGtsOEVmZzg",name:"Radio Ahora — Calafate, Argentine (20.04.2016)",logo:"images/radio/ahora.png"},
+            {id:"0B0RkbHBUrWAxZmZmME45d08xUGs",name:"Radio Dijon Campus (10.10.2015)",logo:"images/radio/dijon.png"},
+            {id:"0B0RkbHBUrWAxMUUtQWFLZWx4dlk",name:"Radio Nova — Le contrôle douanier (28.06.2014)",logo:"images/radio/radionova.png"},
+            {id:"1VnLBfP4e6koC2Ske-ENSt13tMhJDF9DW",name:"Radio Nova — À l'aventure (10.11.2017)",logo:"images/radio/radionova.png"},
+            {id:"0B0RkbHBUrWAxdzAzcjVmRzBWVkE",name:"Radio Ville-Marie — Passeport Matin (30.07.2012)",logo:"images/radio/villemarie.png"},
+            {id:"0B0RkbHBUrWAxOGxYSkxUXzh5YXc",name:"Radio Ville-Marie — Passeport Matin (91,3 FM)",logo:"images/radio/villemarie.png"},
+            {id:"0B7hlqx_DFkSfcVBZUlNmaVNfa2M",name:"Radio-Canada — L'été du monde (20.07.2012)",logo:"images/radio/radiocanada.png"},
+            {id:"0B0RkbHBUrWAxX2NhSnZ3NUtoaTg",name:"RCF — Questions d'actualité (10.10.2013)",logo:"images/radio/rcf.png"},
+            {id:"0B7hlqx_DFkSfOHdQTkVOX3VxQ28",name:"RCF — Bourgogne (15.10.2013)",logo:"images/radio/rcf.png"},
+            {id:"0B7hlqx_DFkSfakN0NFF1RGxVekU",name:"RCF — Questions d'actualité (8 et 10.10.2013)",logo:"images/radio/rcf.png"},
+            {id:"1PkV4rTwhG4wgWhh3gJLMum2GcT26VMc7",name:"RFI — Autour de la question (19.12.2017)",logo:"images/radio/rfi.png"},
+            {id:"1T01fbmwLQ4-FpfWVTdBtumPmmGSSpBNY",name:"RTL — La curiosité est un vilain défaut (26.10.2015)",logo:"images/radio/rtl.png"},
+            {id:"0B0RkbHBUrWAxbHo3UHRJYUdHa2s",name:"RTL — La curiosité est un vilain défaut (29.06.2015)",logo:"images/radio/rtl.png"},
+            {id:"1us3H3WKH97HVAOdOiS0uoh2_k6kiXVEz",name:"RTL — La curiosité est un vilain défaut (18.11.2015)",logo:"images/radio/rtl.png"},
+            {id:"14I3jAj34ISr-lVh4RQ_l_ZnC2mxFfI6a",name:"RTL — La curiosité est un vilain défaut (03.03.2015)",logo:"images/radio/rtl.png"},
+            {id:"18GGvI4VEaQXZZIg8ZSIC_NnIgC4IJkgG",name:"RTL — La curiosité est un vilain défaut (09.06.2016)",logo:"images/radio/rtl.png"},
+            {id:"0B0RkbHBUrWAxMXdWTzBGUGN1RU0",name:"RTL soir — L'Entretien du jour (28.11.2017)",logo:"images/radio/rtl.png"},
+            {id:"1lZ5Y-5DJwY4ASsm-E53HaSW-K_SCxZ_p",name:"RTL — La curiosité est un vilain défaut (29.06.2015) (2)",logo:"images/radio/rtl.png"}
           ];
           var radioIdx = 0;
           var playlist = document.getElementById('radioPlaylist');
@@ -408,6 +411,7 @@
             var t = radioTracks[i];
             document.getElementById('radioFrame').src = 'https://drive.google.com/file/d/' + t.id + '/preview';
             document.getElementById('radioNowPlaying').textContent = t.name;
+            document.getElementById('radioLogo').src = t.logo;
             var rows = playlist.querySelectorAll('.radio-row');
             rows.forEach(function(r,j){ r.style.background = j===i ? 'rgba(95,168,211,0.15)' : 'transparent'; r.style.color = j===i ? '#5fa8d3' : '#b0b8c4'; });
           }
@@ -419,7 +423,7 @@
             row.onmouseover = function(){ if(i!==radioIdx) this.style.background='rgba(95,168,211,0.08)'; };
             row.onmouseout = function(){ if(i!==radioIdx) this.style.background='transparent'; };
             row.onclick = function(){ radioPlay(i); };
-            row.innerHTML = '<span style="width:30px;flex-shrink:0;font-size:11px;opacity:0.5;">'+(i+1)+'</span><span style="flex:1;">'+t.name+'</span>';
+            row.innerHTML = '<span style="width:30px;flex-shrink:0;font-size:11px;opacity:0.5;">'+(i+1)+'</span><img src="'+t.logo+'" style="width:28px;height:28px;object-fit:contain;border-radius:3px;background:#fff;padding:2px;margin-right:10px;flex-shrink:0;" alt=""><span style="flex:1;">'+t.name+'</span>';
             playlist.appendChild(row);
           });
           radioPlay(0);
