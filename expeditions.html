@@ -106,10 +106,6 @@
         <tr><td data-fr="Vitesse de croisière" data-en="Cruise speed">Vitesse de croisière</td><td>120 kts</td></tr>
         <tr><td data-fr="Consommation" data-en="Fuel consumption">Consommation</td><td>12 L/h</td></tr>
       </table>
-      <div class="aircraft-links">
-        <a class="btn btn-primary" href="actu.html#arrivee-au-salon-du-bourget" data-fr="Arrivée au Bourget →" data-en="Arrival at Le Bourget →">Arrivée au Bourget →</a>
-        <a class="btn btn-primary" href="https://docs.google.com/spreadsheets/d/159wf_mlcPG3rBdnbq8_lyZDaC5-tovUxTnKGCpKbhL0/edit?gid=0#gid=0" target="_blank" rel="noopener" id="listLink" data-fr="Liste des missions →" data-en="List of missions →">Liste des missions →</a>
-      </div>
     </div>
 
     <hr class="divider">
@@ -150,11 +146,12 @@
     <hr class="divider">
 
     <!-- TRAJETS / CARTE -->
-    <div style="text-align:center; padding:20px 0 40px;">
+    <div style="text-align:center; padding:20px 0 0;">
       <span class="section-tag" data-fr="Nos trajets" data-en="Our routes">Nos trajets</span>
-      <h2 class="section-heading" data-fr="Et nous avons effectué ces trajets" data-en="And we have completed these routes">Et nous avons effectué ces trajets</h2>
-      <p style="color:var(--text-muted);margin-bottom:28px;" data-fr="Retrouvez la carte interactive de toutes nos expéditions et missions scientifiques." data-en="Find the interactive map of all our expeditions and scientific missions.">Retrouvez la carte interactive de toutes nos expéditions et missions scientifiques.</p>
-      <a class="btn btn-primary" href="missions.html" data-fr="Voir la carte des missions →" data-en="View the missions map →">Voir la carte des missions →</a>
+      <h2 class="section-heading" data-fr="Les trajets réalisés" data-en="Routes completed">Les trajets réalisés</h2>
+    </div>
+    <div id="expMapWrap" style="width:100%;height:500px;border-radius:8px;overflow:hidden;border:1px solid rgba(95,168,211,0.1);margin-bottom:20px;">
+      <iframe id="expMapFrame" src="https://www.google.com/maps/d/viewer?mid=1sHhAm83yKUBHE2zRx_p4wF0W-uw&femb=1&ll=0,-53.78&z=2" width="100%" height="100%" style="border:none;" allowfullscreen></iframe>
     </div>
 
   </div>
@@ -201,13 +198,13 @@
 <script src="lang.js"></script>
 <script>
 (function() {
-  var listFR = "https://docs.google.com/spreadsheets/d/159wf_mlcPG3rBdnbq8_lyZDaC5-tovUxTnKGCpKbhL0/edit?gid=0#gid=0";
-  var listEN = "https://docs.google.com/spreadsheets/d/1p3c-l-JtmbS4U_tzKH7DFNulEg-SEisjpv-rceplfx8/edit";
+  var mapFR = "https://www.google.com/maps/d/viewer?mid=1sHhAm83yKUBHE2zRx_p4wF0W-uw&femb=1&ll=0,-53.78&z=2";
+  var mapEN = "https://www.google.com/maps/d/viewer?mid=1NTbnAvUf82dWcKuPZLMN0epOCMs&femb=1&ll=0,0&z=2";
   var orig = window.setLang;
   window.setLang = function(lang) {
     if (orig) orig(lang);
-    var el = document.getElementById('listLink');
-    if (el) el.href = (lang === 'en') ? listEN : listFR;
+    var el = document.getElementById('expMapFrame');
+    if (el) el.src = (lang === 'en') ? mapEN : mapFR;
   };
 })();
 </script>
