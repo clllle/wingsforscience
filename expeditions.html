@@ -110,6 +110,11 @@
       </table>
       <style>
         .badge-sci{display:inline-block;padding:3px 10px;border-radius:12px;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;line-height:1.4;}
+        #etapesPanel::-webkit-scrollbar{width:8px;}
+        #etapesPanel::-webkit-scrollbar-track{background:rgba(95,168,211,0.05);border-radius:4px;}
+        #etapesPanel::-webkit-scrollbar-thumb{background:rgba(95,168,211,0.3);border-radius:4px;}
+        #etapesPanel::-webkit-scrollbar-thumb:hover{background:rgba(95,168,211,0.5);}
+        #etapesPanel{scrollbar-width:thin;scrollbar-color:rgba(95,168,211,0.3) rgba(95,168,211,0.05);}
         .badge-sci.science{background:rgba(95,168,211,0.2);color:#7fc4eb;border:1px solid rgba(95,168,211,0.4);}
         .badge-sci.education{background:rgba(123,200,164,0.2);color:#9edcbe;border:1px solid rgba(123,200,164,0.4);}
         .chevron-btn.open{transform:rotate(90deg);}
@@ -122,7 +127,8 @@
             <span class="badge-sci science">Science</span>
             <span class="badge-sci education">Education</span>
           </div>
-          <div id="etapesPanel" style="max-height:300px;overflow-y:auto;border-radius:4px;">
+          <div style="text-align:center;margin-bottom:4px;"><button onclick="document.getElementById('etapesPanel').scrollBy({top:-100,behavior:'smooth'})" style="background:none;border:1px solid rgba(95,168,211,0.2);color:var(--accent);width:32px;height:24px;border-radius:4px;cursor:pointer;font-size:14px;transition:background 0.2s;" onmouseover="this.style.background='rgba(95,168,211,0.1)'" onmouseout="this.style.background='none'">&#9650;</button></div>
+          <div id="etapesPanel" style="max-height:260px;overflow-y:auto;border-radius:4px;">
         <table style="width:100%;border-collapse:collapse;">
           <tbody>
             <tr style="border-bottom:1px solid rgba(95,168,211,0.05);"><td style="padding:6px 14px;font-size:11px;color:var(--text-muted);text-align:center;">1</td><td style="padding:6px 14px;font-size:12px;color:var(--off-white);" data-fr="Luxembourg" data-en="Luxembourg">Luxembourg</td><td style="padding:6px 14px;text-align:center;"><span class="badge-sci science">S</span> <span class="badge-sci education">E</span></td></tr>
@@ -225,6 +231,7 @@
           </tbody>
         </table>
           </div>
+          <div style="text-align:center;margin-top:4px;"><button onclick="document.getElementById('etapesPanel').scrollBy({top:100,behavior:'smooth'})" style="background:none;border:1px solid rgba(95,168,211,0.2);color:var(--accent);width:32px;height:24px;border-radius:4px;cursor:pointer;font-size:14px;transition:background 0.2s;" onmouseover="this.style.background='rgba(95,168,211,0.1)'" onmouseout="this.style.background='none'">&#9660;</button></div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:center;gap:16px;padding:24px;background:rgba(14,26,40,0.5);border:1px solid rgba(95,168,211,0.1);border-radius:6px;">
           <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);text-align:center;" data-fr="Arrivée au Bourget" data-en="Arrival at Le Bourget">Arrivée au Bourget</div>
