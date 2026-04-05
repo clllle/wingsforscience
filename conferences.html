@@ -219,14 +219,30 @@
   </div>
 </div>
 
-  <div class="content-section" style="padding-top:0;"><div class="content-inner">
-    <span class="section-tag" data-fr="Revivez l'une de nos conférences" data-en="Relive one of our conferences">Revivez l'une de nos conférences</span>
-    <div class="video-embed" style="margin-top:24px;aspect-ratio:16/9;max-width:800px;">
-      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ZnjXWo7nQi8" allowfullscreen style="border:none;border-radius:4px;"></iframe>
+  <div class="content-section" style="padding-top:0;"><div class="content-inner" style="max-width:800px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:24px;">
+      <span class="section-tag" data-fr="Revivez l'une de nos conférences" data-en="Relive one of our conferences">Revivez l'une de nos conférences</span>
     </div>
-    <div style="margin-top:48px;text-align:center;">
-      <p data-fr="Pour organiser une conférence dans votre établissement :" data-en="To organise a conference at your institution:">Pour organiser une conférence dans votre établissement :</p>
-      <a class="btn btn-primary" href="contact.html" data-fr="Nous contacter →" data-en="Contact us →">Nous contacter →</a>
+    <div onclick="document.getElementById('confModal').style.display='flex';document.getElementById('confVideo').src='https://drive.google.com/file/d/1b5UbymyTxQCZ0iqXX0lUg5WcNKLrBQzG/preview'" style="position:relative;width:100%;border-radius:8px;overflow:hidden;cursor:pointer;aspect-ratio:16/9;">
+      <img src="images/conf_ahmedabad_inde.png" alt="Conférence" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.7);transition:filter 0.3s;" onmouseover="this.style.filter='brightness(0.9)'" onmouseout="this.style.filter='brightness(0.7)'">
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;">
+        <div style="width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,0.9);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.3);">
+          <div style="width:0;height:0;border-top:14px solid transparent;border-bottom:14px solid transparent;border-left:22px solid var(--accent);margin-left:4px;"></div>
+        </div>
+        <span style="color:#fff;font-size:14px;font-weight:600;text-shadow:0 2px 8px rgba(0,0,0,0.5);" data-fr="Voir la vidéo" data-en="Watch the video">Voir la vidéo</span>
+      </div>
+    </div>
+    <!-- Modal vidéo conférence -->
+    <div id="confModal" style="display:none;position:fixed;inset:0;z-index:1001;background:rgba(0,0,0,0.92);justify-content:center;align-items:center;flex-direction:column;" onclick="if(event.target===this){this.style.display='none';document.getElementById('confVideo').src='';}">
+      <button onclick="document.getElementById('confModal').style.display='none';document.getElementById('confVideo').src='';" style="position:absolute;top:20px;right:28px;background:none;border:none;color:#fff;font-size:36px;cursor:pointer;z-index:1002;transition:transform 0.2s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">&times;</button>
+      <div style="width:90%;max-width:900px;aspect-ratio:16/9;">
+        <iframe id="confVideo" src="" width="100%" height="100%" style="border:none;border-radius:6px;" allow="autoplay" allowfullscreen></iframe>
+      </div>
+      <p style="color:rgba(255,255,255,0.7);margin-top:16px;font-size:14px;" data-fr="Conférence Wings for Science" data-en="Wings for Science Conference">Conférence Wings for Science</p>
+    </div>
+    <div style="margin-top:40px;text-align:center;">
+      <p style="color:var(--text-muted);" data-fr="Pour organiser une conférence dans votre établissement :" data-en="To organise a conference at your institution:">Pour organiser une conférence dans votre établissement :</p>
+      <a class="btn btn-primary" href="contact.html" style="margin-top:12px;" data-fr="Nous contacter →" data-en="Contact us →">Nous contacter →</a>
     </div>
   </div></div>
 <footer>
