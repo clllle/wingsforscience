@@ -117,15 +117,14 @@
       </style>
       <div class="etapes-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;">
         <div>
-          <button onclick="document.getElementById('etapesPanel').style.display=document.getElementById('etapesPanel').style.display==='none'?'block':'none';this.querySelector('.chevron-btn').classList.toggle('open')" style="display:flex;align-items:center;gap:10px;width:100%;padding:14px 20px;background:rgba(95,168,211,0.06);border:1px solid rgba(95,168,211,0.15);border-radius:6px;color:var(--accent);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:background 0.2s;margin-bottom:8px;" onmouseover="this.style.background='rgba(95,168,211,0.12)'" onmouseout="this.style.background='rgba(95,168,211,0.06)'">
-            <span class="chevron-btn open" style="display:inline-block;transition:transform 0.3s;font-size:10px;">▶</span>
-            <span data-fr="Les 97 étapes du tour du monde" data-en="The 97 stages of the round-the-world trip">Les 97 étapes du tour du monde</span>
-          </button>
-          <div style="display:flex;gap:16px;align-items:center;margin-bottom:12px;">
-            <span style="display:flex;align-items:center;gap:6px;"><span class="badge-sci science">Science</span></span>
-            <span style="display:flex;align-items:center;gap:6px;"><span class="badge-sci education">Education</span></span>
+          <div style="padding:14px 20px;background:rgba(95,168,211,0.06);border:1px solid rgba(95,168,211,0.15);border-radius:6px 6px 0 0;border-bottom:none;display:flex;align-items:center;justify-content:space-between;">
+            <span style="color:var(--accent);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;" data-fr="Les 97 étapes du tour du monde" data-en="The 97 stages of the round-the-world trip">Les 97 étapes du tour du monde</span>
+            <span style="display:flex;gap:10px;align-items:center;">
+              <span class="badge-sci science">Science</span>
+              <span class="badge-sci education">Education</span>
+            </span>
           </div>
-          <div id="etapesPanel" style="display:block;max-height:260px;overflow-y:auto;border:1px solid rgba(95,168,211,0.1);border-radius:6px;margin-bottom:16px;">
+          <div id="etapesPanel" style="max-height:340px;overflow-y:auto;border:1px solid rgba(95,168,211,0.1);border-radius:0 0 6px 6px;margin-bottom:16px;">
         <table style="width:100%;border-collapse:collapse;">
           <thead><tr style="position:sticky;top:0;background:var(--sky-mid);z-index:1;">
             <th style="padding:10px 14px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);text-align:left;border-bottom:1px solid rgba(95,168,211,0.15);">N°</th>
