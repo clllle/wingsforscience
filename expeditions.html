@@ -10,16 +10,28 @@
     .aircraft-block { margin-bottom: 60px; }
     .aircraft-block h2 { font-family:'Merriweather',serif; font-size:26px; font-weight:300; color:var(--white); margin-bottom:8px; }
     .aircraft-block .aircraft-sub { font-size:12px; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--accent); margin-bottom:20px; }
-    .aircraft-photos { display:grid; grid-template-columns:repeat(3,1fr); gap:3px; margin-bottom:24px; }
-    .aircraft-photos img { width:100%; aspect-ratio:3/2; object-fit:cover; filter:brightness(.8); transition:filter .3s; }
-    .aircraft-photos img:hover { filter:brightness(1); }
     .specs-table { width:100%; border-collapse:collapse; margin-bottom:24px; }
     .specs-table td { padding:10px 14px; font-size:13px; border-bottom:1px solid rgba(95,168,211,0.08); }
     .specs-table td:first-child { font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--accent); font-size:10px; width:40%; }
     .specs-table td:last-child { color:var(--off-white); }
     .aircraft-links { display:flex; gap:12px; flex-wrap:wrap; }
     .divider { border:none; border-top:1px solid rgba(95,168,211,0.1); margin:60px 0; }
-    @media(max-width:700px){ .aircraft-photos { grid-template-columns:repeat(2,1fr); } }
+
+    /* ── AIRCRAFT CAROUSEL ── */
+    .ac-carousel{position:relative;width:100%;aspect-ratio:16/9;border-radius:8px;overflow:hidden;margin-bottom:28px;}
+    .ac-slide{position:absolute;inset:0;opacity:0;transition:opacity 0.7s ease;}
+    .ac-slide.active{opacity:1;}
+    .ac-slide img{width:100%;height:100%;object-fit:cover;}
+    .ac-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:3;background:rgba(255,255,255,0.12);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,0.2);color:#fff;width:44px;height:44px;border-radius:50%;cursor:pointer;font-size:18px;transition:background 0.3s,transform 0.3s;}
+    .ac-btn:hover{background:rgba(255,255,255,0.25);transform:translateY(-50%) scale(1.1);}
+    .ac-btn.prev{left:14px}
+    .ac-btn.next{right:14px}
+    .ac-dots{position:absolute;bottom:12px;left:0;right:0;text-align:center;z-index:3;}
+    .ac-dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,0.3);margin:0 4px;cursor:pointer;transition:background 0.3s,transform 0.3s;border:1px solid rgba(255,255,255,0.15);}
+    .ac-dot.active{background:#fff;transform:scale(1.3);}
+    .ac-counter{position:absolute;top:14px;right:18px;z-index:3;font-size:12px;font-weight:600;color:rgba(255,255,255,0.7);background:rgba(0,0,0,0.35);padding:4px 12px;border-radius:20px;backdrop-filter:blur(4px);}
+
+    @media(max-width:700px){.ac-carousel{aspect-ratio:4/3;}}
   </style>
 </head>
 <body>
@@ -68,10 +80,18 @@
     <div class="aircraft-block">
       <div class="aircraft-sub" data-fr="Aéronef 01 — Tour du Monde" data-en="Aircraft 01 — Round the world">Aéronef 01 — Tour du Monde</div>
       <h2 data-fr="Pipistrel Virus SW S80, entièrement modifié" data-en="Pipistrel Virus SW S80, fully modified">Pipistrel Virus SW S80, entièrement modifié</h2>
-      <div class="aircraft-photos">
-        <img src="images/pipistrel_virus_cascade_islande_hd.jpg" alt="Pipistrel Virus devant la cascade Seljalandsfoss, Islande">
-        <img src="images/pipistrel_virus_equipe_desert.jpg" alt="Adrien et Clémentine devant le Pipistrel Virus">
-        <img src="images/pipistrel_virus_survol_kuala_lumpur.png" alt="Pipistrel Virus survolant Kuala Lumpur, Malaisie">
+      <div class="ac-carousel" id="carouselVirus">
+        <div class="ac-slide active"><img src="images/pipistrel_virus_cascade_islande_hd.jpg" alt="Pipistrel Virus devant la cascade Seljalandsfoss, Islande"></div>
+        <div class="ac-slide"><img src="images/pipistrel_virus_equipe_desert.jpg" alt="Adrien et Clémentine devant le Pipistrel Virus"></div>
+        <div class="ac-slide"><img src="images/pipistrel_virus_survol_kuala_lumpur.png" alt="Pipistrel Virus survolant Kuala Lumpur"></div>
+        <div class="ac-slide"><img src="images/pipistrel_virus_ombre_piste.jpg" alt="Ombre du Pipistrel Virus sur une piste"></div>
+        <div class="ac-slide"><img src="images/avion_wfs_glacier_upsala_argentine.jpg" alt="Pipistrel Virus survolant le glacier Upsala"></div>
+        <div class="ac-slide"><img src="images/avion_wfs_lac_eyre_australie_meridionale.jpg" alt="Pipistrel Virus au-dessus du lac Eyre, Australie"></div>
+        <div class="ac-slide"><img src="images/pilote_avion_wfs_aeroport_perou.jpg" alt="Clémentine et le Pipistrel Virus au Pérou"></div>
+        <button class="ac-btn prev" onclick="acNav('carouselVirus',-1)">&#8592;</button>
+        <button class="ac-btn next" onclick="acNav('carouselVirus',1)">&#8594;</button>
+        <div class="ac-dots" id="dotsVirus"></div>
+        <div class="ac-counter" id="counterVirus"></div>
       </div>
       <table class="specs-table">
         <tr><td data-fr="Fabricant" data-en="Manufacturer">Fabricant</td><td>Pipistrel</td></tr>
@@ -96,10 +116,21 @@
     <div class="aircraft-block">
       <div class="aircraft-sub" data-fr="Aéronef 02 — Traversée des Amériques" data-en="Aircraft 02 — Crossing the Americas">Aéronef 02 — Traversée des Amériques</div>
       <h2 data-fr="Edra Super Petrel LS, entièrement modifié" data-en="Edra Super Petrel LS, fully modified">Edra Super Petrel LS, entièrement modifié</h2>
-      <div class="aircraft-photos">
-        <img src="images/super_petrel_vol_lac_patagonie.jpg" alt="Super Petrel LS en vol au-dessus d'un lac de Patagonie">
-        <img src="images/super_petrel_lac_reflet_patagonie.jpg" alt="Super Petrel LS posé sur un lac, reflet, Patagonie">
-        <img src="images/super_petrel_equipe_salinas.png" alt="Équipe Wings for Science sur le Super Petrel LS, Salinas Grandes">
+      <div class="ac-carousel" id="carouselPetrel">
+        <div class="ac-slide active"><img src="images/super_petrel_vol_lac_patagonie.jpg" alt="Super Petrel LS en vol au-dessus d'un lac de Patagonie"></div>
+        <div class="ac-slide"><img src="images/super_petrel_lac_reflet_patagonie.jpg" alt="Super Petrel LS posé sur un lac, reflet, Patagonie"></div>
+        <div class="ac-slide"><img src="images/super_petrel_equipe_salinas.png" alt="Équipe sur le Super Petrel LS, Salinas Grandes"></div>
+        <div class="ac-slide"><img src="images/super_petrel_vol_parana_bresil.jpg" alt="Super Petrel LS en vol au-dessus du Paraná"></div>
+        <div class="ac-slide"><img src="images/super_petrel_amarre_lac_patagonie.jpg" alt="Super Petrel LS amarré sur un lac en Patagonie"></div>
+        <div class="ac-slide"><img src="images/super_petrel_vol_glacier_groenland.jpg" alt="Super Petrel LS au-dessus des glaciers"></div>
+        <div class="ac-slide"><img src="images/super_petrel_vol_montagnes_patagonie.jpg" alt="Super Petrel LS en vol devant les montagnes"></div>
+        <div class="ac-slide"><img src="images/super_petrel_vol_face_montagnes.jpg" alt="Super Petrel LS en vol de face"></div>
+        <div class="ac-slide"><img src="images/super_petrel_equipe_riviere.jpg" alt="Équipe debout sur le Super Petrel LS"></div>
+        <div class="ac-slide"><img src="images/super_petrel_amerrissage_islande.jpg" alt="Super Petrel LS amerrissant en Islande"></div>
+        <button class="ac-btn prev" onclick="acNav('carouselPetrel',-1)">&#8592;</button>
+        <button class="ac-btn next" onclick="acNav('carouselPetrel',1)">&#8594;</button>
+        <div class="ac-dots" id="dotsPetrel"></div>
+        <div class="ac-counter" id="counterPetrel"></div>
       </div>
       <table class="specs-table">
         <tr><td data-fr="Fabricant" data-en="Manufacturer">Fabricant</td><td>Edra Aeronáutica</td></tr>
@@ -175,6 +206,41 @@
     if (orig) orig(lang);
     var el = document.getElementById('listLink');
     if (el) el.href = (lang === 'en') ? listEN : listFR;
+  };
+})();
+</script>
+<script>
+/* ── Aircraft Carousels ── */
+(function(){
+  var carousels={};
+  document.querySelectorAll('.ac-carousel').forEach(function(el){
+    var id=el.id;
+    var slides=el.querySelectorAll('.ac-slide');
+    var dotsEl=el.querySelector('.ac-dots');
+    var counterEl=el.querySelector('.ac-counter');
+    var idx=0,timer;
+    slides.forEach(function(s,i){
+      var d=document.createElement('span');
+      d.className='ac-dot'+(i===0?' active':'');
+      d.onclick=function(){show(i);resetTimer();};
+      dotsEl.appendChild(d);
+    });
+    function show(i){
+      idx=i;
+      slides.forEach(function(s,j){s.classList.toggle('active',j===i);});
+      dotsEl.querySelectorAll('.ac-dot').forEach(function(d,j){d.classList.toggle('active',j===i);});
+      counterEl.textContent=(i+1)+' / '+slides.length;
+    }
+    function resetTimer(){clearInterval(timer);timer=setInterval(function(){show((idx+1)%slides.length);},4500);}
+    carousels[id]={show:show,resetTimer:resetTimer,len:slides.length,getIdx:function(){return idx;}};
+    show(0);
+    timer=setInterval(function(){show((idx+1)%slides.length);},4500);
+  });
+  window.acNav=function(id,d){
+    var c=carousels[id];
+    if(!c)return;
+    c.show((c.getIdx()+d+c.len)%c.len);
+    c.resetTimer();
   };
 })();
 </script>
