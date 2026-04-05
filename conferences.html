@@ -84,6 +84,43 @@
     <p class="lead-text" data-fr="Nos conférences s'appuient sur nos vidéos pédagogiques, ainsi que sur les outils et le réseau fournis par nos partenaires. Nous intervenons dans les écoles, les universités et lors d'événements publics." data-en="Our conferences draw on our educational videos, as well as the tools and network provided by our partners. We speak at schools, universities and public events.">Nos conférences s'appuient sur nos vidéos pédagogiques, ainsi que sur les outils et le réseau fournis par nos partenaires. Nous intervenons dans les écoles, les universités et lors d'événements publics.</p>
   </div></div>
 
+<!-- CARROUSEL CONFÉRENCES -->
+<div class="content-section" style="padding-top:0;padding-bottom:40px;">
+  <div class="content-inner">
+    <div style="text-align:center;margin-bottom:24px;">
+      <span class="section-tag" data-fr="En images" data-en="In pictures">En images</span>
+    </div>
+    <style>
+      .conf-carousel{position:relative;width:100%;aspect-ratio:16/9;max-height:500px;border-radius:8px;overflow:hidden;}
+      .conf-slide{position:absolute;inset:0;opacity:0;transition:opacity 0.7s ease;}
+      .conf-slide.active{opacity:1;}
+      .conf-slide img{width:100%;height:100%;object-fit:cover;}
+      .conf-caption{position:absolute;bottom:0;left:0;right:0;padding:20px 28px;background:linear-gradient(transparent,rgba(0,0,0,0.75));color:#fff;z-index:2;}
+      .conf-caption-text{font-family:'Merriweather',serif;font-size:16px;font-weight:400;}
+      .conf-caption-loc{font-size:12px;opacity:0.7;margin-top:4px;}
+      .conf-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:3;background:rgba(255,255,255,0.12);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,0.2);color:#fff;width:44px;height:44px;border-radius:50%;cursor:pointer;font-size:18px;transition:background 0.3s,transform 0.3s;}
+      .conf-btn:hover{background:rgba(255,255,255,0.25);transform:translateY(-50%) scale(1.1);}
+      .conf-btn.prev{left:14px}.conf-btn.next{right:14px}
+      .conf-dots{position:absolute;bottom:10px;left:0;right:0;text-align:center;z-index:3;}
+      .conf-dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,0.3);margin:0 4px;cursor:pointer;transition:background 0.3s,transform 0.3s;border:1px solid rgba(255,255,255,0.15);}
+      .conf-dot.active{background:#fff;transform:scale(1.3);}
+    </style>
+    <div class="conf-carousel" id="confCarousel">
+      <div class="conf-slide active"><img src="images/conf_tobalaba_chili.jpg" alt="Enfants devant l'avion, Chili"><div class="conf-caption"><div class="conf-caption-text" data-fr="Avec les enfants de l'Escuela Saint Lawrence" data-en="With the children of Escuela Saint Lawrence">Avec les enfants de l'Escuela Saint Lawrence</div><div class="conf-caption-loc">Tobalaba, Chili</div></div></div>
+      <div class="conf-slide"><img src="images/conf_ahmedabad_inde.png" alt="Conférence à Ahmedabad, Inde"><div class="conf-caption"><div class="conf-caption-text" data-fr="Intervention devant 200 élèves" data-en="Talk to 200 students">Intervention devant 200 élèves</div><div class="conf-caption-loc">Ahmedabad, Inde</div></div></div>
+      <div class="conf-slide"><img src="images/conf_osorno_chili.jpg" alt="Conférence à Osorno, Chili"><div class="conf-caption"><div class="conf-caption-text" data-fr="Conférence en classe" data-en="Classroom conference">Conférence en classe</div><div class="conf-caption-loc">Osorno, Chili</div></div></div>
+      <div class="conf-slide"><img src="images/conf_ayla_jordanie.jpg" alt="Avec les élèves pilotes, Jordanie"><div class="conf-caption"><div class="conf-caption-text" data-fr="Avec les élèves pilotes de l'Ayla Flying School" data-en="With the student pilots of Ayla Flying School">Avec les élèves pilotes de l'Ayla Flying School</div><div class="conf-caption-loc">Aqaba, Jordanie</div></div></div>
+      <div class="conf-slide"><img src="images/conf_pakistan.jpg" alt="Conférence au Pakistan"><div class="conf-caption"><div class="conf-caption-text" data-fr="Intervention dans une école" data-en="School presentation">Intervention dans une école</div><div class="conf-caption-loc">Karachi, Pakistan</div></div></div>
+      <div class="conf-slide"><img src="images/conf_paletuviers_guyane.png" alt="École des Trois-Paletuviers, Guyane"><div class="conf-caption"><div class="conf-caption-text" data-fr="Les enfants lèvent la main !" data-en="The children raise their hands!">Les enfants lèvent la main !</div><div class="conf-caption-loc">Trois-Paletuviers, Guyane française</div></div></div>
+      <div class="conf-slide"><img src="images/conf_ahmedabad2_inde.png" alt="Présentation à Ahmedabad"><div class="conf-caption"><div class="conf-caption-text" data-fr="Présentation de notre tour du monde" data-en="Presenting our round-the-world trip">Présentation de notre tour du monde</div><div class="conf-caption-loc">Ahmedabad, Inde</div></div></div>
+      <div class="conf-slide"><img src="images/conf_pakistan2.jpg" alt="En classe au Pakistan"><div class="conf-caption"><div class="conf-caption-text" data-fr="Échanges avec les élèves et les enseignants" data-en="Exchanges with students and teachers">Échanges avec les élèves et les enseignants</div><div class="conf-caption-loc">Pakistan</div></div></div>
+      <button class="conf-btn prev" onclick="confNav(-1)">&#8592;</button>
+      <button class="conf-btn next" onclick="confNav(1)">&#8594;</button>
+      <div class="conf-dots" id="confDots"></div>
+    </div>
+  </div>
+</div>
+
 <!-- TABLEAU DES CONFÉRENCES -->
 <div class="content-section" style="padding-top:0;">
   <div class="content-inner">
@@ -231,5 +268,34 @@
   <div class="footer-bottom"><span class="footer-copy" data-fr="© 2024 Des Ailes pour la Science / Wings for Science. Association de loi 1901." data-en="© 2024 Wings for Science / Des Ailes pour la Science. Non-profit association.">© 2024 Des Ailes pour la Science / Wings for Science. Association de loi 1901.</span><div class="social-links"><a href="http://wingsforscience.blogspot.com/" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/70b1c5a67d2349e3933570b344b1d54d.png/v1/fill/w_35,h_35,al_c,enc_avif,quality_auto/70b1c5a67d2349e3933570b344b1d54d.png" alt="Blogger"></a><a href="http://www.facebook.com/wingsforscience" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/4057345bcf57474b96976284050c00df.png/v1/fill/w_35,h_35,al_c,enc_avif,quality_auto/4057345bcf57474b96976284050c00df.png" alt="Facebook"></a><a href="https://www.youtube.com/playlist?list=PL8A32C328768F858A" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/45bce1d726f64f1999c49feae57f6298.png/v1/fill/w_35,h_35,al_c,enc_avif,quality_auto/45bce1d726f64f1999c49feae57f6298.png" alt="YouTube"></a></div></div>
 </footer>
 <script src="lang.js"></script>
+<script>
+/* ── Conference Carousel ── */
+(function(){
+  var carousel=document.getElementById('confCarousel');
+  if(!carousel)return;
+  var slides=carousel.querySelectorAll('.conf-slide');
+  var dotsEl=document.getElementById('confDots');
+  var idx=0,timer;
+  slides.forEach(function(s,i){
+    var d=document.createElement('span');
+    d.className='conf-dot'+(i===0?' active':'');
+    d.onclick=function(){show(i);resetTimer();};
+    dotsEl.appendChild(d);
+  });
+  function show(i){
+    idx=i;
+    slides.forEach(function(s,j){s.classList.toggle('active',j===i);});
+    dotsEl.querySelectorAll('.conf-dot').forEach(function(d,j){d.classList.toggle('active',j===i);});
+  }
+  function resetTimer(){clearInterval(timer);timer=setInterval(function(){show((idx+1)%slides.length);},5000);}
+  window.confNav=function(d){show((idx+d+slides.length)%slides.length);resetTimer();};
+  show(0);
+  timer=setInterval(function(){show((idx+1)%slides.length);},5000);
+})();
+</script>
+<script>
+function toggleMenu(){var n=document.getElementById('mobileNav'),b=document.getElementById('hamburger');n.classList.toggle('open');b.classList.toggle('open');document.body.style.overflow=n.classList.contains('open')?'hidden':'';}
+window.addEventListener('resize',function(){if(window.innerWidth>960){var n=document.getElementById('mobileNav'),b=document.getElementById('hamburger');if(n)n.classList.remove('open');if(b)b.classList.remove('open');document.body.style.overflow='';}});
+</script>
 </body>
 </html>
