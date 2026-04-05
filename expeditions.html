@@ -117,6 +117,8 @@
         #etapesPanel{scrollbar-width:thin;scrollbar-color:rgba(95,168,211,0.45) rgba(95,168,211,0.1);}
         .badge-sci.science{background:rgba(95,168,211,0.2);color:#7fc4eb;border:1px solid rgba(95,168,211,0.4);}
         .badge-sci.education{background:rgba(123,200,164,0.2);color:#9edcbe;border:1px solid rgba(123,200,164,0.4);}
+        #etapesPanel tr{transition:background 0.3s,transform 0.3s;}
+        #etapesPanel tr.etape-active{background:rgba(95,168,211,0.08);}
         .chevron-btn.open{transform:rotate(90deg);}
         @media(max-width:800px){.etapes-grid{grid-template-columns:1fr !important;}}
       </style>
@@ -398,6 +400,28 @@
     c.show((c.getIdx()+d+c.len)%c.len);
     c.resetTimer();
   };
+})();
+</script>
+<script>
+/* ── Highlight center row in etapes ── */
+(function(){
+  var panel=document.getElementById('etapesPanel');
+  if(!panel)return;
+  var rows=panel.querySelectorAll('tr');
+  function highlight(){
+    var rect=panel.getBoundingClientRect();
+    var centerY=rect.top+rect.height/2;
+    var closest=null,minDist=Infinity;
+    rows.forEach(function(r){
+      var rr=r.getBoundingClientRect();
+      var d=Math.abs(rr.top+rr.height/2-centerY);
+      if(d<minDist){minDist=d;closest=r;}
+    });
+    rows.forEach(function(r){r.classList.remove('etape-active');});
+    if(closest)closest.classList.add('etape-active');
+  }
+  panel.addEventListener('scroll',highlight);
+  highlight();
 })();
 </script>
 <script>
