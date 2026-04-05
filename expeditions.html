@@ -90,6 +90,9 @@
         <div class="ac-slide"><img src="images/pilote_avion_wfs_aeroport_perou.jpg" alt="Clémentine et le Pipistrel Virus au Pérou"></div>
         <div class="ac-slide"><img src="images/equipe_wfs_kulusuk.jpg" alt="Équipe Wings for Science devant le Pipistrel, Kulusuk, Groenland"></div>
         <div class="ac-slide"><img src="images/avion_wfs_cratere_toondina_australie.jpg" alt="Pipistrel Virus survolant le cratère Toondina, Australie"></div>
+        <div class="ac-slide"><img src="images/pipistrel_virus_kulusuk.avif" alt="Pipistrel Virus à Kulusuk, Groenland"></div>
+        <div class="ac-slide"><img src="images/pipistrel_virus_cockpit.avif" alt="Cockpit du Pipistrel Virus"></div>
+        <div class="ac-slide"><img src="images/pipistrel_virus_bourget.avif" alt="Pipistrel Virus au Salon du Bourget"></div>
         <button class="ac-btn prev" onclick="acNav('carouselVirus',-1)">&#8592;</button>
         <button class="ac-btn next" onclick="acNav('carouselVirus',1)">&#8594;</button>
         <div class="ac-dots" id="dotsVirus"></div>
@@ -235,9 +238,22 @@
         <div style="display:flex;flex-direction:column;align-items:center;gap:16px;padding:24px;background:rgba(14,26,40,0.5);border:1px solid rgba(95,168,211,0.1);border-radius:6px;">
           <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);text-align:center;" data-fr="Arrivée au Bourget" data-en="Arrival at Le Bourget">Arrivée au Bourget</div>
           <p style="font-size:13px;color:var(--text-muted);text-align:center;line-height:1.6;" data-fr="Atterrissage officiel au Salon international aéronautique du Bourget" data-en="Official landing at the Paris International Air Show">Atterrissage officiel au Salon international aéronautique du Bourget</p>
-          <div style="width:100%;aspect-ratio:16/9;border-radius:4px;overflow:hidden;">
-            <iframe src="https://drive.google.com/file/d/0B0RkbHBUrWAxV2lqUlNxVko1Um8/preview" width="100%" height="100%" style="border:none;" allow="autoplay" allowfullscreen></iframe>
+          <div onclick="document.getElementById('bourgetModal').style.display='flex';document.getElementById('bourgetVideo').src='https://drive.google.com/file/d/0B0RkbHBUrWAxV2lqUlNxVko1Um8/preview'" style="position:relative;width:100%;border-radius:6px;overflow:hidden;cursor:pointer;">
+            <img src="images/arrivee_bourget.avif" alt="Arrivée au Bourget" style="width:100%;display:block;filter:brightness(0.8);transition:filter 0.3s;" onmouseover="this.style.filter='brightness(1)'" onmouseout="this.style.filter='brightness(0.8)'">
+            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+              <div style="width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,0.9);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.3);transition:transform 0.3s;">
+                <div style="width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-left:20px solid var(--accent);margin-left:4px;"></div>
+              </div>
+            </div>
           </div>
+        </div>
+        <!-- Modal vidéo Bourget -->
+        <div id="bourgetModal" style="display:none;position:fixed;inset:0;z-index:1001;background:rgba(0,0,0,0.92);justify-content:center;align-items:center;flex-direction:column;" onclick="if(event.target===this){this.style.display='none';document.getElementById('bourgetVideo').src='';}">
+          <button onclick="document.getElementById('bourgetModal').style.display='none';document.getElementById('bourgetVideo').src='';" style="position:absolute;top:20px;right:28px;background:none;border:none;color:#fff;font-size:36px;cursor:pointer;z-index:1002;transition:transform 0.2s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">&times;</button>
+          <div style="width:90%;max-width:900px;aspect-ratio:16/9;">
+            <iframe id="bourgetVideo" src="" width="100%" height="100%" style="border:none;border-radius:6px;" allow="autoplay" allowfullscreen></iframe>
+          </div>
+          <p style="color:rgba(255,255,255,0.7);margin-top:16px;font-size:14px;" data-fr="Atterrissage au Salon du Bourget" data-en="Landing at the Paris Air Show">Atterrissage au Salon du Bourget</p>
         </div>
       </div>
     </div>
@@ -259,6 +275,10 @@
         <div class="ac-slide"><img src="images/super_petrel_vol_face_montagnes.jpg" alt="Super Petrel LS en vol de face"></div>
         <div class="ac-slide"><img src="images/super_petrel_equipe_riviere.jpg" alt="Équipe debout sur le Super Petrel LS"></div>
         <div class="ac-slide"><img src="images/super_petrel_amerrissage_islande.jpg" alt="Super Petrel LS amerrissant en Islande"></div>
+        <div class="ac-slide"><img src="images/super_petrel_usa.avif" alt="Super Petrel LS aux États-Unis"></div>
+        <div class="ac-slide"><img src="images/super_petrel_cockpit.avif" alt="Cockpit du Super Petrel LS"></div>
+        <div class="ac-slide"><img src="images/super_petrel_amazonie.avif" alt="Super Petrel LS en mission en Amazonie"></div>
+        <div class="ac-slide"><img src="images/super_petrel_usa2.avif" alt="Super Petrel LS survolant les États-Unis"></div>
         <button class="ac-btn prev" onclick="acNav('carouselPetrel',-1)">&#8592;</button>
         <button class="ac-btn next" onclick="acNav('carouselPetrel',1)">&#8594;</button>
         <div class="ac-dots" id="dotsPetrel"></div>
