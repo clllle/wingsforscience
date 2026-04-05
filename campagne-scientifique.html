@@ -83,6 +83,18 @@
     .doc-card:hover .doc-meta { color: #5fa8d3 !important; }
     .doc-card:hover .doc-arrow { color: #5fa8d3 !important; }
     .doc-card:hover .doc-icon { background: rgba(95,168,211,0.15) !important; }
+    #missionsPanel::-webkit-scrollbar{width:6px;}
+    #missionsPanel::-webkit-scrollbar-track{background:rgba(95,168,211,0.1);border-radius:4px;}
+    #missionsPanel::-webkit-scrollbar-thumb{background:rgba(95,168,211,0.45);border-radius:4px;}
+    #missionsPanel::-webkit-scrollbar-thumb:hover{background:rgba(95,168,211,0.65);}
+    #missionsPanel{scrollbar-width:thin;scrollbar-color:rgba(95,168,211,0.45) rgba(95,168,211,0.1);}
+    .missions-table tbody tr{transition:background 0.3s;}
+    .missions-table tbody tr.mission-active{background:rgba(95,168,211,0.12) !important;border-left:3px solid var(--accent) !important;}
+    .missions-table tbody tr.mission-active td{color:var(--accent) !important;font-weight:700 !important;}
+    .pub-badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:9px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-left:8px;}
+    .pub-badge.volc{background:rgba(200,100,80,0.2);color:#e0a090;border:1px solid rgba(200,100,80,0.3);}
+    .pub-badge.marine{background:rgba(95,168,211,0.2);color:#7fc4eb;border:1px solid rgba(95,168,211,0.3);}
+    .pub-badge.geo{background:rgba(200,169,110,0.2);color:#d4b87a;border:1px solid rgba(200,169,110,0.3);}
   </style>
 </head>
 <body>
@@ -132,7 +144,7 @@
     <span class="section-tag" data-fr="Carte interactive" data-en="Interactive map">Carte interactive</span>
     <h2 class="section-heading" data-fr="Nos missions à travers le monde" data-en="Our missions around the world">Nos missions à travers le monde</h2>
     <p style="color:var(--text-muted);margin-bottom:24px;" data-fr="Cliquez sur chaque point pour voir tous les détails de la mission." data-en="Click on each point to see full mission details.">Cliquez sur chaque point pour voir tous les détails de la mission.</p>
-    <div id="wfsMissionsMap" style="width:100%;height:480px;border-radius:6px;overflow:hidden;border:1px solid rgba(95,168,211,0.15);"></div>
+    <div id="wfsMissionsMap" style="width:100%;height:480px;border-radius:6px;overflow:hidden;border:1px solid rgba(95,168,211,0.15);position:relative;z-index:1;"></div>
     <div class="map-legend">
       <div class="legend-item"><span class="legend-line" style="background:#5fa8d3;border-color:#5fa8d3"></span><span class="legend-label">Expédition en Virus SW</span></div>
       <div class="legend-item"><span class="legend-line" style="background:#a8d5f0;border-color:#a8d5f0;border-style:dashed"></span><span class="legend-label">Traversée du Pacifique (bateau)</span></div>
@@ -156,7 +168,7 @@
     3: 'Expédition en amphibie Super Pétrel'
   };
 
-  var tileClean = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
+  var tileClean = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
     attribution: '© OpenStreetMap © CARTO', subdomains: 'abcd', maxZoom: 19
   });
 
@@ -239,7 +251,8 @@
   <div class="content-inner">
     <span class="section-tag" data-fr="Missions réalisées" data-en="Completed missions">Missions réalisées</span>
     <h2 class="section-heading" id="missionsList" data-fr="Liste complète des 34 missions" data-en="Complete list of 34 missions">Liste complète des 34 missions</h2>
-    <div style="overflow-x:auto;margin-top:24px;">
+    <div style="display:flex;gap:8px;align-items:stretch;margin-top:24px;">
+    <div id="missionsPanel" style="flex:1;max-height:500px;overflow-y:auto;overflow-x:auto;border-radius:6px;border:1px solid rgba(95,168,211,0.1);">
       <table class="missions-table">
         <thead>
           <tr>
@@ -499,6 +512,12 @@
         </tbody>
       </table>
     </div>
+    <div style="display:flex;flex-direction:column;align-items:center;width:28px;gap:0;">
+      <button onclick="document.getElementById('missionsPanel').scrollBy({top:-120,behavior:'smooth'})" style="background:rgba(95,168,211,0.1);border:1px solid rgba(95,168,211,0.25);color:var(--accent);width:28px;height:28px;border-radius:4px 4px 0 0;cursor:pointer;font-size:12px;transition:background 0.2s;border-bottom:none;" onmouseover="this.style.background='rgba(95,168,211,0.2)'" onmouseout="this.style.background='rgba(95,168,211,0.1)'">&#9650;</button>
+      <div style="flex:1;width:12px;background:rgba(95,168,211,0.15);border:1px solid rgba(95,168,211,0.25);border-radius:6px;margin:0 8px;"></div>
+      <button onclick="document.getElementById('missionsPanel').scrollBy({top:120,behavior:'smooth'})" style="background:rgba(95,168,211,0.1);border:1px solid rgba(95,168,211,0.25);color:var(--accent);width:28px;height:28px;border-radius:0 0 4px 4px;cursor:pointer;font-size:12px;transition:background 0.2s;border-top:none;" onmouseover="this.style.background='rgba(95,168,211,0.2)'" onmouseout="this.style.background='rgba(95,168,211,0.1)'">&#9660;</button>
+    </div>
+    </div>
   </div>
 </div>
 
@@ -590,7 +609,7 @@
         <div class="doc-icon doc-icon-pub">📰</div>
         <div class="doc-body">
           <div class="doc-title" data-fr="Structure d'un volcan actif associé à un bloc résurgent inférée par cartographie thermique : le complexe volcanique Yasur–Yenkahe (Vanuatu)" data-en="Structure of an active volcano associated with a resurgent block inferred from thermal mapping: The Yasur–Yenkahe volcanic complex (Vanuatu)">Structure d'un volcan actif associé à un bloc résurgent inférée par cartographie thermique : le complexe volcanique Yasur–Yenkahe (Vanuatu)</div>
-          <div class="doc-meta" data-fr="Yasur, Vanuatu" data-en="Yasur, Vanuatu">Yasur, Vanuatu</div>
+          <div class="doc-meta" data-fr="Yasur, Vanuatu" data-en="Yasur, Vanuatu">Yasur, Vanuatu <span class="pub-badge volc">Volcanologie</span></div>
         </div>
         <div class="doc-arrow">→</div>
       </a>
@@ -599,7 +618,7 @@
         <div class="doc-icon doc-icon-pub">📰</div>
         <div class="doc-body">
           <div class="doc-title" data-fr="Génération de MNT sur le sommet du Stromboli avec MicMac : comparaison avec le LiDAR" data-en="DEM generation over the Stromboli summit area using MicMac: a comparison with Lidar">Génération de MNT sur le sommet du Stromboli avec MicMac : comparaison avec le LiDAR</div>
-          <div class="doc-meta" data-fr="Stromboli, Îles Éoliennes, Italie · IPGP" data-en="Stromboli, Aeolian Islands, Italy · IPGP">Stromboli, Îles Éoliennes, Italie · IPGP</div>
+          <div class="doc-meta" data-fr="Stromboli, Îles Éoliennes, Italie · IPGP" data-en="Stromboli, Aeolian Islands, Italy · IPGP">Stromboli, Îles Éoliennes, Italie · IPGP <span class="pub-badge volc">Volcanologie</span></div>
         </div>
         <div class="doc-arrow">→</div>
       </a>
@@ -608,7 +627,7 @@
         <div class="doc-icon doc-icon-pub">📰</div>
         <div class="doc-body">
           <div class="doc-title" data-fr="Évolution du dôme résurgent de Yenkahe (caldeira de Siwi, île de Tanna, Vanuatu) inférée par photogrammétrie aérienne haute résolution" data-en="Insights into the evolution of the Yenkahe resurgent dome (Siwi caldera, Tanna Island, Vanuatu) inferred from aerial high-resolution photogrammetry">Évolution du dôme résurgent de Yenkahe (caldeira de Siwi, île de Tanna, Vanuatu) inférée par photogrammétrie aérienne haute résolution</div>
-          <div class="doc-meta">Tanna, Vanuatu</div>
+          <div class="doc-meta">Tanna, Vanuatu <span class="pub-badge volc">Volcanologie</span></div>
         </div>
         <div class="doc-arrow">→</div>
       </a>
@@ -617,7 +636,7 @@
         <div class="doc-icon doc-icon-pub">📰</div>
         <div class="doc-body">
           <div class="doc-title" data-fr="Première mesure du dégazage volcanique de l'Anak Krakatau, Indonésie" data-en="First measurement of the volcanic gas output from Anak Krakatau, Indonesia">Première mesure du dégazage volcanique de l'Anak Krakatau, Indonésie</div>
-          <div class="doc-meta" data-fr="Anak Krakatau, Indonésie" data-en="Anak Krakatau, Indonesia">Anak Krakatau, Indonésie</div>
+          <div class="doc-meta" data-fr="Anak Krakatau, Indonésie" data-en="Anak Krakatau, Indonesia">Anak Krakatau, Indonésie <span class="pub-badge volc">Volcanologie</span></div>
         </div>
         <div class="doc-arrow">→</div>
       </a>
@@ -626,7 +645,7 @@
         <div class="doc-icon doc-icon-pub">📰</div>
         <div class="doc-body">
           <div class="doc-title" data-fr="Esquisse structurale du dôme résurgent volcanique de Yenkahe (île de Tanna, arc du Vanuatu, Pacifique Sud)" data-en="A structural outline of the Yenkahe volcanic resurgent dome (Tanna Island, Vanuatu Arc, South Pacific)">Esquisse structurale du dôme résurgent volcanique de Yenkahe (île de Tanna, arc du Vanuatu, Pacifique Sud)</div>
-          <div class="doc-meta">Tanna, Vanuatu</div>
+          <div class="doc-meta">Tanna, Vanuatu <span class="pub-badge volc">Volcanologie</span></div>
         </div>
         <div class="doc-arrow">→</div>
       </a>
@@ -635,7 +654,7 @@
         <div class="doc-icon doc-icon-pub">📰</div>
         <div class="doc-body">
           <div class="doc-title" data-fr="Première estimation du taux d'émission de SO₂ du volcan Anak Krakatau, Indonésie" data-en="First estimate of SO2 emission rate from Anak Krakatau volcano, Indonesia">Première estimation du taux d'émission de SO₂ du volcan Anak Krakatau, Indonésie</div>
-          <div class="doc-meta" data-fr="Anak Krakatau, Indonésie" data-en="Anak Krakatau, Indonesia">Anak Krakatau, Indonésie</div>
+          <div class="doc-meta" data-fr="Anak Krakatau, Indonésie" data-en="Anak Krakatau, Indonesia">Anak Krakatau, Indonésie <span class="pub-badge volc">Volcanologie</span></div>
         </div>
         <div class="doc-arrow">→</div>
       </a>
@@ -644,7 +663,7 @@
         <div class="doc-icon doc-icon-pub">📰</div>
         <div class="doc-body">
           <div class="doc-title" data-fr="Recensements conjoints aériens et maritimes pour la conservation marine" data-en="Joint Aerial & Boat-based Surveys for Marine Conservation">Recensements conjoints aériens et maritimes pour la conservation marine</div>
-          <div class="doc-meta" data-fr="Samos, Grèce · Institut Archipelagos" data-en="Samos, Greece · Archipelagos Institute">Samos, Grèce · Institut Archipelagos</div>
+          <div class="doc-meta" data-fr="Samos, Grèce · Institut Archipelagos" data-en="Samos, Greece · Archipelagos Institute">Samos, Grèce · Institut Archipelagos <span class="pub-badge marine">Biologie marine</span></div>
         </div>
         <div class="doc-arrow">→</div>
       </a>
@@ -653,7 +672,7 @@
         <div class="doc-icon doc-icon-pub">📰</div>
         <div class="doc-body">
           <div class="doc-title" data-fr="Caractérisation des flux de fluides dans un système hydrothermal : application au volcan Stromboli" data-en="Characterizing fluid flow in a hydrothermal system: application to Stromboli volcano, Aeolian Islands">Caractérisation des flux de fluides dans un système hydrothermal : application au volcan Stromboli</div>
-          <div class="doc-meta" data-fr="Stromboli, Îles Éoliennes, Italie · IPGP" data-en="Stromboli, Aeolian Islands, Italy · IPGP">Stromboli, Îles Éoliennes, Italie · IPGP</div>
+          <div class="doc-meta" data-fr="Stromboli, Îles Éoliennes, Italie · IPGP" data-en="Stromboli, Aeolian Islands, Italy · IPGP">Stromboli, Îles Éoliennes, Italie · IPGP <span class="pub-badge volc">Volcanologie</span></div>
         </div>
         <div class="doc-arrow">→</div>
       </a>
@@ -662,7 +681,7 @@
         <div class="doc-icon doc-icon-pub">📰</div>
         <div class="doc-body">
           <div class="doc-title" data-fr="Déclaration officielle du Département de Géographie de l'Université du Luxembourg" data-en="Official declaration from the Department of Geography, University of Luxembourg">Déclaration officielle du Département de Géographie de l'Université du Luxembourg</div>
-          <div class="doc-meta" data-fr="Université du Luxembourg" data-en="University of Luxembourg">Université du Luxembourg</div>
+          <div class="doc-meta" data-fr="Université du Luxembourg" data-en="University of Luxembourg">Université du Luxembourg <span class="pub-badge geo">Géographie</span></div>
         </div>
         <div class="doc-arrow">→</div>
       </a>
@@ -671,7 +690,7 @@
         <div class="doc-icon doc-icon-pub">📰</div>
         <div class="doc-body">
           <div class="doc-title" data-fr="Attestation du Vanuatu Meteorological and Geo-Hazards Department" data-en="Attestation from the Vanuatu Meteorological and Geo-Hazards Department">Attestation du Vanuatu Meteorological and Geo-Hazards Department</div>
-          <div class="doc-meta" data-fr="Vanuatu" data-en="Vanuatu">Vanuatu</div>
+          <div class="doc-meta" data-fr="Vanuatu" data-en="Vanuatu">Vanuatu <span class="pub-badge volc">Volcanologie</span></div>
         </div>
         <div class="doc-arrow">→</div>
       </a>
@@ -680,7 +699,7 @@
         <div class="doc-icon doc-icon-pub">📰</div>
         <div class="doc-body">
           <div class="doc-title" data-fr="Attestation de l'Observatoire de Physique du Globe de Clermont-Ferrand (OPGC)" data-en="Attestation from the Clermont-Ferrand Geophysical Observatory (OPGC)">Attestation de l'Observatoire de Physique du Globe de Clermont-Ferrand (OPGC)</div>
-          <div class="doc-meta" data-fr="Clermont-Ferrand, France · OPGC" data-en="Clermont-Ferrand, France · OPGC">Clermont-Ferrand, France · OPGC</div>
+          <div class="doc-meta" data-fr="Clermont-Ferrand, France · OPGC" data-en="Clermont-Ferrand, France · OPGC">Clermont-Ferrand, France · OPGC <span class="pub-badge volc">Volcanologie</span></div>
         </div>
         <div class="doc-arrow">→</div>
       </a>
@@ -689,7 +708,7 @@
         <div class="doc-icon doc-icon-pub">📰</div>
         <div class="doc-body">
           <div class="doc-title" data-fr="Mission Fundación ProYungas — Corridor écologique des Yungas, Argentine" data-en="Fundación ProYungas Mission — Yungas Ecological Corridor, Argentina">Mission Fundación ProYungas — Corridor écologique des Yungas, Argentine</div>
-          <div class="doc-meta" data-fr="Yungas, Argentine · Fundación ProYungas" data-en="Yungas, Argentina · Fundación ProYungas">Yungas, Argentine · Fundación ProYungas</div>
+          <div class="doc-meta" data-fr="Yungas, Argentine · Fundación ProYungas" data-en="Yungas, Argentina · Fundación ProYungas">Yungas, Argentine · Fundación ProYungas <span class="pub-badge marine">Biodiversité</span></div>
         </div>
         <div class="doc-arrow">→</div>
       </a>
@@ -752,6 +771,25 @@ window.setLang = function(lang) {
 <script>
 function toggleMenu(){var n=document.getElementById('mobileNav'),b=document.getElementById('hamburger');n.classList.toggle('open');b.classList.toggle('open');document.body.style.overflow=n.classList.contains('open')?'hidden':'';}
 window.addEventListener('resize',function(){if(window.innerWidth>960){var n=document.getElementById('mobileNav'),b=document.getElementById('hamburger');if(n)n.classList.remove('open');if(b)b.classList.remove('open');document.body.style.overflow='';}});
+</script>
+<script>
+/* ── Highlight row based on scroll position ── */
+(function(){
+  var panel=document.getElementById('missionsPanel');
+  if(!panel)return;
+  var rows=panel.querySelectorAll('tbody tr');
+  if(!rows.length)return;
+  function highlight(){
+    var scrollTop=panel.scrollTop;
+    var scrollMax=panel.scrollHeight-panel.clientHeight;
+    var ratio=scrollMax>0?scrollTop/scrollMax:0;
+    var idx=Math.round(ratio*(rows.length-1));
+    rows.forEach(function(r){r.classList.remove('mission-active');});
+    rows[idx].classList.add('mission-active');
+  }
+  panel.addEventListener('scroll',highlight);
+  highlight();
+})();
 </script>
 </body>
 </html>
