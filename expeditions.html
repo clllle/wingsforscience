@@ -116,21 +116,14 @@
         @media(max-width:800px){.etapes-grid{grid-template-columns:1fr !important;}}
       </style>
       <div class="etapes-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;">
-        <div>
-          <div style="padding:14px 20px;background:rgba(95,168,211,0.06);border:1px solid rgba(95,168,211,0.15);border-radius:6px 6px 0 0;border-bottom:none;display:flex;align-items:center;justify-content:space-between;">
-            <span style="color:var(--accent);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;" data-fr="Les 97 étapes du tour du monde" data-en="The 97 stages of the round-the-world trip">Les 97 étapes du tour du monde</span>
-            <span style="display:flex;gap:10px;align-items:center;">
-              <span class="badge-sci science">Science</span>
-              <span class="badge-sci education">Education</span>
-            </span>
+        <div style="display:flex;flex-direction:column;padding:24px;background:rgba(14,26,40,0.5);border:1px solid rgba(95,168,211,0.1);border-radius:6px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);text-align:center;margin-bottom:8px;" data-fr="Les 97 étapes du tour du monde" data-en="The 97 stages of the round-the-world trip">Les 97 étapes du tour du monde</div>
+          <div style="display:flex;gap:10px;align-items:center;justify-content:center;margin-bottom:16px;">
+            <span class="badge-sci science">Science</span>
+            <span class="badge-sci education">Education</span>
           </div>
-          <div id="etapesPanel" style="max-height:340px;overflow-y:auto;border:1px solid rgba(95,168,211,0.1);border-radius:0 0 6px 6px;margin-bottom:16px;">
+          <div id="etapesPanel" style="max-height:300px;overflow-y:auto;border-radius:4px;">
         <table style="width:100%;border-collapse:collapse;">
-          <thead><tr style="position:sticky;top:0;background:var(--sky-mid);z-index:1;">
-            <th style="padding:10px 14px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);text-align:left;border-bottom:1px solid rgba(95,168,211,0.15);">N°</th>
-            <th style="padding:10px 14px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);text-align:left;border-bottom:1px solid rgba(95,168,211,0.15);" data-fr="Étape" data-en="Stage">Étape</th>
-            <th style="padding:10px 14px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);text-align:center;border-bottom:1px solid rgba(95,168,211,0.15);" data-fr="Type" data-en="Type">Type</th>
-          </tr></thead>
           <tbody>
             <tr style="border-bottom:1px solid rgba(95,168,211,0.05);"><td style="padding:6px 14px;font-size:11px;color:var(--text-muted);text-align:center;">1</td><td style="padding:6px 14px;font-size:12px;color:var(--off-white);" data-fr="Luxembourg" data-en="Luxembourg">Luxembourg</td><td style="padding:6px 14px;text-align:center;"><span class="badge-sci science">S</span> <span class="badge-sci education">E</span></td></tr>
             <tr style="border-bottom:1px solid rgba(95,168,211,0.05);"><td style="padding:6px 14px;font-size:11px;color:var(--text-muted);text-align:center;">2</td><td style="padding:6px 14px;font-size:12px;color:var(--off-white);" data-fr="Aérodrome de Meaux-Esbly" data-en="Meaux-Esbly Airfield">Aérodrome de Meaux-Esbly</td><td style="padding:6px 14px;text-align:center;"></td></tr>
