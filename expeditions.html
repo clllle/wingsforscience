@@ -117,8 +117,9 @@
         #etapesPanel{scrollbar-width:thin;scrollbar-color:rgba(95,168,211,0.45) rgba(95,168,211,0.1);}
         .badge-sci.science{background:rgba(95,168,211,0.2);color:#7fc4eb;border:1px solid rgba(95,168,211,0.4);}
         .badge-sci.education{background:rgba(123,200,164,0.2);color:#9edcbe;border:1px solid rgba(123,200,164,0.4);}
-        #etapesPanel tr{transition:background 0.3s,transform 0.3s;}
-        #etapesPanel tr.etape-active{background:rgba(95,168,211,0.08);}
+        #etapesPanel tr{transition:background 0.3s;}
+        #etapesPanel tr.etape-active{background:rgba(95,168,211,0.1);}
+        #etapesPanel tr.etape-active td{color:var(--accent) !important;font-weight:700 !important;}
         .chevron-btn.open{transform:rotate(90deg);}
         @media(max-width:800px){.etapes-grid{grid-template-columns:1fr !important;}}
       </style>
