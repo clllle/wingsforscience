@@ -7,19 +7,95 @@
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    .steps-list { list-style:none; padding:0; margin:28px 0; display:flex; flex-direction:column; gap:16px; }
-    .steps-list li { display:flex; gap:16px; align-items:flex-start; padding:18px 20px; background:rgba(95,168,211,0.04); border-left:3px solid var(--accent); border-radius:0 4px 4px 0; font-size:15px; line-height:1.7; color:var(--text-muted); }
-    .steps-list li .step-num { font-size:11px; font-weight:700; color:var(--accent); letter-spacing:.1em; flex-shrink:0; margin-top:3px; }
-    .steps-list li a { color:var(--accent); text-decoration:underline; }
-    .two-cols { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:40px; }
-    .link-box { padding:28px 24px; background:rgba(14,26,40,0.6); border:1px solid rgba(95,168,211,0.12); border-radius:6px; }
-    .link-box-title { font-size:12px; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--off-white); margin-bottom:16px; }
-    .link-box a { display:block; padding:11px 16px; margin-bottom:10px; background:rgba(95,168,211,0.06); border:1px solid rgba(95,168,211,0.15); border-radius:4px; font-size:13px; font-weight:600; color:var(--accent); text-decoration:none; transition:all .2s; }
-    .link-box a:hover { background:rgba(95,168,211,0.12); border-color:var(--accent); }
-    .partners-grid { display:flex; flex-wrap:wrap; gap:16px; align-items:center; justify-content:center; margin-top:32px; }
-    .partners-grid img { height:48px; width:auto; object-fit:contain; filter:grayscale(1) brightness(1.5); opacity:.7; transition:all .3s; }
-    .partners-grid img:hover { filter:none; opacity:1; }
-    @media(max-width:700px){ .two-cols { grid-template-columns:1fr; } }
+    /* ── SCROLL REVEAL ── */
+    .reveal{opacity:0;transform:translateY(40px);transition:opacity 0.8s cubic-bezier(.22,1,.36,1),transform 0.8s cubic-bezier(.22,1,.36,1);}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+    .reveal-delay-1{transition-delay:.12s}
+    .reveal-delay-2{transition-delay:.24s}
+    .reveal-delay-3{transition-delay:.36s}
+    .reveal-delay-4{transition-delay:.48s}
+
+    /* ── KEY FIGURES ── */
+    .figures-section{padding:70px 60px;background:linear-gradient(135deg,rgba(14,26,40,0.7),rgba(26,42,58,0.5));border-top:1px solid rgba(95,168,211,0.08);border-bottom:1px solid rgba(95,168,211,0.08);}
+    .figures-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;max-width:1000px;margin:0 auto;text-align:center;}
+    .figure-item{padding:24px 16px;}
+    .figure-number{font-family:'Merriweather',serif;font-size:clamp(36px,5vw,56px);font-weight:300;color:var(--accent);line-height:1;}
+    .figure-number .plus{font-size:0.6em;vertical-align:top;margin-left:2px;}
+    .figure-label{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--text-muted);margin-top:12px;}
+    .figure-sub{font-size:12px;color:rgba(176,184,196,0.5);margin-top:6px;font-style:italic;}
+
+    /* ── DISCIPLINES GRID ── */
+    .disciplines-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:3px;margin-top:40px;}
+    .disc-card{position:relative;overflow:hidden;aspect-ratio:3/2;cursor:pointer;border-radius:2px;}
+    .disc-card img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s cubic-bezier(.22,1,.36,1),filter 0.4s;filter:brightness(0.55) saturate(0.85);}
+    .disc-card:hover img{transform:scale(1.08);filter:brightness(0.75) saturate(1);}
+    .disc-overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:24px;background:linear-gradient(transparent 30%,rgba(0,0,0,0.65));transition:background 0.4s;}
+    .disc-card:hover .disc-overlay{background:linear-gradient(transparent 10%,rgba(0,0,0,0.75));}
+    .disc-icon{font-size:28px;margin-bottom:10px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3));}
+    .disc-title{font-family:'Merriweather',serif;font-size:17px;font-weight:400;color:#fff;line-height:1.3;}
+    .disc-loc{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,0.65);margin-top:6px;}
+
+    /* ── PROCESS / HOW IT WORKS ── */
+    .process-section{padding:80px 60px;max-width:1200px;margin:0 auto;}
+    .process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:48px;}
+    .process-card{position:relative;padding:36px 28px 28px;background:rgba(14,26,40,0.5);border:1px solid rgba(95,168,211,0.1);border-radius:6px;transition:border-color 0.3s,transform 0.3s;}
+    .process-card:hover{border-color:rgba(95,168,211,0.35);transform:translateY(-4px);}
+    .process-num{position:absolute;top:-18px;left:28px;width:36px;height:36px;border-radius:50%;background:var(--accent);color:var(--sky);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;}
+    .process-title{font-size:14px;font-weight:700;letter-spacing:.06em;color:var(--off-white);margin-bottom:12px;margin-top:8px;}
+    .process-desc{font-size:13.5px;line-height:1.75;color:var(--text-muted);}
+
+    /* ── IMPROVED CAROUSEL ── */
+    .carousel-wrap{position:relative;margin-top:32px;border-radius:8px;overflow:hidden;height:70vh;min-height:400px;max-height:700px;}
+    .carousel-slide{position:absolute;inset:0;opacity:0;transition:opacity 0.8s ease;background-size:cover;background-position:center;}
+    .carousel-slide.active{opacity:1;}
+    .carousel-caption{position:absolute;bottom:0;left:0;right:0;padding:28px 36px;background:linear-gradient(transparent,rgba(0,0,0,0.8));color:#fff;z-index:2;}
+    .carousel-theme{font-family:'Merriweather',serif;font-size:26px;font-weight:400;text-shadow:0 2px 8px rgba(0,0,0,0.4);}
+    .carousel-loc{font-size:13px;opacity:0.75;margin-top:8px;letter-spacing:.05em;}
+    .carousel-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:3;background:rgba(255,255,255,0.12);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,0.2);color:#fff;width:48px;height:48px;border-radius:50%;cursor:pointer;font-size:20px;transition:background 0.3s,transform 0.3s;}
+    .carousel-btn:hover{background:rgba(255,255,255,0.25);transform:translateY(-50%) scale(1.1);}
+    .carousel-btn.prev{left:16px}
+    .carousel-btn.next{right:16px}
+    .carousel-dots{position:absolute;bottom:12px;left:0;right:0;text-align:center;z-index:3;}
+    .carousel-dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.3);margin:0 5px;cursor:pointer;transition:background 0.3s,transform 0.3s;border:1px solid rgba(255,255,255,0.15);}
+    .carousel-dot.active{background:#fff;transform:scale(1.25);}
+
+    /* ── LOGOS SCROLL ── */
+    @keyframes scrollLogos{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    .logo-band{background:#fff;padding:28px 0;overflow:hidden;width:100%;}
+    .logo-scroll{display:flex;align-items:center;gap:40px;animation:scrollLogos 40s linear infinite;width:max-content;}
+    .logo-scroll:hover{animation-play-state:paused;}
+    .logo-scroll img{height:70px;object-fit:contain;flex-shrink:0;transition:transform 0.3s;filter:grayscale(0.2);}
+    .logo-scroll img:hover{transform:scale(1.15);filter:none;}
+
+    /* ── SECTION DIVIDER ── */
+    .section-divider{width:60px;height:2px;background:linear-gradient(90deg,var(--accent),transparent);margin:0 auto 24px;}
+
+    /* ── CTA BANNER ── */
+    .cta-banner{position:relative;padding:80px 60px;text-align:center;overflow:hidden;}
+    .cta-banner::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(95,168,211,0.08),rgba(200,169,110,0.06));z-index:0;}
+    .cta-banner>*{position:relative;z-index:1;}
+    .cta-title{font-family:'Merriweather',serif;font-size:clamp(22px,3vw,32px);font-weight:300;color:var(--white);margin-bottom:24px;line-height:1.4;}
+    .cta-title em{color:var(--accent);font-style:italic;}
+
+    /* ── LIGHTBOX ── */
+    .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:1000;justify-content:center;align-items:center;flex-direction:column;cursor:pointer;}
+    .lightbox.open{display:flex;}
+    .lightbox-close{position:absolute;top:16px;right:24px;background:none;border:none;color:#fff;font-size:36px;cursor:pointer;transition:transform 0.2s;}
+    .lightbox-close:hover{transform:scale(1.2);}
+    .lightbox img{max-width:95%;max-height:85vh;object-fit:contain;border-radius:4px;}
+    .lightbox p{color:#fff;margin-top:16px;font-size:16px;font-weight:600;}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:900px){
+      .figures-grid{grid-template-columns:repeat(2,1fr);gap:24px;}
+      .process-grid{grid-template-columns:1fr;gap:32px;}
+      .disciplines-grid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr));}
+    }
+    @media(max-width:600px){
+      .figures-grid{grid-template-columns:1fr;gap:16px;}
+      .figures-section,.process-section,.cta-banner{padding:50px 24px;}
+      .carousel-wrap{height:50vh;min-height:300px;}
+    }
   </style>
 </head>
 <body>
@@ -47,6 +123,7 @@
   <div class="mobile-lang"><button class="active" data-lang="fr" onclick="setLang('fr');toggleMenu()">🇫🇷 Français</button><button data-lang="en" onclick="setLang('en');toggleMenu()">🇬🇧 English</button></div>
 </div>
 
+<!-- ══════ HERO ══════ -->
 <section class="page-hero" style="background-image:url('https://static.wixstatic.com/media/c88cd1_bab3f67f7102479fbb970559174b840f~mv2.jpg');">
   <div class="page-hero-overlay"></div>
   <div class="page-hero-content">
@@ -55,24 +132,171 @@
   </div>
 </section>
 
-
-<!-- INTRO -->
+<!-- ══════ INTRO ══════ -->
 <div class="content-section">
-  <div class="content-inner narrow">
+  <div class="content-inner narrow reveal">
     <p class="lead-text" data-fr="En partenariat avec des entités de recherche et de conservation qui agissent tout autour de la planète pour protéger l'environnement, nous produisons des données ou méthodes nouvelles pour appuyer leurs démarches." data-en="In partnership with research and conservation entities working around the world to protect the environment, we produce new data and methods to support their work.">En partenariat avec des entités de recherche et de conservation qui agissent tout autour de la planète pour protéger l'environnement, nous produisons des données ou méthodes nouvelles pour appuyer leurs démarches.</p>
   </div>
 </div>
 
-<!-- BANDEAU LOGOS DEFILANT -->
-<div style="text-align:center;">
-  <span class="section-tag" data-fr="Partenaires scientifiques" data-en="Scientific partners">Partenaires scientifiques</span>
+<!-- ══════ CHIFFRES CLÉS ══════ -->
+<section class="figures-section">
+  <div style="text-align:center;margin-bottom:40px;" class="reveal">
+    <span class="section-tag" data-fr="En chiffres" data-en="Key figures">En chiffres</span>
+  </div>
+  <div class="figures-grid">
+    <div class="figure-item reveal reveal-delay-1">
+      <div class="figure-number" data-count="34">0</div>
+      <div class="figure-label" data-fr="Missions scientifiques" data-en="Scientific missions">Missions scientifiques</div>
+    </div>
+    <div class="figure-item reveal reveal-delay-2">
+      <div class="figure-number" data-count="4">0</div>
+      <div class="figure-label" data-fr="Continents" data-en="Continents">Continents</div>
+    </div>
+    <div class="figure-item reveal reveal-delay-3">
+      <div class="figure-number" data-count="29">0</div>
+      <div class="figure-label" data-fr="Partenaires scientifiques" data-en="Scientific partners">Partenaires scientifiques</div>
+    </div>
+    <div class="figure-item reveal reveal-delay-4">
+      <div class="figure-number" data-count="13"><span>0</span><span class="plus">+</span></div>
+      <div class="figure-label" data-fr="Disciplines" data-en="Disciplines">Disciplines</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ DISCIPLINES SCIENTIFIQUES ══════ -->
+<div class="content-section">
+  <div class="content-inner">
+    <div class="reveal" style="text-align:center;">
+      <span class="section-tag" data-fr="Nos domaines d'action" data-en="Our fields of action">Nos domaines d'action</span>
+      <h2 class="section-heading" style="margin-top:16px;" data-fr="13 disciplines scientifiques, <em>un même engagement</em>" data-en="13 scientific disciplines, <em>one shared commitment</em>">13 disciplines scientifiques, <em>un même engagement</em></h2>
+    </div>
+    <div class="disciplines-grid">
+      <div class="disc-card reveal reveal-delay-1" data-slide="0">
+        <img src="images/falaise_icebergs_kulusuk_groenland.jpg" alt="Glaciologie" loading="lazy">
+        <div class="disc-overlay">
+          <div class="disc-title">Glaciologie</div>
+          <div class="disc-loc">Kulusuk, Groenland</div>
+        </div>
+      </div>
+      <div class="disc-card reveal reveal-delay-2" data-slide="1">
+        <img src="images/volcan_anak_krakatoa_indonesie.jpg" alt="Volcanologie" loading="lazy">
+        <div class="disc-overlay">
+          <div class="disc-title">Volcanologie</div>
+          <div class="disc-loc">Anak Krakatoa, Indonésie</div>
+        </div>
+      </div>
+      <div class="disc-card reveal reveal-delay-3" data-slide="2">
+        <img src="images/banado_la_estrella_formosa_argentine.jpg" alt="Biodiversité" loading="lazy">
+        <div class="disc-overlay">
+          <div class="disc-title">Biodiversité</div>
+          <div class="disc-loc">Bañado La Estrella, Argentine</div>
+        </div>
+      </div>
+      <div class="disc-card reveal reveal-delay-1" data-slide="3">
+        <img src="images/cachalot_mediterranee_grece.jpg" alt="Biologie marine" loading="lazy">
+        <div class="disc-overlay">
+          <div class="disc-title">Biologie marine</div>
+          <div class="disc-loc">Méditerranée, Grèce</div>
+        </div>
+      </div>
+      <div class="disc-card reveal reveal-delay-2" data-slide="4">
+        <img src="images/falaises_iles_vestmann_islande.jpg" alt="Climatologie" loading="lazy">
+        <div class="disc-overlay">
+          <div class="disc-title">Climatologie</div>
+          <div class="disc-loc">Îles Vestmann, Islande</div>
+        </div>
+      </div>
+      <div class="disc-card reveal reveal-delay-3" data-slide="5">
+        <img src="images/rizolithes_fossiles_trelew_argentine.jpg" alt="Paléontologie" loading="lazy">
+        <div class="disc-overlay">
+          <div class="disc-title">Paléontologie</div>
+          <div class="disc-loc">Trelew, Argentine</div>
+        </div>
+      </div>
+      <div class="disc-card reveal reveal-delay-1" data-slide="6">
+        <img src="images/survol_caral_supe_perou.jpg" alt="Archéologie" loading="lazy">
+        <div class="disc-overlay">
+          <div class="disc-title">Archéologie</div>
+          <div class="disc-loc">Caral-Supe, Pérou</div>
+        </div>
+      </div>
+      <div class="disc-card reveal reveal-delay-2" data-slide="7">
+        <img src="images/photogrammetrie_3d_volcan_yasur_tanna_vanuatu.jpg" alt="Modélisation 3D" loading="lazy">
+        <div class="disc-overlay">
+          <div class="disc-title">Modélisation 3D</div>
+          <div class="disc-loc">Volcan Yasur, Vanuatu</div>
+        </div>
+      </div>
+      <div class="disc-card reveal reveal-delay-3" data-slide="8">
+        <img src="images/survol_foret_lac_rupanco_chili.jpg" alt="Écologie du paysage" loading="lazy">
+        <div class="disc-overlay">
+          <div class="disc-title">Écologie du paysage</div>
+          <div class="disc-loc">Lac Rupanco, Chili</div>
+        </div>
+      </div>
+      <div class="disc-card reveal reveal-delay-1" data-slide="9">
+        <img src="images/observatoire_alma_chajnantor_atacama_chili.jpg" alt="Astronomie" loading="lazy">
+        <div class="disc-overlay">
+          <div class="disc-title">Astronomie</div>
+          <div class="disc-loc">Observatoire ALMA, Atacama, Chili</div>
+        </div>
+      </div>
+      <div class="disc-card reveal reveal-delay-2" data-slide="10">
+        <img src="images/survol_rio_de_janeiro_bresil.jpg" alt="Géographie urbaine" loading="lazy">
+        <div class="disc-overlay">
+          <div class="disc-title">Géographie urbaine</div>
+          <div class="disc-loc">Rio de Janeiro, Brésil</div>
+        </div>
+      </div>
+      <div class="disc-card reveal reveal-delay-3" data-slide="11">
+        <img src="images/baleine_ocean_biologie_marine.jpg" alt="Cétologie" loading="lazy">
+        <div class="disc-overlay">
+          <div class="disc-title">Cétologie</div>
+          <div class="disc-loc">Océan Atlantique</div>
+        </div>
+      </div>
+      <div class="disc-card reveal reveal-delay-1" data-slide="12">
+        <img src="images/survol_desert_geomorphologie_perou.jpg" alt="Géomorphologie" loading="lazy">
+        <div class="disc-overlay">
+          <div class="disc-title">Géomorphologie</div>
+          <div class="disc-loc">Désert côtier, Pérou</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<div style="background:#fff;padding:28px 0;margin-top:16px;overflow:hidden;width:100%;">
-  <style>
-    @keyframes scrollLogos { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-    .logo-scroll { display:flex;align-items:center;gap:40px;animation:scrollLogos 40s linear infinite;width:max-content; }
-    .logo-scroll img { height:70px;object-fit:contain;flex-shrink:0; }
-  </style>
+
+<!-- ══════ COMMENT ÇA MARCHE ══════ -->
+<div class="process-section">
+  <div class="reveal" style="text-align:center;">
+    <span class="section-tag" data-fr="Notre démarche" data-en="Our approach">Notre démarche</span>
+    <h2 class="section-heading" style="margin-top:16px;" data-fr="Comment nous appuyons <em>la recherche</em>" data-en="How we support <em>research</em>">Comment nous appuyons <em>la recherche</em></h2>
+  </div>
+  <div class="process-grid">
+    <div class="process-card reveal reveal-delay-1">
+      <div class="process-num">1</div>
+      <div class="process-title" data-fr="Identifier les besoins" data-en="Identify needs">Identifier les besoins</div>
+      <p class="process-desc" data-fr="Nous contactons des laboratoires, parcs naturels et ONG pour comprendre leurs besoins en données aériennes et en imagerie." data-en="We contact laboratories, natural parks and NGOs to understand their needs for aerial data and imagery.">Nous contactons des laboratoires, parcs naturels et ONG pour comprendre leurs besoins en données aériennes et en imagerie.</p>
+    </div>
+    <div class="process-card reveal reveal-delay-2">
+      <div class="process-num">2</div>
+      <div class="process-title" data-fr="Collecter les données" data-en="Collect data">Collecter les données</div>
+      <p class="process-desc" data-fr="Grâce à nos machines aériennes adaptées, nous survolons les zones d'étude pour produire photos, vidéos, modèles 3D et relevés." data-en="Using our adapted aircraft, we fly over study areas to produce photos, videos, 3D models and surveys.">Grâce à nos <a href="expeditions.html" style="color:var(--accent);">machines aériennes</a> adaptées, nous survolons les zones d'étude pour produire photos, vidéos, modèles 3D et relevés.</p>
+    </div>
+    <div class="process-card reveal reveal-delay-3">
+      <div class="process-num">3</div>
+      <div class="process-title" data-fr="Transmettre et publier" data-en="Share and publish">Transmettre et publier</div>
+      <p class="process-desc" data-fr="Les données sont remises aux scientifiques. Elles contribuent à des publications, des suivis environnementaux et des prises de décision." data-en="Data is handed over to scientists. It contributes to publications, environmental monitoring, and decision-making.">Les données sont remises aux scientifiques. Elles contribuent à des <a href="campagne-scientifique.html#publications" style="color:var(--accent);">publications</a>, des suivis environnementaux et des prises de décision.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ BANDEAU LOGOS DÉFILANT ══════ -->
+<div style="text-align:center;" class="reveal">
+  <span class="section-tag" data-fr="Nous contribuons à leurs recherches" data-en="We contribute to their research">Nous contribuons à leurs recherches</span>
+</div>
+<div class="logo-band" style="margin-top:16px;">
   <div class="logo-scroll">
     <img src="images/logo_sci_laboratoire_magmas_volcans_lmv.png" alt="LMV">
     <img src="images/logo_sci_asiaq_greenland_survey.png" alt="Asiaq">
@@ -136,94 +360,58 @@
   </div>
 </div>
 
-<!-- GALERIE MISSIONS -->
+<!-- ══════ CARROUSEL GALERIE ══════ -->
 <div class="content-section">
   <div class="content-inner">
-    <span class="section-tag" data-fr="Nos missions" data-en="Our missions">Nos missions</span>
-    <h2 class="section-heading" data-fr="34 missions scientifiques sur 4 continents" data-en="34 scientific missions across 4 continents">34 missions scientifiques sur 4 continents</h2>
+    <div class="reveal" style="text-align:center;">
+      <span class="section-tag" data-fr="Galerie de terrain" data-en="Field gallery">Galerie de terrain</span>
+      <h2 class="section-heading" style="margin-top:16px;" data-fr="34 missions scientifiques sur <em>4 continents</em>" data-en="34 scientific missions across <em>4 continents</em>">34 missions scientifiques sur <em>4 continents</em></h2>
+    </div>
 
-    <div style="position:relative;margin-top:32px;border-radius:8px;overflow:hidden;height:70vh;min-height:400px;max-height:700px;">
-      <div id="sciSlides" style="position:relative;width:100%;height:100%;">
+    <div class="carousel-wrap reveal">
+      <div id="sciSlides"></div>
+      <div class="carousel-caption">
+        <div id="sciTheme" class="carousel-theme"></div>
+        <div id="sciLoc" class="carousel-loc"></div>
       </div>
-      <div style="position:absolute;bottom:0;left:0;right:0;padding:24px 32px;background:linear-gradient(transparent,rgba(0,0,0,0.75));color:#fff;z-index:2;">
-        <div id="sciTheme" style="font-size:24px;font-weight:700;"></div>
-        <div id="sciLoc" style="font-size:14px;opacity:0.8;margin-top:6px;"></div>
-      </div>
-      <button onclick="sciNav(-1)" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);z-index:3;background:rgba(0,0,0,0.4);border:none;color:#fff;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:20px;">&#8592;</button>
-      <button onclick="sciNav(1)" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);z-index:3;background:rgba(0,0,0,0.4);border:none;color:#fff;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:20px;">&#8594;</button>
-      <div id="sciDots" style="position:absolute;bottom:8px;left:0;right:0;text-align:center;z-index:3;"></div>
-    </div>
-    <script>
-    (function(){
-      var slides = [
-        {img:"images/falaise_icebergs_kulusuk_groenland.jpg",theme:"Glaciologie",loc:"Kulusuk, Groenland"},
-        {img:"images/volcan_anak_krakatoa_indonesie.jpg",theme:"Volcanologie",loc:"Anak Krakatoa, Indonésie"},
-        {img:"images/banado_la_estrella_formosa_argentine.jpg",theme:"Biodiversité",loc:"Bañado La Estrella, Argentine"},
-        {img:"images/cachalot_mediterranee_grece.jpg",theme:"Biologie marine",loc:"Méditerranée, Grèce"},
-        {img:"images/falaises_iles_vestmann_islande.jpg",theme:"Climatologie",loc:"Îles Vestmann, Islande"},
-        {img:"images/rizolithes_fossiles_trelew_argentine.jpg",theme:"Paléontologie",loc:"Trelew, Argentine"},
-        {img:"images/survol_caral_supe_perou.jpg",theme:"Archéologie",loc:"Caral-Supe, Pérou"},
-        {img:"images/photogrammetrie_3d_volcan_yasur_tanna_vanuatu.jpg",theme:"Modélisation 3D",loc:"Volcan Yasur, Vanuatu"},
-        {img:"images/survol_foret_lac_rupanco_chili.jpg",theme:"Écologie du paysage",loc:"Lac Rupanco, Chili"},
-        {img:"images/observatoire_alma_chajnantor_atacama_chili.jpg",theme:"Astronomie",loc:"Observatoire ALMA, Atacama, Chili"}
-      ];
-      var idx=0, container=document.getElementById('sciSlides');
-      var dots=document.getElementById('sciDots');
-      slides.forEach(function(s,i){
-        var d=document.createElement('span');
-        d.style.cssText='display:inline-block;width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.4);margin:0 4px;cursor:pointer;';
-        d.onclick=function(){show(i);};
-        dots.appendChild(d);
-      });
-      function show(i){
-        idx=i;
-        container.style.backgroundImage='url('+slides[i].img+')';
-        container.style.backgroundSize='cover';
-        container.style.backgroundPosition='center';
-        container.style.transition='background-image 0.5s';
-        document.getElementById('sciTheme').textContent=slides[i].theme;
-        document.getElementById('sciLoc').textContent=slides[i].loc;
-        var ds=dots.children;
-        for(var j=0;j<ds.length;j++) ds[j].style.background=j===i?'#fff':'rgba(255,255,255,0.4)';
-      }
-      window.sciNav=function(d){show((idx+d+slides.length)%slides.length);};
-      show(0);
-      setInterval(function(){show((idx+1)%slides.length);},5000);
-      container.parentElement.style.cursor='pointer';
-      container.parentElement.onclick=function(e){
-        if(e.target.tagName==='BUTTON') return;
-        var modal=document.getElementById('imgModal');
-        document.getElementById('imgModalImg').src=slides[idx].img;
-        document.getElementById('imgModalCaption').textContent=slides[idx].theme+' — '+slides[idx].loc;
-        modal.style.display='flex';
-      };
-    })();
-    </script>
-    <div id="imgModal" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.9);z-index:1000;justify-content:center;align-items:center;flex-direction:column;cursor:pointer;" onclick="this.style.display='none'">
-      <button onclick="document.getElementById('imgModal').style.display='none'" style="position:absolute;top:16px;right:24px;background:none;border:none;color:#fff;font-size:32px;cursor:pointer;">&times;</button>
-      <img id="imgModalImg" src="" style="max-width:95%;max-height:85vh;object-fit:contain;border-radius:4px;">
-      <p id="imgModalCaption" style="color:#fff;margin-top:16px;font-size:16px;font-weight:600;"></p>
+      <button class="carousel-btn prev" onclick="sciNav(-1)">&#8592;</button>
+      <button class="carousel-btn next" onclick="sciNav(1)">&#8594;</button>
+      <div id="sciDots" class="carousel-dots"></div>
     </div>
 
-    <div style="text-align:center;margin-top:40px;">
-      <a class="btn btn-primary" href="campagne-scientifique.html" data-fr="Voir les 34 missions, les modèles 3D et les publications →" data-en="See all 34 missions, 3D models and publications →">Voir les 34 missions, les modèles 3D et les publications →</a>
+    <div style="text-align:center;margin-top:40px;" class="reveal">
+      <a class="btn btn-primary" href="campagne-scientifique.html" data-fr="Voir les 34 missions, les modeles 3D et les publications →" data-en="See all 34 missions, 3D models and publications →">Voir les 34 missions, les modeles 3D et les publications →</a>
     </div>
-
   </div>
 </div>
 
+<!-- ══════ CTA FINAL ══════ -->
+<section class="cta-banner reveal">
+  <div class="section-divider"></div>
+  <p class="cta-title" data-fr="Vous etes chercheur, gestionnaire d'aire protegee ou ONG&nbsp;?<br><em>Contactez-nous</em> pour etudier une collaboration." data-en="Are you a researcher, protected area manager, or NGO?<br><em>Contact us</em> to explore a collaboration.">Vous etes chercheur, gestionnaire d'aire protegee ou ONG&nbsp;?<br><em>Contactez-nous</em> pour etudier une collaboration.</p>
+  <a class="btn btn-primary" href="contact.html" data-fr="Nous contacter" data-en="Contact us">Nous contacter</a>
+</section>
+
+<!-- ══════ LIGHTBOX ══════ -->
+<div class="lightbox" id="imgModal" onclick="this.classList.remove('open')">
+  <button class="lightbox-close" onclick="document.getElementById('imgModal').classList.remove('open')">&times;</button>
+  <img id="imgModalImg" src="" alt="">
+  <p id="imgModalCaption"></p>
+</div>
+
+<!-- ══════ FOOTER ══════ -->
 <footer>
-    <div class="footer-inner">
+  <div class="footer-inner">
     <div class="footer-brand">
       <a class="logo-wrap" href="index.html"><img src="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png/v1/fill/w_162,h_163,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/LOGO%20wingsforscience%20copie.png" alt="Logo"><div class="logo-text"><span data-fr="Des Ailes pour la Science" data-en="Wings for Science">Des Ailes pour la Science</span></div></a>
-      <p data-fr="Association à but non lucratif œuvrant pour la science et la protection de l'environnement depuis 2008." data-en="Non-profit association working for science and environmental protection since 2008.">Association à but non lucratif œuvrant pour la science et la protection de l'environnement depuis 2008.</p>
+      <p data-fr="Association a but non lucratif oeuvrant pour la science et la protection de l'environnement depuis 2008." data-en="Non-profit association working for science and environmental protection since 2008.">Association a but non lucratif oeuvrant pour la science et la protection de l'environnement depuis 2008.</p>
       <address class="footer-address" style="display:inline;">Maison des associations, 38 bd Henri IV, 75004 Paris</address>
     </div>
     <div class="footer-col">
       <div class="footer-col-title" data-fr="Nos actions" data-en="Our actions">Nos actions</div>
       <ul>
         <li><a href="campagne-scientifique.html" data-fr="Campagne scientifique" data-en="Scientific Campaign">Campagne scientifique</a></li>
-        <li><a href="conferences.html" data-fr="Conférences" data-en="Conferences">Conférences</a></li>
+        <li><a href="conferences.html" data-fr="Conferences" data-en="Conferences">Conferences</a></li>
         <li><a href="reportages.html" data-fr="Reportages" data-en="Documentaries">Reportages</a></li>
         <li><a href="livres.html" data-fr="Livres" data-en="Books">Livres</a></li>
         <li><a href="presse.html" data-fr="Presse" data-en="Press">Presse</a></li>
@@ -233,16 +421,16 @@
       <div class="footer-col-title" data-fr="Notre mission" data-en="Our mission">Notre mission</div>
       <ul>
         <li><a href="science-environnement.html" data-fr="Science &amp; Environnement" data-en="Science &amp; Environment">Science &amp; Environnement</a></li>
-        <li><a href="expeditions.html" data-fr="Expéditions aéronautiques" data-en="Aeronautical Expeditions">Expéditions aéronautiques</a></li>
+        <li><a href="expeditions.html" data-fr="Expeditions aeronautiques" data-en="Aeronautical Expeditions">Expeditions aeronautiques</a></li>
         <li><a href="sensibilisation.html" data-fr="Sensibilisation" data-en="Public Awareness">Sensibilisation</a></li>
-        <li style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(95,168,211,0.15);"><a href="actu.html" style="color:var(--accent);font-weight:600;" data-fr="Notre Actualité" data-en="Our News">Notre Actualité</a></li>
+        <li style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(95,168,211,0.15);"><a href="actu.html" style="color:var(--accent);font-weight:600;" data-fr="Notre Actualite" data-en="Our News">Notre Actualite</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <div class="footer-col-title" data-fr="Notre réseau" data-en="Our network">Notre réseau</div>
+      <div class="footer-col-title" data-fr="Notre reseau" data-en="Our network">Notre reseau</div>
       <ul>
         <li><a href="confondateurs.html" data-fr="Cofondateurs &amp; parrains" data-en="Co-founders &amp; Patrons">Cofondateurs &amp; parrains</a></li>
-        <li><a href="equipe.html" data-fr="L&apos;équipe" data-en="The Team">L&apos;équipe</a></li>
+        <li><a href="equipe.html" data-fr="L&apos;equipe" data-en="The Team">L&apos;equipe</a></li>
         <li><a href="partenaires.html" data-fr="Partenaires &amp; sponsors" data-en="Partners &amp; Sponsors">Partenaires &amp; sponsors</a></li>
         <li style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(95,168,211,0.15);"><a href="contact.html" style="color:var(--accent);font-weight:600;" data-fr="Contact" data-en="Contact">Contact</a></li>
       </ul>
@@ -250,16 +438,123 @@
   </div>
   <div class="footer-bottom"><span class="footer-copy" data-fr="© 2024 Des Ailes pour la Science / Wings for Science. Association de loi 1901." data-en="© 2024 Wings for Science. Non-profit association.">© 2024 Des Ailes pour la Science / Wings for Science. Association de loi 1901.</span><div class="social-links"><a href="http://wingsforscience.blogspot.com/" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/70b1c5a67d2349e3933570b344b1d54d.png/v1/fill/w_35,h_35,al_c,enc_avif,quality_auto/70b1c5a67d2349e3933570b344b1d54d.png" alt="Blogger"></a><a href="http://www.facebook.com/wingsforscience" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/4057345bcf57474b96976284050c00df.png/v1/fill/w_35,h_35,al_c,enc_avif,quality_auto/4057345bcf57474b96976284050c00df.png" alt="Facebook"></a><a href="https://www.youtube.com/playlist?list=PL8A32C328768F858A" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/45bce1d726f64f1999c49feae57f6298.png/v1/fill/w_35,h_35,al_c,enc_avif,quality_auto/45bce1d726f64f1999c49feae57f6298.png" alt="YouTube"></a></div></div>
 </footer>
+
+<!-- ══════ SCRIPTS ══════ -->
 <script src="lang.js"></script>
 <script>
-(function() {
-  var listFR = "https://docs.google.com/spreadsheets/d/159wf_mlcPG3rBdnbq8_lyZDaC5-tovUxTnKGCpKbhL0/edit?gid=0#gid=0";
-  var listEN = "https://docs.google.com/spreadsheets/d/1p3c-l-JtmbS4U_tzKH7DFNulEg-SEisjpv-rceplfx8/edit";
-  var orig = window.setLang;
-  window.setLang = function(lang) {
-    if (orig) orig(lang);
-    var el = document.getElementById('listLink');
-    if (el) el.href = (lang === 'en') ? listEN : listFR;
+/* ── Scroll reveal ── */
+(function(){
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+    });
+  },{threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
+})();
+
+/* ── Animated counters ── */
+(function(){
+  var counted=false;
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting&&!counted){
+        counted=true;
+        document.querySelectorAll('.figure-number[data-count]').forEach(function(el){
+          var target=parseInt(el.getAttribute('data-count'));
+          var duration=1600;
+          var start=performance.now();
+          var span=el.querySelector('span')||el;
+          var plus=el.querySelector('.plus');
+          function tick(now){
+            var p=Math.min((now-start)/duration,1);
+            var eased=1-Math.pow(1-p,3);
+            var val=Math.round(eased*target);
+            if(plus){span.textContent=val;}else{el.textContent=val;}
+            if(plus&&p>=1){el.innerHTML=val+'<span class="plus">+</span>';}
+            if(p<1)requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+        });
+      }
+    });
+  },{threshold:0.3});
+  var sect=document.querySelector('.figures-section');
+  if(sect)obs.observe(sect);
+})();
+
+/* ── Carousel ── */
+(function(){
+  var slides=[
+    {img:"images/falaise_icebergs_kulusuk_groenland.jpg",theme:"Glaciologie",loc:"Kulusuk, Groenland"},
+    {img:"images/volcan_anak_krakatoa_indonesie.jpg",theme:"Volcanologie",loc:"Anak Krakatoa, Indonesie"},
+    {img:"images/banado_la_estrella_formosa_argentine.jpg",theme:"Biodiversite",loc:"Banado La Estrella, Argentine"},
+    {img:"images/cachalot_mediterranee_grece.jpg",theme:"Biologie marine",loc:"Mediterranee, Grece"},
+    {img:"images/falaises_iles_vestmann_islande.jpg",theme:"Climatologie",loc:"Iles Vestmann, Islande"},
+    {img:"images/rizolithes_fossiles_trelew_argentine.jpg",theme:"Paleontologie",loc:"Trelew, Argentine"},
+    {img:"images/survol_caral_supe_perou.jpg",theme:"Archeologie",loc:"Caral-Supe, Perou"},
+    {img:"images/photogrammetrie_3d_volcan_yasur_tanna_vanuatu.jpg",theme:"Modelisation 3D",loc:"Volcan Yasur, Vanuatu"},
+    {img:"images/survol_foret_lac_rupanco_chili.jpg",theme:"Ecologie du paysage",loc:"Lac Rupanco, Chili"},
+    {img:"images/observatoire_alma_chajnantor_atacama_chili.jpg",theme:"Astronomie",loc:"Observatoire ALMA, Atacama, Chili"},
+    {img:"images/survol_rio_de_janeiro_bresil.jpg",theme:"Geographie urbaine",loc:"Rio de Janeiro, Bresil"},
+    {img:"images/baleine_ocean_biologie_marine.jpg",theme:"Cetologie",loc:"Ocean Atlantique"},
+    {img:"images/survol_desert_geomorphologie_perou.jpg",theme:"Geomorphologie",loc:"Desert cotier, Perou"}
+  ];
+  var idx=0,container=document.getElementById('sciSlides'),dots=document.getElementById('sciDots'),timer;
+  // Create slide elements
+  slides.forEach(function(s,i){
+    var div=document.createElement('div');
+    div.className='carousel-slide'+(i===0?' active':'');
+    div.style.backgroundImage='url('+s.img+')';
+    div.style.backgroundSize='cover';
+    div.style.backgroundPosition='center';
+    container.appendChild(div);
+    var d=document.createElement('span');
+    d.className='carousel-dot'+(i===0?' active':'');
+    d.onclick=function(){show(i);resetTimer();};
+    dots.appendChild(d);
+  });
+  function show(i){
+    idx=i;
+    var allSlides=container.querySelectorAll('.carousel-slide');
+    var allDots=dots.querySelectorAll('.carousel-dot');
+    for(var j=0;j<allSlides.length;j++){
+      allSlides[j].classList.toggle('active',j===i);
+      allDots[j].classList.toggle('active',j===i);
+    }
+    document.getElementById('sciTheme').textContent=slides[i].theme;
+    document.getElementById('sciLoc').textContent=slides[i].loc;
+  }
+  function resetTimer(){clearInterval(timer);timer=setInterval(function(){show((idx+1)%slides.length);},5000);}
+  window.sciNav=function(d){show((idx+d+slides.length)%slides.length);resetTimer();};
+  show(0);
+  timer=setInterval(function(){show((idx+1)%slides.length);},5000);
+  // Lightbox on click
+  container.parentElement.style.cursor='pointer';
+  container.parentElement.onclick=function(e){
+    if(e.target.tagName==='BUTTON'||e.target.closest('.carousel-btn')||e.target.closest('.carousel-dot'))return;
+    document.getElementById('imgModalImg').src=slides[idx].img;
+    document.getElementById('imgModalCaption').textContent=slides[idx].theme+' — '+slides[idx].loc;
+    document.getElementById('imgModal').classList.add('open');
+  };
+  // Discipline cards click -> jump to carousel slide
+  document.querySelectorAll('.disc-card[data-slide]').forEach(function(card){
+    card.onclick=function(){
+      var i=parseInt(card.getAttribute('data-slide'));
+      show(i);resetTimer();
+      document.querySelector('.carousel-wrap').scrollIntoView({behavior:'smooth',block:'center'});
+    };
+  });
+})();
+
+/* ── Lang switch for lists ── */
+(function(){
+  var listFR="https://docs.google.com/spreadsheets/d/159wf_mlcPG3rBdnbq8_lyZDaC5-tovUxTnKGCpKbhL0/edit?gid=0#gid=0";
+  var listEN="https://docs.google.com/spreadsheets/d/1p3c-l-JtmbS4U_tzKH7DFNulEg-SEisjpv-rceplfx8/edit";
+  var orig=window.setLang;
+  window.setLang=function(lang){
+    if(orig)orig(lang);
+    var el=document.getElementById('listLink');
+    if(el)el.href=(lang==='en')?listEN:listFR;
   };
 })();
 </script>
