@@ -404,22 +404,19 @@
 })();
 </script>
 <script>
-/* ── Highlight center row in etapes ── */
+/* ── Highlight row based on scroll position ── */
 (function(){
   var panel=document.getElementById('etapesPanel');
   if(!panel)return;
   var rows=panel.querySelectorAll('tr');
+  if(!rows.length)return;
   function highlight(){
-    var rect=panel.getBoundingClientRect();
-    var centerY=rect.top+rect.height/2;
-    var closest=null,minDist=Infinity;
-    rows.forEach(function(r){
-      var rr=r.getBoundingClientRect();
-      var d=Math.abs(rr.top+rr.height/2-centerY);
-      if(d<minDist){minDist=d;closest=r;}
-    });
+    var scrollTop=panel.scrollTop;
+    var scrollMax=panel.scrollHeight-panel.clientHeight;
+    var ratio=scrollMax>0?scrollTop/scrollMax:0;
+    var idx=Math.round(ratio*(rows.length-1));
     rows.forEach(function(r){r.classList.remove('etape-active');});
-    if(closest)closest.classList.add('etape-active');
+    rows[idx].classList.add('etape-active');
   }
   panel.addEventListener('scroll',highlight);
   highlight();
