@@ -218,7 +218,7 @@
       if (m.links && (m.links.video || m.links.blog)) {
         popup += '<div style="margin-top:12px;padding-top:10px;border-top:1px solid #e0e8f0;display:flex;gap:10px;flex-wrap:wrap;">';
         if (m.links.video) {
-          popup += '<a href="' + m.links.video + '" target="_blank" style="font-size:11px;font-weight:700;color:#fff;background:#5fa8d3;padding:5px 10px;border-radius:4px;text-decoration:none;">🎬 Voir le film</a>';
+          popup += '<a href="#" onclick="openMissionVideo(\'' + m.links.video + '\',\'' + m.name + '\');return false;" style="font-size:11px;font-weight:700;color:#fff;background:#5fa8d3;padding:5px 10px;border-radius:4px;text-decoration:none;cursor:pointer;">🎬 Voir le film</a>';
         }
         if (m.links.blog) {
           popup += '<a href="' + m.links.blog + '" style="font-size:11px;font-weight:700;color:#5fa8d3;border:1px solid #5fa8d3;padding:5px 10px;border-radius:4px;text-decoration:none;">📖 Lire le récit</a>';
@@ -315,7 +315,7 @@
         </tr>
         <tr>
           <td class="col-periode">juillet 2016</td>
-          <td class="col-lieu"><strong>Trelew</strong><br><span class="col-country">🇦🇷 ARGENTINE</span><br><a href="https://drive.google.com/file/d/0B0viuDynuy13SUd0bV9wdXpKeWs/preview" target="_blank" style="font-size:10px;font-weight:700;color:#5fa8d3;white-space:nowrap;margin-right:8px;text-decoration:none;">🎬 Film</a></td>
+          <td class="col-lieu"><strong>Trelew</strong><br><span class="col-country">🇦🇷 ARGENTINE</span><br><a href="#" onclick="openMissionVideo('https://drive.google.com/file/d/0B0viuDynuy13SUd0bV9wdXpKeWs/preview','Trelew, Argentine');return false;" style="font-size:10px;font-weight:700;color:#5fa8d3;white-space:nowrap;margin-right:8px;text-decoration:none;cursor:pointer;">🎬 Film</a></td>
           <td>Museum of Paleontology Egidio Feruglio</td>
           <td>Localisation, photographie et DEM de vastes zones de Rizolithes Fossiles</td>
           <td>Découverte de nouvelles zones de fossiles rizolithes</td>
@@ -350,7 +350,7 @@
         </tr>
         <tr>
           <td class="col-periode">février 2016</td>
-          <td class="col-lieu"><strong>Glacier Upsala</strong><br><span class="col-country">🇦🇷 ARGENTINE</span><br><a href="https://drive.google.com/file/d/0B0viuDynuy13c29CUENQT01Cb2c/preview" target="_blank" style="font-size:10px;font-weight:700;color:#5fa8d3;white-space:nowrap;margin-right:8px;text-decoration:none;">🎬 Film</a></td>
+          <td class="col-lieu"><strong>Glacier Upsala</strong><br><span class="col-country">🇦🇷 ARGENTINE</span><br><a href="#" onclick="openMissionVideo('https://drive.google.com/file/d/0B0viuDynuy13c29CUENQT01Cb2c/preview','Glacier Upsala, Argentine');return false;" style="font-size:10px;font-weight:700;color:#5fa8d3;white-space:nowrap;margin-right:8px;text-decoration:none;cursor:pointer;">🎬 Film</a></td>
           <td>Glaciarium / Pr. Pedro Skvarca</td>
           <td>Modèle 3D du front du glacier Upsala et glissement de terrain</td>
           <td>Étude du retrait du glacier et du tsunami provoqué par le glissement de terrain</td>
@@ -371,28 +371,28 @@
         </tr>
         <tr>
           <td class="col-periode">mai 2013</td>
-          <td class="col-lieu"><strong>Samos</strong><br><span class="col-country">🇬🇷 GRÈCE</span><br><a href="https://drive.google.com/file/d/1mNCfb4gm2KdFuljzaB0r_k7J6J9Uxb_Y/preview" target="_blank" style="font-size:10px;font-weight:700;color:#5fa8d3;white-space:nowrap;margin-right:8px;text-decoration:none;">🎬 Film</a></td>
+          <td class="col-lieu"><strong>Samos</strong><br><span class="col-country">🇬🇷 GRÈCE</span><br><a href="#" onclick="openMissionVideo('https://drive.google.com/file/d/1mNCfb4gm2KdFuljzaB0r_k7J6J9Uxb_Y/preview','Samos, Grèce');return false;" style="font-size:10px;font-weight:700;color:#5fa8d3;white-space:nowrap;margin-right:8px;text-decoration:none;cursor:pointer;">🎬 Film</a></td>
           <td>Archipelagos Institute of Marine Conservation</td>
           <td>Cartographie de la posidonie et étude des mammifères marins</td>
           <td>Identification des impacts anthropiques sur la biodiversité marine</td>
         </tr>
         <tr>
           <td class="col-periode">avril 2013</td>
-          <td class="col-lieu"><strong>Jerash / Qasr Bshir</strong><br><span class="col-country">🇯🇴 JORDANIE</span><br><a href="https://drive.google.com/file/d/0B0viuDynuy13M1lhbTEzSVE4Vmc/preview" target="_blank" style="font-size:10px;font-weight:700;color:#5fa8d3;white-space:nowrap;margin-right:8px;text-decoration:none;">🎬 Film</a></td>
+          <td class="col-lieu"><strong>Jerash / Qasr Bshir</strong><br><span class="col-country">🇯🇴 JORDANIE</span><br><a href="#" onclick="openMissionVideo('https://drive.google.com/file/d/0B0viuDynuy13M1lhbTEzSVE4Vmc/preview','Jerash, Jordanie');return false;" style="font-size:10px;font-weight:700;color:#5fa8d3;white-space:nowrap;margin-right:8px;text-decoration:none;cursor:pointer;">🎬 Film</a></td>
           <td>Institut Français du Proche Orient</td>
           <td>Cartographie & DEM des sites archéologiques, prospection archéologique, identification de sites inconnus</td>
           <td>Identification de nouveaux sites archéologiques et cartographie des sites déjà connus</td>
         </tr>
         <tr>
           <td class="col-periode">mars 2013</td>
-          <td class="col-lieu"><strong>Krakatoa</strong><br><span class="col-country">🇮🇩 INDONÉSIE</span><br><a href="https://drive.google.com/file/d/15AJsy7bCXLlTLQ2Xd7gJIRS6jeZsu4tL/preview" target="_blank" style="font-size:10px;font-weight:700;color:#5fa8d3;white-space:nowrap;margin-right:8px;text-decoration:none;">🎬 Film</a></td>
+          <td class="col-lieu"><strong>Krakatoa</strong><br><span class="col-country">🇮🇩 INDONÉSIE</span><br><a href="#" onclick="openMissionVideo('https://drive.google.com/file/d/15AJsy7bCXLlTLQ2Xd7gJIRS6jeZsu4tL/preview','Krakatoa, Indonésie');return false;" style="font-size:10px;font-weight:700;color:#5fa8d3;white-space:nowrap;margin-right:8px;text-decoration:none;cursor:pointer;">🎬 Film</a></td>
           <td>Center for Volcanology and Geological Hazard Mitigation</td>
           <td>Échantillonnage et DEM SO₂ du dôme volcanique du Krakatoa et des autres volcans de la chaîne</td>
           <td>Analyse des flux de gaz volcanique</td>
         </tr>
         <tr>
           <td class="col-periode">février 2013</td>
-          <td class="col-lieu"><strong>Philip Island</strong><br><span class="col-country">🇦🇺 AUSTRALIE</span><br><a href="https://drive.google.com/file/d/0B0viuDynuy13SDNwQVp0WVh4NUE/preview" target="_blank" style="font-size:10px;font-weight:700;color:#5fa8d3;white-space:nowrap;margin-right:8px;text-decoration:none;">🎬 Film</a></td>
+          <td class="col-lieu"><strong>Philip Island</strong><br><span class="col-country">🇦🇺 AUSTRALIE</span><br><a href="#" onclick="openMissionVideo('https://drive.google.com/file/d/0B0viuDynuy13SDNwQVp0WVh4NUE/preview','Philip Island, Australie');return false;" style="font-size:10px;font-weight:700;color:#5fa8d3;white-space:nowrap;margin-right:8px;text-decoration:none;cursor:pointer;">🎬 Film</a></td>
           <td>Phillip Island Nature Park</td>
           <td>Film infrarouge</td>
           <td>Meilleure compréhension de la vie nocturne des pingouins</td>
@@ -413,14 +413,14 @@
         </tr>
         <tr>
           <td class="col-periode">novembre 2012</td>
-          <td class="col-lieu"><strong>Près de Santiago</strong><br><span class="col-country">🇨🇱 CHILI</span><br><a href="https://drive.google.com/file/d/1YZS9T64zGZ0plN6jrc7IiSI4Hw7QBMId/preview" target="_blank" style="font-size:10px;font-weight:700;color:#5fa8d3;white-space:nowrap;margin-right:8px;text-decoration:none;">🎬 Film</a></td>
+          <td class="col-lieu"><strong>Près de Santiago</strong><br><span class="col-country">🇨🇱 CHILI</span><br><a href="#" onclick="openMissionVideo('https://drive.google.com/file/d/1YZS9T64zGZ0plN6jrc7IiSI4Hw7QBMId/preview','Fogquest, Chili');return false;" style="font-size:10px;font-weight:700;color:#5fa8d3;white-space:nowrap;margin-right:8px;text-decoration:none;cursor:pointer;">🎬 Film</a></td>
           <td>Fogquest Chile</td>
           <td>Identification des zones sèches, brumeuses et habitées</td>
           <td>Localisation des futures zones de collecte de brouillard</td>
         </tr>
         <tr>
           <td class="col-periode">octobre 2012</td>
-          <td class="col-lieu"><strong>Caral</strong><br><span class="col-country">🇵🇪 PÉROU</span><br><a href="https://drive.google.com/file/d/0B0viuDynuy13RVJhWmpucDVqeFU/preview" target="_blank" style="font-size:10px;font-weight:700;color:#5fa8d3;white-space:nowrap;margin-right:8px;text-decoration:none;">🎬 Film</a></td>
+          <td class="col-lieu"><strong>Caral</strong><br><span class="col-country">🇵🇪 PÉROU</span><br><a href="#" onclick="openMissionVideo('https://drive.google.com/file/d/0B0viuDynuy13RVJhWmpucDVqeFU/preview','Caral, Pérou');return false;" style="font-size:10px;font-weight:700;color:#5fa8d3;white-space:nowrap;margin-right:8px;text-decoration:none;cursor:pointer;">🎬 Film</a></td>
           <td>Zona Arqueológica Caral</td>
           <td>Prospection archéologique — Découverte de nouveaux sites</td>
           <td>Meilleure compréhension du site de Caral</td>
@@ -434,7 +434,7 @@
         </tr>
         <tr>
           <td class="col-periode">août 2012</td>
-          <td class="col-lieu"><strong>Archipel de Mingan</strong><br><span class="col-country">🇨🇦 CANADA</span><br><a href="https://drive.google.com/file/d/10Ichfl7NfScPCdIgSABAzNSV_qkMo--U/preview" target="_blank" style="font-size:10px;font-weight:700;color:#5fa8d3;white-space:nowrap;margin-right:8px;text-decoration:none;">🎬 Film</a></td>
+          <td class="col-lieu"><strong>Archipel de Mingan</strong><br><span class="col-country">🇨🇦 CANADA</span><br><a href="#" onclick="openMissionVideo('https://drive.google.com/file/d/10Ichfl7NfScPCdIgSABAzNSV_qkMo--U/preview','Archipel de Mingan, Canada');return false;" style="font-size:10px;font-weight:700;color:#5fa8d3;white-space:nowrap;margin-right:8px;text-decoration:none;cursor:pointer;">🎬 Film</a></td>
           <td>Mingan Island Cetacean Study</td>
           <td>Documentation photographique de la population de cétacés</td>
           <td>Étude des cétacés de la rivière Saint-Laurent</td>
@@ -717,6 +717,16 @@
   </div>
 </div>
 
+<!-- Modal vidéo missions -->
+<div id="missionModal" style="display:none;position:fixed;inset:0;z-index:1001;background:rgba(0,0,0,0.92);justify-content:center;align-items:center;flex-direction:column;" onclick="if(event.target===this){this.style.display='none';document.getElementById('missionVideo').src='';}">
+  <button onclick="document.getElementById('missionModal').style.display='none';document.getElementById('missionVideo').src='';" style="position:absolute;top:20px;right:28px;background:none;border:none;color:#fff;font-size:36px;cursor:pointer;z-index:1002;transition:transform 0.2s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">&times;</button>
+  <div style="width:90%;max-width:900px;aspect-ratio:16/9;">
+    <iframe id="missionVideo" src="" width="100%" height="100%" style="border:none;border-radius:6px;" allow="autoplay" allowfullscreen></iframe>
+  </div>
+  <p id="missionVideoCaption" style="color:rgba(255,255,255,0.7);margin-top:16px;font-size:14px;"></p>
+  <a href="reportages.html" style="margin-top:12px;display:inline-flex;align-items:center;gap:8px;padding:10px 24px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.3);color:#fff;transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'" data-fr="Voir tous nos reportages →" data-en="See all our documentaries →">Voir tous nos reportages →</a>
+</div>
+
 <footer>
     <div class="footer-inner">
     <div class="footer-brand">
@@ -790,6 +800,13 @@ window.addEventListener('resize',function(){if(window.innerWidth>960){var n=docu
   panel.addEventListener('scroll',highlight);
   highlight();
 })();
+</script>
+<script>
+function openMissionVideo(url, caption) {
+  document.getElementById('missionVideo').src = url;
+  document.getElementById('missionVideoCaption').textContent = caption || '';
+  document.getElementById('missionModal').style.display = 'flex';
+}
 </script>
 </body>
 </html>
