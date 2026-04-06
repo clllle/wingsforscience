@@ -9,7 +9,7 @@
   <meta property="og:description" content="Actions de sensibilisation educative pour la science et l'environnement.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://clllle.github.io/wingsforscience/sensibilisation.html">
-  <meta property="og:image" content="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png">
+  <meta property="og:image" content="images/logo_wfs.png">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:locale:alternate" content="en_GB">
   <link rel="canonical" href="https://clllle.github.io/wingsforscience/sensibilisation.html">
@@ -19,7 +19,7 @@
 <body>
 <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 <header>
-  <a class="logo-wrap" href="index.html"><img src="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png/v1/fill/w_162,h_163,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/LOGO%20wingsforscience%20copie.png" alt="Logo"><div class="logo-text"><span data-fr="Des Ailes pour la Science" data-en="Wings for Science">Des Ailes pour la Science</span></div></a>
+  <a class="logo-wrap" href="index.html"><img src="images/logo_wfs.png" alt="Logo"><div class="logo-text"><span data-fr="Des Ailes pour la Science" data-en="Wings for Science">Des Ailes pour la Science</span></div></a>
   <nav>
     <div class="nav-item">
       <a class="nav-link" href="#" onclick="return false;"><span data-fr="Notre mission" data-en="Our mission">Notre mission</span> <span class="chevron">▼</span></a>
@@ -84,7 +84,7 @@
   </div>
 </div>
 
-<section id="main-content" class="page-hero" style="background-image:url('https://static.wixstatic.com/media/c88cd1_ad6059c043d14e74979ef02231fb7d34~mv2.jpg');">
+<section id="main-content" class="page-hero" style="background-image:url('images/wix_import/hero_reseau.jpg');">
   <div class="page-hero-overlay"></div>
   <div class="page-hero-content">
     <span class="section-tag" data-fr="Notre mission — 03" data-en="Our mission — 03">Notre mission — 03</span>
@@ -97,11 +97,43 @@
     <p class="lead-text" data-fr="Cette folle aventure et la variété des collaborations scientifiques sont un matériau fantastique pour comprendre les enjeux liés à la science et à l'environnement ! Nous rencontrons des élèves et leurs enseignants, mais aussi des citoyens, afin de partager notre expérience." data-en="This extraordinary adventure and our varied scientific collaborations provide fantastic material for understanding the challenges of science and the environment! We meet students, their teachers, and citizens to share our experience.">Cette folle aventure et la variété des collaborations scientifiques sont un matériau fantastique pour comprendre les enjeux liés à la science et à l'environnement ! Nous rencontrons des élèves et leurs enseignants, mais aussi des citoyens, afin de partager notre expérience.</p>
   </div></div>
 
-<!-- PHOTO ÉDUCATION -->
+<!-- GALERIE ÉDUCATION -->
 <div class="content-section" style="padding-top:0;padding-bottom:40px;">
-  <div class="content-inner narrow" style="text-align:center;">
-    <img src="images/ecole 3Paletuviers guyane.png" alt="Intervention dans une école en Guyane française" style="width:100%;border-radius:8px;margin-bottom:12px;" loading="lazy">
-    <p style="font-size:13px;color:var(--text-muted);font-style:italic;" data-fr="Intervention à l'école des Trois-Paletuviers, Guyane française" data-en="Visit at Trois-Paletuviers school, French Guiana">Intervention à l'école des Trois-Paletuviers, Guyane française</p>
+  <div class="content-inner">
+    <div style="text-align:center;margin-bottom:24px;">
+      <span class="section-tag" data-fr="En images" data-en="In pictures">En images</span>
+    </div>
+    <style>
+      .sensib-carousel{position:relative;width:100%;aspect-ratio:16/9;max-height:500px;border-radius:8px;overflow:hidden;}
+      .sensib-slide{position:absolute;inset:0;opacity:0;transition:opacity 0.7s ease;}
+      .sensib-slide.active{opacity:1;}
+      .sensib-slide img{width:100%;height:100%;object-fit:cover;}
+      .sensib-caption{position:absolute;bottom:0;left:0;right:0;padding:20px 28px;background:linear-gradient(transparent,rgba(0,0,0,0.75));color:#fff;z-index:2;}
+      .sensib-caption-loc{font-family:'Merriweather',serif;font-size:16px;font-weight:400;}
+      .sensib-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:3;background:rgba(255,255,255,0.85);border:none;color:#1a2a3a;width:52px;height:52px;border-radius:50%;cursor:pointer;font-size:22px;font-weight:700;transition:background 0.3s,transform 0.3s;box-shadow:0 4px 12px rgba(0,0,0,0.3);}
+      .sensib-btn:hover{background:#fff;transform:translateY(-50%) scale(1.12);box-shadow:0 6px 20px rgba(0,0,0,0.4);}
+      .sensib-btn.prev{left:14px}.sensib-btn.next{right:14px}
+      .sensib-dots{position:absolute;bottom:10px;left:0;right:0;text-align:center;z-index:3;}
+      .sensib-dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,0.3);margin:0 4px;cursor:pointer;transition:background 0.3s,transform 0.3s;border:1px solid rgba(255,255,255,0.15);}
+      .sensib-dot.active{background:#fff;transform:scale(1.3);}
+    </style>
+    <div class="sensib-carousel" id="sensibCarousel">
+      <div class="sensib-slide active"><img src="images/ecole 3Paletuviers guyane.png" alt="École des Trois-Paletuviers, Guyane"><div class="sensib-caption"><div class="sensib-caption-loc" data-fr="Trois-Paletuviers, Guyane française" data-en="Trois-Paletuviers, French Guiana">Trois-Paletuviers, Guyane française</div></div></div>
+      <div class="sensib-slide"><img src="images/55 enfants tobalaba.jpg" alt="55 enfants, Tobalaba, Chili"><div class="sensib-caption"><div class="sensib-caption-loc">Tobalaba, Chili</div></div></div>
+      <div class="sensib-slide"><img src="images/classe amhedabad.png" alt="Classe à Ahmedabad, Inde"><div class="sensib-caption"><div class="sensib-caption-loc">Ahmedabad, Inde</div></div></div>
+      <div class="sensib-slide"><img src="images/classe osorno.JPG" alt="Classe à Osorno, Chili"><div class="sensib-caption"><div class="sensib-caption-loc">Osorno, Chili</div></div></div>
+      <div class="sensib-slide"><img src="images/170 ayla.JPG" alt="170 enfants, Ayla, Jordanie"><div class="sensib-caption"><div class="sensib-caption-loc">Ayla, Jordanie</div></div></div>
+      <div class="sensib-slide"><img src="images/classe pakistan.jpg" alt="Classe au Pakistan"><div class="sensib-caption"><div class="sensib-caption-loc">Pakistan</div></div></div>
+      <div class="sensib-slide"><img src="images/classe paletuviers 2.png" alt="École des Paletuviers, Guyane"><div class="sensib-caption"><div class="sensib-caption-loc" data-fr="Trois-Paletuviers, Guyane française" data-en="Trois-Paletuviers, French Guiana">Trois-Paletuviers, Guyane française</div></div></div>
+      <div class="sensib-slide"><img src="images/conf_beyond_grand_rex.png" alt="Beyond, Grand Rex, Paris"><div class="sensib-caption"><div class="sensib-caption-loc">Beyond, Grand Rex, Paris</div></div></div>
+      <div class="sensib-slide"><img src="images/amhenabad 2.png" alt="Ahmedabad, Inde"><div class="sensib-caption"><div class="sensib-caption-loc">Ahmedabad, Inde</div></div></div>
+      <div class="sensib-slide"><img src="images/conf_tobalaba_chili.jpg" alt="Tobalaba, Chili"><div class="sensib-caption"><div class="sensib-caption-loc">Tobalaba, Chili</div></div></div>
+      <div class="sensib-slide"><img src="images/lecture conf.jpg" alt="Lecture en conférence"><div class="sensib-caption"><div class="sensib-caption-loc" data-fr="Conférence" data-en="Conference">Conférence</div></div></div>
+      <div class="sensib-slide"><img src="images/intv3.jpg" alt="Interview"><div class="sensib-caption"><div class="sensib-caption-loc">Interview</div></div></div>
+      <button class="sensib-btn prev" onclick="sensibNav(-1)">&#8592;</button>
+      <button class="sensib-btn next" onclick="sensibNav(1)">&#8594;</button>
+      <div class="sensib-dots" id="sensibDots"></div>
+    </div>
   </div>
 </div>
 
@@ -141,7 +173,7 @@
   <div class="content-section" style="padding-top:0;"><div class="content-inner">
     <div class="pillars-grid">
       <a class="pillar-card" href="conferences.html">
-        <div class="pillar-img-wrap"><img src="https://static.wixstatic.com/media/c88cd1_22231ad001a04489bdf76a1fedeb6729~mv2.jpg" alt="" loading="lazy"></div>
+        <div class="pillar-img-wrap"><img src="images/wix_import/category_conferences.jpg" alt="" loading="lazy"></div>
         <div class="pillar-body">
           <div class="pillar-num">01</div>
           <h2 class="pillar-title" data-fr="Conférences" data-en="Conferences">Conférences</h2>
@@ -150,7 +182,7 @@
         </div>
       </a>
       <a class="pillar-card" href="reportages.html">
-        <div class="pillar-img-wrap"><img src="https://static.wixstatic.com/media/c88cd1_6e6e7a7eb8894df3beafdb01eec2b52e~mv2.jpg" alt="" loading="lazy"></div>
+        <div class="pillar-img-wrap"><img src="images/wix_import/category_reportages.jpg" alt="" loading="lazy"></div>
         <div class="pillar-body">
           <div class="pillar-num">02</div>
           <h2 class="pillar-title" data-fr="Reportages" data-en="Documentaries">Reportages</h2>
@@ -159,7 +191,7 @@
         </div>
       </a>
       <a class="pillar-card" href="livres.html">
-        <div class="pillar-img-wrap"><img src="https://static.wixstatic.com/media/c88cd1_8e631791f47649cd9d942bf663d8ede9~mv2.jpg" alt="" loading="lazy"></div>
+        <div class="pillar-img-wrap"><img src="images/wix_import/category_livres.jpg" alt="" loading="lazy"></div>
         <div class="pillar-body">
           <div class="pillar-num">03</div>
           <h2 class="pillar-title" data-fr="Livres" data-en="Books">Livres</h2>
@@ -173,7 +205,7 @@
 <footer>
     <div class="footer-inner">
     <div class="footer-brand">
-      <a class="logo-wrap" href="index.html"><img src="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png/v1/fill/w_162,h_163,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/LOGO%20wingsforscience%20copie.png" alt="Logo"><div class="logo-text"><span data-fr="Des Ailes pour la Science" data-en="Wings for Science">Des Ailes pour la Science</span></div></a>
+      <a class="logo-wrap" href="index.html"><img src="images/logo_wfs.png" alt="Logo"><div class="logo-text"><span data-fr="Des Ailes pour la Science" data-en="Wings for Science">Des Ailes pour la Science</span></div></a>
       <p data-fr="Association à but non lucratif œuvrant pour la science et la protection de l'environnement depuis 2008." data-en="Non-profit association working for science and environmental protection since 2008.">Association à but non lucratif œuvrant pour la science et la protection de l'environnement depuis 2008.</p>
       <address class="footer-address" style="display:inline;">Maison des associations, 38 bd Henri IV, 75004 Paris</address>
     </div>
@@ -206,7 +238,7 @@
       </ul>
     </div>
   </div>
-  <div class="footer-bottom"><span class="footer-copy" data-fr="© 2025 Des Ailes pour la Science / Wings for Science. Association de loi 1901." data-en="© 2025 Wings for Science / Des Ailes pour la Science. Non-profit association.">© 2025 Des Ailes pour la Science / Wings for Science. Association de loi 1901.</span><div class="social-links"><a href="https://wingsforscience.blogspot.com/" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/70b1c5a67d2349e3933570b344b1d54d.png/v1/fill/w_35,h_35,al_c,enc_avif,quality_auto/70b1c5a67d2349e3933570b344b1d54d.png" alt="Blogger"></a><a href="https://www.facebook.com/wingsforscience" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/4057345bcf57474b96976284050c00df.png/v1/fill/w_35,h_35,al_c,enc_avif,quality_auto/4057345bcf57474b96976284050c00df.png" alt="Facebook"></a><a href="https://www.youtube.com/playlist?list=PL8A32C328768F858A" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/45bce1d726f64f1999c49feae57f6298.png/v1/fill/w_35,h_35,al_c,enc_avif,quality_auto/45bce1d726f64f1999c49feae57f6298.png" alt="YouTube"></a></div></div>
+  <div class="footer-bottom"><span class="footer-copy" data-fr="© 2025 Des Ailes pour la Science / Wings for Science. Association de loi 1901." data-en="© 2025 Wings for Science / Des Ailes pour la Science. Non-profit association.">© 2025 Des Ailes pour la Science / Wings for Science. Association de loi 1901.</span><div class="social-links"><a href="https://wingsforscience.blogspot.com/" target="_blank" rel="noopener"><img src="images/wix_import/icon_blogger.png" alt="Blogger"></a><a href="https://www.facebook.com/wingsforscience" target="_blank" rel="noopener"><img src="images/wix_import/icon_facebook.png" alt="Facebook"></a><a href="https://www.youtube.com/playlist?list=PL8A32C328768F858A" target="_blank" rel="noopener"><img src="images/wix_import/icon_youtube.png" alt="YouTube"></a></div></div>
 </footer>
 <script src="lang.js"></script>
 <script src="shared.js"></script>
@@ -239,6 +271,19 @@
     });
   },{threshold:0.3});
   obs.observe(nums[0].parentElement.parentElement);
+})();
+
+/* ── Sensibilisation carousel ── */
+(function(){
+  var slides=document.querySelectorAll('#sensibCarousel .sensib-slide');
+  if(!slides.length)return;
+  var cur=0,timer;
+  var dotsC=document.getElementById('sensibDots');
+  slides.forEach(function(_,i){var d=document.createElement('span');d.className='sensib-dot'+(i===0?' active':'');d.onclick=function(){go(i);};dotsC.appendChild(d);});
+  function go(n){slides[cur].classList.remove('active');dotsC.children[cur].classList.remove('active');cur=(n+slides.length)%slides.length;slides[cur].classList.add('active');dotsC.children[cur].classList.add('active');resetTimer();}
+  window.sensibNav=function(d){go(cur+d);};
+  function resetTimer(){clearInterval(timer);timer=setInterval(function(){go(cur+1);},5000);}
+  resetTimer();
 })();
 </script>
 
