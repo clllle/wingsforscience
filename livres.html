@@ -479,6 +479,7 @@
             <p class="mag-text">Le récit est trépidant, les épisodes oscillent entre rires et larmes. Vivement la suite.</p>
             <img src="images/logos/presse/le_monde.svg" alt="Le Monde" class="mag-source-logo">
             <div class="mag-source">Le Monde</div>
+            <button class="mag-read-btn" onclick="openArticle('0B0RkbHBUrWAxdnBlOC01WjVSXzg')" data-fr="Lire l'article" data-en="Read article">Lire l'article</button>
           </div>
         </div>
 
@@ -490,6 +491,7 @@
             <p class="mag-text">Un livre passionnant, à découvrir d'urgence quand vous serez en manque d'action et d'aventure.</p>
             <img src="images/logos/presse/portail_aviation.png" alt="Portail Aviation" class="mag-source-logo">
             <div class="mag-source">Passionnés d'aviation</div>
+            <button class="mag-read-btn" onclick="openArticle('1Hnf6BQoJQLsJu2dMBMobSq622jFp-sdj')" data-fr="Lire l'article" data-en="Read article">Lire l'article</button>
           </div>
           <div class="mag-page-back">
             <div class="mag-page-num">3 / 8</div>
@@ -497,6 +499,7 @@
             <p class="mag-text">Un récit accrocheur, simple, qui fait voyager, découvrir des cultures et des imprévus auxquels sont confrontés les pilotes.</p>
             <img src="images/logos/presse/info_pilote.png" alt="Info-pilote" class="mag-source-logo">
             <div class="mag-source">Info-pilote</div>
+            <button class="mag-read-btn" onclick="openArticle('0B0RkbHBUrWAxOGY0ejBENXZES2c')" data-fr="Lire l'article" data-en="Read article">Lire l'article</button>
           </div>
         </div>
 
@@ -508,6 +511,7 @@
             <p class="mag-text">Un parcours initiatique, entrecoupé de rencontres hautes en couleur et en éléments déchaînés. Et ce n'est que le premier tome.</p>
             <img src="images/logos/presse/air_cosmos.png" alt="Air &amp; Cosmos" class="mag-source-logo">
             <div class="mag-source">Air &amp; Cosmos</div>
+            <button class="mag-read-btn" onclick="openArticle('0B0RkbHBUrWAxakhpT0Z4UkdRUWs')" data-fr="Lire l'article" data-en="Read article">Lire l'article</button>
           </div>
           <div class="mag-page-back">
             <div class="mag-page-num">5 / 8</div>
@@ -515,6 +519,7 @@
             <p class="mag-text">Ouvrage rafraîchissant et instructif. Une fois commencé, on ne le lâche plus.</p>
             <img src="images/logos/presse/aerobuzz.svg" alt="Aerobuzz" class="mag-source-logo">
             <div class="mag-source">Aerobuzz</div>
+            <button class="mag-read-btn" onclick="openArticle('0B0RkbHBUrWAxakhpT0Z4UkdRUWs')" data-fr="Lire l'article" data-en="Read article">Lire l'article</button>
           </div>
         </div>
 
@@ -526,6 +531,7 @@
             <p class="mag-text">Clémentine récidive pour notre plus grand plaisir. Le ton est plus léger, la plume plus littéraire, les rencontres toujours improbables et magnifiques.</p>
             <img src="images/logos/presse/aerobuzz.svg" alt="Aerobuzz" class="mag-source-logo">
             <div class="mag-source">Aerobuzz</div>
+            <button class="mag-read-btn" onclick="openArticle('1ObPZ8_pWdA63LBRTvwvF0P9hX68YxSJo')" data-fr="Lire l'article" data-en="Read article">Lire l'article</button>
           </div>
           <div class="mag-page-back">
             <div class="mag-page-num">7 / 8</div>
@@ -533,6 +539,7 @@
             <p class="mag-text">Véritable récit d'aventures, écrit avec humour, simplicité et même suspens, ce roman régalera tout lecteur avide de voyages.</p>
             <img src="images/logos/presse/bhv_marais.svg" alt="BHV Marais" class="mag-source-logo">
             <div class="mag-source">BHV Marais</div>
+            <button class="mag-read-btn" onclick="openArticle('1tPMw1SLZT-VWR5w8Skr1Y2RD0Wf3leAM')" data-fr="Lire l'article" data-en="Read article">Lire l'article</button>
           </div>
         </div>
 
@@ -544,6 +551,7 @@
             <p class="mag-text">Clémentine manie aussi bien les commandes de son ULM que la plume. Un récit de voyage à lire pour rêver de pays où l'on ira sans doute jamais.</p>
             <img src="images/logos/presse/jne.jpg" alt="JNE" class="mag-source-logo">
             <div class="mag-source">Journalistes pour la Nature et l'Écologie</div>
+            <button class="mag-read-btn" onclick="openArticle('0B7hlqx_DFkSfcTAtZ0ctSVYwRUk')" data-fr="Lire l'article" data-en="Read article">Lire l'article</button>
           </div>
           <div class="mag-page-back mag-last-page">
             <div class="mag-last-icon">&#9993;</div>
@@ -746,6 +754,41 @@
     margin-bottom: 10px;
     opacity: 0.7;
   }
+  .mag-read-btn {
+    margin-top: 10px;
+    padding: 6px 16px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: transparent;
+    border: 1px solid var(--accent);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+  }
+  .mag-read-btn:hover {
+    background: var(--accent);
+    color: #1a2a3a;
+  }
+  /* Article modal */
+  .article-modal {
+    display: none;
+    position: fixed; inset: 0; z-index: 9999;
+    background: rgba(0,0,0,0.85);
+    align-items: center; justify-content: center;
+  }
+  .article-modal iframe {
+    width: 90vw; height: 90vh;
+    max-width: 900px;
+    border: none; border-radius: 8px;
+  }
+  .article-modal-close {
+    position: absolute; top: 16px; right: 24px;
+    font-size: 36px; color: #fff; background: none; border: none;
+    cursor: pointer; z-index: 10000;
+  }
   .mag-source {
     font-size: 12px; font-weight: 700;
     letter-spacing: 0.1em; text-transform: uppercase;
@@ -911,7 +954,22 @@
   </div>
   <div class="footer-bottom"><span class="footer-copy" data-fr="© 2025 Des Ailes pour la Science / Wings for Science. Association de loi 1901." data-en="© 2025 Wings for Science / Des Ailes pour la Science. Non-profit association.">© 2025 Des Ailes pour la Science / Wings for Science. Association de loi 1901.</span><div class="social-links"><a href="https://wingsforscience.blogspot.com/" target="_blank" rel="noopener"><img src="images/wix_import/icon_blogger.png" alt="Blogger"></a><a href="https://www.facebook.com/wingsforscience" target="_blank" rel="noopener"><img src="images/wix_import/icon_facebook.png" alt="Facebook"></a><a href="https://www.youtube.com/playlist?list=PL8A32C328768F858A" target="_blank" rel="noopener"><img src="images/wix_import/icon_youtube.png" alt="YouTube"></a></div></div>
 </footer>
+<!-- Article preview modal -->
+<div class="article-modal" id="articleModal" onclick="closeArticle()">
+  <button class="article-modal-close" onclick="closeArticle()">&times;</button>
+  <iframe id="articleFrame" src=""></iframe>
+</div>
 <script src="lang.js"></script>
 <script src="shared.js"></script>
+<script>
+function openArticle(id){
+  document.getElementById('articleFrame').src='https://drive.google.com/file/d/'+id+'/preview';
+  document.getElementById('articleModal').style.display='flex';
+}
+function closeArticle(){
+  document.getElementById('articleModal').style.display='none';
+  document.getElementById('articleFrame').src='';
+}
+</script>
 </body>
 </html>
