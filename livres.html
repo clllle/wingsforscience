@@ -437,8 +437,6 @@
       <div class="dedicace-inner">
         <div>
           <img class="dedicace-img" src="images/equipe_devant_livre.avif" alt="Clémentine et Adrien lors d'une séance de dédicace" loading="lazy">
-          <img class="dedicace-img" src="images/photo dedicace livres.avif" alt="Séance de dédicace" style="margin-top:16px;" loading="lazy">
-          <img class="dedicace-img" src="images/lecture conf.jpg" alt="Lecture en conférence" style="margin-top:16px;" loading="lazy">
         </div>
         <div class="dedicace-text">
           <span class="section-tag" data-fr="Rencontres" data-en="Meetings">Rencontres</span>
@@ -872,8 +870,8 @@
   var book = document.getElementById('magBook');
 
   function updateState() {
-    prevBtn.style.opacity = currentPage === 0 ? '0.3' : '1';
-    prevBtn.style.pointerEvents = currentPage === 0 ? 'none' : 'auto';
+    prevBtn.style.opacity = currentPage <= 1 ? '0.3' : '1';
+    prevBtn.style.pointerEvents = currentPage <= 1 ? 'none' : 'auto';
     /* Last flip reveals the CTA page — no more forward, book stays open */
     nextBtn.style.opacity = currentPage >= totalPages ? '0.3' : '1';
     nextBtn.style.pointerEvents = currentPage >= totalPages ? 'none' : 'auto';
@@ -894,7 +892,7 @@
   });
 
   prevBtn.addEventListener('click', function() {
-    if (currentPage > 0) {
+    if (currentPage > 1) {
       currentPage--;
       pages[currentPage].classList.remove('flipped');
       updateState();
