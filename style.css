@@ -1221,10 +1221,10 @@ footer {
 
 /* ── SKIP LINK (Accessibility) ── */
 .skip-link {
-  position: absolute;
-  top: -100%;
+  position: fixed;
+  top: -200px;
   left: 16px;
-  z-index: 200;
+  z-index: 9999;
   background: var(--accent);
   color: #fff;
   padding: 12px 24px;
@@ -1232,10 +1232,14 @@ footer {
   font-weight: 600;
   font-size: 14px;
   text-decoration: none;
-  transition: top 0.2s;
+  transition: top 0.3s;
+  clip: rect(0,0,0,0);
+  overflow: hidden;
 }
 .skip-link:focus {
   top: 0;
+  clip: auto;
+  overflow: visible;
 }
 
 /* ── BACK TO TOP BUTTON ── */
