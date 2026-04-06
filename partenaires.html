@@ -3,10 +3,20 @@
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Partenaires – Wings for Science</title>
+  <meta name="description" content="Partenaires et sponsors de Wings for Science : les organisations qui soutiennent nos expeditions scientifiques et educatives.">
+  <meta property="og:title" content="Partenaires et sponsors - Wings for Science">
+  <meta property="og:description" content="Les organisations qui soutiennent nos expeditions scientifiques.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://clllle.github.io/wingsforscience/partenaires.html">
+  <meta property="og:image" content="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_GB">
+  <link rel="canonical" href="https://clllle.github.io/wingsforscience/partenaires.html">
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<a href="#main-content" class="skip-link">Aller au contenu principal</a>
 <header>
   <a class="logo-wrap" href="index.html"><img src="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png/v1/fill/w_162,h_163,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/LOGO%20wingsforscience%20copie.png" alt="Logo"><div class="logo-text"><span data-fr="Des Ailes pour la Science" data-en="Wings for Science">Des Ailes pour la Science</span></div></a>
   <nav>
@@ -72,7 +82,7 @@
     <button data-lang="en" onclick="setLang('en');toggleMenu()">🇬🇧 English</button>
   </div>
 </div>
-<section class="page-hero" style="background-image:url('https://static.wixstatic.com/media/c88cd1_8a5ffe56f8a44ba0a9eeca2a1c739dc2~mv2.jpg');">
+<section id="main-content" class="page-hero" style="background-image:url('https://static.wixstatic.com/media/c88cd1_8a5ffe56f8a44ba0a9eeca2a1c739dc2~mv2.jpg');">
   <div class="page-hero-overlay"></div>
   <div class="page-hero-content">
     <span class="section-tag" data-fr="Notre réseau — 03" data-en="Our network — 03">Notre réseau — 03</span>
@@ -83,33 +93,278 @@
 <div class="content-section"><div class="content-inner narrow">
     <p class="lead-text" data-fr="Nous avons fait le choix de ne travailler qu'avec des entreprises et institutions qui partagent nos valeurs de protection de l'environnement et d'exemplarité sociale." data-en="We have chosen to work only with companies and institutions that share our values of environmental protection and social responsibility.">Nous avons fait le choix de ne travailler qu'avec des entreprises et institutions qui partagent nos valeurs de protection de l'environnement et d'exemplarité sociale.</p>
   </div></div>
+  <style>
+    .sponsor-hero {
+      display: flex; justify-content: center; align-items: center;
+      padding: 48px; margin-bottom: 16px;
+    }
+    .sponsor-hero img {
+      max-height: 120px; max-width: 300px; object-fit: contain;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.15));
+      transition: transform 0.3s;
+    }
+    .sponsor-hero:hover img { transform: scale(1.05); }
+    .partners-section-title {
+      text-align: center; margin: 48px 0 8px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--accent);
+    }
+    .partners-divider {
+      width: 60px; height: 2px; background: var(--accent);
+      margin: 8px auto 28px; border-radius: 1px; opacity: 0.4;
+    }
+
+    /* Force uniform grid for partner logos */
+    .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .partners-grid .partner-logo {
+      background: #fff !important;
+      border: 1px solid #e0e0e0 !important;
+      border-radius: 10px;
+      padding: 14px;
+      height: 100px;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform 0.25s, box-shadow 0.25s;
+      cursor: pointer; text-decoration: none;
+    }
+    .partners-grid .partner-logo:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.25);
+    }
+    .partners-grid .partner-logo img {
+      max-height: 72px; max-width: 90%;
+      width: auto; height: auto;
+      object-fit: contain;
+    }
+    .partners-grid .partner-text {
+      font-size: 13px; font-weight: 700; color: #1a2a3a;
+      letter-spacing: 0.02em; text-align: center;
+    }
+    .sponsor-hero {
+      background: #fff; border-radius: 12px;
+      border: 1px solid #e0e0e0;
+      cursor: pointer; text-decoration: none; display: flex;
+    }
+
+    /* Modal pour afficher logo en grand */
+    .logo-modal {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.85); z-index: 1000;
+      justify-content: center; align-items: center;
+      flex-direction: column; gap: 24px;
+      cursor: pointer;
+    }
+    .logo-modal.open { display: flex; }
+    .logo-modal-img {
+      max-width: 80vw; max-height: 50vh;
+      object-fit: contain;
+      background: #fff; padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 16px 60px rgba(0,0,0,0.4);
+    }
+    .logo-modal-link {
+      display: inline-block;
+      padding: 12px 28px;
+      background: var(--accent); color: #fff;
+      border-radius: 6px; font-size: 13px; font-weight: 600;
+      text-decoration: none; letter-spacing: 0.05em;
+      transition: background 0.2s;
+    }
+    .logo-modal-link:hover { background: #4a90b8; }
+    .logo-modal-close {
+      position: absolute; top: 20px; right: 28px;
+      background: none; border: none; color: #fff;
+      font-size: 32px; cursor: pointer;
+    }
+  </style>
+
   <div class="content-section" style="padding-top:0;"><div class="content-inner">
-    <h2 class="section-heading" data-fr="Partenaires financiers et techniques" data-en="Financial and technical partners">Partenaires financiers et techniques</h2>
+
+    <!-- ══ 1. SPONSOR PRINCIPAL ══ -->
+    <div class="partners-section-title" data-fr="Sponsor principal" data-en="Main sponsor">Sponsor principal</div>
+    <div class="partners-divider"></div>
+    <a class="sponsor-hero" href="https://www.sosmalus.com" target="_blank" rel="noopener" data-logo="images/logos/partenaires/sos_malus.png" onclick="openLogo(event)">
+      <img src="images/logos/partenaires/sos_malus.png" alt="SOS Malus — Sponsor principal" loading="lazy">
+    </a>
+
+    <!-- ══ 2. PARTENAIRES FINANCIERS ET TECHNIQUES ══ -->
+    <div class="partners-section-title" data-fr="Nos partenaires financiers et techniques" data-en="Our financial and technical partners">Nos partenaires financiers et techniques</div>
+    <div class="partners-divider"></div>
     <div class="partners-grid">
-      <div class="partner-logo"><img src="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png" alt="Bentley Systems" loading="lazy"></div>
-      <div class="partner-logo"><img src="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png" alt="Pipistrel" loading="lazy"></div>
-      <div class="partner-logo"><img src="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png" alt="Edra Aeronautica" loading="lazy"></div>
-      <div class="partner-logo"><img src="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png" alt="Zeppelin Geo" loading="lazy"></div>
-      <div class="partner-logo"><img src="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png" alt="Geoscale" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/partenaires/bentley.png" data-url="https://www.bentley.com" onclick="openLogo(event)"><img src="images/logos/partenaires/bentley.png" alt="Bentley Systems" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/partenaires/bose.png" data-url="https://www.bose.com" onclick="openLogo(event)"><img src="images/logos/partenaires/bose.png" alt="Bose" loading="lazy"></div>
+      <div class="partner-logo" style="background:#e8e8e8 !important;" data-logo="images/logos/partenaires/comapping.png" data-url="https://www.comapping.com" onclick="openLogo(event)"><img src="images/logos/partenaires/comapping.png" alt="Comapping" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/partenaires/duc_helices.png" data-url="https://www.duc-helices.com" onclick="openLogo(event)"><img src="images/logos/partenaires/duc_helices.png" alt="DUC Hélices" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/partenaires/dynon.png" data-url="https://www.dynonavionics.com" onclick="openLogo(event)"><img src="images/logos/partenaires/dynon.png" alt="Dynon Avionics" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/partenaires/finesse_max.png" data-url="https://www.finesse-max.com" onclick="openLogo(event)"><img src="images/logos/partenaires/finesse_max.png" alt="Finesse Max" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/partenaires/kawet.jpg" data-url="#" onclick="openLogo(event)"><img src="images/logos/partenaires/kawet.jpg" alt="Kawet" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/partenaires/parrot.png" data-url="https://www.parrot.com" onclick="openLogo(event)"><img src="images/logos/partenaires/parrot.png" alt="Parrot" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/partenaires/p2go.jpg" data-url="https://www.prepare2go.com" onclick="openLogo(event)"><img src="images/logos/partenaires/p2go.jpg" alt="Prepare 2 Go" loading="lazy"></div>
+      <div class="partner-logo" style="background:#111 !important;" data-logo="images/logos/partenaires/scoda.png" data-url="https://www.scodaaeronautica.com.br" onclick="openLogo(event)"><img src="images/logos/partenaires/scoda.png" alt="Scoda Aeronautica" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/partenaires/white_rose.png" data-url="https://www.whiteroseaviation.com" onclick="openLogo(event)"><img src="images/logos/partenaires/white_rose.png" alt="White Rose Aviation" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/partenaires/zodiac_aerospace.png" data-url="https://www.zodiacaerospace.com" onclick="openLogo(event)"><img src="images/logos/partenaires/zodiac_aerospace.png" alt="Zodiac Aerospace" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/partenaires/elvinger.png" data-url="https://www.elvingerhoss.lu" onclick="openLogo(event)"><img src="images/logos/partenaires/elvinger.png" alt="Elvinger Hoss Prussen" loading="lazy"></div>
     </div>
-    <h2 class="section-heading" data-fr="Partenaires institutionnels et scientifiques" data-en="Institutional and scientific partners">Partenaires institutionnels et scientifiques</h2>
+
+    <!-- ══ 3. PARTENAIRES INSTITUTIONNELS ET ASSOCIATIFS ══ -->
+    <div class="partners-section-title" data-fr="Nos partenaires institutionnels et associatifs" data-en="Our institutional and associative partners">Nos partenaires institutionnels et associatifs</div>
+    <div class="partners-divider"></div>
     <div class="partners-grid">
-      <div class="partner-logo"><img src="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png" alt="Académie des Sciences" loading="lazy"></div>
-      <div class="partner-logo"><img src="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png" alt="Cité des Sciences (Universcience)" loading="lazy"></div>
-      <div class="partner-logo"><img src="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png" alt="ESO — European Southern Observatory" loading="lazy"></div>
-      <div class="partner-logo"><img src="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png" alt="EUFAR — European Facility for Airborne Research" loading="lazy"></div>
-      <div class="partner-logo"><img src="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png" alt="Archipelagos Institute of Marine Conservation" loading="lazy"></div>
-      <div class="partner-logo"><img src="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png" alt="Graines d'Explorateurs — ENS de Lyon" loading="lazy"></div>
-      <div class="partner-logo"><img src="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png" alt="La main à la pâte" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/partenaires/universcience.png" data-url="https://www.universcience.fr" onclick="openLogo(event)"><img src="images/logos/partenaires/universcience.png" alt="Universcience" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/partenaires/fnr.png" data-url="https://www.fnr.lu" onclick="openLogo(event)"><img src="images/logos/partenaires/fnr.png" alt="Fonds National de la Recherche Luxembourg" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/partenaires/academie_sciences.png" data-url="https://www.academie-sciences.fr" onclick="openLogo(event)"><img src="images/logos/partenaires/academie_sciences.png" alt="Académie des Sciences" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/partenaires/centrale_lyon.png" data-url="https://www.ec-lyon.fr" onclick="openLogo(event)"><img src="images/logos/partenaires/centrale_lyon.png" alt="École Centrale de Lyon" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/partenaires/eufar.png" data-url="https://www.eufar.net" onclick="openLogo(event)"><img src="images/logos/partenaires/eufar.png" alt="European Facility for Airborne Research" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/partenaires/sef.png" data-url="https://www.explorateurs.org" onclick="openLogo(event)"><img src="images/logos/partenaires/sef.png" alt="Société des Explorateurs Français" style="max-height:80px;max-width:80px;" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/partenaires/lamap.png" data-url="https://www.fondation-lamap.org" onclick="openLogo(event)"><img src="images/logos/partenaires/lamap.png" alt="Fondation La main à la pâte" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/partenaires/projet_pilote.png" data-url="https://www.la-guilde.org" onclick="openLogo(event)"><img src="images/logos/partenaires/projet_pilote.png" alt="Projet Pilote par La Guilde" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/partenaires/hydroclub.png" data-url="https://www.hydroclub.fr" onclick="openLogo(event)"><img src="images/logos/partenaires/hydroclub.png" alt="Hydroclub de France" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/partenaires/web_pedago.jpg" data-url="https://lewebpedagogique.com" onclick="openLogo(event)"><img src="images/logos/partenaires/web_pedago.jpg" alt="Le Web Pédagogique" loading="lazy"></div>
     </div>
-    <h2 class="section-heading" data-fr="Partenaires médias et production" data-en="Media and production partners">Partenaires médias et production</h2>
+
+    <!-- ══ 4. PARTENAIRES MÉDIA ══ -->
+    <div class="partners-section-title" data-fr="Nos partenaires média" data-en="Our media partners">Nos partenaires média</div>
+    <div class="partners-divider"></div>
     <div class="partners-grid">
-      <div class="partner-logo"><img src="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png" alt="ARTE" loading="lazy"></div>
-      <div class="partner-logo"><img src="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png" alt="TV5 Monde" loading="lazy"></div>
-      <div class="partner-logo"><img src="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png" alt="Gedeon Programmes" loading="lazy"></div>
-      <div class="partner-logo"><img src="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png" alt="Terranoa" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/partenaires/zeppelin.png" data-url="https://www.zeppelin-geo.com" onclick="openLogo(event)"><img src="images/logos/partenaires/zeppelin.png" alt="Zeppelin Geo" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/partenaires/rtl.png" data-url="https://www.rtl.fr" onclick="openLogo(event)"><img src="images/logos/partenaires/rtl.png" alt="RTL France" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/partenaires/heliom.png" data-url="https://www.heliom.fr" onclick="openLogo(event)"><img src="images/logos/partenaires/heliom.png" alt="Heliom" loading="lazy"></div>
+      <div class="partner-logo partner-text" data-url="https://www.telesavoirs.com" onclick="openLogo(event)">TéléSavoirs</div>
+      <div class="partner-logo" data-logo="images/logos/partenaires/esprit_sorcier.png" data-url="https://www.lespritsorcier.org" onclick="openLogo(event)"><img src="images/logos/partenaires/esprit_sorcier.png" alt="L'Esprit Sorcier" loading="lazy"></div>
     </div>
+
+    <!-- ══ 5. PARTENAIRES SCIENTIFIQUES ══ -->
+    <div class="partners-section-title" data-fr="Nos partenaires scientifiques" data-en="Our scientific partners">Nos partenaires scientifiques</div>
+    <div class="partners-divider"></div>
+    <div class="partners-grid">
+      <div class="partner-logo" data-logo="images/logos/scientifiques/logo_sci_institut_de_recherche_pour_le_developpement.png" data-url="https://www.ird.fr" onclick="openLogo(event)"><img src="images/logos/scientifiques/logo_sci_institut_de_recherche_pour_le_developpement.png" alt="Institut de Recherche pour le Développement" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/scientifiques/logo_sci_lsce,_laboratoire_des_sciences_du_climat_et_de_l'environnement.jpg" data-url="https://www.lsce.ipsl.fr" onclick="openLogo(event)"><img src="images/logos/scientifiques/logo_sci_lsce,_laboratoire_des_sciences_du_climat_et_de_l'environnement.jpg" alt="LSCE — CNRS" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/scientifiques/logo_sci_universite_du_luxembourg.png" data-url="https://www.uni.lu" onclick="openLogo(event)"><img src="images/logos/scientifiques/logo_sci_universite_du_luxembourg.png" alt="Université du Luxembourg" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/scientifiques/logo_sci_eso_european_southern_observatory_observatoire_europeen_austral.png" data-url="https://www.eso.org" onclick="openLogo(event)"><img src="images/logos/scientifiques/logo_sci_eso_european_southern_observatory_observatoire_europeen_austral.png" alt="European Southern Observatory" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/scientifiques/logo_sci_archipelagos_institute_of_marine_conservation.jpg" data-url="https://www.archipelago.gr" onclick="openLogo(event)"><img src="images/logos/scientifiques/logo_sci_archipelagos_institute_of_marine_conservation.jpg" alt="Archipelagos Institute of Marine Conservation" style="max-height:80px;max-width:80px;" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/scientifiques/logo_sci_fundación_proyungas.jpg" data-url="https://www.proyungas.org.ar" onclick="openLogo(event)"><img src="images/logos/scientifiques/logo_sci_fundación_proyungas.jpg" alt="Fundación ProYungas" style="max-height:80px;max-width:80px;" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/scientifiques/logo_sci_cerema.png" data-url="https://www.cerema.fr" onclick="openLogo(event)"><img src="images/logos/scientifiques/logo_sci_cerema.png" alt="Cerema" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/scientifiques/logo_sci_amana.jpg" data-url="https://reserves-naturelles.org/reserves/amana/" onclick="openLogo(event)"><img src="images/logos/scientifiques/logo_sci_amana.jpg" alt="Réserve Naturelle de l'Amana" style="max-height:80px;max-width:80px;" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/scientifiques/logo_sci_icmbio.png" data-url="https://www.gov.br/icmbio" onclick="openLogo(event)"><img src="images/logos/scientifiques/logo_sci_icmbio.png" alt="Instituto Chico Mendes de Conservação da Biodiversidade" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/scientifiques/logo_sci_universite_de_brest.png" data-url="https://www.univ-brest.fr" onclick="openLogo(event)"><img src="images/logos/scientifiques/logo_sci_universite_de_brest.png" alt="Université de Brest" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/scientifiques/logo_sci_inrap.png" data-url="https://www.inrap.fr" onclick="openLogo(event)"><img src="images/logos/scientifiques/logo_sci_inrap.png" alt="Institut National de Recherches Archéologiques Préventives" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/scientifiques/caral.png" data-url="https://www.zonacaral.gob.pe" onclick="openLogo(event)"><img src="images/logos/scientifiques/caral.png" alt="Zona Arqueológica Caral" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/scientifiques/logo_sci_centro_para_la_protección_ambiental_del_lago_rupanco.jpg" onclick="openLogo(event)"><img src="images/logos/scientifiques/logo_sci_centro_para_la_protección_ambiental_del_lago_rupanco.jpg" alt="Centro para la Protección Ambiental del Lago Rupanco" style="max-height:85px;max-width:170px;" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/scientifiques/logo_sci_mingan_island_cetacean_study.png" data-url="https://www.rorqual.com" onclick="openLogo(event)"><img src="images/logos/scientifiques/logo_sci_mingan_island_cetacean_study.png" alt="Mingan Island Cetacean Study" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/scientifiques/logo_sci_phillip_island_nature_park.jpg" data-url="https://www.penguins.org.au" onclick="openLogo(event)"><img src="images/logos/scientifiques/logo_sci_phillip_island_nature_park.jpg" alt="Phillip Island Nature Park" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/scientifiques/logo_mef.jpg" data-url="https://www.mef.org.ar" onclick="openLogo(event)"><img src="images/logos/scientifiques/logo_mef.jpg" alt="Museo Paleontológico Egidio Feruglio" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/scientifiques/logo_sci_náttúrustofa_suðurlands_icelandic_institute_of_natural_history.jpg" data-url="https://www.ni.is" onclick="openLogo(event)"><img src="images/logos/scientifiques/logo_sci_náttúrustofa_suðurlands_icelandic_institute_of_natural_history.jpg" alt="Icelandic Institute of Natural History" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/scientifiques/logo_sci_daring_lake_tundra.png" data-url="https://www.gov.nt.ca/ecc/en/services/research-and-data-nwt/tundra-ecosystem-research-station" onclick="openLogo(event)"><img src="images/logos/scientifiques/logo_sci_daring_lake_tundra.png" alt="Tundra Ecosystem Research Station" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/scientifiques/logo_sci_laboratoire_magmas_volcans_lmv.png" data-url="https://lmv.uca.fr" onclick="openLogo(event)"><img src="images/logos/scientifiques/logo_sci_laboratoire_magmas_volcans_lmv.png" alt="Laboratoire Magmas et Volcans" loading="lazy"></div>
+
+      <div class="partner-logo" data-logo="images/logos/scientifiques/logo_cvghm.png" data-url="https://www.esdm.go.id/en/profile/duties-functions/geological-agency" onclick="openLogo(event)"><img src="images/logos/scientifiques/logo_cvghm.png" alt="Center of Volcanology and Geological Hazard Mitigation" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/scientifiques/logo_sci_surinam.png" data-url="https://www.greenfund.sr" onclick="openLogo(event)"><img src="images/logos/scientifiques/logo_sci_surinam.png" alt="Green Heritage Fund Suriname" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/scientifiques/logo_sci_pontificia_universidad_católica_de_chile.png" data-url="https://www.uc.cl" onclick="openLogo(event)"><img src="images/logos/scientifiques/logo_sci_pontificia_universidad_católica_de_chile.png" alt="Pontificia Universidad Católica de Chile" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/scientifiques/logo_sci_fogquest_chile.png" data-url="https://www.fogquest.org" onclick="openLogo(event)"><img src="images/logos/scientifiques/logo_sci_fogquest_chile.png" alt="FogQuest" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/scientifiques/glaciarium.png" data-url="https://www.glaciarium.com" onclick="openLogo(event)"><img src="images/logos/scientifiques/glaciarium.png" alt="Glaciarium" style="max-height:85px;max-width:160px;" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/scientifiques/logo_sci_emprender-osorno_512.png" data-url="https://emprender.cl/" onclick="openLogo(event)"><img src="images/logos/scientifiques/logo_sci_emprender-osorno_512.png" alt="Colegio Emprender Osorno" style="max-height:80px;max-width:80px;" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/scientifiques/logo_sci_institut_francais_du_proche_orient.png" data-url="https://www.ifporient.org" onclick="openLogo(event)"><img src="images/logos/scientifiques/logo_sci_institut_francais_du_proche_orient.png" alt="Institut Français du Proche-Orient" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/scientifiques/logo_sci_institut_national_d'optique.png" data-url="https://www.ino.ca" onclick="openLogo(event)"><img src="images/logos/scientifiques/logo_sci_institut_national_d'optique.png" alt="Institut National d'Optique" style="max-height:85px;max-width:170px;" loading="lazy"></div>
+      <div class="partner-logo" data-logo="images/logos/scientifiques/ingemmet.png" data-url="https://www.gob.pe/ingemmet" onclick="openLogo(event)"><img src="images/logos/scientifiques/ingemmet.png" alt="Instituto Geológico, Minero y Metalúrgico del Perú" loading="lazy"></div>
+    </div>
+
   </div></div>
+
+<!-- MODAL LOGO -->
+<div class="logo-modal" id="logoModal" onclick="closeLogoModal(event)">
+  <button class="logo-modal-close" onclick="closeLogoModal(event)">&times;</button>
+  <div class="logo-modal-card" onclick="event.stopPropagation()">
+    <img class="logo-modal-img" id="logoModalImg" src="" alt="">
+    <h3 class="logo-modal-name" id="logoModalName"></h3>
+    <a class="logo-modal-link" id="logoModalLink" href="#" target="_blank" rel="noopener">Visiter le site →</a>
+  </div>
+</div>
+
+<style>
+  .logo-modal-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 48px 56px;
+    display: flex; flex-direction: column;
+    align-items: center; gap: 20px;
+    max-width: 500px; width: 90%;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+  .logo-modal-img {
+    max-width: 100%; max-height: 180px;
+    object-fit: contain;
+    background: transparent !important;
+    padding: 0 !important; border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+  .logo-modal-name {
+    font-family: 'Merriweather', serif;
+    font-size: 22px; font-weight: 400;
+    color: #1a2a3a; text-align: center;
+  }
+  .logo-modal-link {
+    display: inline-block;
+    padding: 12px 28px;
+    background: var(--accent); color: #fff;
+    border-radius: 6px; font-size: 13px; font-weight: 600;
+    text-decoration: none; letter-spacing: 0.05em;
+    transition: background 0.2s;
+  }
+  .logo-modal-link:hover { background: #4a90b8; }
+  /* Dark bg logos in modal */
+  .logo-modal-img.dark-bg {
+    background: #111 !important;
+    padding: 20px !important;
+    border-radius: 8px !important;
+  }
+</style>
+
+<script>
+function openLogo(e) {
+  e.preventDefault();
+  var el = e.currentTarget;
+  var logo = el.getAttribute('data-logo');
+  var url = el.getAttribute('data-url') || el.href;
+  var name = (el.querySelector('img') ? el.querySelector('img').alt : el.textContent.trim());
+  var isDark = el.style.background && el.style.background.indexOf('#1') >= 0;
+
+  var modal = document.getElementById('logoModal');
+  var img = document.getElementById('logoModalImg');
+  var link = document.getElementById('logoModalLink');
+  var nameEl = document.getElementById('logoModalName');
+
+  nameEl.textContent = name;
+
+  if (logo) {
+    img.src = logo;
+    img.style.display = 'block';
+    img.className = 'logo-modal-img' + (isDark ? ' dark-bg' : '');
+  } else {
+    img.style.display = 'none';
+  }
+
+  if (url && url !== '#') {
+    link.href = url;
+    link.style.display = 'inline-block';
+  } else {
+    link.style.display = 'none';
+  }
+
+  modal.classList.add('open');
+}
+function closeLogoModal(e) {
+  if (e.target === document.getElementById('logoModal') || e.target.classList.contains('logo-modal-close')) {
+    document.getElementById('logoModal').classList.remove('open');
+  }
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') document.getElementById('logoModal').classList.remove('open');
+});
+</script>
 <footer>
     <div class="footer-inner">
     <div class="footer-brand">
@@ -146,8 +401,9 @@
       </ul>
     </div>
   </div>
-  <div class="footer-bottom"><span class="footer-copy" data-fr="© 2024 Des Ailes pour la Science / Wings for Science. Association de loi 1901." data-en="© 2024 Wings for Science / Des Ailes pour la Science. Non-profit association.">© 2024 Des Ailes pour la Science / Wings for Science. Association de loi 1901.</span><div class="social-links"><a href="http://wingsforscience.blogspot.com/" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/70b1c5a67d2349e3933570b344b1d54d.png/v1/fill/w_35,h_35,al_c,enc_avif,quality_auto/70b1c5a67d2349e3933570b344b1d54d.png" alt="Blogger"></a><a href="http://www.facebook.com/wingsforscience" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/4057345bcf57474b96976284050c00df.png/v1/fill/w_35,h_35,al_c,enc_avif,quality_auto/4057345bcf57474b96976284050c00df.png" alt="Facebook"></a><a href="https://www.youtube.com/playlist?list=PL8A32C328768F858A" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/45bce1d726f64f1999c49feae57f6298.png/v1/fill/w_35,h_35,al_c,enc_avif,quality_auto/45bce1d726f64f1999c49feae57f6298.png" alt="YouTube"></a></div></div>
+  <div class="footer-bottom"><span class="footer-copy" data-fr="© 2025 Des Ailes pour la Science / Wings for Science. Association de loi 1901." data-en="© 2025 Wings for Science / Des Ailes pour la Science. Non-profit association.">© 2025 Des Ailes pour la Science / Wings for Science. Association de loi 1901.</span><div class="social-links"><a href="https://wingsforscience.blogspot.com/" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/70b1c5a67d2349e3933570b344b1d54d.png/v1/fill/w_35,h_35,al_c,enc_avif,quality_auto/70b1c5a67d2349e3933570b344b1d54d.png" alt="Blogger"></a><a href="https://www.facebook.com/wingsforscience" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/4057345bcf57474b96976284050c00df.png/v1/fill/w_35,h_35,al_c,enc_avif,quality_auto/4057345bcf57474b96976284050c00df.png" alt="Facebook"></a><a href="https://www.youtube.com/playlist?list=PL8A32C328768F858A" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/45bce1d726f64f1999c49feae57f6298.png/v1/fill/w_35,h_35,al_c,enc_avif,quality_auto/45bce1d726f64f1999c49feae57f6298.png" alt="YouTube"></a></div></div>
 </footer>
 <script src="lang.js"></script>
+<script src="shared.js"></script>
 </body>
 </html>

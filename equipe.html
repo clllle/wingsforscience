@@ -3,10 +3,20 @@
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>L'équipe – Wings for Science</title>
+  <meta name="description" content="L'equipe Wings for Science : les membres benevoles qui font vivre l'association et ses missions scientifiques.">
+  <meta property="og:title" content="L'equipe - Wings for Science">
+  <meta property="og:description" content="Les membres benevoles qui font vivre l'association.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://clllle.github.io/wingsforscience/equipe.html">
+  <meta property="og:image" content="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_GB">
+  <link rel="canonical" href="https://clllle.github.io/wingsforscience/equipe.html">
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<a href="#main-content" class="skip-link">Aller au contenu principal</a>
 <header>
   <a class="logo-wrap" href="index.html"><img src="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png/v1/fill/w_162,h_163,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/LOGO%20wingsforscience%20copie.png" alt="Logo"><div class="logo-text"><span data-fr="Des Ailes pour la Science" data-en="Wings for Science">Des Ailes pour la Science</span></div></a>
   <nav>
@@ -72,7 +82,7 @@
     <button data-lang="en" onclick="setLang('en');toggleMenu()">🇬🇧 English</button>
   </div>
 </div>
-<section class="page-hero" style="background-image:url('https://static.wixstatic.com/media/c88cd1_22231ad001a04489bdf76a1fedeb6729~mv2.jpg');">
+<section id="main-content" class="page-hero" style="background-image:url('https://static.wixstatic.com/media/c88cd1_22231ad001a04489bdf76a1fedeb6729~mv2.jpg');">
   <div class="page-hero-overlay"></div>
   <div class="page-hero-content">
     <span class="section-tag" data-fr="Notre réseau — 02" data-en="Our network — 02">Notre réseau — 02</span>
@@ -83,19 +93,226 @@
 <div class="content-section"><div class="content-inner narrow">
     <p class="lead-text" data-fr="L'association fonctionne grâce à ses membres permanents qui s'investissent depuis des années, mais aussi grâce au soutien de tous les membres contributeurs qui nous assistent ponctuellement." data-en="The association works thanks to its permanent members who have been committed for years, as well as all contributing members who assist us on an occasional basis.">L'association fonctionne grâce à ses membres permanents qui s'investissent depuis des années, mais aussi grâce au soutien de tous les membres contributeurs qui nous assistent ponctuellement.</p>
   </div></div>
-  <div class="content-section" style="padding-top:0;"><div class="content-inner">
-    <div class="team-grid">
-      <div class="team-card"><img src="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png" alt="" loading="lazy"><div class="team-body"><div class="team-role" data-fr="Présidente et Pilote" data-en="President and Pilot">Présidente et Pilote</div><h2 class="team-name">Clémentine Bacri</h2></div></div>
-      <div class="team-card"><img src="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png" alt="" loading="lazy"><div class="team-body"><div class="team-role" data-fr="Cofondateur et Pilote" data-en="Co-founder and Pilot">Cofondateur et Pilote</div><h2 class="team-name">Adrien Normier</h2></div></div>
-      <div class="team-card"><img src="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png" alt="" loading="lazy"><div class="team-body"><div class="team-role" data-fr="Météorologue" data-en="Meteorologist">Météorologue</div><h2 class="team-name">Antoine Bousquet</h2></div></div>
-      <div class="team-card"><img src="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png" alt="" loading="lazy"><div class="team-body"><div class="team-role" data-fr="Responsable réseaux sociaux" data-en="Social media manager">Responsable réseaux sociaux</div><h2 class="team-name">Laura Galmiche</h2></div></div>
-      <div class="team-card"><img src="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png" alt="" loading="lazy"><div class="team-body"><div class="team-role" data-fr="Responsable médicale" data-en="Medical officer">Responsable médicale</div><h2 class="team-name">Dr. Sophie Normier</h2></div></div>
-      <div class="team-card"><img src="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png" alt="" loading="lazy"><div class="team-body"><div class="team-role" data-fr="Soutien logistique" data-en="Logistical support">Soutien logistique</div><h2 class="team-name">Thomas Lecomte</h2></div></div>
+<style>
+  /* ── TEAM SPLIT CARDS (same as confondateurs) ── */
+  .team-duo {
+    position: relative;
+    display: grid; grid-template-columns: 1fr 1fr;
+    border-radius: 12px; overflow: hidden;
+    min-height: 420px; margin-bottom: 32px;
+  }
+  .team-duo .duo-half {
+    position: relative; overflow: hidden; cursor: pointer;
+  }
+  .team-duo .duo-half img {
+    width: 100%; height: 100%; min-height: 420px;
+    object-fit: cover; display: block;
+    transition: transform 0.6s ease, filter 0.6s ease;
+  }
+  .team-duo .duo-half::before {
+    content: ''; position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(0deg, rgba(13,37,64,0.92) 0%, rgba(13,37,64,0.4) 50%, rgba(13,37,64,0.15) 100%);
+    transition: background 0.5s;
+  }
+  .team-duo .duo-half:hover::before {
+    background: linear-gradient(0deg, rgba(13,37,64,0.95) 0%, rgba(13,37,64,0.6) 40%, rgba(13,37,64,0.1) 100%);
+  }
+  .team-duo .duo-half:hover img { transform: scale(1.05); }
+  .team-duo:hover .duo-half:not(:hover) img { filter: brightness(0.5); }
+  .team-duo::after {
+    content: ''; position: absolute;
+    top: 10%; bottom: 10%; left: 50%; width: 2px;
+    transform: translateX(-50%);
+    background: linear-gradient(180deg, transparent, var(--accent), transparent);
+    z-index: 3; opacity: 0.4; pointer-events: none;
+  }
+  .team-duo .duo-info {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    z-index: 2; padding: 28px 24px 24px;
+  }
+  .team-duo .duo-role {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 6px;
+  }
+  .team-duo .duo-name {
+    font-family: 'Merriweather', serif; font-size: 22px; font-weight: 400;
+    color: #fff; margin-bottom: 12px; transition: color 0.3s;
+  }
+  .team-duo .duo-half:hover .duo-name { color: var(--accent); }
+  .team-duo .duo-bio {
+    font-size: 12px; line-height: 1.75; color: var(--off-white);
+    max-height: 0; overflow: hidden; opacity: 0;
+    transition: max-height 0.6s ease, opacity 0.4s ease 0.1s;
+  }
+  .team-duo .duo-half:hover .duo-bio { max-height: 400px; opacity: 1; }
+
+  /* ── TRIO LAYOUT ── */
+  .team-trio {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 0; border-radius: 12px; overflow: hidden;
+    min-height: 480px; margin-bottom: 32px;
+    position: relative;
+  }
+  .trio-member {
+    position: relative; overflow: hidden; cursor: pointer;
+  }
+  .trio-member img {
+    width: 100%; height: 100%; min-height: 480px;
+    object-fit: cover; display: block;
+    transition: transform 0.6s ease, filter 0.6s ease;
+  }
+  .trio-member::before {
+    content: ''; position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(0deg, rgba(13,37,64,0.92) 0%, rgba(13,37,64,0.4) 50%, rgba(13,37,64,0.15) 100%);
+    transition: background 0.5s;
+  }
+  .trio-member:hover::before {
+    background: linear-gradient(0deg, rgba(13,37,64,0.95) 0%, rgba(13,37,64,0.6) 40%, rgba(13,37,64,0.1) 100%);
+  }
+  .trio-member:hover img { transform: scale(1.05); }
+  .team-trio:hover .trio-member:not(:hover) img { filter: brightness(0.5); }
+  .trio-info {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    z-index: 2; padding: 24px 20px 20px;
+  }
+  .trio-info .duo-name { font-size: 19px; }
+  .trio-info .duo-bio { font-size: 11px; line-height: 1.7; }
+  .trio-member:hover .duo-name { color: var(--accent); }
+  .trio-member:hover .duo-bio { max-height: 400px; opacity: 1; }
+
+  /* Accent lines between trio members */
+  .trio-member + .trio-member { border-left: 1px solid rgba(95,168,211,0.15); }
+
+  @media(max-width:960px) {
+    .team-trio { grid-template-columns: 1fr; min-height: auto; }
+    .trio-member img { min-height: 360px; }
+    .trio-member .duo-bio { max-height: 400px; opacity: 1; }
+    .trio-member + .trio-member { border-left: none; border-top: 1px solid rgba(95,168,211,0.15); }
+  }
+
+  /* ── ORG DUO (logos) ── */
+  .org-duo {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+    margin-bottom: 32px;
+  }
+  .org-card {
+    display: flex; align-items: center; gap: 24px;
+    padding: 28px; background: rgba(14,26,40,0.5);
+    border: 1px solid rgba(95,168,211,0.1); border-radius: 10px;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .org-card:hover { border-color: rgba(95,168,211,0.3); transform: translateY(-3px); }
+  .org-card img {
+    width: 80px; height: 80px; object-fit: contain; flex-shrink: 0;
+    background: rgba(255,255,255,0.95); border-radius: 8px; padding: 8px;
+  }
+  .org-card .org-body { flex: 1; }
+  .org-card .org-role { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
+  .org-card .org-name { font-family: 'Merriweather', serif; font-size: 18px; color: var(--white); margin-bottom: 8px; }
+  .org-card .org-bio { font-size: 12px; line-height: 1.7; color: var(--text-muted); }
+
+  @media(max-width:768px) {
+    .team-duo { grid-template-columns: 1fr; min-height: auto; }
+    .team-duo::after { display: none; }
+    .team-duo .duo-half img { min-height: 360px; }
+    .team-duo .duo-half .duo-bio { max-height: 400px; opacity: 1; }
+    .team-solo .duo-bio { max-height: 400px; opacity: 1; }
+    .org-duo { grid-template-columns: 1fr; }
+  }
+</style>
+
+<div class="content-section" style="padding-top:0;">
+  <div class="content-inner">
+
+    <!-- COMITÉ SCIENTIFIQUE — duo -->
+    <div style="text-align:center;margin-bottom:32px;">
+      <span class="section-tag" data-fr="Comité scientifique" data-en="Scientific committee">Comité scientifique</span>
     </div>
+    <div class="team-duo">
+      <div class="duo-half">
+        <img src="images/equipe/Aurelie_Colomb.avif" alt="Aurélie Colomb" loading="lazy">
+        <div class="duo-info">
+          <div class="duo-role" data-fr="Membre du comité scientifique" data-en="Scientific committee member">Membre du comité scientifique</div>
+          <h2 class="duo-name">Aurélie COLOMB</h2>
+          <div class="duo-bio">
+            <p>Chercheuse en Chimie Atmosphérique Globale et maître de conférence à l'Université Clermont Auvergne, elle est aussi enseignante-chercheuse au Laboratoire de Météorologie Physique (LaMP) et à l'Observatoire de Physique du Globe de Clermont-Ferrand (OPGC). C'est aussi une aventurière, associant toujours la science à ses expéditions.</p>
+          </div>
+        </div>
+      </div>
+      <div class="duo-half">
+        <img src="images/equipe/Valerie-Gros-2.avif" alt="Valérie Gros" loading="lazy">
+        <div class="duo-info">
+          <div class="duo-role" data-fr="Membre du comité scientifique" data-en="Scientific committee member">Membre du comité scientifique</div>
+          <h2 class="duo-name">Valérie GROS</h2>
+          <div class="duo-bio">
+            <p>Directrice de recherche CNRS au Laboratoire des Sciences du Climat et de l'Environnement LSCE, elle est aussi responsable de l'équipe de chimie atmosphérique expérimentale. Elle fait partie de l'équipe depuis le début, aidant à façonner les programmes scientifiques de Wings for Science.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ERNEST + KASIA + RÉBECCA — trio -->
+    <div class="team-trio">
+      <div class="trio-member">
+        <img src="images/equipe/ernest.avif" alt="Ernest Kirpach" loading="lazy">
+        <div class="trio-info">
+          <div class="duo-role" data-fr="Météorologue" data-en="Meteorologist">Météorologue</div>
+          <h2 class="duo-name">Ernest KIRPACH</h2>
+          <div class="duo-bio">
+            <p>Diplômé en météorologie, Ernest a travaillé pendant de nombreuses années à l'aéroport international de Luxembourg en tant que météorologue. C'est aussi un pilote privé et un enseignant en météorologie aéronautique.</p>
+          </div>
+        </div>
+      </div>
+      <div class="trio-member">
+        <img src="images/equipe/kasia kolo.avif" alt="Katarzyna Kolodziejczyk" loading="lazy">
+        <div class="trio-info">
+          <div class="duo-role" data-fr="Responsable réseaux sociaux" data-en="Social media manager">Responsable réseaux sociaux</div>
+          <h2 class="duo-name">Katarzyna KOLODZIEJCZYK</h2>
+          <div class="duo-bio">
+            <p>Cette globetrotteuse vient de Pologne, a vécu aux États-Unis, puis a travaillé en Slovaquie, en Autriche et au Luxembourg. Fondatrice de Fail Learn Succeed Forum, elle sait construire et animer des communautés.</p>
+          </div>
+        </div>
+      </div>
+      <div class="trio-member">
+        <img src="images/equipe/rebecca.avif" alt="Rébecca Rotnemer" loading="lazy">
+        <div class="trio-info">
+          <div class="duo-role" data-fr="Responsable médicale" data-en="Medical officer">Responsable médicale</div>
+          <h2 class="duo-name">Rébecca ROTNEMER</h2>
+          <div class="duo-bio">
+            <p>Médecin aux multiples spécialités, Rébecca travaille en cabinet privé ainsi qu'aux urgences hospitalières. Elle est également élue au Conseil de l'Ordre. Elle suit les pilotes lors de chaque expédition.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SOUTIEN LOGISTIQUE — org cards -->
+    <div style="text-align:center;margin:40px 0 24px;">
+      <span class="section-tag" data-fr="Soutien logistique" data-en="Logistical support">Soutien logistique</span>
+    </div>
+    <div class="org-duo">
+      <div class="org-card">
+        <img src="images/equipe/logo-la-guilde1.avif" alt="La Guilde">
+        <div class="org-body">
+          <div class="org-role" data-fr="Soutien logistique" data-en="Logistical support">Soutien logistique</div>
+          <h3 class="org-name">La Guilde</h3>
+          <p class="org-bio" data-fr="Grande ONG basée à Paris, portant le statut d'utilité publique. Son expérience globale en collaboration locale est très utile pour nos objectifs." data-en="Large Paris-based NGO with public utility status. Their global experience in local collaboration is very useful for our goals.">Grande ONG basée à Paris, portant le statut d'utilité publique. Son expérience globale en collaboration locale est très utile pour nos objectifs.</p>
+        </div>
+      </div>
+      <div class="org-card">
+        <img src="images/logos/partenaires/p2go.jpg" alt="Prepare 2 Go">
+        <div class="org-body">
+          <div class="org-role" data-fr="Soutien logistique" data-en="Logistical support">Soutien logistique</div>
+          <h3 class="org-name">Prepare 2 Go</h3>
+          <p class="org-bio" data-fr="Équipe internationale basée en Belgique, spécialisée dans la logistique en milieux extrêmes. Ils sont capables de sortir des personnes et du matériel de n'importe où !" data-en="International team based in Belgium, specialising in logistics in extreme environments. They can extract people and equipment from anywhere!">Équipe internationale basée en Belgique, spécialisée dans la logistique en milieux extrêmes. Ils sont capables de sortir des personnes et du matériel de n'importe où !</p>
+        </div>
+      </div>
+    </div>
+
     <div style="margin-top:48px;text-align:center;">
-      <a class="btn btn-outline" href="contact.html" data-fr="Rejoindre l'équipe →" data-en="Join the team →">Rejoindre l'équipe →</a>
+      <a class="btn btn-outline" href="contact.html" data-fr="Intégrer l'équipe →" data-en="Join the team →">Intégrer l'équipe →</a>
     </div>
-  </div></div>
+  </div>
+</div>
 <footer>
     <div class="footer-inner">
     <div class="footer-brand">
@@ -132,8 +349,9 @@
       </ul>
     </div>
   </div>
-  <div class="footer-bottom"><span class="footer-copy" data-fr="© 2024 Des Ailes pour la Science / Wings for Science. Association de loi 1901." data-en="© 2024 Wings for Science / Des Ailes pour la Science. Non-profit association.">© 2024 Des Ailes pour la Science / Wings for Science. Association de loi 1901.</span><div class="social-links"><a href="http://wingsforscience.blogspot.com/" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/70b1c5a67d2349e3933570b344b1d54d.png/v1/fill/w_35,h_35,al_c,enc_avif,quality_auto/70b1c5a67d2349e3933570b344b1d54d.png" alt="Blogger"></a><a href="http://www.facebook.com/wingsforscience" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/4057345bcf57474b96976284050c00df.png/v1/fill/w_35,h_35,al_c,enc_avif,quality_auto/4057345bcf57474b96976284050c00df.png" alt="Facebook"></a><a href="https://www.youtube.com/playlist?list=PL8A32C328768F858A" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/45bce1d726f64f1999c49feae57f6298.png/v1/fill/w_35,h_35,al_c,enc_avif,quality_auto/45bce1d726f64f1999c49feae57f6298.png" alt="YouTube"></a></div></div>
+  <div class="footer-bottom"><span class="footer-copy" data-fr="© 2025 Des Ailes pour la Science / Wings for Science. Association de loi 1901." data-en="© 2025 Wings for Science / Des Ailes pour la Science. Non-profit association.">© 2025 Des Ailes pour la Science / Wings for Science. Association de loi 1901.</span><div class="social-links"><a href="https://wingsforscience.blogspot.com/" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/70b1c5a67d2349e3933570b344b1d54d.png/v1/fill/w_35,h_35,al_c,enc_avif,quality_auto/70b1c5a67d2349e3933570b344b1d54d.png" alt="Blogger"></a><a href="https://www.facebook.com/wingsforscience" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/4057345bcf57474b96976284050c00df.png/v1/fill/w_35,h_35,al_c,enc_avif,quality_auto/4057345bcf57474b96976284050c00df.png" alt="Facebook"></a><a href="https://www.youtube.com/playlist?list=PL8A32C328768F858A" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/45bce1d726f64f1999c49feae57f6298.png/v1/fill/w_35,h_35,al_c,enc_avif,quality_auto/45bce1d726f64f1999c49feae57f6298.png" alt="YouTube"></a></div></div>
 </footer>
 <script src="lang.js"></script>
+<script src="shared.js"></script>
 </body>
 </html>

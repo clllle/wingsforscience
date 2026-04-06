@@ -3,10 +3,20 @@
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Presse – Wings for Science</title>
+  <meta name="description" content="Revue de presse Wings for Science : articles, interviews radio et reportages TV sur nos expeditions scientifiques.">
+  <meta property="og:title" content="Presse - Wings for Science">
+  <meta property="og:description" content="Articles, interviews et reportages medias sur nos expeditions scientifiques.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://clllle.github.io/wingsforscience/presse.html">
+  <meta property="og:image" content="https://static.wixstatic.com/media/c88cd1_079e6fd8717f450d8477c341718ce97a~mv2.jpg">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_GB">
+  <link rel="canonical" href="https://clllle.github.io/wingsforscience/presse.html">
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<a href="#main-content" class="skip-link">Aller au contenu principal</a>
 <header>
   <a class="logo-wrap" href="index.html"><img src="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png/v1/fill/w_162,h_163,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/LOGO%20wingsforscience%20copie.png" alt="Logo"><div class="logo-text"><span data-fr="Des Ailes pour la Science" data-en="Wings for Science">Des Ailes pour la Science</span></div></a>
   <nav>
@@ -72,7 +82,7 @@
     <button data-lang="en" onclick="setLang('en');toggleMenu()">🇬🇧 English</button>
   </div>
 </div>
-<section class="page-hero" style="background-image:url('https://static.wixstatic.com/media/c88cd1_079e6fd8717f450d8477c341718ce97a~mv2.jpg');">
+<section id="main-content" class="page-hero" style="background-image:url('https://static.wixstatic.com/media/c88cd1_079e6fd8717f450d8477c341718ce97a~mv2.jpg');">
   <div class="page-hero-overlay"></div>
   <div class="page-hero-content">
     <span class="section-tag" data-fr="Nos actions — 05" data-en="Our actions — 05">Nos actions — 05</span>
@@ -90,8 +100,12 @@
     <img src="images/icon_tv.png" alt="TV" style="width:180px;height:auto;flex-shrink:0;opacity:0.5;" loading="lazy">
     </div>
     <div class="press-carousel" style="position:relative;margin-top:24px;max-width:800px;margin-left:auto;margin-right:auto;">
-      <div class="press-carousel-main" style="aspect-ratio:16/9;background:#000;border-radius:4px;overflow:hidden;">
-        <iframe id="pressPlayer" src="" allowfullscreen style="width:100%;height:100%;border:none;"></iframe>
+      <div class="press-carousel-main" style="aspect-ratio:16/9;background:#000;border-radius:4px;overflow:hidden;position:relative;">
+        <iframe id="pressPlayer" src="" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="width:100%;height:100%;border:none;"></iframe>
+        <a id="pressFallback" href="#" target="_blank" rel="noopener" style="display:none;position:absolute;inset:0;background:rgba(0,0,0,0.85);color:#fff;text-decoration:none;flex-direction:column;align-items:center;justify-content:center;gap:16px;font-size:15px;">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#ff0000" stroke-width="1.5"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98" fill="#ff0000"/></svg>
+          <span data-fr="Regarder sur YouTube" data-en="Watch on YouTube">Regarder sur YouTube</span>
+        </a>
       </div>
       <p id="pressLabel" style="text-align:center;margin-top:12px;font-size:14px;color:var(--off-white);"></p>
       <p id="pressCount" style="text-align:center;font-size:11px;color:var(--text-muted);margin-top:4px;"></p>
@@ -142,7 +156,7 @@
     function pressShow(i) {
       pressIdx = i;
       var v = pressVideos[i];
-      document.getElementById('pressPlayer').src = 'https://www.youtube.com/embed/' + v.id;
+      document.getElementById('pressPlayer').src = 'https://www.youtube-nocookie.com/embed/' + v.id + '?rel=0&modestbranding=1';
       document.getElementById('pressLabel').textContent = v[pressLang] || v.fr;
       document.getElementById('pressCount').textContent = (i+1) + ' / ' + pressVideos.length;
       var thumbs = document.querySelectorAll('.press-thumb');
@@ -371,45 +385,45 @@
           </div>
           <script>
           var radioTracks = [
-            {id:"14Bp1ftN3JvIBcMMkgNpUIqXhzorKlQSv",name:"Europe 1 — Circuits courts",logo:"images/radio/europe1.png"},
-            {id:"1E_3tptYoaTygYUnSJqgT7dtuYkQVnLgY",name:"France Bleu — Femme de Paname",logo:"images/radio/francebleu.png"},
-            {id:"1k-4qDJ7fLBKxmr-ZuPeUXTOzz24qgmH8",name:"France Info — Les aventuriers (02.07.2013)",logo:"images/radio/franceinfo.png"},
-            {id:"0B0RkbHBUrWAxb3JCWGotNmdjYXc",name:"France Info — Les aventuriers (03.08.2013)",logo:"images/radio/franceinfo.png"},
-            {id:"0B0RkbHBUrWAxbzVwWjFqOXAzazQ",name:"France Info — Les aventuriers (07.09.2013)",logo:"images/radio/franceinfo.png"},
-            {id:"0B0RkbHBUrWAxLWw2Q2J2SVpTTVE",name:"France Info — Les aventuriers (10.08.2013)",logo:"images/radio/franceinfo.png"},
-            {id:"0B0RkbHBUrWAxNVlCMXUxZXJvUnc",name:"France Info — Les aventuriers (12.07.2013)",logo:"images/radio/franceinfo.png"},
-            {id:"0B0RkbHBUrWAxa25sWWhNeFI2N3c",name:"France Info — Les aventuriers (17.08.2013)",logo:"images/radio/franceinfo.png"},
-            {id:"0B0RkbHBUrWAxMGtKZTlBeGt6UTQ",name:"France Info — Les aventuriers (20.07.2013)",logo:"images/radio/franceinfo.png"},
-            {id:"0B7hlqx_DFkSfWVhYU0pvb0MydGM",name:"France Info — Les aventuriers (22.06.2013)",logo:"images/radio/franceinfo.png"},
-            {id:"0B0RkbHBUrWAxc0gzdy1IdEFxZGc",name:"France Info — Les aventuriers (24.08.2013)",logo:"images/radio/franceinfo.png"},
-            {id:"1BqcSDdy_-Af0OlhlkH7fSEynOWOHsU4Z",name:"France Info — Les aventuriers (27.07.2013)",logo:"images/radio/franceinfo.png"},
-            {id:"1ccAq7CvKck8qTowMHtzOkd5htMZ81BeB",name:"France Inter — Esprit d'initiative (23.11.2017)",logo:"images/radio/franceinter.png"},
-            {id:"0B0RkbHBUrWAxMVROLXg5R3JCZEU",name:"France Inter — La Tête au Carré (12.06.2015)",logo:"images/radio/franceinter.png"},
-            {id:"0B0RkbHBUrWAxRjBjbmlocTM3cXc",name:"France Inter — La tête au carré (21.03.2014)",logo:"images/radio/franceinter.png"},
-            {id:"0B0RkbHBUrWAxVlN1NWVhM0dxTFk",name:"France Inter — Le club de la tête au carré (30.07.2016)",logo:"images/radio/franceinter.png"},
-            {id:"0B0RkbHBUrWAxVlZuaU1uNk83NkU",name:"France Inter — Le temps d'un bivouac (01.07.2013)",logo:"images/radio/franceinter.png"},
-            {id:"1YX56CVv3H4qoPzAG11gv7kGA_3mPdf-n",name:"France Inter — Le Temps d'un Bivouac (05.07.2016)",logo:"images/radio/franceinter.png"},
-            {id:"1L9Z0ZTK5EW52u7gYze3Un1ZV169q0Qjt",name:"France Inter — En direct du salon du livre",logo:"images/radio/franceinter.png"},
-            {id:"0B0RkbHBUrWAxZ2VpRlVnVElWYVE",name:"France Inter — Le temps d'un bivouac (02.07.2013)",logo:"images/radio/franceinter.png"},
-            {id:"0B0RkbHBUrWAxVzMwNVdwVGFHLW8",name:"Guyane Première (18.09.2012)",logo:"images/radio/guyane1ere.png"},
-            {id:"0B7hlqx_DFkSfZF8tUGtsOEVmZzg",name:"Radio Ahora — Calafate, Argentine (20.04.2016)",logo:"images/radio/ahora.png"},
-            {id:"0B0RkbHBUrWAxZmZmME45d08xUGs",name:"Radio Dijon Campus (10.10.2015)",logo:"images/radio/dijon.png"},
-            {id:"0B0RkbHBUrWAxMUUtQWFLZWx4dlk",name:"Radio Nova — Le contrôle douanier (28.06.2014)",logo:"images/radio/radionova.png"},
-            {id:"1VnLBfP4e6koC2Ske-ENSt13tMhJDF9DW",name:"Radio Nova — À l'aventure (10.11.2017)",logo:"images/radio/radionova.png"},
-            {id:"0B0RkbHBUrWAxdzAzcjVmRzBWVkE",name:"Radio Ville-Marie — Passeport Matin (30.07.2012)",logo:"images/radio/villemarie.png"},
-            {id:"0B0RkbHBUrWAxOGxYSkxUXzh5YXc",name:"Radio Ville-Marie — Passeport Matin (91,3 FM)",logo:"images/radio/villemarie.png"},
-            {id:"0B7hlqx_DFkSfcVBZUlNmaVNfa2M",name:"Radio-Canada — L'été du monde (20.07.2012)",logo:"images/radio/radiocanada.png"},
-            {id:"0B0RkbHBUrWAxX2NhSnZ3NUtoaTg",name:"RCF — Questions d'actualité (10.10.2013)",logo:"images/radio/rcf.png"},
-            {id:"0B7hlqx_DFkSfOHdQTkVOX3VxQ28",name:"RCF — Bourgogne (15.10.2013)",logo:"images/radio/rcf.png"},
-            {id:"0B7hlqx_DFkSfakN0NFF1RGxVekU",name:"RCF — Questions d'actualité (8 et 10.10.2013)",logo:"images/radio/rcf.png"},
-            {id:"1PkV4rTwhG4wgWhh3gJLMum2GcT26VMc7",name:"RFI — Autour de la question (19.12.2017)",logo:"images/radio/rfi.png"},
-            {id:"1T01fbmwLQ4-FpfWVTdBtumPmmGSSpBNY",name:"RTL — La curiosité est un vilain défaut (26.10.2015)",logo:"images/radio/rtl.png"},
-            {id:"0B0RkbHBUrWAxbHo3UHRJYUdHa2s",name:"RTL — La curiosité est un vilain défaut (29.06.2015)",logo:"images/radio/rtl.png"},
-            {id:"1us3H3WKH97HVAOdOiS0uoh2_k6kiXVEz",name:"RTL — La curiosité est un vilain défaut (18.11.2015)",logo:"images/radio/rtl.png"},
-            {id:"14I3jAj34ISr-lVh4RQ_l_ZnC2mxFfI6a",name:"RTL — La curiosité est un vilain défaut (03.03.2015)",logo:"images/radio/rtl.png"},
-            {id:"18GGvI4VEaQXZZIg8ZSIC_NnIgC4IJkgG",name:"RTL — La curiosité est un vilain défaut (09.06.2016)",logo:"images/radio/rtl.png"},
-            {id:"0B0RkbHBUrWAxMXdWTzBGUGN1RU0",name:"RTL soir — L'Entretien du jour (28.11.2017)",logo:"images/radio/rtl.png"},
-            {id:"1lZ5Y-5DJwY4ASsm-E53HaSW-K_SCxZ_p",name:"RTL — La curiosité est un vilain défaut (29.06.2015) (2)",logo:"images/radio/rtl.png"}
+            {id:"14Bp1ftN3JvIBcMMkgNpUIqXhzorKlQSv",name:"Europe 1 — Circuits courts",logo:"images/logos/radio/europe1.png"},
+            {id:"1E_3tptYoaTygYUnSJqgT7dtuYkQVnLgY",name:"France Bleu — Femme de Paname",logo:"images/logos/radio/francebleu.png"},
+            {id:"1k-4qDJ7fLBKxmr-ZuPeUXTOzz24qgmH8",name:"France Info — Les aventuriers (02.07.2013)",logo:"images/logos/radio/franceinfo.png"},
+            {id:"0B0RkbHBUrWAxb3JCWGotNmdjYXc",name:"France Info — Les aventuriers (03.08.2013)",logo:"images/logos/radio/franceinfo.png"},
+            {id:"0B0RkbHBUrWAxbzVwWjFqOXAzazQ",name:"France Info — Les aventuriers (07.09.2013)",logo:"images/logos/radio/franceinfo.png"},
+            {id:"0B0RkbHBUrWAxLWw2Q2J2SVpTTVE",name:"France Info — Les aventuriers (10.08.2013)",logo:"images/logos/radio/franceinfo.png"},
+            {id:"0B0RkbHBUrWAxNVlCMXUxZXJvUnc",name:"France Info — Les aventuriers (12.07.2013)",logo:"images/logos/radio/franceinfo.png"},
+            {id:"0B0RkbHBUrWAxa25sWWhNeFI2N3c",name:"France Info — Les aventuriers (17.08.2013)",logo:"images/logos/radio/franceinfo.png"},
+            {id:"0B0RkbHBUrWAxMGtKZTlBeGt6UTQ",name:"France Info — Les aventuriers (20.07.2013)",logo:"images/logos/radio/franceinfo.png"},
+            {id:"0B7hlqx_DFkSfWVhYU0pvb0MydGM",name:"France Info — Les aventuriers (22.06.2013)",logo:"images/logos/radio/franceinfo.png"},
+            {id:"0B0RkbHBUrWAxc0gzdy1IdEFxZGc",name:"France Info — Les aventuriers (24.08.2013)",logo:"images/logos/radio/franceinfo.png"},
+            {id:"1BqcSDdy_-Af0OlhlkH7fSEynOWOHsU4Z",name:"France Info — Les aventuriers (27.07.2013)",logo:"images/logos/radio/franceinfo.png"},
+            {id:"1ccAq7CvKck8qTowMHtzOkd5htMZ81BeB",name:"France Inter — Esprit d'initiative (23.11.2017)",logo:"images/logos/radio/franceinter.png"},
+            {id:"0B0RkbHBUrWAxMVROLXg5R3JCZEU",name:"France Inter — La Tête au Carré (12.06.2015)",logo:"images/logos/radio/franceinter.png"},
+            {id:"0B0RkbHBUrWAxRjBjbmlocTM3cXc",name:"France Inter — La tête au carré (21.03.2014)",logo:"images/logos/radio/franceinter.png"},
+            {id:"0B0RkbHBUrWAxVlN1NWVhM0dxTFk",name:"France Inter — Le club de la tête au carré (30.07.2016)",logo:"images/logos/radio/franceinter.png"},
+            {id:"0B0RkbHBUrWAxVlZuaU1uNk83NkU",name:"France Inter — Le temps d'un bivouac (01.07.2013)",logo:"images/logos/radio/franceinter.png"},
+            {id:"1YX56CVv3H4qoPzAG11gv7kGA_3mPdf-n",name:"France Inter — Le Temps d'un Bivouac (05.07.2016)",logo:"images/logos/radio/franceinter.png"},
+            {id:"1L9Z0ZTK5EW52u7gYze3Un1ZV169q0Qjt",name:"France Inter — En direct du salon du livre",logo:"images/logos/radio/franceinter.png"},
+            {id:"0B0RkbHBUrWAxZ2VpRlVnVElWYVE",name:"France Inter — Le temps d'un bivouac (02.07.2013)",logo:"images/logos/radio/franceinter.png"},
+            {id:"0B0RkbHBUrWAxVzMwNVdwVGFHLW8",name:"Guyane Première (18.09.2012)",logo:"images/logos/radio/guyane1ere.png"},
+            {id:"0B7hlqx_DFkSfZF8tUGtsOEVmZzg",name:"Radio Ahora — Calafate, Argentine (20.04.2016)",logo:"images/logos/radio/ahora.png"},
+            {id:"0B0RkbHBUrWAxZmZmME45d08xUGs",name:"Radio Dijon Campus (10.10.2015)",logo:"images/logos/radio/dijon.png"},
+            {id:"0B0RkbHBUrWAxMUUtQWFLZWx4dlk",name:"Radio Nova — Le contrôle douanier (28.06.2014)",logo:"images/logos/radio/radionova.png"},
+            {id:"1VnLBfP4e6koC2Ske-ENSt13tMhJDF9DW",name:"Radio Nova — À l'aventure (10.11.2017)",logo:"images/logos/radio/radionova.png"},
+            {id:"0B0RkbHBUrWAxdzAzcjVmRzBWVkE",name:"Radio Ville-Marie — Passeport Matin (30.07.2012)",logo:"images/logos/radio/villemarie.png"},
+            {id:"0B0RkbHBUrWAxOGxYSkxUXzh5YXc",name:"Radio Ville-Marie — Passeport Matin (91,3 FM)",logo:"images/logos/radio/villemarie.png"},
+            {id:"0B7hlqx_DFkSfcVBZUlNmaVNfa2M",name:"Radio-Canada — L'été du monde (20.07.2012)",logo:"images/logos/radio/radiocanada.png"},
+            {id:"0B0RkbHBUrWAxX2NhSnZ3NUtoaTg",name:"RCF — Questions d'actualité (10.10.2013)",logo:"images/logos/radio/rcf.png"},
+            {id:"0B7hlqx_DFkSfOHdQTkVOX3VxQ28",name:"RCF — Bourgogne (15.10.2013)",logo:"images/logos/radio/rcf.png"},
+            {id:"0B7hlqx_DFkSfakN0NFF1RGxVekU",name:"RCF — Questions d'actualité (8 et 10.10.2013)",logo:"images/logos/radio/rcf.png"},
+            {id:"1PkV4rTwhG4wgWhh3gJLMum2GcT26VMc7",name:"RFI — Autour de la question (19.12.2017)",logo:"images/logos/radio/rfi.png"},
+            {id:"1T01fbmwLQ4-FpfWVTdBtumPmmGSSpBNY",name:"RTL — La curiosité est un vilain défaut (26.10.2015)",logo:"images/logos/radio/rtl.png"},
+            {id:"0B0RkbHBUrWAxbHo3UHRJYUdHa2s",name:"RTL — La curiosité est un vilain défaut (29.06.2015)",logo:"images/logos/radio/rtl.png"},
+            {id:"1us3H3WKH97HVAOdOiS0uoh2_k6kiXVEz",name:"RTL — La curiosité est un vilain défaut (18.11.2015)",logo:"images/logos/radio/rtl.png"},
+            {id:"14I3jAj34ISr-lVh4RQ_l_ZnC2mxFfI6a",name:"RTL — La curiosité est un vilain défaut (03.03.2015)",logo:"images/logos/radio/rtl.png"},
+            {id:"18GGvI4VEaQXZZIg8ZSIC_NnIgC4IJkgG",name:"RTL — La curiosité est un vilain défaut (09.06.2016)",logo:"images/logos/radio/rtl.png"},
+            {id:"0B0RkbHBUrWAxMXdWTzBGUGN1RU0",name:"RTL soir — L'Entretien du jour (28.11.2017)",logo:"images/logos/radio/rtl.png"},
+            {id:"1lZ5Y-5DJwY4ASsm-E53HaSW-K_SCxZ_p",name:"RTL — La curiosité est un vilain défaut (29.06.2015) (2)",logo:"images/logos/radio/rtl.png"}
           ];
           var radioIdx = 0;
           var playlist = document.getElementById('radioPlaylist');
@@ -480,8 +494,9 @@
       </ul>
     </div>
   </div>
-  <div class="footer-bottom"><span class="footer-copy" data-fr="© 2024 Des Ailes pour la Science / Wings for Science. Association de loi 1901." data-en="© 2024 Wings for Science / Des Ailes pour la Science. Non-profit association.">© 2024 Des Ailes pour la Science / Wings for Science. Association de loi 1901.</span><div class="social-links"><a href="http://wingsforscience.blogspot.com/" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/70b1c5a67d2349e3933570b344b1d54d.png/v1/fill/w_35,h_35,al_c,enc_avif,quality_auto/70b1c5a67d2349e3933570b344b1d54d.png" alt="Blogger"></a><a href="http://www.facebook.com/wingsforscience" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/4057345bcf57474b96976284050c00df.png/v1/fill/w_35,h_35,al_c,enc_avif,quality_auto/4057345bcf57474b96976284050c00df.png" alt="Facebook"></a><a href="https://www.youtube.com/playlist?list=PL8A32C328768F858A" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/45bce1d726f64f1999c49feae57f6298.png/v1/fill/w_35,h_35,al_c,enc_avif,quality_auto/45bce1d726f64f1999c49feae57f6298.png" alt="YouTube"></a></div></div>
+  <div class="footer-bottom"><span class="footer-copy" data-fr="© 2025 Des Ailes pour la Science / Wings for Science. Association de loi 1901." data-en="© 2025 Wings for Science / Des Ailes pour la Science. Non-profit association.">© 2025 Des Ailes pour la Science / Wings for Science. Association de loi 1901.</span><div class="social-links"><a href="https://wingsforscience.blogspot.com/" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/70b1c5a67d2349e3933570b344b1d54d.png/v1/fill/w_35,h_35,al_c,enc_avif,quality_auto/70b1c5a67d2349e3933570b344b1d54d.png" alt="Blogger"></a><a href="https://www.facebook.com/wingsforscience" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/4057345bcf57474b96976284050c00df.png/v1/fill/w_35,h_35,al_c,enc_avif,quality_auto/4057345bcf57474b96976284050c00df.png" alt="Facebook"></a><a href="https://www.youtube.com/playlist?list=PL8A32C328768F858A" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/45bce1d726f64f1999c49feae57f6298.png/v1/fill/w_35,h_35,al_c,enc_avif,quality_auto/45bce1d726f64f1999c49feae57f6298.png" alt="YouTube"></a></div></div>
 </footer>
 <script src="lang.js"></script>
+<script src="shared.js"></script>
 </body>
 </html>

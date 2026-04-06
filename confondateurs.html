@@ -3,10 +3,20 @@
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cofondateurs – Wings for Science</title>
+  <meta name="description" content="Cofondateurs et parrains de Wings for Science : Clementine Bacri et Adrien Normier, et les personnalites qui soutiennent l'association.">
+  <meta property="og:title" content="Cofondateurs et parrains - Wings for Science">
+  <meta property="og:description" content="Decouvrez les cofondateurs et parrains de Wings for Science.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://clllle.github.io/wingsforscience/confondateurs.html">
+  <meta property="og:image" content="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_GB">
+  <link rel="canonical" href="https://clllle.github.io/wingsforscience/confondateurs.html">
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<a href="#main-content" class="skip-link">Aller au contenu principal</a>
 <header>
   <a class="logo-wrap" href="index.html"><img src="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png/v1/fill/w_162,h_163,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/LOGO%20wingsforscience%20copie.png" alt="Logo"><div class="logo-text"><span data-fr="Des Ailes pour la Science" data-en="Wings for Science">Des Ailes pour la Science</span></div></a>
   <nav>
@@ -72,7 +82,7 @@
     <button data-lang="en" onclick="setLang('en');toggleMenu()">🇬🇧 English</button>
   </div>
 </div>
-<section class="page-hero" style="background-image:url('https://static.wixstatic.com/media/c88cd1_ad6059c043d14e74979ef02231fb7d34~mv2.jpg');">
+<section id="main-content" class="page-hero" style="background-image:url('https://static.wixstatic.com/media/c88cd1_ad6059c043d14e74979ef02231fb7d34~mv2.jpg');">
   <div class="page-hero-overlay"></div>
   <div class="page-hero-content">
     <span class="section-tag" data-fr="Notre réseau — 01" data-en="Our network — 01">Notre réseau — 01</span>
@@ -80,42 +90,197 @@
     <p class="page-hero-sub" data-fr="Les visages et les forces à l'origine de l'association" data-en="The faces and forces behind the association">Les visages et les forces à l'origine de l'association</p>
   </div>
 </section>
-<div class="content-section"><div class="content-inner">
-  <div class="team-grid">
-    <div class="team-card">
-      <img src="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png" alt="Claudie Haigneré" loading="lazy">
-      <div class="team-body">
-        <div class="team-role" data-fr="Marraine (depuis 2014)" data-en="Patron (since 2014)">Marraine (depuis 2014)</div>
-        <h2 class="team-name">Claudie Haigneré</h2>
-        <p class="team-bio" data-fr="Première femme spationaute européenne dans l'espace. Présidente d'Universcience (Cité des Sciences et Palais de la Découverte)." data-en="First European female astronaut in space. President of Universcience (Cité des Sciences and Palais de la Découverte).">Première femme spationaute européenne dans l'espace. Présidente d'Universcience (Cité des Sciences et Palais de la Découverte).</p>
-      </div>
+<style>
+  .patron-section { margin-bottom: 32px; }
+  .patron-card {
+    display: grid; grid-template-columns: 280px 1fr; gap: 0;
+    background: rgba(14,26,40,0.5); border: 1px solid rgba(95,168,211,0.1);
+    border-radius: 8px; overflow: hidden; margin-bottom: 24px;
+    transition: border-color 0.3s;
+  }
+  .patron-card:hover { border-color: rgba(95,168,211,0.3); }
+  .patron-card img {
+    width: 100%; height: 100%; min-height: 280px;
+    object-fit: cover; display: block;
+  }
+  .patron-card .patron-body { padding: 32px; display: flex; flex-direction: column; justify-content: center; }
+  .patron-card .patron-role {
+    font-size: 12px; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 8px;
+  }
+  .patron-card .patron-name {
+    font-family: 'Merriweather', serif; font-size: 24px; font-weight: 400;
+    color: var(--white); margin-bottom: 16px;
+  }
+  .patron-card .patron-bio {
+    font-size: 14px; line-height: 1.8; color: var(--text-muted);
+  }
+
+  /* ── COFOUNDERS SPLIT INTERACTIVE ── */
+  .cofounders-duo {
+    position: relative;
+    display: grid; grid-template-columns: 1fr 1fr;
+    border-radius: 12px; overflow: hidden;
+    min-height: 560px;
+  }
+
+  .duo-half {
+    position: relative; overflow: hidden; cursor: pointer;
+  }
+  .duo-half img {
+    width: 100%; height: 100%; min-height: 560px;
+    object-fit: cover; display: block;
+    transition: transform 0.6s ease, filter 0.6s ease;
+  }
+  /* Darken by default, reveal on hover */
+  .duo-half::before {
+    content: ''; position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(0deg, rgba(13,37,64,0.92) 0%, rgba(13,37,64,0.4) 50%, rgba(13,37,64,0.15) 100%);
+    transition: background 0.5s;
+  }
+  .duo-half:hover::before {
+    background: linear-gradient(0deg, rgba(13,37,64,0.95) 0%, rgba(13,37,64,0.6) 40%, rgba(13,37,64,0.1) 100%);
+  }
+  .duo-half:hover img {
+    transform: scale(1.05);
+  }
+  /* Dim the OTHER half when one is hovered */
+  .cofounders-duo:hover .duo-half:not(:hover) img {
+    filter: brightness(0.5);
+  }
+
+  /* Name/role always visible */
+  .duo-info {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    z-index: 2; padding: 28px 28px 24px;
+  }
+  .duo-info .duo-role {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .duo-info .duo-name {
+    font-family: 'Merriweather', serif; font-size: 24px; font-weight: 400;
+    color: #fff; margin-bottom: 14px;
+    transition: color 0.3s;
+  }
+  .duo-half:hover .duo-name { color: var(--accent); }
+
+  /* Bio hidden by default, slides up on hover */
+  .duo-info .duo-bio {
+    font-size: 13px; line-height: 1.75; color: var(--off-white);
+    max-height: 0; overflow: hidden; opacity: 0;
+    transition: max-height 0.6s ease, opacity 0.4s ease 0.1s;
+  }
+  .duo-half:hover .duo-bio {
+    max-height: 500px; opacity: 1;
+  }
+
+  /* Center divider accent line */
+  .cofounders-duo::after {
+    content: ''; position: absolute;
+    top: 10%; bottom: 10%; left: 50%;
+    width: 2px; transform: translateX(-50%);
+    background: linear-gradient(180deg, transparent, var(--accent), transparent);
+    z-index: 3; opacity: 0.4;
+    pointer-events: none;
+  }
+
+  /* Scroll hint */
+  .duo-hint {
+    position: absolute; top: 16px; left: 50%; transform: translateX(-50%);
+    z-index: 4;
+    font-size: 10px; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent); opacity: 0.5;
+    pointer-events: none;
+  }
+
+  @media(max-width:768px) {
+    .cofounders-duo { grid-template-columns: 1fr; min-height: auto; }
+    .cofounders-duo::after { display: none; }
+    .duo-half img { min-height: 400px; }
+    .duo-half .duo-bio { max-height: 500px; opacity: 1; }
+    .patron-card { grid-template-columns: 1fr; }
+    .patron-card img { max-height: 300px; }
+  }
+</style>
+
+<!-- PARRAINS — même style split -->
+<div class="content-section">
+  <div class="content-inner">
+    <div style="text-align:center;margin-bottom:40px;">
+      <span class="section-tag" data-fr="Parrains" data-en="Patrons">Parrains</span>
+      <h2 class="section-heading" style="margin-top:12px;" data-fr="Nos parrains" data-en="Our patrons">Nos parrains</h2>
     </div>
-    <div class="team-card">
-      <img src="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png" alt="Pierre Léna" loading="lazy">
-      <div class="team-body">
-        <div class="team-role" data-fr="Parrain scientifique" data-en="Scientific Patron">Parrain scientifique</div>
-        <h2 class="team-name">Pierre Léna</h2>
-        <p class="team-bio" data-fr="Astrophysicien, membre de l'Académie des Sciences, co-fondateur de La main à la pâte pour l'enseignement des sciences." data-en="Astrophysicist, member of the Académie des Sciences, co-founder of La main à la pâte for science education.">Astrophysicien, membre de l'Académie des Sciences, co-fondateur de La main à la pâte pour l'enseignement des sciences.</p>
+
+    <div class="cofounders-duo" style="min-height:440px;">
+      <span class="duo-hint" data-fr="Survolez pour découvrir" data-en="Hover to discover">Survolez pour découvrir</span>
+
+      <div class="duo-half">
+        <img src="images/equipe/claudie.avif" alt="Claudie Haigneré" loading="lazy">
+        <div class="duo-info">
+          <div class="duo-role" data-fr="Marraine" data-en="Patron">Marraine</div>
+          <h2 class="duo-name">Claudie HAIGNERÉ</h2>
+          <div class="duo-bio">
+            <p>Première femme spationaute européenne dans l'espace, elle est depuis 2010 présidente d'Universcience, l'institution qui regroupe deux centres scientifiques à Paris, la Cité des Sciences et de l'Industrie et le Palais de la Découverte.</p>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="team-card">
-      <img src="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png" alt="Clémentine Bacri" loading="lazy">
-      <div class="team-body">
-        <div class="team-role" data-fr="Présidente et Cofondatrice" data-en="President and Co-founder">Présidente et Cofondatrice</div>
-        <h2 class="team-name">Clémentine Bacri</h2>
-        <p class="team-bio" data-fr="Avocate de formation (Barreau de Paris), diplômée de l'Université Paris-Sorbonne. Pilote, journaliste scientifique et cofondatrice de l'association. A effectué le tour du monde en ULM au service de la science." data-en="Lawyer by training (Paris Bar), graduate of Sorbonne University. Pilot, science journalist and co-founder of the association. Flew around the world in a ULM in the service of science.">Avocate de formation (Barreau de Paris), diplômée de l'Université Paris-Sorbonne. Pilote, journaliste scientifique et cofondatrice de l'association. A effectué le tour du monde en ULM au service de la science.</p>
-      </div>
-    </div>
-    <div class="team-card">
-      <img src="https://static.wixstatic.com/media/c88cd1_56403842de464ba684d0cce6b6fd342c~mv2.png" alt="Adrien Normier" loading="lazy">
-      <div class="team-body">
-        <div class="team-role" data-fr="Cofondateur" data-en="Co-founder">Cofondateur</div>
-        <h2 class="team-name">Adrien Normier</h2>
-        <p class="team-bio" data-fr="Pilote professionnel et pilote de ligne, ingénieur aéronautique et cofondateur de l'association. A co-conçu les équipements scientifiques embarqués dans les ULMs." data-en="Professional and airline pilot, aeronautical engineer and co-founder of the association. He co-designed the scientific equipment on board the ULMs.">Pilote professionnel et pilote de ligne, ingénieur aéronautique et cofondateur de l'association. A co-conçu les équipements scientifiques embarqués dans les ULMs.</p>
+
+      <div class="duo-half">
+        <img src="images/equipe/lena.avif" alt="Pierre Léna" loading="lazy">
+        <div class="duo-info">
+          <div class="duo-role" data-fr="Parrain" data-en="Patron">Parrain</div>
+          <h2 class="duo-name">Pierre LÉNA</h2>
+          <div class="duo-bio">
+            <p>Astrophysicien élu à l'Académie des Sciences, ancien Directeur de l'École Supérieure d'Astrophysique d'Île-de-France. Il s'est associé à d'autres physiciens pour créer La main à la Pâte ainsi que l'Office for Climate Education, deux mouvements mondiaux destinés à rénover l'enseignement des sciences et du climat dans les écoles.</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div></div>
+</div>
+
+<!-- COFONDATEURS -->
+<div class="content-section" style="background:rgba(95,168,211,0.03);border-top:1px solid rgba(95,168,211,0.08);border-bottom:1px solid rgba(95,168,211,0.08);">
+  <div class="content-inner">
+    <div style="text-align:center;margin-bottom:40px;">
+      <span class="section-tag" data-fr="Cofondateurs" data-en="Co-founders">Cofondateurs</span>
+      <h2 class="section-heading" style="margin-top:12px;" data-fr="Les cofondateurs" data-en="The co-founders">Les cofondateurs</h2>
+    </div>
+
+    <div class="cofounders-duo">
+      <span class="duo-hint" data-fr="Survolez pour découvrir" data-en="Hover to discover">Survolez pour découvrir</span>
+
+      <!-- CLÉMENTINE -->
+      <div class="duo-half">
+        <img src="images/equipe/clem.avif" alt="Clémentine Bacri" loading="lazy">
+        <div class="duo-info">
+          <div class="duo-role" data-fr="Présidente et Cofondatrice" data-en="President and Co-founder">Présidente et Cofondatrice</div>
+          <h2 class="duo-name">Clémentine BACRI</h2>
+          <div class="duo-bio">
+            <p>Directrice et co-fondatrice de l'association, Clémentine utilise son expérience d'avocate internationale, juriste parlementaire, conférencière et directrice de projet pour mener à bien la mission de l'association.</p>
+            <p style="margin-top:8px;">Co-pilote des expéditions aériennes et membre de la Société des Explorateurs Français ainsi que de La Guilde, sa curiosité, sa force de persuasion, son optimisme et sa pugnacité sont à l'origine de notre association.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ADRIEN -->
+      <div class="duo-half">
+        <img src="images/equipe/adrien.avif" alt="Adrien Normier" loading="lazy">
+        <div class="duo-info">
+          <div class="duo-role" data-fr="Cofondateur" data-en="Co-founder">Cofondateur</div>
+          <h2 class="duo-name">Adrien NORMIER</h2>
+          <div class="duo-bio">
+            <p>Diplômé en ingénierie aéronautique à Centrale Lyon, il pratique le métier de pilote de ligne. Créatif et passionné par l'aviation, il développe sans cesse de nouvelles solutions techniques. Il pilote tout ce qui vole (sauf les fusées).</p>
+            <p style="margin-top:8px;">Il est en charge de la sélection et de la définition des missions scientifiques, et coordonne tous les sujets techniques et aéronautiques. Membre de la Société des Explorateurs Français et de la Guilde.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
 <footer>
     <div class="footer-inner">
     <div class="footer-brand">
@@ -152,8 +317,9 @@
       </ul>
     </div>
   </div>
-  <div class="footer-bottom"><span class="footer-copy" data-fr="© 2024 Des Ailes pour la Science / Wings for Science. Association de loi 1901." data-en="© 2024 Wings for Science / Des Ailes pour la Science. Non-profit association.">© 2024 Des Ailes pour la Science / Wings for Science. Association de loi 1901.</span><div class="social-links"><a href="http://wingsforscience.blogspot.com/" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/70b1c5a67d2349e3933570b344b1d54d.png/v1/fill/w_35,h_35,al_c,enc_avif,quality_auto/70b1c5a67d2349e3933570b344b1d54d.png" alt="Blogger"></a><a href="http://www.facebook.com/wingsforscience" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/4057345bcf57474b96976284050c00df.png/v1/fill/w_35,h_35,al_c,enc_avif,quality_auto/4057345bcf57474b96976284050c00df.png" alt="Facebook"></a><a href="https://www.youtube.com/playlist?list=PL8A32C328768F858A" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/45bce1d726f64f1999c49feae57f6298.png/v1/fill/w_35,h_35,al_c,enc_avif,quality_auto/45bce1d726f64f1999c49feae57f6298.png" alt="YouTube"></a></div></div>
+  <div class="footer-bottom"><span class="footer-copy" data-fr="© 2025 Des Ailes pour la Science / Wings for Science. Association de loi 1901." data-en="© 2025 Wings for Science / Des Ailes pour la Science. Non-profit association.">© 2025 Des Ailes pour la Science / Wings for Science. Association de loi 1901.</span><div class="social-links"><a href="https://wingsforscience.blogspot.com/" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/70b1c5a67d2349e3933570b344b1d54d.png/v1/fill/w_35,h_35,al_c,enc_avif,quality_auto/70b1c5a67d2349e3933570b344b1d54d.png" alt="Blogger"></a><a href="https://www.facebook.com/wingsforscience" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/4057345bcf57474b96976284050c00df.png/v1/fill/w_35,h_35,al_c,enc_avif,quality_auto/4057345bcf57474b96976284050c00df.png" alt="Facebook"></a><a href="https://www.youtube.com/playlist?list=PL8A32C328768F858A" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/45bce1d726f64f1999c49feae57f6298.png/v1/fill/w_35,h_35,al_c,enc_avif,quality_auto/45bce1d726f64f1999c49feae57f6298.png" alt="YouTube"></a></div></div>
 </footer>
 <script src="lang.js"></script>
+<script src="shared.js"></script>
 </body>
 </html>
