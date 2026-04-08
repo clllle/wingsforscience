@@ -26,7 +26,11 @@
     .blog-card-excerpt{font-size:12.5px;line-height:1.75;color:var(--text-muted);flex:1;}
     .blog-card-more{display:inline-flex;align-items:center;gap:5px;margin-top:14px;font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);}
     .blog-card:hover .blog-card-more{color:var(--accent2);}
-  
+    .blog-card.hidden-card{display:none;}
+    .load-more-wrap{text-align:center;margin:40px 0 20px;}
+    .load-more-btn{background:none;border:1px solid var(--accent);color:var(--accent);padding:12px 36px;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:background 0.3s,color 0.3s;border-radius:2px;}
+    .load-more-btn:hover{background:var(--accent);color:var(--bg);}
+
     .article-body p { font-size: 15px; line-height: 1.85; color: var(--text-muted); margin-bottom: 20px; }
     .article-body h3 { color: var(--white); }
 </style>
@@ -2357,7 +2361,25 @@
         </div>
       </a>
   </div>
+  <div class="load-more-wrap"><button class="load-more-btn" id="loadMoreBtn" onclick="loadMore()" data-fr="Voir plus d'articles" data-en="See more articles">Voir plus d'articles</button></div>
 </div></div>
+
+<script>
+(function(){
+  var BATCH = 24;
+  var cards = document.querySelectorAll('.blog-grid .blog-card');
+  var shown = BATCH;
+  var btn = document.getElementById('loadMoreBtn');
+  for(var i = BATCH; i < cards.length; i++) cards[i].classList.add('hidden-card');
+  if(cards.length <= BATCH) btn.style.display='none';
+  window.loadMore = function(){
+    var next = Math.min(shown + BATCH, cards.length);
+    for(var i = shown; i < next; i++) cards[i].classList.remove('hidden-card');
+    shown = next;
+    if(shown >= cards.length) btn.style.display='none';
+  };
+})();
+</script>
 
 <!-- ── ARTICLE EPECUEN ── -->
 <div class="content-section" id="epecuen" style="scroll-margin-top:80px;">
