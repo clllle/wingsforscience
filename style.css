@@ -1282,6 +1282,11 @@ footer {
   border-color: var(--accent);
 }
 
+/* ── SMOOTH SCROLL MOMENTUM ── */
+html {
+  scroll-behavior: smooth;
+}
+
 /* ── FADE-IN ANIMATION ── */
 .fade-in {
   opacity: 0;

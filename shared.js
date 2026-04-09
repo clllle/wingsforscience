@@ -101,6 +101,32 @@ document.addEventListener('click', function(e) {
   }
 })();
 
+/* Smooth momentum scroll — prolonge le défilement avec inertie */
+(function() {
+  var target = window.scrollY;
+  var current = window.scrollY;
+  var animating = false;
+  var ease = 0.06;
+
+  window.addEventListener('wheel', function(e) {
+    e.preventDefault();
+    target += e.deltaY * 1.8;
+    target = Math.max(0, Math.min(target, document.body.scrollHeight - window.innerHeight));
+    if (!animating) animate();
+  }, { passive: false });
+
+  function animate() {
+    animating = true;
+    current += (target - current) * ease;
+    window.scrollTo(0, current);
+    if (Math.abs(target - current) > 0.5) {
+      requestAnimationFrame(animate);
+    } else {
+      animating = false;
+    }
+  }
+})();
+
 /* Enhance language switcher: update page title on lang change */
 (function() {
   var origSetLang = window.setLang;
