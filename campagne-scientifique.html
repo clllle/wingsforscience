@@ -92,11 +92,11 @@
     .doc-card:hover .doc-meta { color: #5fa8d3 !important; }
     .doc-card:hover .doc-arrow { color: #5fa8d3 !important; }
     .doc-card:hover .doc-icon { background: rgba(95,168,211,0.15) !important; }
-    #missionsPanel::-webkit-scrollbar{width:6px;}
+    #missionsPanel::-webkit-scrollbar{width:10px;-webkit-appearance:none;}
     #missionsPanel::-webkit-scrollbar-track{background:rgba(95,168,211,0.1);border-radius:4px;}
-    #missionsPanel::-webkit-scrollbar-thumb{background:rgba(95,168,211,0.45);border-radius:4px;}
+    #missionsPanel::-webkit-scrollbar-thumb{background:rgba(95,168,211,0.45);border-radius:4px;min-height:40px;}
     #missionsPanel::-webkit-scrollbar-thumb:hover{background:rgba(95,168,211,0.65);}
-    #missionsPanel{scrollbar-width:thin;scrollbar-color:rgba(95,168,211,0.45) rgba(95,168,211,0.1);}
+    #missionsPanel{scrollbar-width:auto;scrollbar-color:rgba(95,168,211,0.45) rgba(95,168,211,0.1);}
     .missions-table tbody tr{transition:background 0.3s;}
     .missions-table tbody tr.mission-active{background:rgba(95,168,211,0.12) !important;border-left:3px solid var(--accent) !important;}
     .missions-table tbody tr.mission-active td{color:var(--accent) !important;font-weight:700 !important;}
@@ -261,7 +261,7 @@
     <span class="section-tag" data-fr="Missions réalisées" data-en="Completed missions">Missions réalisées</span>
     <h2 class="section-heading" id="missionsList" data-fr="Liste complète des 34 missions" data-en="Complete list of 34 missions">Liste complète des 34 missions</h2>
     <div style="display:flex;gap:8px;align-items:stretch;margin-top:24px;">
-    <div id="missionsPanel" style="flex:1;max-height:500px;overflow-y:auto;overflow-x:auto;border-radius:6px;border:1px solid rgba(95,168,211,0.1);">
+    <div id="missionsPanel" style="flex:1;max-height:500px;overflow-y:scroll;overflow-x:auto;border-radius:6px;border:1px solid rgba(95,168,211,0.1);">
       <table class="missions-table">
         <thead>
           <tr>
