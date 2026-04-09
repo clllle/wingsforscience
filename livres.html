@@ -946,8 +946,8 @@
   <div class="footer-bottom"><span class="footer-copy" data-fr="© 2026 Clementine Bacri pour Wings for Science" data-en="© 2025 Wings for Science / Des Ailes pour la Science. Non-profit association.">© 2026 Clementine Bacri pour Wings for Science</span><div class="social-links"><a href="https://wingsforscience.blogspot.com/" target="_blank" rel="noopener"><img src="images/wix_import/icon_blogger.png" alt="Blogger"></a><a href="https://www.facebook.com/wingsforscience" target="_blank" rel="noopener"><img src="images/wix_import/icon_facebook.png" alt="Facebook"></a><a href="https://www.youtube.com/playlist?list=PL8A32C328768F858A" target="_blank" rel="noopener"><img src="images/wix_import/icon_youtube.png" alt="YouTube"></a></div></div>
 </footer>
 <!-- Article preview modal -->
+<button class="modal-close" id="articleClose" onclick="closeArticle()" style="display:none;">✕</button>
 <div class="modal-overlay" id="articleModal" onclick="closeArticleOutside(event)">
-  <button class="modal-close" onclick="closeArticle()">✕</button>
   <div class="modal-box" style="max-width:900px;position:relative;">
     <div class="modal-embed" id="articleEmbed" style="aspect-ratio:auto;height:80vh;overflow-y:auto;">
       <iframe id="articleFrame" src="" style="width:100%;height:100%;border:none;display:block;"></iframe>
@@ -968,13 +968,18 @@ function openArticle(id,rk){
     embed.style.height='85vh';
     embed.style.overflowY='auto';
     embed.innerHTML='<img src="'+jpgMap[id]+'" style="width:100%;display:block;">';
+    document.getElementById('articleModal').classList.add('open');
+    document.getElementById('articleClose').style.display='flex';
+    document.body.style.overflow='hidden';
   } else {
     embed.style.height='80vh';
     embed.style.overflowY='hidden';
-    embed.innerHTML='<iframe id="articleFrame" src="'+url+'" style="width:100%;height:100%;border:none;display:block;"></iframe>';
+    embed.innerHTML='<div onclick="closeArticle()" style="position:absolute;top:0;left:0;right:0;height:50px;cursor:pointer;z-index:20;background:linear-gradient(rgba(0,0,0,0.6),transparent);display:flex;align-items:center;justify-content:flex-end;padding-right:16px;"><span style="color:#fff;font-size:24px;font-weight:700;">✕ Fermer</span></div><iframe src="'+url+'" style="width:100%;height:100%;border:none;display:block;"></iframe>';
+    embed.style.position='relative';
+    document.getElementById('articleModal').classList.add('open');
+    document.getElementById('articleClose').style.display='flex';
+    document.body.style.overflow='hidden';
   }
-  document.getElementById('articleModal').classList.add('open');
-  document.body.style.overflow='hidden';
 }
 function closeArticle(){
   document.getElementById('articleModal').classList.remove('open');
