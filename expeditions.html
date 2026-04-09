@@ -253,23 +253,13 @@
         <div style="display:flex;flex-direction:column;align-items:center;gap:16px;padding:24px;background:rgba(14,26,40,0.5);border:1px solid rgba(95,168,211,0.1);border-radius:6px;">
           <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);text-align:center;" data-fr="Arrivée au Bourget" data-en="Arrival at Le Bourget">Arrivée au Bourget</div>
           <p style="font-size:13px;color:var(--text-muted);text-align:center;line-height:1.6;" data-fr="Atterrissage officiel au Salon international aéronautique du Bourget" data-en="Official landing at the Paris International Air Show">Atterrissage officiel au Salon international aéronautique du Bourget</p>
-          <div onclick="document.getElementById('bourgetModal').style.display='block';document.getElementById('bourgetVideo').src='https://drive.google.com/file/d/0B0RkbHBUrWAxV2lqUlNxVko1Um8/preview'" style="position:relative;width:100%;border-radius:6px;overflow:hidden;cursor:pointer;">
+          <div onclick="openModal('https://drive.google.com/file/d/0B0RkbHBUrWAxV2lqUlNxVko1Um8/preview','Expéditions','Atterrissage au Salon du Bourget')" style="position:relative;width:100%;border-radius:6px;overflow:hidden;cursor:pointer;">
             <img src="images/arrivee_bourget.avif" alt="Arrivée au Bourget" style="width:100%;display:block;filter:brightness(0.8);transition:filter 0.3s;" onmouseover="this.style.filter='brightness(1)'" onmouseout="this.style.filter='brightness(0.8)'">
             <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
               <div style="width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,0.9);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.3);transition:transform 0.3s;">
                 <div style="width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-left:20px solid var(--accent);margin-left:4px;"></div>
               </div>
             </div>
-          </div>
-        </div>
-        <!-- Modal vidéo Bourget -->
-        <div id="bourgetModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:1001;background:rgba(0,0,0,0.7);" onclick="if(event.target===this){this.style.display='none';document.getElementById('bourgetVideo').src='';}">
-          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(14,26,40,0.95);border-radius:8px;padding:20px;width:85%;max-width:640px;">
-            <button onclick="document.getElementById('bourgetModal').style.display='none';document.getElementById('bourgetVideo').src='';" style="position:absolute;top:8px;right:12px;background:none;border:none;color:var(--accent);font-size:24px;cursor:pointer;z-index:1002;">&times;</button>
-            <div style="aspect-ratio:16/9;margin-bottom:12px;">
-              <iframe id="bourgetVideo" src="" width="100%" height="100%" style="border:none;border-radius:4px;" allow="autoplay" allowfullscreen></iframe>
-            </div>
-            <p style="color:var(--text-muted);font-size:13px;text-align:center;" data-fr="Atterrissage au Salon du Bourget" data-en="Landing at the Paris Air Show">Atterrissage au Salon du Bourget</p>
           </div>
         </div>
       </div>
@@ -368,6 +358,44 @@
   </div>
   <div class="footer-bottom"><span class="footer-copy" data-fr="© 2026 Clementine Bacri pour Wings for Science" data-en="© 2025 Wings for Science. Non-profit association.">© 2026 Clementine Bacri pour Wings for Science</span><div class="social-links"><a href="https://wingsforscience.blogspot.com/" target="_blank" rel="noopener"><img src="images/wix_import/icon_blogger.png" alt="Blogger"></a><a href="https://www.facebook.com/wingsforscience" target="_blank" rel="noopener"><img src="images/wix_import/icon_facebook.png" alt="Facebook"></a><a href="https://www.youtube.com/playlist?list=PL8A32C328768F858A" target="_blank" rel="noopener"><img src="images/wix_import/icon_youtube.png" alt="YouTube"></a></div></div>
 </footer>
+
+<!-- MODAL VIDEO (même style que Reportages) -->
+<style>
+.modal-overlay{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.92);align-items:center;justify-content:center}
+.modal-overlay.open{display:flex}
+.modal-box{background:#0d1c2b;border:1px solid rgba(95,168,211,.2);border-radius:6px;overflow:hidden;width:92%;max-width:940px;position:relative}
+.modal-close{position:absolute;top:10px;right:14px;z-index:10;font-size:22px;color:var(--text-muted);cursor:pointer;background:none;border:none;line-height:1;transition:color .2s}
+.modal-close:hover{color:var(--white)}
+.modal-embed{aspect-ratio:16/9}
+.modal-embed iframe{width:100%;height:100%;border:none;display:block}
+.modal-info{padding:14px 20px}
+.modal-series{font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+.modal-title{font-family:'Merriweather',serif;font-size:16px;font-weight:300;color:var(--white)}
+</style>
+<div class="modal-overlay" id="videoModal" onclick="closeModalOutside(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-embed" id="modalEmbed"></div>
+    <div class="modal-info"><div class="modal-series" id="modalSeries"></div><div class="modal-title" id="modalTitle"></div></div>
+  </div>
+</div>
+<script>
+function openModal(src,series,title){
+  document.getElementById('modalSeries').textContent=series;
+  document.getElementById('modalTitle').textContent=title;
+  document.getElementById('modalEmbed').innerHTML='<iframe src="'+src+'" allowfullscreen allow="autoplay; encrypted-media"></iframe>';
+  document.getElementById('videoModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){
+  document.getElementById('videoModal').classList.remove('open');
+  document.getElementById('modalEmbed').innerHTML='';
+  document.body.style.overflow='';
+}
+function closeModalOutside(e){if(e.target===document.getElementById('videoModal'))closeModal();}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+</script>
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="lang.js"></script>
