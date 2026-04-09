@@ -160,6 +160,7 @@ nav { display: flex; align-items: center; gap: 4px; margin-left: auto; }
   font-family: 'Merriweather', serif;
   font-size: 16px; font-weight: 300; font-style: italic;
   color: var(--gold);
+  margin-top: 8px; margin-bottom: 0;
 }
 
 /* ── BREADCRUMB ── */
