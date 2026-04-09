@@ -68,6 +68,21 @@ document.addEventListener('click', function(e) {
   btn.addEventListener('click', function() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+
+  var btnDown = document.createElement('button');
+  btnDown.className = 'scroll-down';
+  btnDown.setAttribute('aria-label', 'Descendre');
+  btnDown.innerHTML = '&#8595;';
+  document.body.appendChild(btnDown);
+
+  window.addEventListener('scroll', function() {
+    var atBottom = window.scrollY >= document.body.scrollHeight - window.innerHeight - 100;
+    btnDown.classList.toggle('visible', window.scrollY < document.body.scrollHeight - window.innerHeight - 100);
+  });
+
+  btnDown.addEventListener('click', function() {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+  });
 })();
 
 /* Fade-in sections on scroll (IntersectionObserver) */
