@@ -881,9 +881,19 @@
     }
   }
 
+  function hideFlippedFront(page){
+    var front=page.querySelector('.mag-page-front');
+    if(front) setTimeout(function(){front.style.display='none';},500);
+  }
+  function showUnflippedFront(page){
+    var front=page.querySelector('.mag-page-front');
+    if(front) front.style.display='';
+  }
+
   nextBtn.addEventListener('click', function() {
     if (currentPage < totalPages) {
       pages[currentPage].classList.add('flipped');
+      hideFlippedFront(pages[currentPage]);
       currentPage++;
       updateState();
     }
@@ -892,6 +902,7 @@
   prevBtn.addEventListener('click', function() {
     if (currentPage > 1) {
       currentPage--;
+      showUnflippedFront(pages[currentPage]);
       pages[currentPage].classList.remove('flipped');
       updateState();
     }
@@ -902,6 +913,7 @@
     pages[j].addEventListener('click', function() {
       if (!this.classList.contains('flipped') && currentPage < totalPages) {
         this.classList.add('flipped');
+        hideFlippedFront(this);
         currentPage++;
         updateState();
       }
