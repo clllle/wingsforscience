@@ -763,11 +763,15 @@
     border: 1px solid var(--accent);
     border-radius: 20px;
     cursor: pointer;
-    transition: background 0.3s, color 0.3s;
+    transition: background 0.3s, color 0.3s, transform 0.2s, box-shadow 0.3s;
+    position: relative;
+    z-index: 5;
   }
   .mag-read-btn:hover {
     background: var(--accent);
     color: #1a2a3a;
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(95,168,211,0.4);
   }
   /* Article modal uses global .modal-overlay from style.css */
   .mag-source {
