@@ -74,6 +74,7 @@ document.addEventListener('click', function(e) {
 (function() {
   var sections = document.querySelectorAll('.content-section, .content-inner, .about-strip, .pillar-grid, .actions-grid, .gallery-grid, .page-hero-content');
   for (var i = 0; i < sections.length; i++) {
+    if (sections[i].style.opacity) continue;
     sections[i].classList.add('fade-in');
   }
 
