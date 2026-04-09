@@ -253,8 +253,8 @@
         <div style="display:flex;flex-direction:column;align-items:center;gap:16px;padding:24px;background:rgba(14,26,40,0.5);border:1px solid rgba(95,168,211,0.1);border-radius:6px;">
           <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);text-align:center;" data-fr="Arrivée au Bourget" data-en="Arrival at Le Bourget">Arrivée au Bourget</div>
           <p style="font-size:13px;color:var(--text-muted);text-align:center;line-height:1.6;" data-fr="Atterrissage officiel au Salon international aéronautique du Bourget" data-en="Official landing at the Paris International Air Show">Atterrissage officiel au Salon international aéronautique du Bourget</p>
-          <div onclick="openModal('https://drive.google.com/file/d/0B0RkbHBUrWAxV2lqUlNxVko1Um8/preview','Expéditions','Atterrissage au Salon du Bourget')" style="position:relative;width:100%;border-radius:6px;overflow:hidden;cursor:pointer;">
-            <img src="images/arrivee_bourget.avif" alt="Arrivée au Bourget" style="width:100%;display:block;filter:brightness(0.8);transition:filter 0.3s;" onmouseover="this.style.filter='brightness(1)'" onmouseout="this.style.filter='brightness(0.8)'">
+          <div onclick="openModal('https://www.youtube-nocookie.com/embed/cqcXs-pBWSA','Expéditions','Atterrissage au Salon du Bourget')" style="position:relative;width:100%;border-radius:6px;overflow:hidden;cursor:pointer;">
+            <img src="images/arrivee_bourget.avif" alt="Arrivée au Bourget" style="width:100%;display:block;filter:brightness(0.75) saturate(0.8);transition:filter 0.4s;" onmouseover="this.style.filter='brightness(1) saturate(1.15)'" onmouseout="this.style.filter='brightness(0.75) saturate(0.8)'">
             <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
               <div style="width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,0.9);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.3);transition:transform 0.3s;">
                 <div style="width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-left:20px solid var(--accent);margin-left:4px;"></div>
@@ -383,6 +383,10 @@
 function openModal(src,series,title){
   document.getElementById('modalSeries').textContent=series;
   document.getElementById('modalTitle').textContent=title;
+  if(src.includes('youtube-nocookie.com')){
+    var sep=src.includes('?')?'&':'?';
+    src+=sep+'rel=0&modestbranding=1&iv_load_policy=3&color=white';
+  }
   document.getElementById('modalEmbed').innerHTML='<iframe src="'+src+'" allowfullscreen allow="autoplay; encrypted-media"></iframe>';
   document.getElementById('videoModal').classList.add('open');
   document.body.style.overflow='hidden';
