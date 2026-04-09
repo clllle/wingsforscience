@@ -585,9 +585,10 @@
     position: relative;
     width: 340px;
     height: 440px;
+    -webkit-perspective: 1800px;
     perspective: 1800px;
     -webkit-transform-style: preserve-3d;
-      transform-style: preserve-3d;
+    transform-style: preserve-3d;
     transition: transform 0.9s cubic-bezier(0.4, 0.05, 0.15, 0.97);
   }
   .mag-book.opened {
@@ -646,6 +647,7 @@
   .mag-page-back {
     background: linear-gradient(145deg, #f5f1ec, #ece6dc);
     color: #1a2a3a;
+    -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
     box-shadow: inset 2px 0 8px rgba(0,0,0,0.06), -2px 4px 16px rgba(0,0,0,0.15);
   }
