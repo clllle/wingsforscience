@@ -252,11 +252,22 @@
   @media(max-width:768px) {
     .team-duo { grid-template-columns: 1fr; min-height: auto; }
     .team-duo::after { display: none; }
-    .team-duo .duo-half img { min-height: 360px; }
+    .team-duo .duo-half img { min-height: 260px; }
     .team-duo .duo-half .duo-bio { max-height: 400px; opacity: 1; }
     .team-solo .duo-bio { max-height: 400px; opacity: 1; }
     .org-duo { grid-template-columns: 1fr; }
-    .team-profiles { grid-template-columns: 1fr; }
+    .team-profiles { grid-template-columns: 1fr !important; }
+    .team-trio { grid-template-columns: 1fr; }
+    .trio-member img { min-height: 260px; }
+    .profile-card img { aspect-ratio: 4/3; }
+    .profile-card[style*="display:flex"] {
+      flex-direction: column; text-align: center;
+    }
+    .profile-card[style*="display:flex"] img {
+      width: 80px; height: 80px; margin: 0 auto;
+    }
+    .duo-name { font-size: 18px !important; }
+    .profile-bio { font-size: 12px; }
   }
 </style>
 
