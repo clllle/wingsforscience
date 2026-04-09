@@ -116,55 +116,7 @@ document.addEventListener('click', function(e) {
   }
 })();
 
-/* Scroll rapide avec arrêt sur les sections */
-(function() {
-  var snapTargets = [];
-  var cooldown = false;
-
-  function buildTargets() {
-    snapTargets = [];
-    var selectors = '.hero, .dest-band, .section, .actions-section, .about-strip, .content-section, .page-hero, footer';
-    var els = document.querySelectorAll(selectors);
-    for (var i = 0; i < els.length; i++) {
-      snapTargets.push(els[i].getBoundingClientRect().top + window.scrollY);
-    }
-    snapTargets.sort(function(a, b) { return a - b; });
-    /* Dédupliquer les positions trop proches */
-    var filtered = [snapTargets[0]];
-    for (var j = 1; j < snapTargets.length; j++) {
-      if (snapTargets[j] - filtered[filtered.length - 1] > 100) {
-        filtered.push(snapTargets[j]);
-      }
-    }
-    snapTargets = filtered;
-  }
-
-  window.addEventListener('wheel', function(e) {
-    e.preventDefault();
-    if (cooldown) return;
-
-    buildTargets();
-    var current = window.scrollY;
-    var direction = e.deltaY > 0 ? 1 : -1;
-    var target = null;
-
-    if (direction > 0) {
-      for (var i = 0; i < snapTargets.length; i++) {
-        if (snapTargets[i] > current + 50) { target = snapTargets[i]; break; }
-      }
-      if (target === null) target = document.body.scrollHeight - window.innerHeight;
-    } else {
-      for (var j = snapTargets.length - 1; j >= 0; j--) {
-        if (snapTargets[j] < current - 50) { target = snapTargets[j]; break; }
-      }
-      if (target === null) target = 0;
-    }
-
-    window.scrollTo({ top: target, behavior: 'smooth' });
-    cooldown = true;
-    setTimeout(function() { cooldown = false; }, 600);
-  }, { passive: false });
-})();
+/* Scroll snap géré en CSS — pas d'interception JS de la molette */
 
 /* Enhance language switcher: update page title on lang change */
 (function() {

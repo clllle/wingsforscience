@@ -1313,9 +1313,13 @@ footer {
   border-color: var(--accent);
 }
 
-/* ── SMOOTH SCROLL MOMENTUM ── */
+/* ── SCROLL SNAP SUR LES SECTIONS ── */
 html {
   scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+}
+.hero, .page-hero, .dest-band, .section, .actions-section, .about-strip, .content-section, footer {
+  scroll-snap-align: start;
 }
 
 /* ── FADE-IN ANIMATION ── */
