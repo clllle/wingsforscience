@@ -616,8 +616,8 @@
   #magPage3 { z-index: 2; }
   #magPage4 { z-index: 1; }
 
-  /* When flipped, reverse z-index so back is visible */
-  .mag-page.flipped { z-index: 0 !important; }
+  /* When flipped, put it on top so its back face is clickable */
+  .mag-page.flipped { z-index: 10 !important; }
 
   /* Front & back faces */
   .mag-page-front, .mag-page-back {
