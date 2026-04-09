@@ -139,7 +139,7 @@ document.addEventListener('click', function(e) {
   function animate() {
     animating = true;
     window.scrollBy(0, speed);
-    speed *= friction;
+    /* pas de friction — vitesse constante */
     var atTop = window.scrollY <= 0 && speed < 0;
     var atBottom = window.scrollY >= document.body.scrollHeight - window.innerHeight - 1 && speed > 0;
     if (Math.abs(speed) > 0.3 && !atTop && !atBottom) {
