@@ -508,10 +508,11 @@ footer {
 .lang-current .chevron { font-size: 8px; margin-left: 2px; transition: transform 0.2s; }
 .lang-switch.open .lang-current .chevron { transform: rotate(180deg); }
 .lang-dropdown {
-  display: none;
+  display: none !important;
   position: absolute;
   top: 100%;
   right: 0;
+  left: auto;
   margin-top: 6px;
   background: rgba(20, 32, 48, 0.98);
   backdrop-filter: blur(8px);
@@ -520,8 +521,9 @@ footer {
   overflow: hidden;
   z-index: 200;
   min-width: 140px;
+  flex-direction: column;
 }
-.lang-switch.open .lang-dropdown { display: block; }
+.lang-switch.open .lang-dropdown { display: flex !important; }
 .lang-option {
   display: flex;
   align-items: center;
