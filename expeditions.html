@@ -119,11 +119,11 @@
       </table>
       <style>
         .badge-sci{display:inline-block;padding:3px 10px;border-radius:12px;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;line-height:1.4;}
-        #etapesPanel::-webkit-scrollbar{width:6px;}
+        #etapesPanel::-webkit-scrollbar{width:10px;-webkit-appearance:none;}
         #etapesPanel::-webkit-scrollbar-track{background:rgba(95,168,211,0.1);border-radius:4px;}
-        #etapesPanel::-webkit-scrollbar-thumb{background:rgba(95,168,211,0.45);border-radius:4px;}
+        #etapesPanel::-webkit-scrollbar-thumb{background:rgba(95,168,211,0.45);border-radius:4px;min-height:40px;}
         #etapesPanel::-webkit-scrollbar-thumb:hover{background:rgba(95,168,211,0.65);}
-        #etapesPanel{scrollbar-width:thin;scrollbar-color:rgba(95,168,211,0.45) rgba(95,168,211,0.1);}
+        #etapesPanel{scrollbar-width:auto;scrollbar-color:rgba(95,168,211,0.45) rgba(95,168,211,0.1);}
         .badge-sci.science{background:rgba(95,168,211,0.2);color:#7fc4eb;border:1px solid rgba(95,168,211,0.4);}
         .badge-sci.education{background:rgba(123,200,164,0.2);color:#9edcbe;border:1px solid rgba(123,200,164,0.4);}
         #etapesPanel tr{transition:background 0.3s;}
@@ -140,7 +140,7 @@
             <span class="badge-sci education">Education</span>
           </div>
           <div style="display:flex;gap:8px;align-items:stretch;">
-          <div id="etapesPanel" style="flex:1;max-height:320px;overflow-y:auto;border-radius:4px;">
+          <div id="etapesPanel" style="flex:1;max-height:320px;overflow-y:scroll;border-radius:4px;">
         <table style="width:100%;border-collapse:collapse;">
           <tbody>
             <tr style="border-bottom:1px solid rgba(95,168,211,0.05);"><td style="padding:6px 14px;font-size:11px;color:var(--text-muted);text-align:center;">1</td><td style="padding:6px 14px;font-size:12px;color:var(--off-white);" data-fr="Luxembourg" data-en="Luxembourg">Luxembourg</td><td style="padding:6px 6px;text-align:center;white-space:nowrap;"><span class="badge-sci science">S</span> <span class="badge-sci education">E</span></td></tr>
