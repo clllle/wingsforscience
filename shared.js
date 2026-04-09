@@ -120,7 +120,7 @@ document.addEventListener('click', function(e) {
 (function() {
   var speed = 0;
   var animating = false;
-  var friction = 0.995;
+  var friction = 0.9995;
   var maxSpeed = 12;
 
   document.addEventListener('DOMContentLoaded', function() {
