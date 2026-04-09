@@ -123,21 +123,25 @@ document.addEventListener('click', function(e) {
   var friction = 0.995;
   var maxSpeed = 12;
 
-  window.addEventListener('wheel', function(e) {
-    e.preventDefault();
-    var direction = e.deltaY > 0 ? 1 : -1;
-    speed += direction * 2;
-    if (speed > maxSpeed) speed = maxSpeed;
-    if (speed < -maxSpeed) speed = -maxSpeed;
-    if (!animating) animate();
-  }, { passive: false });
+  document.addEventListener('DOMContentLoaded', function() {
+    window.addEventListener('wheel', function(e) {
+      var maxScroll = document.body.scrollHeight - window.innerHeight;
+      if (maxScroll <= 0) return;
+      e.preventDefault();
+      var direction = e.deltaY > 0 ? 1 : -1;
+      speed += direction * 2;
+      if (speed > maxSpeed) speed = maxSpeed;
+      if (speed < -maxSpeed) speed = -maxSpeed;
+      if (!animating) animate();
+    }, { passive: false });
+  });
 
   function animate() {
     animating = true;
     window.scrollBy(0, speed);
     speed *= friction;
     var atTop = window.scrollY <= 0 && speed < 0;
-    var atBottom = window.scrollY >= document.body.scrollHeight - window.innerHeight && speed > 0;
+    var atBottom = window.scrollY >= document.body.scrollHeight - window.innerHeight - 1 && speed > 0;
     if (Math.abs(speed) > 0.3 && !atTop && !atBottom) {
       requestAnimationFrame(animate);
     } else {
