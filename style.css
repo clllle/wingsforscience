@@ -270,7 +270,7 @@ nav { display: flex; align-items: center; gap: 4px; margin-left: auto; }
   transition: filter 0.4s, transform 0.5s;
 }
 .pillar-card:hover .pillar-img-wrap img {
-  filter: brightness(0.9) saturate(1);
+  filter: brightness(1.1) saturate(1.1);
   transform: scale(1.04);
 }
 
