@@ -101,27 +101,32 @@ document.addEventListener('click', function(e) {
   }
 })();
 
-/* Smooth momentum scroll — prolonge le défilement avec inertie */
+/* Auto-scroll continu — un coup de molette lance un défilement régulier */
 (function() {
-  var target = window.scrollY;
-  var current = window.scrollY;
+  var speed = 0;
   var animating = false;
-  var ease = 0.06;
+  var friction = 0.995;
+  var maxSpeed = 12;
 
   window.addEventListener('wheel', function(e) {
     e.preventDefault();
-    target += e.deltaY * 1.8;
-    target = Math.max(0, Math.min(target, document.body.scrollHeight - window.innerHeight));
+    var direction = e.deltaY > 0 ? 1 : -1;
+    speed += direction * 2;
+    if (speed > maxSpeed) speed = maxSpeed;
+    if (speed < -maxSpeed) speed = -maxSpeed;
     if (!animating) animate();
   }, { passive: false });
 
   function animate() {
     animating = true;
-    current += (target - current) * ease;
-    window.scrollTo(0, current);
-    if (Math.abs(target - current) > 0.5) {
+    window.scrollBy(0, speed);
+    speed *= friction;
+    var atTop = window.scrollY <= 0 && speed < 0;
+    var atBottom = window.scrollY >= document.body.scrollHeight - window.innerHeight && speed > 0;
+    if (Math.abs(speed) > 0.3 && !atTop && !atBottom) {
       requestAnimationFrame(animate);
     } else {
+      speed = 0;
       animating = false;
     }
   }
