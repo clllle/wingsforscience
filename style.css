@@ -56,9 +56,9 @@ header {
   filter: drop-shadow(0 0 8px rgba(95,168,211,0.3));
 }
 .logo-text { display: flex; flex-direction: column; line-height: 1.1; }
-.logo-text .en { font-family: 'Quicksand', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.06em; color: var(--accent); text-transform: lowercase; }
-.logo-text .fr  { font-family: 'Quicksand', sans-serif; font-size: 10px; font-weight: 400; letter-spacing: 0.04em; color: var(--text-muted); text-transform: lowercase; }
-.logo-text span { font-family: 'Quicksand', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.06em; color: var(--white) !important; text-transform: lowercase; }
+.logo-text .en { font-family: 'Quicksand', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.06em; color: var(--accent); text-transform: none; }
+.logo-text .fr  { font-family: 'Quicksand', sans-serif; font-size: 10px; font-weight: 400; letter-spacing: 0.04em; color: var(--text-muted); text-transform: none; }
+.logo-text span { font-family: 'Quicksand', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.06em; color: var(--white) !important; text-transform: none; }
 
 nav { display: flex; align-items: center; gap: 4px; margin-left: auto; }
 
