@@ -121,7 +121,7 @@ window.addEventListener('wheel', function(e) {
   e.preventDefault();
   var delta = e.deltaY;
   /* Trackpad/Magic Mouse envoient de petits deltaY — on amplifie plus */
-  var multiplier = Math.abs(delta) < 10 ? 40 : 6;
+  var multiplier = Math.abs(delta) < 10 ? 80 : 8;
   window.scrollBy(0, delta * multiplier);
 }, { passive: false });
 
