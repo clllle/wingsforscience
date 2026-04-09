@@ -307,7 +307,7 @@ document.addEventListener('DOMContentLoaded', initSlideshow);
       </div>
     </div>
   </div>
-  <div class="mission-desc-bar" id="missionDescBar">
+  <div class="mission-desc-bar" id="missionDescBar" onmouseenter="clearTimeout(window._mdt)" onmouseleave="hideMissionDesc()">
     <p class="mission-desc-text" id="missionDescText"></p>
     <a class="mission-desc-link" id="missionDescLink" href="">En savoir plus →</a>
   </div>
@@ -318,6 +318,7 @@ document.addEventListener('DOMContentLoaded', initSlideshow);
     {fr:"Éduquer le grand public, les jeunes et leurs enseignants à la science et à la protection de l'environnement.",en:"Educating the general public, young people and their teachers about science and environmental protection.",href:"sensibilisation.html"}
   ];
   function showMissionDesc(i){
+    clearTimeout(window._mdt);
     var lang=document.documentElement.lang||'fr';
     var d=missionDescs[i];
     document.getElementById('missionDescText').textContent=d[lang]||d.fr;
@@ -325,7 +326,9 @@ document.addEventListener('DOMContentLoaded', initSlideshow);
     document.getElementById('missionDescBar').classList.add('visible');
   }
   function hideMissionDesc(){
-    document.getElementById('missionDescBar').classList.remove('visible');
+    window._mdt=setTimeout(function(){
+      document.getElementById('missionDescBar').classList.remove('visible');
+    },300);
   }
   </script>
 </div>
