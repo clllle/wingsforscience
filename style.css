@@ -547,10 +547,11 @@ footer {
   font-weight: 300; line-height: 1.15;
   color: var(--white); margin-bottom: 24px;
   background: rgba(8, 16, 28, 0.15);
-  backdrop-filter: blur(1px);
-  padding: 10px 16px;
+  padding: 8px 14px;
   border-radius: 4px;
-  display: inline-block;
+  display: inline;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 .hero-title em { color: var(--accent); font-style: italic; }
 .hero-subtitle {
