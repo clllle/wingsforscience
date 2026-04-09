@@ -609,9 +609,8 @@ footer {
 }
 .section-lead {
   font-size: 16px; line-height: 1.8;
-  color: var(--text-muted); max-width: 100%;
+  color: var(--text-muted);
   margin-bottom: 56px;
-  text-wrap: balance;
 }
 
 /* ── MISSION GRID ── */
