@@ -116,43 +116,7 @@ document.addEventListener('click', function(e) {
   }
 })();
 
-/* Auto-scroll continu — vitesse constante jusqu'au bout de la page */
-(function() {
-  var speed = 0;
-  var scrolling = false;
-
-  function onWheel(e) {
-    e.preventDefault();
-    var direction = e.deltaY > 0 ? 1 : -1;
-    /* Si on change de direction, on repart de zéro */
-    if (speed !== 0 && ((speed > 0 && direction < 0) || (speed < 0 && direction > 0))) {
-      speed = 0;
-      scrolling = false;
-      return;
-    }
-    speed = direction * 3;
-    if (!scrolling) {
-      scrolling = true;
-      step();
-    }
-  }
-
-  function step() {
-    if (!scrolling) return;
-    var before = window.scrollY;
-    window.scrollBy(0, speed);
-    var after = window.scrollY;
-    /* Arrêter si on a atteint un bord (scrollBy n'a rien changé) */
-    if (before === after) {
-      speed = 0;
-      scrolling = false;
-      return;
-    }
-    requestAnimationFrame(step);
-  }
-
-  window.addEventListener('wheel', onWheel, { passive: false });
-})();
+/* Scroll continu via les boutons ↑↓ uniquement — pas d'interception de la molette */
 
 /* Enhance language switcher: update page title on lang change */
 (function() {
