@@ -38,8 +38,8 @@
   <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
-  <div class="lang-switch" onclick="this.classList.toggle('open')">
-    <button class="lang-current">🇫🇷 FR <span class="chevron">▼</span></button><div class="lang-dropdown"><button class="lang-option active" onclick="setLang('fr');event.stopPropagation()">🇫🇷 Français</button><button class="lang-option" onclick="setLang('en');event.stopPropagation()">🇬🇧 English</button></div>
+  <div class="lang-switch">
+    <button class="lang-current" onclick="this.parentElement.classList.toggle('open')">🇫🇷 FR <span class="chevron">▼</span></button><div class="lang-dropdown"><button class="lang-option" onclick="setLang('fr');this.closest('.lang-switch').classList.remove('open')">🇫🇷 Français</button><button class="lang-option" onclick="setLang('en');this.closest('.lang-switch').classList.remove('open')">🇬🇧 English</button></div>
   </div>
 </header>
 <div class="mobile-nav" id="mobileNav">
