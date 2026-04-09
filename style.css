@@ -430,6 +430,21 @@ nav { display: flex; align-items: center; gap: 4px; margin-left: auto; }
 }
 .photo-row img:hover { filter: brightness(1.2) saturate(1.3); }
 
+/* ── HOVER ÉCLAIRCISSEMENT GLOBAL ── */
+a img, .clickable img, [onclick] img,
+.disc-card img, .doc-card img, .partner-logo img,
+.profile-card img, .video-card img, .blog-card-img,
+.ac-slide img {
+  transition: filter 0.4s, transform 0.5s;
+}
+a:hover img, .clickable:hover img, [onclick]:hover img,
+.disc-card:hover img, .partner-logo:hover img,
+.profile-card:hover img, .video-card:hover img,
+.ac-slide:hover img {
+  filter: brightness(1.2) saturate(1.3);
+  transform: scale(1.03);
+}
+
 /* ── FOOTER ── */
 footer {
   background: rgba(6, 13, 22, 0.95);
