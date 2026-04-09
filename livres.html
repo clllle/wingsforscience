@@ -618,6 +618,8 @@
 
   /* When flipped, put it on top so its back face is clickable */
   .mag-page.flipped { z-index: 10 !important; }
+  .mag-page.flipped ~ .mag-page:not(.flipped) { pointer-events: none; }
+  .mag-page.flipped ~ .mag-page.flipped { pointer-events: auto; }
 
   /* Front & back faces */
   .mag-page-front, .mag-page-back {
