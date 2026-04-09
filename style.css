@@ -634,36 +634,39 @@ footer {
   transform: scale(1.05);
   filter: brightness(1.2) saturate(1.3);
 }
-.mission-card-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(10,20,32,.92) 0%, rgba(10,20,32,.7) 40%, rgba(10,20,32,.2) 65%, transparent 80%);
-  display: flex; flex-direction: column; justify-content: flex-end;
-  padding: 32px 28px;
-  transition: background 0.3s;
+.mission-card-label {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(10,20,32,.7) 0%, transparent 100%);
 }
 .mission-card-num {
   font-size: 9px; font-weight: 700; letter-spacing: 0.2em;
   text-transform: uppercase; color: var(--accent);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
 }
 .mission-card-title {
   font-family: 'Merriweather', serif;
   font-size: 18px; font-weight: 300; color: var(--white);
-  margin-bottom: 10px; line-height: 1.3;
+  line-height: 1.3;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.5);
 }
-.mission-card-text {
-  font-size: 13px; line-height: 1.7; color: var(--text-muted);
-  margin-bottom: 16px;
-  opacity: 0; transform: translateY(10px);
-  transition: opacity 0.3s, transform 0.3s;
+.mission-desc-bar {
+  padding: 24px 0 0;
+  opacity: 0; max-height: 0; overflow: hidden;
+  transition: opacity 0.3s, max-height 0.3s;
+  display: flex; align-items: baseline; gap: 24px;
 }
-.mission-card:hover .mission-card-text {
-  opacity: 1; transform: translateY(0);
+.mission-desc-bar.visible {
+  opacity: 1; max-height: 120px;
 }
-.mission-card-link {
+.mission-desc-text {
+  font-size: 14px; line-height: 1.75; color: var(--text-muted); flex: 1;
+}
+.mission-desc-link {
   font-size: 10px; font-weight: 700; letter-spacing: 0.15em;
   text-transform: uppercase; color: var(--accent);
-  text-decoration: none;
+  text-decoration: none; white-space: nowrap;
 }
 
 /* ── ACTIONS SECTION ── */

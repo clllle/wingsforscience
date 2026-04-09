@@ -285,34 +285,49 @@ document.addEventListener('DOMContentLoaded', initSlideshow);
   <h2 class="section-title" data-fr="Des centaines de scientifiques tentent de comprendre et préserver la planète" data-en="Hundreds of scientists are working to understand and protect our planet">Des centaines de scientifiques tentent de comprendre et préserver la planète</h2>
   <p class="section-lead" data-fr="Nos expéditions sont à leur service, et au vôtre. Depuis 2008, nous œuvrons pour la production scientifique, l'action politique et l'éducation en faveur de l'environnement." data-en="Our expeditions are at their service, and yours. Since 2008, we have been working for scientific production, political action and environmental education.">Nos expéditions sont à leur service, et au vôtre. Depuis 2008, nous œuvrons pour la production scientifique, l'action politique et l'éducation en faveur de l'environnement.</p>
   <div class="mission-grid">
-    <div class="mission-card">
+    <div class="mission-card" onmouseenter="showMissionDesc(0)" onmouseleave="hideMissionDesc()">
       <img src="images/baleines et secretions.JPG" alt="Baleines" loading="lazy">
-      <div class="mission-card-overlay">
+      <div class="mission-card-label">
         <div class="mission-card-num" data-fr="01 / Appuyer" data-en="01 / Support">01 / Appuyer</div>
         <h3 class="mission-card-title" data-fr="La Science &amp; l'Environnement" data-en="Science &amp; the Environment">La Science &amp; l'Environnement</h3>
-        <p class="mission-card-text" data-fr="Soutenir la production scientifique indépendante et l'action politique en faveur de l'environnement." data-en="Supporting independent scientific production and political action in favour of the environment.">Soutenir la production scientifique indépendante et l'action politique en faveur de l'environnement.</p>
-        <a class="mission-card-link" href="science-environnement.html" data-fr="En savoir plus" data-en="Learn more">En savoir plus</a>
       </div>
     </div>
-    <div class="mission-card">
+    <div class="mission-card" onmouseenter="showMissionDesc(1)" onmouseleave="hideMissionDesc()">
       <img src="images/vers_volcan_chili.jpg" alt="Expéditions aéronautiques" loading="lazy">
-      <div class="mission-card-overlay">
+      <div class="mission-card-label">
         <div class="mission-card-num" data-fr="02 / Explorer" data-en="02 / Explore">02 / Explorer</div>
         <h3 class="mission-card-title" data-fr="Des Expéditions aéronautiques" data-en="Aeronautical Expeditions">Des Expéditions aéronautiques</h3>
-        <p class="mission-card-text" data-fr="Développer des réseaux de pilotes et d'aéroclubs partout sur terre pour créer des partenariats avec les chercheurs." data-en="Developing networks of pilots and flying clubs around the world to create partnerships with researchers.">Développer des réseaux de pilotes et d'aéroclubs partout sur terre pour créer des partenariats avec les chercheurs.</p>
-        <a class="mission-card-link" href="expeditions.html" data-fr="En savoir plus" data-en="Learn more">En savoir plus</a>
       </div>
     </div>
-    <div class="mission-card">
+    <div class="mission-card" onmouseenter="showMissionDesc(2)" onmouseleave="hideMissionDesc()">
       <img src="images/55 enfants tobalaba.jpg" alt="Sensibilisation" loading="lazy">
-      <div class="mission-card-overlay">
+      <div class="mission-card-label">
         <div class="mission-card-num" data-fr="03 / Sensibiliser" data-en="03 / Educate">03 / Sensibiliser</div>
         <h3 class="mission-card-title" data-fr="Et de la Sensibilisation" data-en="And Public Awareness">Et de la Sensibilisation</h3>
-        <p class="mission-card-text" data-fr="Éduquer le grand public, les jeunes et leurs enseignants à la science et à la protection de l'environnement." data-en="Educating the general public, young people and their teachers about science and environmental protection.">Éduquer le grand public, les jeunes et leurs enseignants à la science et à la protection de l'environnement.</p>
-        <a class="mission-card-link" href="sensibilisation.html" data-fr="En savoir plus" data-en="Learn more">En savoir plus</a>
       </div>
     </div>
   </div>
+  <div class="mission-desc-bar" id="missionDescBar">
+    <p class="mission-desc-text" id="missionDescText"></p>
+    <a class="mission-desc-link" id="missionDescLink" href="">En savoir plus →</a>
+  </div>
+  <script>
+  var missionDescs = [
+    {fr:"Soutenir la production scientifique indépendante et l'action politique en faveur de l'environnement.",en:"Supporting independent scientific production and political action in favour of the environment.",href:"science-environnement.html"},
+    {fr:"Développer des réseaux de pilotes et d'aéroclubs partout sur terre pour créer des partenariats avec les chercheurs.",en:"Developing networks of pilots and flying clubs around the world to create partnerships with researchers.",href:"expeditions.html"},
+    {fr:"Éduquer le grand public, les jeunes et leurs enseignants à la science et à la protection de l'environnement.",en:"Educating the general public, young people and their teachers about science and environmental protection.",href:"sensibilisation.html"}
+  ];
+  function showMissionDesc(i){
+    var lang=document.documentElement.lang||'fr';
+    var d=missionDescs[i];
+    document.getElementById('missionDescText').textContent=d[lang]||d.fr;
+    document.getElementById('missionDescLink').href=d.href;
+    document.getElementById('missionDescBar').classList.add('visible');
+  }
+  function hideMissionDesc(){
+    document.getElementById('missionDescBar').classList.remove('visible');
+  }
+  </script>
 </div>
 
 <section class="actions-section">
