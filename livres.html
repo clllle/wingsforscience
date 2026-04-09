@@ -623,7 +623,8 @@
 
   /* When flipped, put it on top so its back face is clickable */
   .mag-page.flipped { z-index: 10 !important; }
-  .mag-page.flipped .mag-page-front { pointer-events: none; }
+  .mag-page.flipped .mag-page-front { pointer-events: none; visibility: hidden; }
+  .mag-page.flipped .mag-page-back { visibility: visible; }
 
   /* Front & back faces */
   .mag-page-front, .mag-page-back {
@@ -649,6 +650,7 @@
     color: #1a2a3a;
     -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
+    visibility: hidden;
     box-shadow: inset 2px 0 8px rgba(0,0,0,0.06), -2px 4px 16px rgba(0,0,0,0.15);
   }
 
