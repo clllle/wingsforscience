@@ -197,13 +197,13 @@
         word-break:break-all;overflow:hidden;pointer-events:none;z-index:0;
       }
     </style>
-    <div id="textCloud" style="position:relative;width:100%;max-width:800px;height:420px;margin:24px auto 0;border-radius:8px;background:rgba(20,32,48,0.97);border:1px solid rgba(95,168,211,0.1);overflow:hidden;cursor:pointer;" onclick="document.getElementById('presseModal').style.display='flex'">
+    <div id="textCloud" style="position:relative;width:100%;max-width:800px;height:420px;margin:24px auto 0;border-radius:8px;background:rgba(20,32,48,0.97);border:1px solid rgba(95,168,211,0.1);overflow:hidden;cursor:pointer;" onclick="openPresse()">
     </div>
-    <a href="#" onclick="document.getElementById('presseModal').style.display='flex';return false;" style="display:block;text-align:center;margin-top:16px;font-size:14px;color:var(--accent);font-weight:600;text-decoration:none;transition:opacity .2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'" data-fr="Cliquez pour voir les 434 articles →" data-en="Click to see all 434 articles →">Cliquez pour voir les 434 articles →</a>
-    <div id="presseModal" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.8);z-index:1000;justify-content:center;align-items:center;" onclick="if(event.target===this)this.style.display='none'">
-      <div style="position:relative;width:90%;height:85%;max-width:1200px;background:var(--sky);border-radius:8px;overflow:hidden;">
-        <button onclick="document.getElementById('presseModal').style.display='none'" style="position:absolute;top:12px;right:16px;background:none;border:none;color:var(--off-white);font-size:28px;cursor:pointer;z-index:2;">&times;</button>
-        <iframe src="https://drive.google.com/embeddedfolderview?id=0B0RkbHBUrWAxbk05Ym9WZnk2WUE#grid" style="width:100%;height:100%;border:none;"></iframe>
+    <a href="#" onclick="openPresse();return false;" style="display:block;text-align:center;margin-top:16px;font-size:14px;color:var(--accent);font-weight:600;text-decoration:none;transition:opacity .2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'" data-fr="Cliquez pour voir les 434 articles →" data-en="Click to see all 434 articles →">Cliquez pour voir les 434 articles →</a>
+    <div class="modal-overlay" id="presseModal" onclick="closePresseOutside(event)">
+      <div class="modal-box" style="max-width:1200px;height:85vh;">
+        <button class="modal-close" onclick="closePresse()">✕</button>
+        <iframe src="https://drive.google.com/embeddedfolderview?id=0B0RkbHBUrWAxbk05Ym9WZnk2WUE#grid" style="width:100%;height:100%;border:none;display:block;"></iframe>
       </div>
     </div>
     <script>
@@ -511,5 +511,17 @@
 </footer>
 <script src="lang.js"></script>
 <script src="shared.js"></script>
+<script>
+function openPresse(){
+  document.getElementById('presseModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closePresse(){
+  document.getElementById('presseModal').classList.remove('open');
+  document.body.style.overflow='';
+}
+function closePresseOutside(e){if(e.target===document.getElementById('presseModal'))closePresse();}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closePresse();});
+</script>
 </body>
 </html>

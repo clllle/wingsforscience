@@ -359,19 +359,7 @@
   <div class="footer-bottom"><span class="footer-copy" data-fr="© 2026 Clementine Bacri pour Wings for Science" data-en="© 2025 Wings for Science. Non-profit association.">© 2026 Clementine Bacri pour Wings for Science</span><div class="social-links"><a href="https://wingsforscience.blogspot.com/" target="_blank" rel="noopener"><img src="images/wix_import/icon_blogger.png" alt="Blogger"></a><a href="https://www.facebook.com/wingsforscience" target="_blank" rel="noopener"><img src="images/wix_import/icon_facebook.png" alt="Facebook"></a><a href="https://www.youtube.com/playlist?list=PL8A32C328768F858A" target="_blank" rel="noopener"><img src="images/wix_import/icon_youtube.png" alt="YouTube"></a></div></div>
 </footer>
 
-<!-- MODAL VIDEO (même style que Reportages) -->
-<style>
-.modal-overlay{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.92);align-items:center;justify-content:center}
-.modal-overlay.open{display:flex}
-.modal-box{background:#0d1c2b;border:1px solid rgba(95,168,211,.2);border-radius:6px;overflow:hidden;width:92%;max-width:940px;position:relative}
-.modal-close{position:absolute;top:10px;right:14px;z-index:10;font-size:22px;color:var(--text-muted);cursor:pointer;background:none;border:none;line-height:1;transition:color .2s}
-.modal-close:hover{color:var(--white)}
-.modal-embed{aspect-ratio:16/9}
-.modal-embed iframe{width:100%;height:100%;border:none;display:block}
-.modal-info{padding:14px 20px}
-.modal-series{font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
-.modal-title{font-family:'Merriweather',serif;font-size:16px;font-weight:300;color:var(--white)}
-</style>
+<!-- MODAL VIDEO -->
 <div class="modal-overlay" id="videoModal" onclick="closeModalOutside(event)">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal()">✕</button>

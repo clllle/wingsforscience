@@ -769,23 +769,7 @@
     background: var(--accent);
     color: #1a2a3a;
   }
-  /* Article modal */
-  .article-modal {
-    display: none;
-    position: fixed; inset: 0; z-index: 9999;
-    background: rgba(0,0,0,0.85);
-    align-items: center; justify-content: center;
-  }
-  .article-modal iframe {
-    width: 90vw; height: 90vh;
-    max-width: 900px;
-    border: none; border-radius: 8px;
-  }
-  .article-modal-close {
-    position: absolute; top: 16px; right: 24px;
-    font-size: 36px; color: #fff; background: none; border: none;
-    cursor: pointer; z-index: 10000;
-  }
+  /* Article modal uses global .modal-overlay from style.css */
   .mag-source {
     font-size: 12px; font-weight: 700;
     letter-spacing: 0.1em; text-transform: uppercase;
@@ -952,21 +936,29 @@
   <div class="footer-bottom"><span class="footer-copy" data-fr="© 2026 Clementine Bacri pour Wings for Science" data-en="© 2025 Wings for Science / Des Ailes pour la Science. Non-profit association.">© 2026 Clementine Bacri pour Wings for Science</span><div class="social-links"><a href="https://wingsforscience.blogspot.com/" target="_blank" rel="noopener"><img src="images/wix_import/icon_blogger.png" alt="Blogger"></a><a href="https://www.facebook.com/wingsforscience" target="_blank" rel="noopener"><img src="images/wix_import/icon_facebook.png" alt="Facebook"></a><a href="https://www.youtube.com/playlist?list=PL8A32C328768F858A" target="_blank" rel="noopener"><img src="images/wix_import/icon_youtube.png" alt="YouTube"></a></div></div>
 </footer>
 <!-- Article preview modal -->
-<div class="article-modal" id="articleModal" onclick="closeArticle()">
-  <button class="article-modal-close" onclick="closeArticle()">&times;</button>
-  <iframe id="articleFrame" src=""></iframe>
+<div class="modal-overlay" id="articleModal" onclick="closeArticleOutside(event)">
+  <div class="modal-box" style="max-width:900px;">
+    <button class="modal-close" onclick="closeArticle()">✕</button>
+    <div class="modal-embed" style="aspect-ratio:auto;height:80vh;">
+      <iframe id="articleFrame" src="" style="width:100%;height:100%;border:none;display:block;"></iframe>
+    </div>
+  </div>
 </div>
 <script src="lang.js"></script>
 <script src="shared.js"></script>
 <script>
 function openArticle(id){
   document.getElementById('articleFrame').src='https://drive.google.com/file/d/'+id+'/preview';
-  document.getElementById('articleModal').style.display='flex';
+  document.getElementById('articleModal').classList.add('open');
+  document.body.style.overflow='hidden';
 }
 function closeArticle(){
-  document.getElementById('articleModal').style.display='none';
+  document.getElementById('articleModal').classList.remove('open');
   document.getElementById('articleFrame').src='';
+  document.body.style.overflow='';
 }
+function closeArticleOutside(e){if(e.target===document.getElementById('articleModal'))closeArticle();}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeArticle();});
 </script>
 </body>
 </html>

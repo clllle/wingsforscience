@@ -252,8 +252,8 @@
     <div style="text-align:center;margin-bottom:24px;">
       <span class="section-tag" data-fr="Revivez l'une de nos conférences" data-en="Relive one of our conferences">Revivez l'une de nos conférences</span>
     </div>
-    <div onclick="document.getElementById('confModal').style.display='flex';document.getElementById('confVideo').src='https://drive.google.com/file/d/1b5UbymyTxQCZ0iqXX0lUg5WcNKLrBQzG/preview'" style="position:relative;width:100%;border-radius:8px;overflow:hidden;cursor:pointer;aspect-ratio:16/9;">
-      <img src="images/conf_beyond_grand_rex.png" alt="BEYOND les nouveaux aventuriers — Le Grand Rex" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.7);transition:filter 0.3s;" onmouseover="this.style.filter='brightness(0.9)'" onmouseout="this.style.filter='brightness(0.7)'">
+    <div onclick="openConfVideo()" style="position:relative;width:100%;border-radius:8px;overflow:hidden;cursor:pointer;aspect-ratio:16/9;">
+      <img src="images/conf_beyond_grand_rex.png" alt="BEYOND les nouveaux aventuriers — Le Grand Rex" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.75) saturate(0.8);transition:filter 0.4s;" onmouseover="this.style.filter='brightness(1) saturate(1.15)'" onmouseout="this.style.filter='brightness(0.75) saturate(0.8)'">
       <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;">
         <div style="width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,0.9);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.3);">
           <div style="width:0;height:0;border-top:14px solid transparent;border-bottom:14px solid transparent;border-left:22px solid var(--accent);margin-left:4px;"></div>
@@ -262,12 +262,16 @@
       </div>
     </div>
     <!-- Modal vidéo conférence -->
-    <div id="confModal" style="display:none;position:fixed;inset:0;z-index:1001;background:rgba(0,0,0,0.92);justify-content:center;align-items:center;flex-direction:column;" onclick="if(event.target===this){this.style.display='none';document.getElementById('confVideo').src='';}">
-      <button onclick="document.getElementById('confModal').style.display='none';document.getElementById('confVideo').src='';" style="position:absolute;top:20px;right:28px;background:none;border:none;color:#fff;font-size:36px;cursor:pointer;z-index:1002;transition:transform 0.2s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">&times;</button>
-      <div style="width:90%;max-width:900px;aspect-ratio:16/9;">
-        <iframe id="confVideo" src="" width="100%" height="100%" style="border:none;border-radius:6px;" allow="autoplay" allowfullscreen></iframe>
+    <div class="modal-overlay" id="confModal" onclick="closeConfOutside(event)">
+      <div class="modal-box">
+        <button class="modal-close" onclick="closeConf()">✕</button>
+        <div class="modal-embed">
+          <iframe id="confVideo" src="" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+        </div>
+        <div class="modal-info">
+          <div class="modal-series" data-fr="BEYOND les nouveaux aventuriers — Le Grand Rex, Paris, 2018" data-en="BEYOND the new adventurers — Le Grand Rex, Paris, 2018">BEYOND les nouveaux aventuriers — Le Grand Rex, Paris, 2018</div>
+        </div>
       </div>
-      <p style="color:rgba(255,255,255,0.7);margin-top:16px;font-size:14px;" data-fr="BEYOND les nouveaux aventuriers — Le Grand Rex, Paris, 2018" data-en="BEYOND the new adventurers — Le Grand Rex, Paris, 2018">BEYOND les nouveaux aventuriers — Le Grand Rex, Paris, 2018</p>
     </div>
     <div style="margin-top:40px;text-align:center;">
       <p style="color:var(--text-muted);" data-fr="Pour organiser une conférence dans votre établissement :" data-en="To organise a conference at your institution:">Pour organiser une conférence dans votre établissement :</p>
@@ -357,6 +361,21 @@
   panel.addEventListener('scroll',highlight);
   highlight();
 })();
+</script>
+<script>
+function openConfVideo(){
+  var src='https://drive.google.com/file/d/1b5UbymyTxQCZ0iqXX0lUg5WcNKLrBQzG/preview';
+  document.getElementById('confVideo').src=src;
+  document.getElementById('confModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeConf(){
+  document.getElementById('confModal').classList.remove('open');
+  document.getElementById('confVideo').src='';
+  document.body.style.overflow='';
+}
+function closeConfOutside(e){if(e.target===document.getElementById('confModal'))closeConf();}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeConf();});
 </script>
 
 </body>
