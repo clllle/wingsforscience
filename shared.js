@@ -116,39 +116,42 @@ document.addEventListener('click', function(e) {
   }
 })();
 
-/* Auto-scroll continu — un coup de molette lance un défilement régulier */
+/* Auto-scroll continu — vitesse constante jusqu'au bout de la page */
 (function() {
   var speed = 0;
-  var animating = false;
-  var friction = 0.9995;
-  var maxSpeed = 12;
+  var scrolling = false;
 
-  document.addEventListener('DOMContentLoaded', function() {
-    window.addEventListener('wheel', function(e) {
-      var maxScroll = document.body.scrollHeight - window.innerHeight;
-      if (maxScroll <= 0) return;
-      e.preventDefault();
-      var direction = e.deltaY > 0 ? 1 : -1;
-      speed += direction * 2;
-      if (speed > maxSpeed) speed = maxSpeed;
-      if (speed < -maxSpeed) speed = -maxSpeed;
-      if (!animating) animate();
-    }, { passive: false });
-  });
-
-  function animate() {
-    animating = true;
-    window.scrollBy(0, speed);
-    /* pas de friction — vitesse constante */
-    var atTop = window.scrollY <= 0 && speed < 0;
-    var atBottom = window.scrollY >= document.body.scrollHeight - window.innerHeight - 1 && speed > 0;
-    if (Math.abs(speed) > 0.3 && !atTop && !atBottom) {
-      requestAnimationFrame(animate);
-    } else {
+  function onWheel(e) {
+    e.preventDefault();
+    var direction = e.deltaY > 0 ? 1 : -1;
+    /* Si on change de direction, on repart de zéro */
+    if (speed !== 0 && ((speed > 0 && direction < 0) || (speed < 0 && direction > 0))) {
       speed = 0;
-      animating = false;
+      scrolling = false;
+      return;
+    }
+    speed = direction * 3;
+    if (!scrolling) {
+      scrolling = true;
+      step();
     }
   }
+
+  function step() {
+    if (!scrolling) return;
+    var before = window.scrollY;
+    window.scrollBy(0, speed);
+    var after = window.scrollY;
+    /* Arrêter si on a atteint un bord (scrollBy n'a rien changé) */
+    if (before === after) {
+      speed = 0;
+      scrolling = false;
+      return;
+    }
+    requestAnimationFrame(step);
+  }
+
+  window.addEventListener('wheel', onWheel, { passive: false });
 })();
 
 /* Enhance language switcher: update page title on lang change */
