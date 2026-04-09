@@ -116,7 +116,11 @@ document.addEventListener('click', function(e) {
   }
 })();
 
-/* Scroll continu via les boutons ↑↓ uniquement — pas d'interception de la molette */
+/* Amplification du scroll — multiplie la vitesse de la molette x4 */
+window.addEventListener('wheel', function(e) {
+  e.preventDefault();
+  window.scrollBy(0, e.deltaY * 4);
+}, { passive: false });
 
 /* Enhance language switcher: update page title on lang change */
 (function() {
