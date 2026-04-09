@@ -430,6 +430,11 @@
 function openModal(src,series,title){
   document.getElementById('modalSeries').textContent=series;
   document.getElementById('modalTitle').textContent=title;
+  // Ajouter les paramètres YouTube pour un embed minimal
+  if(src.includes('youtube-nocookie.com')){
+    var sep=src.includes('?')?'&':'?';
+    src+=sep+'rel=0&modestbranding=1&iv_load_policy=3&disablekb=0&fs=1&color=white';
+  }
   document.getElementById('modalEmbed').innerHTML=`<iframe src="${src}" allowfullscreen allow="autoplay; encrypted-media"></iframe>`;
   document.getElementById('videoModal').classList.add('open');
   document.body.style.overflow='hidden';
