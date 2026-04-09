@@ -253,7 +253,7 @@
         <div style="display:flex;flex-direction:column;align-items:center;gap:16px;padding:24px;background:rgba(14,26,40,0.5);border:1px solid rgba(95,168,211,0.1);border-radius:6px;">
           <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);text-align:center;" data-fr="Arrivée au Bourget" data-en="Arrival at Le Bourget">Arrivée au Bourget</div>
           <p style="font-size:13px;color:var(--text-muted);text-align:center;line-height:1.6;" data-fr="Atterrissage officiel au Salon international aéronautique du Bourget" data-en="Official landing at the Paris International Air Show">Atterrissage officiel au Salon international aéronautique du Bourget</p>
-          <div onclick="var m=document.getElementById('bourgetModal');m.style.display='flex';m.style.justifyContent='center';m.style.alignItems='center';document.getElementById('bourgetVideo').src='https://drive.google.com/file/d/0B0RkbHBUrWAxV2lqUlNxVko1Um8/preview'" style="position:relative;width:100%;border-radius:6px;overflow:hidden;cursor:pointer;">
+          <div onclick="document.getElementById('bourgetModal').style.display='block';document.getElementById('bourgetVideo').src='https://drive.google.com/file/d/0B0RkbHBUrWAxV2lqUlNxVko1Um8/preview'" style="position:relative;width:100%;border-radius:6px;overflow:hidden;cursor:pointer;">
             <img src="images/arrivee_bourget.avif" alt="Arrivée au Bourget" style="width:100%;display:block;filter:brightness(0.8);transition:filter 0.3s;" onmouseover="this.style.filter='brightness(1)'" onmouseout="this.style.filter='brightness(0.8)'">
             <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
               <div style="width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,0.9);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.3);transition:transform 0.3s;">
@@ -263,8 +263,8 @@
           </div>
         </div>
         <!-- Modal vidéo Bourget -->
-        <div id="bourgetModal" style="display:none;position:fixed;inset:0;z-index:1001;background:rgba(0,0,0,0.7);justify-content:center;align-items:center;" onclick="if(event.target===this){this.style.display='none';document.getElementById('bourgetVideo').src='';}">
-          <div style="position:relative;background:rgba(14,26,40,0.95);border-radius:8px;padding:20px;max-width:640px;width:85%;max-height:80vh;">
+        <div id="bourgetModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:1001;background:rgba(0,0,0,0.7);" onclick="if(event.target===this){this.style.display='none';document.getElementById('bourgetVideo').src='';}">
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(14,26,40,0.95);border-radius:8px;padding:20px;width:85%;max-width:640px;">
             <button onclick="document.getElementById('bourgetModal').style.display='none';document.getElementById('bourgetVideo').src='';" style="position:absolute;top:8px;right:12px;background:none;border:none;color:var(--accent);font-size:24px;cursor:pointer;z-index:1002;">&times;</button>
             <div style="aspect-ratio:16/9;margin-bottom:12px;">
               <iframe id="bourgetVideo" src="" width="100%" height="100%" style="border:none;border-radius:4px;" allow="autoplay" allowfullscreen></iframe>
