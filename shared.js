@@ -116,10 +116,13 @@ document.addEventListener('click', function(e) {
   }
 })();
 
-/* Amplification du scroll — multiplie la vitesse de la molette x4 */
+/* Amplification du scroll — adapté trackpad/Magic Mouse */
 window.addEventListener('wheel', function(e) {
   e.preventDefault();
-  window.scrollBy(0, e.deltaY * 4);
+  var delta = e.deltaY;
+  /* Trackpad/Magic Mouse envoient de petits deltaY — on amplifie plus */
+  var multiplier = Math.abs(delta) < 10 ? 20 : 5;
+  window.scrollBy(0, delta * multiplier);
 }, { passive: false });
 
 /* Enhance language switcher: update page title on lang change */
