@@ -92,11 +92,11 @@
     .doc-card:hover .doc-meta { color: #5fa8d3 !important; }
     .doc-card:hover .doc-arrow { color: #5fa8d3 !important; }
     .doc-card:hover .doc-icon { background: rgba(95,168,211,0.15) !important; }
-    #missionsPanel::-webkit-scrollbar{width:10px;-webkit-appearance:none;}
+    #missionsPanel::-webkit-scrollbar{width:10px;-webkit-appearance:none;display:block;}
     #missionsPanel::-webkit-scrollbar-track{background:rgba(95,168,211,0.1);border-radius:4px;}
     #missionsPanel::-webkit-scrollbar-thumb{background:rgba(95,168,211,0.45);border-radius:4px;min-height:40px;}
     #missionsPanel::-webkit-scrollbar-thumb:hover{background:rgba(95,168,211,0.65);}
-    #missionsPanel{scrollbar-width:auto;scrollbar-color:rgba(95,168,211,0.45) rgba(95,168,211,0.1);}
+    #missionsPanel{scrollbar-width:thin;scrollbar-color:rgba(95,168,211,0.45) rgba(95,168,211,0.1);overflow-y:scroll !important;}
     .missions-table tbody tr{transition:background 0.3s;}
     .missions-table tbody tr.mission-active{background:rgba(95,168,211,0.12) !important;border-left:3px solid var(--accent) !important;}
     .missions-table tbody tr.mission-active td{color:var(--accent) !important;font-weight:700 !important;}
@@ -577,7 +577,7 @@
         </div>
         <div class="doc-arrow">3D</div>
       </div>
-      <div class="doc-card" style="cursor:pointer" onclick="openMissionVideo('https://www.youtube.com/embed/YnJrTSruDbI','Surtsey — Vidéo de survol')">
+      <div class="doc-card" style="cursor:pointer" onclick="openMissionVideo('https://www.youtube-nocookie.com/embed/YnJrTSruDbI','Surtsey — Vidéo de survol')">
         <div class="doc-icon">🌋</div>
         <div class="doc-body">
           <div class="doc-title" data-fr="Surtsey — Vidéo de survol" data-en="Surtsey — Overflight video">Surtsey — Vidéo de survol</div>
@@ -585,7 +585,7 @@
         </div>
         <div class="doc-arrow">▶</div>
       </div>
-      <div class="doc-card" style="cursor:pointer" onclick="openMissionVideo('https://www.youtube.com/embed/vT4ciC14j_s','Qasr Bshir — Vidéo du modèle 3D')">
+      <div class="doc-card" style="cursor:pointer" onclick="openMissionVideo('https://www.youtube-nocookie.com/embed/vT4ciC14j_s','Qasr Bshir — Vidéo du modèle 3D')">
         <div class="doc-icon">🏯</div>
         <div class="doc-body">
           <div class="doc-title" data-fr="Qasr Bshir — Vidéo du modèle 3D" data-en="Qasr Bshir — 3D model video">Qasr Bshir — Vidéo du modèle 3D</div>
@@ -593,7 +593,7 @@
         </div>
         <div class="doc-arrow">▶</div>
       </div>
-      <div class="doc-card" style="cursor:pointer" onclick="openMissionVideo('https://www.youtube.com/embed/faZSoE1qPxA','Luxembourg — Vidéo du modèle 3D')">
+      <div class="doc-card" style="cursor:pointer" onclick="openMissionVideo('https://www.youtube-nocookie.com/embed/faZSoE1qPxA','Luxembourg — Vidéo du modèle 3D')">
         <div class="doc-icon">🏰</div>
         <div class="doc-body">
           <div class="doc-title" data-fr="Luxembourg — Vidéo du modèle 3D" data-en="Luxembourg — 3D model video">Luxembourg — Vidéo du modèle 3D</div>
