@@ -1,6 +1,7 @@
 /* ═══════════════════════════════════════
    Wings for Science — Shared Stylesheet
    ═══════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500&display=swap');
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -55,9 +56,9 @@ header {
   filter: drop-shadow(0 0 8px rgba(95,168,211,0.3));
 }
 .logo-text { display: flex; flex-direction: column; line-height: 1.1; }
-.logo-text .en { font-size: 13px; font-weight: 700; letter-spacing: 0.12em; color: var(--accent); text-transform: uppercase; }
-.logo-text .fr  { font-size: 10px; font-weight: 300; letter-spacing: 0.08em; color: var(--text-muted); text-transform: uppercase; }
-.logo-text span { font-size: 13px; font-weight: 700; letter-spacing: 0.12em; color: var(--white) !important; text-transform: uppercase; }
+.logo-text .en { font-family: 'Fredoka', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.06em; color: var(--accent); text-transform: lowercase; }
+.logo-text .fr  { font-family: 'Fredoka', sans-serif; font-size: 10px; font-weight: 400; letter-spacing: 0.04em; color: var(--text-muted); text-transform: lowercase; }
+.logo-text span { font-family: 'Fredoka', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.06em; color: var(--white) !important; text-transform: lowercase; }
 
 nav { display: flex; align-items: center; gap: 4px; margin-left: auto; }
 
