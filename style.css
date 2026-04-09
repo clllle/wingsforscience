@@ -623,6 +623,8 @@ footer {
   position: relative; overflow: hidden;
   aspect-ratio: 4/3;
   cursor: pointer;
+  display: block;
+  text-decoration: none;
 }
 .mission-card img {
   width: 100%; height: 100%;
