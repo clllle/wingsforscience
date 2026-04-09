@@ -958,7 +958,8 @@ function openArticle(id,rk){
   var imgUrl='https://lh3.googleusercontent.com/d/'+id;
   var embed=document.getElementById('articleEmbed');
   // Pour les JPG : afficher directement l'image (plus lisible)
-  if(id==='1YAd2Ee9X9UCU4xCl1-sVT-aMDoNmZ3u-'){
+  var jpgIds=['1YAd2Ee9X9UCU4xCl1-sVT-aMDoNmZ3u-','1tPMw1SLZT-VWR5w8Skr1Y2RD0Wf3leAM'];
+  if(jpgIds.indexOf(id)!==-1){
     embed.innerHTML='<img src="'+imgUrl+'" style="width:100%;display:block;">';
   } else {
     embed.innerHTML='<iframe id="articleFrame" src="'+url+'" style="width:100%;height:100%;border:none;display:block;"></iframe>';
