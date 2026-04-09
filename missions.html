@@ -79,10 +79,8 @@
     <a class="nav-link" href="actu.html" data-fr="Notre Actualité" data-en="Our News">Notre Actualité</a>
     <a class="btn btn-primary" href="contact.html" style="padding:9px 20px;font-size:11px;" data-fr="Contact" data-en="Contact">Contact</a>
   </nav>
-  <div class="lang-switch">
-    <button class="lang-btn active" data-lang="fr" onclick="setLang('fr')">🇫🇷 FR</button>
-    <span class="lang-sep">|</span>
-    <button class="lang-btn" data-lang="en" onclick="setLang('en')">🇬🇧 EN</button>
+  <div class="lang-switch" onclick="this.classList.toggle('open')">
+    <button class="lang-current">🇫🇷 FR <span class="chevron">▼</span></button><div class="lang-dropdown"><button class="lang-option active" onclick="setLang('fr');event.stopPropagation()">🇫🇷 Français</button><button class="lang-option" onclick="setLang('en');event.stopPropagation()">🇬🇧 English</button></div>
   </div>
   <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
     <span></span><span></span><span></span>

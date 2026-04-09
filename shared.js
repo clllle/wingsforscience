@@ -27,6 +27,10 @@ document.addEventListener('click', function(e) {
       dropdowns[i].classList.remove('open');
     }
   }
+  if (!e.target.closest('.lang-switch')) {
+    var ls = document.querySelector('.lang-switch');
+    if (ls) ls.classList.remove('open');
+  }
 });
 
 /* Smooth scroll for anchor links */

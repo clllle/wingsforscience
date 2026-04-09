@@ -58,7 +58,7 @@ header {
 .logo-text { display: flex; flex-direction: column; line-height: 1.1; }
 .logo-text .en { font-family: 'Varela Round', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.06em; color: var(--accent); text-transform: none; }
 .logo-text .fr  { font-family: 'Varela Round', sans-serif; font-size: 10px; font-weight: 400; letter-spacing: 0.04em; color: var(--text-muted); text-transform: none; }
-.logo-text span { font-family: 'Varela Round', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.06em; color: var(--white) !important; text-transform: none; }
+.logo-text span { font-family: 'Varela Round', sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0.06em; color: var(--white) !important; text-transform: none; }
 
 nav { display: flex; align-items: center; gap: 4px; margin-left: auto; }
 
@@ -484,14 +484,60 @@ footer {
 }
 
 
-/* ── LANGUAGE SWITCHER ── */
+/* ── LANGUAGE SWITCHER (dropdown) ── */
 .lang-switch {
-  display: flex;
-  align-items: center;
-  gap: 2px;
+  position: relative;
   margin-left: 8px;
   flex-shrink: 0;
 }
+.lang-current {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: 1px solid rgba(95,168,211,0.2);
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  transition: all 0.2s;
+}
+.lang-current:hover { border-color: rgba(95,168,211,0.5); }
+.lang-current .chevron { font-size: 8px; margin-left: 2px; transition: transform 0.2s; }
+.lang-switch.open .lang-current .chevron { transform: rotate(180deg); }
+.lang-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 6px;
+  background: rgba(20, 32, 48, 0.98);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(95,168,211,0.2);
+  border-radius: 6px;
+  overflow: hidden;
+  z-index: 200;
+  min-width: 140px;
+}
+.lang-switch.open .lang-dropdown { display: block; }
+.lang-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 16px;
+  background: none;
+  border: none;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.lang-option:hover { background: rgba(95,168,211,0.1); color: var(--white); }
+.lang-option.active { color: var(--accent); }
 .lang-btn {
   display: flex;
   align-items: center;
