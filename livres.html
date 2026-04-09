@@ -473,7 +473,7 @@
           <div class="mag-page-back">
             <div class="mag-page-num">1 / 8</div>
             <div class="mag-quote-mark">&ldquo;</div>
-            <p class="mag-text">Le récit est en effet trépidant, que ce soit dans les (très) nombreuses péripéties administratives pour les autorisations de vol, les visas, les taxes d'aéroport, ou en vol, où leur frêle Virus SW S80 a pas mal souffert. Des épisodes qui oscillent entre rire et larmes.</p>
+            <p class="mag-text">Le récit est trépidant, les épisodes oscillent entre rires et larmes. Vivement la suite.</p>
             <img src="images/logos/presse/le_monde.svg" alt="Le Monde" class="mag-source-logo">
             <div class="mag-source">Le Monde</div>
             <button class="mag-read-btn" onclick="openArticle('0B0RkbHBUrWAxV0FkWGlkQjJKNUE','0-RrEdDgpcCCx0xiVj4FVzqQ')" data-fr="Lire l'article" data-en="Read article">Lire l'article</button>
@@ -618,6 +618,7 @@
 
   /* When flipped, put it on top so its back face is clickable */
   .mag-page.flipped { z-index: 10 !important; }
+  .mag-page.flipped .mag-page-front { pointer-events: none; }
 
   /* Front & back faces */
   .mag-page-front, .mag-page-back {
