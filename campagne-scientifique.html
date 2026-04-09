@@ -730,7 +730,7 @@
 <div class="modal-overlay" id="missionModal" onclick="closeMissionModal(event)">
   <button class="modal-close" onclick="closeMission()">✕</button>
   <div class="modal-box">
-    <div class="modal-embed">
+    <div class="modal-embed" id="missionEmbed" style="position:relative;">
       <iframe id="missionVideo" src="" allowfullscreen allow="autoplay; encrypted-media"></iframe>
     </div>
     <div class="modal-info">
@@ -822,14 +822,15 @@ function openMissionVideo(url, caption) {
     window.open(url.replace('/preview','/view'),'_blank');
     return;
   }
-  document.getElementById('missionVideo').src = url;
+  var embed=document.getElementById('missionEmbed');
+  embed.innerHTML='<div onclick="closeMission()" style="position:absolute;top:0;left:0;right:0;height:50px;cursor:pointer;z-index:20;background:linear-gradient(rgba(0,0,0,0.6),transparent);display:flex;align-items:center;justify-content:flex-end;padding-right:16px;"><span style="color:#fff;font-size:24px;font-weight:700;">✕ Fermer</span></div><iframe src="'+url+'" allowfullscreen allow="autoplay; encrypted-media" style="width:100%;height:100%;border:none;display:block;"></iframe>';
   document.getElementById('missionVideoCaption').textContent = caption || '';
   document.getElementById('missionModal').classList.add('open');
   document.body.style.overflow='hidden';
 }
 function closeMission(){
   document.getElementById('missionModal').classList.remove('open');
-  document.getElementById('missionVideo').src='';
+  document.getElementById('missionEmbed').innerHTML='';
   document.body.style.overflow='';
 }
 function closeMissionModal(e){if(e.target===document.getElementById('missionModal'))closeMission();}

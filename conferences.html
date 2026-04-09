@@ -265,7 +265,7 @@
     <div class="modal-overlay" id="confModal" onclick="closeConfOutside(event)">
       <button class="modal-close" onclick="closeConf()">✕</button>
       <div class="modal-box">
-        <div class="modal-embed">
+        <div class="modal-embed" id="confEmbed" style="position:relative;">
           <iframe id="confVideo" src="" allowfullscreen allow="autoplay; encrypted-media"></iframe>
         </div>
         <div class="modal-info">
@@ -365,13 +365,14 @@
 <script>
 function openConfVideo(){
   var src='https://drive.google.com/file/d/1b5UbymyTxQCZ0iqXX0lUg5WcNKLrBQzG/preview';
-  document.getElementById('confVideo').src=src;
+  var embed=document.getElementById('confEmbed');
+  embed.innerHTML='<div onclick="closeConf()" style="position:absolute;top:0;left:0;right:0;height:50px;cursor:pointer;z-index:20;background:linear-gradient(rgba(0,0,0,0.6),transparent);display:flex;align-items:center;justify-content:flex-end;padding-right:16px;"><span style="color:#fff;font-size:24px;font-weight:700;">✕ Fermer</span></div><iframe src="'+src+'" allowfullscreen allow="autoplay; encrypted-media" style="width:100%;height:100%;border:none;display:block;"></iframe>';
   document.getElementById('confModal').classList.add('open');
   document.body.style.overflow='hidden';
 }
 function closeConf(){
   document.getElementById('confModal').classList.remove('open');
-  document.getElementById('confVideo').src='';
+  document.getElementById('confEmbed').innerHTML='';
   document.body.style.overflow='';
 }
 function closeConfOutside(e){if(e.target===document.getElementById('confModal'))closeConf();}
