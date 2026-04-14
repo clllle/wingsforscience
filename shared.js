@@ -105,12 +105,17 @@ document.addEventListener('click', function(e) {
           observer.unobserve(entries[j].target);
         }
       }
-    }, { threshold: 0.1 });
+    }, { threshold: 0, rootMargin: '50px' });
 
     var fadeEls = document.querySelectorAll('.fade-in');
     for (var k = 0; k < fadeEls.length; k++) {
       observer.observe(fadeEls[k]);
     }
+    // Fallback pour WebKit mobile : forcer visible après 2s si l'observer ne se déclenche pas
+    setTimeout(function(){
+      var still = document.querySelectorAll('.fade-in:not(.visible)');
+      for(var n=0;n<still.length;n++) still[n].classList.add('visible');
+    }, 2000);
   } else {
     /* Fallback: show all immediately */
     var all = document.querySelectorAll('.fade-in');
