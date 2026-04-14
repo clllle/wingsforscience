@@ -823,7 +823,7 @@ function openMissionVideo(url, caption) {
     url+=sep+'rel=0&modestbranding=1&iv_load_policy=3&color=white';
   }
   if(url.includes('drive.google.com') && url.includes('/preview')){
-    window.open(url.replace('/preview','/view'),'_blank');
+    location.href=url.replace('/preview','/view');
     return;
   }
   var embed=document.getElementById('missionEmbed');

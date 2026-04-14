@@ -1352,13 +1352,15 @@ footer {
   border-color: var(--accent);
 }
 
-/* ── SCROLL SNAP SUR LES SECTIONS ── */
+/* ── SCROLL SNAP SUR LES SECTIONS (desktop uniquement) ── */
 html {
   scroll-behavior: smooth;
-  scroll-snap-type: y proximity;
 }
-.hero, .page-hero, .dest-band, .section, .actions-section, .about-strip, .content-section, footer {
-  scroll-snap-align: start;
+@media(min-width:900px){
+  html { scroll-snap-type: y proximity; }
+  .hero, .page-hero, .dest-band, .section, .actions-section, .about-strip, .content-section, footer {
+    scroll-snap-align: start;
+  }
 }
 
 /* ── FADE-IN ANIMATION ── */
