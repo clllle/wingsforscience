@@ -19,6 +19,9 @@
     for (var k = 0; k < btns.length; k++) {
       btns[k].classList.toggle('active', btns[k].getAttribute('data-lang') === lang);
     }
+    // Update toggle button for mobile
+    var toggle = document.getElementById('langToggle');
+    if(toggle) toggle.textContent = lang === 'fr' ? 'EN' : 'FR';
     window.currentLang = lang;
   }
 
