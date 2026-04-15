@@ -601,10 +601,16 @@
     transform: translateX(170px);
   }
   @media(max-width:600px) {
-    .mag-book { width: 280px; height: 380px; }
+    .mag-book { width: 280px; height: 380px; -webkit-perspective: none; perspective: none; }
     .mag-book.opened { transform: translateX(0); }
     .mag-scene { padding: 30px 20px; }
-    .mag-page-front, .mag-page-back { padding: 24px 20px; }
+    .mag-page { -webkit-transform-style: flat; transform-style: flat; transform: none !important; transition: none; }
+    .mag-page-front, .mag-page-back { position: relative; padding: 24px 20px; transform: none !important; -webkit-backface-visibility: visible; backface-visibility: visible; }
+    .mag-page-back { display: none; visibility: visible; opacity: 1; }
+    .mag-page.flipped .mag-page-front { display: none; }
+    .mag-page.flipped .mag-page-back { display: flex; }
+    .mag-page { position: relative; display: none; }
+    .mag-page.current-mobile { display: block; }
     .mag-text { font-size: 13px !important; }
     .mag-source { font-size: 11px !important; }
     .mag-read-btn { font-size: 9px !important; padding: 5px 12px !important; }
@@ -877,18 +883,37 @@
   var nextBtn = document.getElementById('magNext');
   var book = document.getElementById('magBook');
 
+  var isMobile = window.innerWidth <= 600;
+
+  function updateMobileView() {
+    if (!isMobile) return;
+    for (var i = 0; i < totalPages; i++) {
+      pages[i].classList.remove('current-mobile');
+    }
+    // Sur mobile : montrer la page courante (celle qui vient d'être flipped ou la suivante)
+    var showIdx = Math.max(0, Math.min(currentPage, totalPages - 1));
+    // Si on vient de flipper, montrer la page flipped (face arrière)
+    // Sinon montrer la page non-flipped (face avant)
+    if (currentPage > 0 && currentPage <= totalPages) {
+      // Montrer la page qu'on vient de flipper (pour voir sa face arrière)
+      pages[currentPage - 1].classList.add('current-mobile');
+    }
+    if (currentPage < totalPages) {
+      pages[currentPage].classList.add('current-mobile');
+    }
+  }
+
   function updateState() {
     prevBtn.style.opacity = currentPage <= 1 ? '0.3' : '1';
     prevBtn.style.pointerEvents = currentPage <= 1 ? 'none' : 'auto';
-    /* Last flip reveals the CTA page — no more forward, book stays open */
     nextBtn.style.opacity = currentPage >= totalPages ? '0.3' : '1';
     nextBtn.style.pointerEvents = currentPage >= totalPages ? 'none' : 'auto';
-    /* Shift book right when opened so spread stays centered */
     if (currentPage > 0) {
       book.classList.add('opened');
     } else {
       book.classList.remove('opened');
     }
+    updateMobileView();
   }
 
   function hideFlippedFront(page){
@@ -931,6 +956,10 @@
   }
 
   updateButtons();
+  // Initialiser la vue mobile
+  if (isMobile) {
+    pages[0].classList.add('current-mobile');
+  }
 })();
 </script>
 
