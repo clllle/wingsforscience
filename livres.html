@@ -885,25 +885,35 @@
 
   var isMobile = window.innerWidth <= 600;
 
-  function updateMobileView() {
+  // Mobile : liste plate de toutes les faces (front + back de chaque page)
+  var allFaces = [];
+  for (var f = 0; f < totalPages; f++) {
+    var front = pages[f].querySelector('.mag-page-front');
+    var back = pages[f].querySelector('.mag-page-back');
+    if (front) allFaces.push({page: pages[f], face: front});
+    if (back) allFaces.push({page: pages[f], face: back});
+  }
+  var mobileIdx = 0;
+
+  function showMobileFace(idx) {
     if (!isMobile) return;
-    for (var i = 0; i < totalPages; i++) {
-      pages[i].classList.remove('current-mobile');
+    for (var i = 0; i < totalPages; i++) pages[i].classList.remove('current-mobile');
+    // Cacher toutes les faces
+    for (var j = 0; j < allFaces.length; j++) {
+      allFaces[j].face.style.display = 'none';
     }
-    // Sur mobile : montrer la page courante (celle qui vient d'être flipped ou la suivante)
-    var showIdx = Math.max(0, Math.min(currentPage, totalPages - 1));
-    // Si on vient de flipper, montrer la page flipped (face arrière)
-    // Sinon montrer la page non-flipped (face avant)
-    if (currentPage > 0 && currentPage <= totalPages) {
-      // Montrer la page qu'on vient de flipper (pour voir sa face arrière)
-      pages[currentPage - 1].classList.add('current-mobile');
-    }
-    if (currentPage < totalPages) {
-      pages[currentPage].classList.add('current-mobile');
-    }
+    // Montrer la face courante
+    allFaces[idx].page.classList.add('current-mobile');
+    allFaces[idx].face.style.display = 'flex';
+    // Mettre à jour les boutons
+    prevBtn.style.opacity = idx <= 0 ? '0.3' : '1';
+    prevBtn.style.pointerEvents = idx <= 0 ? 'none' : 'auto';
+    nextBtn.style.opacity = idx >= allFaces.length - 1 ? '0.3' : '1';
+    nextBtn.style.pointerEvents = idx >= allFaces.length - 1 ? 'none' : 'auto';
   }
 
   function updateState() {
+    if (isMobile) { showMobileFace(mobileIdx); return; }
     prevBtn.style.opacity = currentPage <= 1 ? '0.3' : '1';
     prevBtn.style.pointerEvents = currentPage <= 1 ? 'none' : 'auto';
     nextBtn.style.opacity = currentPage >= totalPages ? '0.3' : '1';
@@ -913,19 +923,24 @@
     } else {
       book.classList.remove('opened');
     }
-    updateMobileView();
   }
 
   function hideFlippedFront(page){
+    if (isMobile) return;
     var front=page.querySelector('.mag-page-front');
     if(front) setTimeout(function(){front.style.display='none';},500);
   }
   function showUnflippedFront(page){
+    if (isMobile) return;
     var front=page.querySelector('.mag-page-front');
     if(front) front.style.display='';
   }
 
   nextBtn.addEventListener('click', function() {
+    if (isMobile) {
+      if (mobileIdx < allFaces.length - 1) { mobileIdx++; showMobileFace(mobileIdx); }
+      return;
+    }
     if (currentPage < totalPages) {
       pages[currentPage].classList.add('flipped');
       hideFlippedFront(pages[currentPage]);
@@ -935,6 +950,10 @@
   });
 
   prevBtn.addEventListener('click', function() {
+    if (isMobile) {
+      if (mobileIdx > 0) { mobileIdx--; showMobileFace(mobileIdx); }
+      return;
+    }
     if (currentPage > 1) {
       currentPage--;
       showUnflippedFront(pages[currentPage]);
@@ -943,9 +962,10 @@
     }
   });
 
-  /* Click on page to flip forward */
+  /* Click on page to flip forward (desktop only) */
   for (var j = 0; j < totalPages; j++) {
     pages[j].addEventListener('click', function() {
+      if (isMobile) { if (mobileIdx < allFaces.length - 1) { mobileIdx++; showMobileFace(mobileIdx); } return; }
       if (!this.classList.contains('flipped') && currentPage < totalPages) {
         this.classList.add('flipped');
         hideFlippedFront(this);
@@ -956,9 +976,8 @@
   }
 
   updateButtons();
-  // Initialiser la vue mobile
   if (isMobile) {
-    pages[0].classList.add('current-mobile');
+    showMobileFace(0);
   }
 })();
 </script>
