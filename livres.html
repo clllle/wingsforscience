@@ -264,7 +264,7 @@
   </style>
 </head>
 <body>
-<a href="#main-content" class="skip-link">Aller au contenu principal</a>
+<a href="#main-content" class="skip-link" data-fr="Aller au contenu principal" data-en="Skip to main content">Aller au contenu principal</a>
 <header>
   <a class="logo-wrap" href="index.html"><img src="images/logo_wfs.png" alt="Logo"><div class="logo-text"><span data-fr="Des Ailes pour la Science" data-en="Wings for Science">Des Ailes pour la Science</span></div></a>
   <nav>
@@ -305,7 +305,7 @@
     <span class="lang-sep">|</span>
     <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
   </div>
-  <button id="langToggle" onclick="setLang(window.currentLang==='fr'?'en':'fr')">EN</button>
+  <button id="langToggle" aria-label="Switch language" onclick="setLang(window.currentLang==='fr'?'en':'fr')">EN</button>
 </header>
 <div class="mobile-nav" id="mobileNav">
   <div class="mobile-section-title" data-fr="Notre mission" data-en="Our mission">Notre mission</div>
@@ -1028,7 +1028,7 @@
     <div class="footer-brand">
       <a class="logo-wrap" href="index.html"><img src="images/logo_wfs.png" alt="Logo"><div class="logo-text"><span data-fr="Des Ailes pour la Science" data-en="Wings for Science">Des Ailes pour la Science</span></div></a>
       <p data-fr="Association à but non lucratif œuvrant pour la science et la protection de l'environnement depuis 2008." data-en="Non-profit association working for science and environmental protection since 2008.">Association à but non lucratif œuvrant pour la science et la protection de l'environnement depuis 2008.</p>
-      <address class="footer-address" style="display:inline;">Maison des associations, 38 bd Henri IV, 75004 Paris</address>
+      <address class="footer-address" style="display:inline;" data-fr="Maison des associations, 38 bd Henri IV, 75004 Paris" data-en="Maison des associations, 38 bd Henri IV, 75004 Paris, France">Maison des associations, 38 bd Henri IV, 75004 Paris</address>
     </div>
     <div class="footer-col">
       <div class="footer-col-title" data-fr="Nos actions" data-en="Our actions">Nos actions</div>
@@ -1062,7 +1062,7 @@
   <div class="footer-bottom"><span class="footer-copy" data-fr="© 2026 Clementine Bacri pour Wings for Science" data-en="© 2026 Wings for Science / Des Ailes pour la Science. Non-profit association.">© 2026 Clementine Bacri pour Wings for Science</span><div class="social-links"><a href="https://wingsforscience.blogspot.com/" target="_blank" rel="noopener"><img src="images/wix_import/icon_blogger.png" alt="Blogger"></a><a href="https://www.facebook.com/wingsforscience" target="_blank" rel="noopener"><img src="images/wix_import/icon_facebook.png" alt="Facebook"></a><a href="https://www.youtube.com/playlist?list=PL8A32C328768F858A" target="_blank" rel="noopener"><img src="images/wix_import/icon_youtube.png" alt="YouTube"></a></div></div>
 </footer>
 <!-- Article preview modal -->
-<button class="modal-close" id="articleClose" onclick="closeArticle()" style="display:none;">✕</button>
+<button class="modal-close" aria-label="Fermer" id="articleClose" onclick="closeArticle()" style="display:none;">✕</button>
 <div class="modal-overlay" id="articleModal" onclick="closeArticleOutside(event)">
   <div class="modal-box" style="max-width:900px;position:relative;">
     <div class="modal-embed" id="articleEmbed" style="aspect-ratio:auto;height:80vh;overflow-y:auto;">
@@ -1083,7 +1083,7 @@ function openArticle(id,rk){
   if(jpgMap[id]){
     embed.style.height='85vh';
     embed.style.overflowY='auto';
-    embed.innerHTML='<img src="'+jpgMap[id]+'" style="width:100%;display:block;">';
+    embed.innerHTML='<img src="'+jpgMap[id]+'" alt="Article de presse" style="width:100%;display:block;">';
     document.getElementById('articleModal').classList.add('open');
     document.getElementById('articleClose').style.display='flex';
     document.body.style.overflow='hidden';

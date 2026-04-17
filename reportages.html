@@ -55,7 +55,7 @@
   </style>
 </head>
 <body>
-<a href="#main-content" class="skip-link">Aller au contenu principal</a>
+<a href="#main-content" class="skip-link" data-fr="Aller au contenu principal" data-en="Skip to main content">Aller au contenu principal</a>
 
 <header>
   <a class="logo-wrap" href="index.html"><img src="images/logo_wfs.png" alt="Logo"><div class="logo-text"><span data-fr="Des Ailes pour la Science" data-en="Wings for Science">Des Ailes pour la Science</span></div></a>
@@ -97,7 +97,7 @@
     <span class="lang-sep">|</span>
     <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
   </div>
-  <button id="langToggle" onclick="setLang(window.currentLang==='fr'?'en':'fr')">EN</button>
+  <button id="langToggle" aria-label="Switch language" onclick="setLang(window.currentLang==='fr'?'en':'fr')">EN</button>
 </header>
 <div class="mobile-nav" id="mobileNav">
   <div class="mobile-section-title" data-fr="Notre mission" data-en="Our mission">Notre mission</div>
@@ -131,7 +131,7 @@
 <section id="main-content" class="page-hero" style="background-image:url('images/equipe_tournage_volcan_papandayan_java_indonesie.jpg');">
   <div class="page-hero-overlay"></div>
   <div class="page-hero-content">
-    <span class="section-tag" data-fr="Nos actions — 02" data-en="Our actions — 02">Nos actions — 02</span>
+    <span class="section-tag" data-fr="Nos actions — 03" data-en="Our actions — 03">Nos actions — 03</span>
     <h1 class="page-hero-title" data-fr="Reportages" data-en="Documentaries">Reportages</h1>
     <p class="page-hero-sub" data-fr="Longs métrages, web-séries et courts métrages narrant nos expéditions scientifiques." data-en="Feature films, web series and short films about our scientific expeditions.">Longs métrages, web-séries et courts métrages narrant nos expéditions scientifiques.</p>
   </div>
@@ -373,7 +373,7 @@
 
 <!-- MODAL -->
 <div class="modal-overlay" id="videoModal" onclick="closeModalOutside(event)">
-  <button class="modal-close" onclick="closeModal()">✕</button>
+  <button class="modal-close" aria-label="Fermer" onclick="closeModal()">✕</button>
   <div class="modal-box">
     <div class="modal-embed" id="modalEmbed"></div>
     <div class="modal-info"><div class="modal-series" id="modalSeries"></div><div class="modal-title" id="modalTitle"></div></div>
@@ -385,7 +385,7 @@
     <div class="footer-brand">
       <a class="logo-wrap" href="index.html"><img src="images/logo_wfs.png" alt="Logo"><div class="logo-text"><span data-fr="Des Ailes pour la Science" data-en="Wings for Science">Des Ailes pour la Science</span></div></a>
       <p data-fr="Association à but non lucratif œuvrant pour la science et la protection de l'environnement depuis 2008." data-en="Non-profit association working for science and environmental protection since 2008.">Association à but non lucratif œuvrant pour la science et la protection de l'environnement depuis 2008.</p>
-      <address class="footer-address" style="display:inline;">Maison des associations, 38 bd Henri IV, 75004 Paris</address>
+      <address class="footer-address" style="display:inline;" data-fr="Maison des associations, 38 bd Henri IV, 75004 Paris" data-en="Maison des associations, 38 bd Henri IV, 75004 Paris, France">Maison des associations, 38 bd Henri IV, 75004 Paris</address>
     </div>
     <div class="footer-col">
       <div class="footer-col-title" data-fr="Nos actions" data-en="Our actions">Nos actions</div>

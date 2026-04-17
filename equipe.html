@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<a href="#main-content" class="skip-link">Aller au contenu principal</a>
+<a href="#main-content" class="skip-link" data-fr="Aller au contenu principal" data-en="Skip to main content">Aller au contenu principal</a>
 <header>
   <a class="logo-wrap" href="index.html"><img src="images/logo_wfs.png" alt="Logo"><div class="logo-text"><span data-fr="Des Ailes pour la Science" data-en="Wings for Science">Des Ailes pour la Science</span></div></a>
   <nav>
@@ -57,7 +57,7 @@
     <span class="lang-sep">|</span>
     <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
   </div>
-  <button id="langToggle" onclick="setLang(window.currentLang==='fr'?'en':'fr')">EN</button>
+  <button id="langToggle" aria-label="Switch language" onclick="setLang(window.currentLang==='fr'?'en':'fr')">EN</button>
 </header>
 <div class="mobile-nav" id="mobileNav">
   <div class="mobile-section-title" data-fr="Notre mission" data-en="Our mission">Notre mission</div>
@@ -363,7 +363,7 @@
     <div class="footer-brand">
       <a class="logo-wrap" href="index.html"><img src="images/logo_wfs.png" alt="Logo"><div class="logo-text"><span data-fr="Des Ailes pour la Science" data-en="Wings for Science">Des Ailes pour la Science</span></div></a>
       <p data-fr="Association à but non lucratif œuvrant pour la science et la protection de l'environnement depuis 2008." data-en="Non-profit association working for science and environmental protection since 2008.">Association à but non lucratif œuvrant pour la science et la protection de l'environnement depuis 2008.</p>
-      <address class="footer-address" style="display:inline;">Maison des associations, 38 bd Henri IV, 75004 Paris</address>
+      <address class="footer-address" style="display:inline;" data-fr="Maison des associations, 38 bd Henri IV, 75004 Paris" data-en="Maison des associations, 38 bd Henri IV, 75004 Paris, France">Maison des associations, 38 bd Henri IV, 75004 Paris</address>
     </div>
     <div class="footer-col">
       <div class="footer-col-title" data-fr="Nos actions" data-en="Our actions">Nos actions</div>
