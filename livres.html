@@ -640,9 +640,9 @@
         <a class="btn btn-primary" href="presse.html" style="font-size:12px;" data-fr="Revue de presse complète →" data-en="Full press review →">Revue de presse complète →</a>
       </div>
       <div style="display:flex;justify-content:center;align-items:center;gap:20px;margin-top:16px;">
-        <button onclick="mobSlide(-1)" style="width:44px;height:44px;border-radius:50%;border:1px solid var(--accent);background:transparent;color:var(--accent);font-size:20px;cursor:pointer;">←</button>
+        <button id="mobPrev" onclick="mobSlide(-1)" style="width:44px;height:44px;border-radius:50%;border:1px solid var(--accent);background:transparent;color:var(--accent);font-size:20px;cursor:pointer;visibility:hidden;">←</button>
         <span id="mobCount" style="font-size:12px;color:var(--text-muted);">1 / 14</span>
-        <button onclick="mobSlide(1)" style="width:44px;height:44px;border-radius:50%;border:1px solid var(--accent);background:transparent;color:var(--accent);font-size:20px;cursor:pointer;">→</button>
+        <button id="mobNext" onclick="mobSlide(1)" style="width:44px;height:44px;border-radius:50%;border:1px solid var(--accent);background:transparent;color:var(--accent);font-size:20px;cursor:pointer;">→</button>
       </div>
     </div>
   </div>
@@ -1154,6 +1154,8 @@ function mobSlide(dir){
   mobIdx=Math.max(0,Math.min(mobCards.length-1,mobIdx+dir));
   mobCards[mobIdx].classList.add('mob-active');
   document.getElementById('mobCount').textContent=(mobIdx+1)+' / '+mobCards.length;
+  document.getElementById('mobPrev').style.visibility=mobIdx<=0?'hidden':'visible';
+  document.getElementById('mobNext').style.visibility=mobIdx>=mobCards.length-1?'hidden':'visible';
 }
 </script>
 </body>
