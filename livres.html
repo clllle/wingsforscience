@@ -467,8 +467,8 @@
       <div class="mag-book" id="magBook">
 
         <!-- COUVERTURE -->
-        <div class="mag-page mag-cover" id="magPage0">
-          <div class="mag-page-front mag-cover-front">
+        <div class="mag-page mag-cover mobile-page-active" id="magPage0">
+          <div class="mag-page-front mag-cover-front mobile-face-active">
             <img class="mag-cover-bg" src="images/external/zeppelin_055_modele_3d_volcan_thermique.jpg" alt="">
             <div class="mag-cover-overlay"></div>
             <div class="mag-cover-content">
@@ -644,10 +644,10 @@
     .mag-scene { padding: 30px 20px; }
     .mag-page { -webkit-transform-style: flat; transform-style: flat; transform: none !important; transition: none; }
     .mag-page-front, .mag-page-back { position: relative; padding: 24px 20px; transform: none !important; -webkit-backface-visibility: visible; backface-visibility: visible; }
-    .mag-page-front, .mag-page-back { display: none !important; }
-    .mag-page-front.face-visible, .mag-page-back.face-visible { display: flex !important; }
     .mag-page { position: relative; display: none; height: auto; }
-    .mag-page.current-mobile { display: block; }
+    .mag-page-front, .mag-page-back { display: none; }
+    .mobile-face-active { display: flex !important; }
+    .mobile-page-active { display: block !important; }
     .mag-text { font-size: 13px !important; }
     .mag-source { font-size: 11px !important; }
     .mag-read-btn { font-size: 9px !important; padding: 5px 12px !important; }
@@ -936,14 +936,12 @@
 
   function showMobileFace(idx) {
     if (!isMobile) return;
-    for (var i = 0; i < totalPages; i++) pages[i].classList.remove('current-mobile');
-    // Cacher toutes les faces
+    for (var i = 0; i < totalPages; i++) pages[i].classList.remove('mobile-page-active');
     for (var j = 0; j < allFaces.length; j++) {
-      allFaces[j].face.classList.remove('face-visible');
+      allFaces[j].face.classList.remove('mobile-face-active');
     }
-    // Montrer la face courante
-    allFaces[idx].page.classList.add('current-mobile');
-    allFaces[idx].face.classList.add('face-visible');
+    allFaces[idx].page.classList.add('mobile-page-active');
+    allFaces[idx].face.classList.add('mobile-face-active');
     // Mettre à jour les boutons
     prevBtn.style.opacity = idx <= 0 ? '0.3' : '1';
     prevBtn.style.pointerEvents = idx <= 0 ? 'none' : 'auto';
