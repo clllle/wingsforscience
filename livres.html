@@ -673,11 +673,10 @@
   }
   @media(max-width:600px) {
     .mag-scene { padding: 20px 10px; }
-    .mag-book, .mag-nav, .mag-arrow { display: none !important; }
-    .mag-scene > p { display: none !important; }
-    .mag-mobile-slider { display: block !important; }
+    .mag-book, .mag-nav, .mag-arrow, .mag-scene > p { display: none !important; }
+    .mag-mobile-slider { display: flex !important; }
   }
-  .mag-mobile-slider { display: none; position: relative; }
+  .mag-mobile-slider { display: none; position: relative; display: none; flex-direction: column; align-items: center; justify-content: center; min-height: 350px; }
   .mag-mobile-card {
     background: linear-gradient(145deg, #f8f5f0, #efe9e0);
     color: #1a2a3a; border-radius: 8px; padding: 28px 24px;
