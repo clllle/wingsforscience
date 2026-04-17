@@ -601,7 +601,7 @@
     transform: translateX(170px);
   }
   @media(max-width:600px) {
-    .mag-book { width: 280px; height: 380px; -webkit-perspective: none; perspective: none; }
+    .mag-book { width: 280px; height: auto; min-height: 380px; -webkit-perspective: none; perspective: none; }
     .mag-book.opened { transform: translateX(0); }
     .mag-scene { padding: 30px 20px; }
     .mag-page { -webkit-transform-style: flat; transform-style: flat; transform: none !important; transition: none; }
@@ -609,7 +609,8 @@
     .mag-page-back { display: none; visibility: visible; opacity: 1; }
     .mag-page.flipped .mag-page-front { display: none; }
     .mag-page.flipped .mag-page-back { display: flex; }
-    .mag-page { position: relative; display: none; }
+    .mag-page { position: relative; display: none; height: auto; }
+    .mag-page:first-child { display: block; }
     .mag-page.current-mobile { display: block; }
     .mag-text { font-size: 13px !important; }
     .mag-source { font-size: 11px !important; }
