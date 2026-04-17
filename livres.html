@@ -644,11 +644,11 @@
     .mag-scene { padding: 30px 20px; }
     .mag-page { -webkit-transform-style: flat; transform-style: flat; transform: none !important; transition: none; }
     .mag-page-front, .mag-page-back { position: relative; padding: 24px 20px; transform: none !important; -webkit-backface-visibility: visible; backface-visibility: visible; }
-    .mag-page-back { display: none; visibility: visible; opacity: 1; }
-    .mag-page.flipped .mag-page-front { display: none; }
-    .mag-page.flipped .mag-page-back { display: flex; }
+    .mag-page-front, .mag-page-back { display: none !important; }
+    .mag-page-front.face-visible, .mag-page-back.face-visible { display: flex !important; }
     .mag-page { position: relative; display: none; height: auto; }
     .mag-page:first-child { display: block; }
+    .mag-page:first-child .mag-page-front { display: flex !important; }
     .mag-page.current-mobile { display: block; }
     .mag-text { font-size: 13px !important; }
     .mag-source { font-size: 11px !important; }
@@ -941,11 +941,11 @@
     for (var i = 0; i < totalPages; i++) pages[i].classList.remove('current-mobile');
     // Cacher toutes les faces
     for (var j = 0; j < allFaces.length; j++) {
-      allFaces[j].face.style.display = 'none';
+      allFaces[j].face.classList.remove('face-visible');
     }
     // Montrer la face courante
     allFaces[idx].page.classList.add('current-mobile');
-    allFaces[idx].face.style.display = 'flex';
+    allFaces[idx].face.classList.add('face-visible');
     // Mettre à jour les boutons
     prevBtn.style.opacity = idx <= 0 ? '0.3' : '1';
     prevBtn.style.pointerEvents = idx <= 0 ? 'none' : 'auto';
