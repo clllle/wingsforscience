@@ -612,6 +612,22 @@
     </div>
 
     <p style="text-align:center;margin-top:20px;font-size:12px;color:var(--text-muted);opacity:0.6;" data-fr="Cliquez sur les flèches pour feuilleter" data-en="Click arrows to flip through">Cliquez sur les flèches pour feuilleter</p>
+
+    <!-- SLIDER MOBILE (remplace le magazine 3D) -->
+    <div class="mag-mobile-slider">
+      <div class="mag-mobile-card"><div class="mag-quote-mark">&ldquo;</div><p class="mag-text">Le récit est trépidant, les épisodes oscillent entre rires et larmes. Vivement la suite.</p><div class="mag-source">Le Monde</div><button class="mag-read-btn" onclick="openArticle('0B0RkbHBUrWAxV0FkWGlkQjJKNUE','0-RrEdDgpcCCx0xiVj4FVzqQ')">Lire l'article</button></div>
+      <div class="mag-mobile-card"><div class="mag-quote-mark">&ldquo;</div><p class="mag-text">Un livre passionnant, à découvrir d'urgence quand vous serez en manque d'action et d'aventure.</p><div class="mag-source">Passionnés d'aviation</div><button class="mag-read-btn" onclick="openArticle('1FL4vQP0Mn_Q2pe-yyebn0qsyHvoFpO8o','')">Lire l'article</button></div>
+      <div class="mag-mobile-card"><div class="mag-quote-mark">&ldquo;</div><p class="mag-text">Un récit accrocheur, simple, qui fait voyager, découvrir des cultures et des imprévus auxquels sont confrontés les pilotes.</p><div class="mag-source">Info-pilote</div><button class="mag-read-btn" onclick="openArticle('0B0RkbHBUrWAxOGY0ejBENXZES2c','0-Y0dPqETdIwP4NQxWT9x62g')">Lire l'article</button></div>
+      <div class="mag-mobile-card"><div class="mag-quote-mark">&ldquo;</div><p class="mag-text">Un parcours initiatique, entrecoupé de rencontres hautes en couleur et en éléments déchaînés. Et ce n'est que le premier tome.</p><div class="mag-source">Air &amp; Cosmos</div><button class="mag-read-btn" onclick="openArticle('0B0RkbHBUrWAxakhpT0Z4UkdRUWs','0-QD8_T8TutUWGIdDfegr-eg')">Lire l'article</button></div>
+      <div class="mag-mobile-card"><div class="mag-quote-mark">&ldquo;</div><p class="mag-text">Ouvrage rafraîchissant et instructif. Une fois commencé, on ne le lâche plus.</p><div class="mag-source">Aerobuzz</div><button class="mag-read-btn" onclick="openArticle('0B0RkbHBUrWAxakhpT0Z4UkdRUWs','0-QD8_T8TutUWGIdDfegr-eg')">Lire l'article</button></div>
+      <div class="mag-mobile-card"><div class="mag-quote-mark">&ldquo;</div><p class="mag-text">Clémentine récidive pour notre plus grand plaisir. Le ton est plus léger, la plume plus littéraire, les rencontres toujours improbables et magnifiques.</p><div class="mag-source">Aerobuzz (Tome 2)</div><button class="mag-read-btn" onclick="openArticle('1ObPZ8_pWdA63LBRTvwvF0P9hX68YxSJo','')">Lire l'article</button></div>
+      <div class="mag-mobile-card"><div class="mag-quote-mark">&ldquo;</div><p class="mag-text">Véritable récit d'aventures, écrit avec humour, simplicité et même suspens, ce roman régalera tout lecteur avide de voyages.</p><div class="mag-source">BHV Marais</div><button class="mag-read-btn" onclick="openArticle('0B0RkbHBUrWAxWUxfSEZjODlBUGs','0-n4ebdLBjv8oG45zU6LXr1w')">Lire l'article</button></div>
+      <div class="mag-mobile-card"><div class="mag-quote-mark">&ldquo;</div><p class="mag-text">Clémentine manie aussi bien les commandes de son ULM que la plume. Un récit de voyage à lire pour rêver de pays où l'on ira sans doute jamais.</p><div class="mag-source">Journalistes pour la Nature et l'Écologie</div><button class="mag-read-btn" onclick="openArticle('0B7hlqx_DFkSfcTAtZ0ctSVYwRUk','0-gQ0H89yw64JAWleedWrMPA')">Lire l'article</button></div>
+      <div class="mag-mobile-card"><div class="mag-quote-mark">&ldquo;</div><p class="mag-text">Une aventure rondement menée. Ils ont une volonté farouche d'avancer, ils ne sont pas arrêtés par les éléments mais plutôt par la bureaucratie tatillonne des douanes et aéroports.</p><div class="mag-source">⭐⭐⭐⭐ — jff · Amazon</div></div>
+      <div class="mag-mobile-card"><div class="mag-quote-mark">&ldquo;</div><p class="mag-text">Ce livre se lit d'une traite avec plaisir, nous donne envie de voyager. Le monde a besoin de plus de « Clémentine et Adrien ».</p><div class="mag-source">⭐⭐⭐⭐⭐ — De Verne · Amazon</div></div>
+      <div class="mag-mobile-card"><div class="mag-quote-mark">&ldquo;</div><p class="mag-text">J'ai ri, j'ai même parfois eu la larme à l'œil et en plus j'ai appris plein de choses.</p><div class="mag-source">⭐⭐⭐⭐⭐ — B. Charlotte · Amazon</div></div>
+      <div class="mag-mobile-card"><div class="mag-quote-mark">&ldquo;</div><p class="mag-text">Un livre sincère, touchant qui donne envie de prendre son envol. Un hymne à la liberté et à l'aventure. À mettre entre toutes les mains.</p><div class="mag-source">⭐⭐⭐⭐⭐ — Aurelien · Amazon</div></div>
+    </div>
   </div>
 </div>
 
@@ -639,18 +655,24 @@
     transform: translateX(170px);
   }
   @media(max-width:600px) {
-    .mag-book { width: 280px; height: auto; min-height: 380px; -webkit-perspective: none; perspective: none; }
-    .mag-book.opened { transform: translateX(0); }
-    .mag-scene { padding: 30px 20px; }
-    .mag-page { -webkit-transform-style: flat; transform-style: flat; transform: none !important; transition: none; }
-    .mag-page-front, .mag-page-back { position: relative; padding: 24px 20px; transform: none !important; -webkit-backface-visibility: visible; backface-visibility: visible; }
-    .mag-page { position: relative; display: none; height: auto; }
-    .mag-page-front, .mag-page-back { display: none; }
-    .mobile-face-active { display: flex !important; }
-    .mobile-page-active { display: block !important; }
-    .mag-text { font-size: 13px !important; }
-    .mag-source { font-size: 11px !important; }
-    .mag-read-btn { font-size: 9px !important; padding: 5px 12px !important; }
+    .mag-scene { padding: 20px 10px; }
+    .mag-book, .mag-nav { display: none !important; }
+    .mag-mobile-slider { display: block !important; }
+  }
+  .mag-mobile-slider { display: none; }
+  .mag-mobile-card {
+    background: linear-gradient(145deg, #f8f5f0, #efe9e0);
+    color: #1a2a3a; border-radius: 8px; padding: 28px 24px;
+    text-align: center; margin-bottom: 16px;
+  }
+  .mag-mobile-card .mag-quote-mark { font-size: 36px; color: var(--accent); opacity: 0.3; }
+  .mag-mobile-card .mag-text { font-size: 14px; line-height: 1.7; margin: 12px 0; font-style: italic; }
+  .mag-mobile-card .mag-source { font-size: 12px; font-weight: 700; color: var(--accent); margin-top: 8px; }
+  .mag-mobile-card .mag-read-btn {
+    margin-top: 12px; padding: 6px 16px; font-size: 10px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent);
+    background: transparent; border: 1px solid var(--accent); border-radius: 20px;
+    cursor: pointer;
   }
 
   /* Each page: 2 faces */
