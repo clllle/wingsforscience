@@ -459,6 +459,55 @@ a:hover img, .clickable:hover img, [onclick]:hover img,
 .modal-series{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
 .modal-title{font-size:15px;font-weight:700;color:var(--white)}
 
+/* ── CITATION SCIENTIFIQUE ── */
+.science-quote {
+  position: relative;
+  max-width: 800px;
+  margin: 48px auto;
+  padding: 36px 40px;
+  background: linear-gradient(135deg, rgba(95,168,211,0.06), rgba(95,168,211,0.02));
+  border-left: 3px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+}
+.science-quote::before {
+  content: '\201C';
+  position: absolute;
+  top: 12px; left: 16px;
+  font-size: 48px;
+  font-family: 'Merriweather', serif;
+  color: var(--accent);
+  opacity: 0.3;
+  line-height: 1;
+}
+.science-quote p {
+  font-family: 'Merriweather', serif;
+  font-size: 15px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.8;
+  color: var(--off-white);
+  margin: 0 0 16px;
+  padding-left: 24px;
+}
+.science-quote-author {
+  padding-left: 24px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.science-quote-role {
+  padding-left: 24px;
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+@media(max-width:600px) {
+  .science-quote { padding: 24px 20px; margin: 32px auto; }
+  .science-quote p { font-size: 14px; padding-left: 16px; }
+}
+
 footer {
   background: rgba(6, 13, 22, 0.95);
   border-top: 1px solid rgba(95,168,211,0.12);
