@@ -15,7 +15,7 @@
   <meta property="og:locale" content="fr_FR">
   <meta property="og:locale:alternate" content="en_GB">
   <link rel="canonical" href="https://clllle.github.io/wingsforscience/">
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&family=Raleway:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -360,10 +360,52 @@ document.addEventListener('DOMContentLoaded', initSlideshow);
 
 <div class="content-section" style="opacity:1;transform:none;">
   <div class="content-inner">
-    <div class="science-quote">
-      <p data-fr="Clémentine et Adrien, également assoiffés d'apprendre et de servir, relaient la génération passée et ouvrent l'avenir : celui où les avions finiront par peser moins lourd que leurs passagers, celui où ils voleront silencieux et propulsés par une énergie électrique fournie par le Soleil." data-en="Clémentine and Adrien, equally eager to learn and to serve, carry on the torch from the previous generation and open the future: one where aircraft will weigh less than their passengers, fly silently, powered by solar electricity.">Clémentine et Adrien, également assoiffés d'apprendre et de servir, relaient la génération passée et ouvrent l'avenir : celui où les avions finiront par peser moins lourd que leurs passagers, celui où ils voleront silencieux et propulsés par une énergie électrique fournie par le Soleil.</p>
-      <div class="science-quote-author">Pierre Léna</div>
-      <div class="science-quote-role" data-fr="Astrophysicien, Académie des Sciences — Parrain de l'expédition" data-en="Astrophysicist, French Academy of Sciences — Expedition Patron">Astrophysicien, Académie des Sciences — Parrain de l'expédition</div>
+    <span class="section-tag" data-fr="Ils travaillent avec nous" data-en="They work with us">Ils travaillent avec nous</span>
+    <h2 class="section-heading" data-fr="Paroles de scientifiques" data-en="Scientists speak">Paroles de scientifiques</h2>
+    <div id="quoteCarousel" style="position:relative;min-height:200px;margin-top:32px;">
+
+      <div class="science-quote quote-slide quote-active">
+        <p>Clémentine et Adrien, assoiffés d'apprendre et de servir, relaient la génération passée et ouvrent l'avenir.</p>
+        <div class="science-quote-author">Pierre Léna</div>
+        <div class="science-quote-role">Astrophysicien, Académie des Sciences — Parrain de l'expédition</div>
+      </div>
+
+      <div class="science-quote quote-slide">
+        <p>Grâce aux photos aériennes, nous avons pu reconstituer la structure en 3D du dôme résurgent, afin de prévenir les habitants des zones qui menacent de s'effondrer.</p>
+        <div class="science-quote-author">Elodie</div>
+        <div class="science-quote-role">Volcanologue, Laboratoire Magmas et Volcans (CNRS)</div>
+      </div>
+
+      <div class="science-quote quote-slide">
+        <p>Wings for Science apporte une contribution importante en permettant la quantification de SO₂ libéré par le Krakatau, une source encore non prise en compte dans les bilans mondiaux.</p>
+        <div class="science-quote-author">Philipson Bani</div>
+        <div class="science-quote-role">Volcanologue, Institut de Recherche pour le Développement (IRD)</div>
+      </div>
+
+      <div class="science-quote quote-slide">
+        <p>Nous perdons la trace du plus gros animal du monde ! Il faudra encore beaucoup de temps et de technologies avant de pouvoir dire que nous connaissons vraiment les cétacés.</p>
+        <div class="science-quote-author">Sophie</div>
+        <div class="science-quote-role">Biologiste marine, Centre de Recherche des Îles Mingan (MICS), Canada</div>
+      </div>
+
+      <div class="science-quote quote-slide">
+        <p>Les prospections aériennes, les photos et les modèles 3D devraient faciliter l'exploration et préciser la relation qu'entretenaient ces deux sanctuaires antiques.</p>
+        <div class="science-quote-author">Pauline</div>
+        <div class="science-quote-role">Archéologue, Institut Français du Proche-Orient (IFPO), Jordanie</div>
+      </div>
+
+      <div class="science-quote quote-slide">
+        <p>Nous ne devrions pas réagir avec complaisance face à la capacité d'adaptation remarquable des manchots. Le plus grand défi est maintenant en mer.</p>
+        <div class="science-quote-author">André Chiaradia</div>
+        <div class="science-quote-role">Biologiste, Phillip Island Nature Parks, Australie</div>
+      </div>
+
+      <div class="science-quote quote-slide">
+        <p>Un grand merci pour avoir entrepris ces vols photographiques dans des conditions climatiques parfois très précaires.</p>
+        <div class="science-quote-author">Daniel</div>
+        <div class="science-quote-role">CPA Rupanco, Chili</div>
+      </div>
+
     </div>
   </div>
 </div>
@@ -440,6 +482,24 @@ document.addEventListener('DOMContentLoaded', initSlideshow);
 
 <script src="lang.js"></script>
 <script src="shared.js"></script>
+<script>
+(function(){
+  var slides=document.querySelectorAll('.quote-slide');
+  if(!slides.length)return;
+  var idx=0;
+  function showNext(){
+    var current=slides[idx];
+    current.classList.add('quote-leaving');
+    setTimeout(function(){
+      current.classList.remove('quote-active','quote-leaving','quote-entering');
+      idx=(idx+1)%slides.length;
+      slides[idx].classList.add('quote-active','quote-entering');
+    },600);
+  }
+  slides[0].classList.add('quote-entering');
+  setInterval(showNext,7000);
+})();
+</script>
 </body>
 </html>
 <!-- deployed -->

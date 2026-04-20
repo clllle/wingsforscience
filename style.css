@@ -480,11 +480,10 @@ a:hover img, .clickable:hover img, [onclick]:hover img,
   line-height: 1;
 }
 .science-quote p {
-  font-family: 'Merriweather', serif;
-  font-size: 15px;
-  font-weight: 300;
-  font-style: italic;
-  line-height: 1.8;
+  font-family: 'Monsieur La Doulaise', cursive;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.5;
   color: var(--off-white);
   margin: 0 0 16px;
   padding-left: 24px;
@@ -503,9 +502,33 @@ a:hover img, .clickable:hover img, [onclick]:hover img,
   color: var(--text-muted);
   margin-top: 2px;
 }
+.quote-slide { display: none; }
+.quote-slide.quote-active { display: block; }
+.quote-slide.quote-entering p {
+  animation: quillWrite 1.2s ease-out forwards;
+}
+.quote-slide.quote-entering .science-quote-author,
+.quote-slide.quote-entering .science-quote-role {
+  animation: fadeInUp 0.6s ease-out 0.8s both;
+}
+@keyframes quillWrite {
+  0% { opacity: 0; clip-path: inset(0 100% 0 0); }
+  100% { opacity: 1; clip-path: inset(0 0 0 0); }
+}
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.quote-slide.quote-leaving {
+  animation: quillFade 0.6s ease-in forwards;
+}
+@keyframes quillFade {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
 @media(max-width:600px) {
   .science-quote { padding: 24px 20px; margin: 32px auto; }
-  .science-quote p { font-size: 14px; padding-left: 16px; }
+  .science-quote p { font-size: 20px; padding-left: 16px; }
 }
 
 footer {
