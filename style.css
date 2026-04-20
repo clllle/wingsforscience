@@ -464,33 +464,33 @@ a:hover img, .clickable:hover img, [onclick]:hover img,
   position: relative;
   max-width: 800px;
   margin: 48px auto;
-  padding: 36px 40px;
-  background: linear-gradient(135deg, rgba(95,168,211,0.06), rgba(95,168,211,0.02));
-  border-left: 3px solid var(--accent);
-  border-radius: 0 8px 8px 0;
+  padding: 40px 48px;
+  background: rgba(245,240,235,0.97);
+  border-radius: 4px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.15), inset 0 0 40px rgba(0,0,0,0.03);
 }
 .science-quote::before {
   content: '\201C';
   position: absolute;
-  top: 12px; left: 16px;
-  font-size: 48px;
-  font-family: 'Merriweather', serif;
+  top: 8px; left: 20px;
+  font-size: 56px;
+  font-family: 'Cormorant Garamond', serif;
   color: var(--accent);
-  opacity: 0.3;
+  opacity: 0.25;
   line-height: 1;
 }
 .science-quote p {
   font-family: 'Cormorant Garamond', serif;
   font-size: 19px;
-  font-weight: 300;
+  font-weight: 400;
   font-style: italic;
   line-height: 1.75;
-  color: var(--off-white);
+  color: #1a2a3a;
   margin: 0 0 16px;
-  padding-left: 24px;
+  padding-left: 28px;
 }
 .science-quote-author {
-  padding-left: 24px;
+  padding-left: 28px;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -498,9 +498,9 @@ a:hover img, .clickable:hover img, [onclick]:hover img,
   color: var(--accent);
 }
 .science-quote-role {
-  padding-left: 24px;
+  padding-left: 28px;
   font-size: 11px;
-  color: var(--text-muted);
+  color: rgba(26,42,58,0.5);
   margin-top: 2px;
 }
 .quote-slide { display: none; }
