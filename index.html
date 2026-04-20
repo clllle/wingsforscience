@@ -495,41 +495,38 @@ document.addEventListener('DOMContentLoaded', initSlideshow);
   slides[0].classList.add('quote-entering');
   setInterval(showNext,7000);
 })();
-// Compteur animé
+// Compteur animé — chaque élément s'anime indépendamment
 (function(){
   var els=document.querySelectorAll('.count-up');
   if(!els.length)return;
-  var done=false;
-  function animate(){
-    if(done)return;
-    done=true;
-    els.forEach(function(el){
-      var target=parseInt(el.getAttribute('data-count'));
-      var suffix=el.getAttribute('data-suffix')||'';
-      var sep=el.getAttribute('data-separator')||'';
-      var duration=1500;
-      var start=performance.now();
-      function step(now){
-        var progress=Math.min((now-start)/duration,1);
-        var ease=1-Math.pow(1-progress,3);
-        var val=Math.round(ease*target);
-        if(sep){
-          el.textContent=val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,sep)+suffix;
-        } else {
-          el.textContent=val+suffix;
-        }
-        if(progress<1) requestAnimationFrame(step);
+  function animateEl(el){
+    if(el.dataset.animated)return;
+    el.dataset.animated='1';
+    var target=parseInt(el.getAttribute('data-count'));
+    var suffix=el.getAttribute('data-suffix')||'';
+    var sep=el.getAttribute('data-separator')||'';
+    var duration=1500;
+    var start=performance.now();
+    function step(now){
+      var progress=Math.min((now-start)/duration,1);
+      var ease=1-Math.pow(1-progress,3);
+      var val=Math.round(ease*target);
+      if(sep){
+        el.textContent=val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,sep)+suffix;
+      } else {
+        el.textContent=val+suffix;
       }
-      requestAnimationFrame(step);
-    });
+      if(progress<1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
   }
   if('IntersectionObserver' in window){
     var obs=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){if(e.isIntersecting)animate();});
+      entries.forEach(function(e){if(e.isIntersecting)animateEl(e.target);});
     },{threshold:0.3});
     els.forEach(function(el){obs.observe(el);});
-  } else { animate(); }
-  setTimeout(function(){if(!done)animate();},3000);
+  } else { els.forEach(animateEl); }
+  setTimeout(function(){els.forEach(animateEl);},3000);
 })();
 </script>
 </body>
