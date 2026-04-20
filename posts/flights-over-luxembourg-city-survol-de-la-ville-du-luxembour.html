@@ -34,17 +34,12 @@
     <div class="nav-item"><a class="nav-link" href="../science-environnement.html" data-fr="Notre mission <span class=&quot;chevron&quot;>▼</span>" data-en="Our mission <span class=&quot;chevron&quot;>▼</span>">Notre mission <span class="chevron">▼</span></a><div class="dropdown"><a href="../science-environnement.html" data-fr="Appuyer la Science et l'Environnement" data-en="Supporting Science and the Environment">Appuyer la Science et l'Environnement</a><a href="../expeditions.html" data-fr="Par des Expéditions aéronautiques" data-en="Through Aeronautical Expeditions">Par des Expéditions aéronautiques</a><a href="../sensibilisation.html" data-fr="Et de la sensibilisation" data-en="And Public Awareness">Et de la sensibilisation</a></div></div>
     <div class="nav-item"><a class="nav-link" href="../campagne-scientifique.html" data-fr="Nos actions <span class=&quot;chevron&quot;>▼</span>" data-en="Our actions <span class=&quot;chevron&quot;>▼</span>">Nos actions <span class="chevron">▼</span></a><div class="dropdown"><a href="../campagne-scientifique.html" data-fr="Campagne scientifique" data-en="Scientific Campaign">Campagne scientifique</a><a href="../conferences.html" data-fr="Conférences" data-en="Conferences">Conférences</a><a href="../reportages.html" data-fr="Reportages" data-en="Documentaries">Reportages</a><a href="../livres.html" data-fr="Livres" data-en="Books">Livres</a><a href="../presse.html" data-fr="Presse" data-en="Press">Presse</a></div></div>
     <div class="nav-item"><a class="nav-link" href="../confondateurs.html" data-fr="Notre réseau <span class=&quot;chevron&quot;>▼</span>" data-en="Our network <span class=&quot;chevron&quot;>▼</span>">Notre réseau <span class="chevron">▼</span></a><div class="dropdown"><a href="../confondateurs.html" data-fr="Les cofondateurs et parrains" data-en="Co-founders and Patrons">Les cofondateurs et parrains</a><a href="../equipe.html" data-fr="L'équipe" data-en="The Team">L'équipe</a><a href="../partenaires.html" data-fr="Les partenaires et sponsors" data-en="Partners and Sponsors">Les partenaires et sponsors</a></div></div>
-    <a class="nav-link active" href="../actu.html" data-fr="Actu" data-en="News">Actu</a>
     <a class="btn btn-primary" href="../contact.html" style="padding:9px 20px;font-size:11px;" data-fr="Contact" data-en="Contact">Contact</a>
   </nav>
   <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
-  <div class="lang-switch">
-    <button class="lang-btn active" data-lang="fr" onclick="setLang('fr')">FR</button>
-    <span class="lang-sep">|</span>
-    <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
-  </div>
+    <button class="lang-toggle" onclick="setLang(window.currentLang==='fr'?'en':'fr')">FR</button>
 </header>
 <div class="mobile-nav" id="mobileNav">
   <div class="mobile-section-title" data-fr="Notre mission" data-en="Our mission">Notre mission</div>
@@ -70,14 +65,13 @@
     <a href="../equipe.html" data-fr="L'équipe" data-en="The Team">L'équipe</a>
     <a href="../partenaires.html" data-fr="Les partenaires et sponsors" data-en="Partners and Sponsors">Les partenaires et sponsors</a>
   </div>
-  <a href="../actu.html" data-fr="Actu" data-en="News">Actu</a>
   <a href="../contact.html" data-fr="Contact" data-en="Contact">Contact</a>
   <div class="mobile-lang">
     <button class="active" data-lang="fr" onclick="setLang('fr');toggleMenu()">🇫🇷 Français</button>
     <button data-lang="en" onclick="setLang('en');toggleMenu()">🇬🇧 English</button>
   </div>
 </div>
-<section class="post-hero" style="background-image:url('../images/external/blogspot/Capture_d_e_cran_2012-05-23_a_22.32.05.png')"><div class="post-hero-overlay"></div><div class="post-meta"><div class="post-date">2012-05-25</div><h1 class="post-title">flights over Luxembourg city / survol de la ville du Luxembourg</h1></div></section>
+<section class="post-hero" style="background-image:url('../images/external/blogspot/Capture_d_e_cran_2012-05-23_a_22.32.05.png')"><div class="post-hero-overlay"></div><div class="post-meta"><div class="post-date">25/05/2012</div><h1 class="post-title">flights over Luxembourg city / survol de la ville du Luxembourg</h1></div></section>
 <div class="post-body">
 <div dir="ltr" style="text-align: left;" trbidi="on">
 <span style="background-color: white; color: #333333; font-family: 'lucida grande', tahoma, verdana, arial, sans-serif; font-size: 13px; line-height: 18px;">Les survols du centre ville du Luxembourg avancent bien, on est content :) Vous reconnaissez ce que nous survolons ?&nbsp;</span><br style="background-color: white; color: #333333; font-family: 'lucida grande', tahoma, verdana, arial, sans-serif; font-size: 13px; line-height: 18px;" /><br style="background-color: white; color: #333333; font-family: 'lucida grande', tahoma, verdana, arial, sans-serif; font-size: 13px; line-height: 18px;" /><span style="background-color: white; color: #333333; font-family: 'lucida grande', tahoma, verdana, arial, sans-serif; font-size: 13px; line-height: 18px;">Flights over Luxembourg city are going well, we are happy ! :) Do you recognize what we are flying over ?</span><span class="fcg" style="background-color: white; color: grey; font-family: 'lucida grande', tahoma, verdana, arial, sans-serif; font-size: 13px; line-height: 18px;">&nbsp;</span><div>
@@ -100,5 +94,5 @@
 </footer>
 <script src="../lang.js"></script>
 <script src="../shared.js"></script>
-</body>
+<script src="posts-nav.js"></script></body>
 </html>

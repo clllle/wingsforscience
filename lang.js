@@ -14,14 +14,11 @@
       }
     }
 
-    // Update desktop lang buttons
-    var btns = document.querySelectorAll('.lang-btn, .mobile-lang button');
-    for (var k = 0; k < btns.length; k++) {
-      btns[k].classList.toggle('active', btns[k].getAttribute('data-lang') === lang);
+    // Update single lang toggle button (shows OTHER language to switch to)
+    var toggles = document.querySelectorAll('.lang-toggle');
+    for (var k = 0; k < toggles.length; k++) {
+      toggles[k].textContent = lang === 'fr' ? 'EN' : 'FR';
     }
-    // Update toggle button for mobile (affiche la langue actuelle)
-    var toggle = document.getElementById('langToggle');
-    if(toggle) toggle.textContent = lang === 'fr' ? 'FR' : 'EN';
     window.currentLang = lang;
   }
 

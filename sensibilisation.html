@@ -55,12 +55,7 @@
   <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
-  <div class="lang-switch">
-    <button class="lang-btn active" data-lang="fr" onclick="setLang('fr')">FR</button>
-    <span class="lang-sep">|</span>
-    <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
-  </div>
-  <button id="langToggle" aria-label="Switch language" onclick="setLang(window.currentLang==='fr'?'en':'fr')">FR</button>
+  <button class="lang-toggle" onclick="setLang(window.currentLang==='fr'?'en':'fr')">FR</button>
 </header>
 <div class="mobile-nav" id="mobileNav">
   <div class="mobile-section-title" data-fr="Notre mission" data-en="Our mission">Notre mission</div>

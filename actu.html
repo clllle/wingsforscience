@@ -75,12 +75,7 @@
   <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
-  <div class="lang-switch">
-    <button class="lang-btn active" data-lang="fr" onclick="setLang('fr')">FR</button>
-    <span class="lang-sep">|</span>
-    <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
-  </div>
-  <button id="langToggle" aria-label="Switch language" onclick="setLang(window.currentLang==='fr'?'en':'fr')">FR</button>
+  <button class="lang-toggle" onclick="setLang(window.currentLang==='fr'?'en':'fr')">FR</button>
 </header>
 <div class="mobile-nav" id="mobileNav">
   <div class="mobile-section-title" data-fr="Notre mission" data-en="Our mission">Notre mission</div>
@@ -114,7 +109,7 @@
   <div class="page-hero-overlay"></div>
   <div class="page-hero-content">
     <span class="section-tag" data-fr="Blog" data-en="Blog">Blog</span>
-    <h1 class="page-hero-title" data-fr="Actu" data-en="News">Actu</h1>
+    <h1 class="page-hero-title" data-fr="Carnet de route" data-en="Logbook">Carnet de route</h1>
     <p class="page-hero-sub" data-fr="Récits de missions, nouvelles du terrain et actualités de l'association" data-en="Mission stories, field news and association updates">Récits de missions, nouvelles du terrain et actualités de l'association</p>
   </div>
 </section>
@@ -413,14 +408,6 @@
         <div class="blog-card-body">
           <div class="blog-card-title" data-fr="Sarurday on the Paris air show! / Samedi au Bourget!" data-en="Sarurday on the Paris air show! / Samedi au Bourget!">Sarurday on the Paris air show! / Samedi au Bourget!</div>
           <p class="blog-card-excerpt" data-fr="Avant dernière journée d'expo au Bourget! Beaucoup de visiteurs avec qui nous avons pu partager notre aventure, et la visite de collègues et amis! A d…" data-en="Avant dernière journée d'expo au Bourget! Beaucoup de visiteurs avec qui nous avons pu partager notre aventure, et la visite de collègues et amis! A d…">Avant dernière journée d&#x27;expo au Bourget! Beaucoup de visiteurs avec qui nous avons pu partager notre aventure, et la visite de collègues et amis! A d…</p>
-          <span class="blog-card-more" data-fr="Lire l'article →" data-en="Read the article →">Lire l'article →</span>
-        </div>
-      </a>
-      <a class="blog-card" href="posts/movies-on-line-on-passe-sur-vos-ecrans.html">
-        <div class="blog-card-img-wrap"><img class="blog-card-img" src="images/external/blogspot/fr3.jpg" alt="" loading="lazy"></div>
-        <div class="blog-card-body">
-          <div class="blog-card-title" data-fr="Movies on line ! On passe sur vos écrans !" data-en="Movies on line ! On passe sur vos écrans !">Movies on line ! On passe sur vos écrans !</div>
-          <p class="blog-card-excerpt" data-fr="Hello everybody, Today, many movies come out about us ! Check the TV France 3 here : Regardez le sujet de France 3 ici : &quot;Des Ailes pour la Science&quot;,…" data-en="Hello everybody, Today, many movies come out about us ! Check the TV France 3 here : Regardez le sujet de France 3 ici : &quot;Des Ailes pour la Science&quot;,…">Hello everybody, Today, many movies come out about us ! Check the TV France 3 here : Regardez le sujet de France 3 ici : &quot;Des Ailes pour la Science&quot;,…</p>
           <span class="blog-card-more" data-fr="Lire l'article →" data-en="Read the article →">Lire l'article →</span>
         </div>
       </a>
@@ -797,14 +784,6 @@
         <div class="blog-card-body">
           <div class="blog-card-title" data-fr="Wallaby" data-en="Wallaby">Wallaby</div>
           <p class="blog-card-excerpt" data-fr="Hey, just for fun, look who me met today ! We both spent 5 minutes without moving, curious about each other... Hey, juste pour le plaisir, regardez qu…" data-en="Hey, just for fun, look who me met today ! We both spent 5 minutes without moving, curious about each other... Hey, juste pour le plaisir, regardez qu…">Hey, just for fun, look who me met today ! We both spent 5 minutes without moving, curious about each other... Hey, juste pour le plaisir, regardez qu…</p>
-          <span class="blog-card-more" data-fr="Lire l'article →" data-en="Read the article →">Lire l'article →</span>
-        </div>
-      </a>
-      <a class="blog-card" href="posts/pinguins-at-night.html">
-        <div class="blog-card-img-wrap"><img class="blog-card-img" src="images/external/blogspot/top.png" alt="" loading="lazy"></div>
-        <div class="blog-card-body">
-          <div class="blog-card-title" data-fr="pinguins at night" data-en="pinguins at night">pinguins at night</div>
-          <p class="blog-card-excerpt" data-fr="Here we are, more than ready !…" data-en="Here we are, more than ready !…">Here we are, more than ready !…</p>
           <span class="blog-card-more" data-fr="Lire l'article →" data-en="Read the article →">Lire l'article →</span>
         </div>
       </a>
@@ -1309,14 +1288,6 @@
         <div class="blog-card-body">
           <div class="blog-card-title" data-fr="Answer : Chan chan !" data-en="Answer : Chan chan !">Answer : Chan chan !</div>
           <p class="blog-card-excerpt" data-fr="Ola ! The answer of the previous question related to the Chimu civilization who was living in the Chan Chan capital, is : Each leader, after its death…" data-en="Ola ! The answer of the previous question related to the Chimu civilization who was living in the Chan Chan capital, is : Each leader, after its death…">Ola ! The answer of the previous question related to the Chimu civilization who was living in the Chan Chan capital, is : Each leader, after its death…</p>
-          <span class="blog-card-more" data-fr="Lire l'article →" data-en="Read the article →">Lire l'article →</span>
-        </div>
-      </a>
-      <a class="blog-card" href="posts/trujilo-au-perou.html">
-        <div class="blog-card-img-wrap"><img class="blog-card-img" src="images/external/blogspot/avion.png" alt="" loading="lazy"></div>
-        <div class="blog-card-body">
-          <div class="blog-card-title" data-fr="Trujilo au Perou" data-en="Trujilo au Perou">Trujilo au Perou</div>
-          <p class="blog-card-excerpt" data-fr="What a place ! Trujillio is our stop for refueling. On Approach, we overflew a place we had no Idea of. Make your best guess and you'll get the pictur…" data-en="What a place ! Trujillio is our stop for refueling. On Approach, we overflew a place we had no Idea of. Make your best guess and you'll get the pictur…">What a place ! Trujillio is our stop for refueling. On Approach, we overflew a place we had no Idea of. Make your best guess and you&#x27;ll get the pictur…</p>
           <span class="blog-card-more" data-fr="Lire l'article →" data-en="Read the article →">Lire l'article →</span>
         </div>
       </a>
