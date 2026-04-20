@@ -14,10 +14,10 @@
       }
     }
 
-    // Update single lang toggle button (shows OTHER language to switch to)
+    // Update single lang toggle button (shows CURRENT language)
     var toggles = document.querySelectorAll('.lang-toggle');
     for (var k = 0; k < toggles.length; k++) {
-      toggles[k].textContent = lang === 'fr' ? 'EN' : 'FR';
+      toggles[k].textContent = lang === 'fr' ? 'FR' : 'EN';
     }
     window.currentLang = lang;
   }
