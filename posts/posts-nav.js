@@ -89,7 +89,6 @@
     "redcloud-le-teaser.html",
     "remerciement-aux-eleves.html",
     "rencontre-avec-notre-nouvelle-maison.html",
-    "rencontre-de-l-equipe-de-l-ecole-jean-jaures-meeting-with-je.html",
     "reportage-sur-la-presse-canada-du-20-juillet.html",
     "rtl-tv-reportage-6min.html",
     "rtl.html",
@@ -114,7 +113,7 @@
     "wallaby.html",
     "we-fly-over-these-hand-made-artificial-islands-and-this-bigg.html",
     "welcome-in-jordan.html",
-    "whale-in-mingan-une-baleine-a-mingan.html"
+    "whale-in-mingan-une-baleine-a-mingan.html",
   ];
   var current = location.pathname.split('/').pop();
   var idx = posts.indexOf(current);
@@ -132,9 +131,9 @@
     next.className = 'post-back';
     next.style.marginBottom = '0';
     var lang = document.documentElement.lang || 'fr';
-    next.setAttribute('data-fr', 'Suivant \u2192');
-    next.setAttribute('data-en', 'Next \u2192');
-    next.textContent = lang === 'en' ? 'Next \u2192' : 'Suivant \u2192';
+    next.setAttribute('data-fr', 'Suivant →');
+    next.setAttribute('data-en', 'Next →');
+    next.textContent = lang === 'en' ? 'Next →' : 'Suivant →';
     wrapper.appendChild(next);
   }
 })();
