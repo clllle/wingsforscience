@@ -1437,46 +1437,6 @@ html {
   transform: translateY(0);
 }
 
-/* ── POST NAVIGATION ARROWS ── */
-.post-nav-arrows {
-  position: fixed;
-  top: 50%;
-  left: 0;
-  right: 0;
-  transform: translateY(-50%);
-  pointer-events: none;
-  z-index: 900;
-}
-.post-nav-arrow {
-  position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: rgba(10,20,32,.7);
-  border: 1px solid rgba(95,168,211,.3);
-  color: var(--accent);
-  font-size: 22px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  pointer-events: all;
-  transition: background .2s, border-color .2s;
-}
-.post-nav-arrow:hover {
-  background: rgba(95,168,211,.2);
-  border-color: var(--accent);
-  color: var(--white);
-}
-.post-nav-left { left: 16px; }
-.post-nav-right { right: 16px; }
-@media(max-width:700px) {
-  .post-nav-arrow { width: 36px; height: 36px; font-size: 18px; }
-  .post-nav-left { left: 8px; }
-  .post-nav-right { right: 8px; }
-}
 
 /* ── FOCUS STYLES (Accessibility) ── */
 a:focus-visible, button:focus-visible {

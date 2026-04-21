@@ -70,7 +70,6 @@
     "nouveau-depart.html",
     "nouveau-volcan-nouvelle-aventure.html",
     "nouvelle-collection-photos.html",
-    "now-testing-survival-gear-carefull-for.html",
     "on-a-survole-la-terre-episode-1-islande-our-movie-about-icel.html",
     "on-a-survole-la-terre-episode-2-le-chili-2nd-movie-about-chi.html",
     "on-rentre-vers-port-vila.html",
@@ -114,24 +113,32 @@
     "welcome-in-jordan.html",
     "whale-in-mingan-une-baleine-a-mingan.html",
   ];
+
   var current = location.pathname.split('/').pop();
   var idx = posts.indexOf(current);
   if (idx === -1) return;
-  var nav = document.createElement('div');
-  nav.className = 'post-nav-arrows';
-  var left = document.createElement('a');
-  left.href = '../actu.html';
-  left.className = 'post-nav-arrow post-nav-left';
-  left.innerHTML = '&#8592;';
-  left.title = 'Carnet de route';
-  nav.appendChild(left);
+
+  // Find the post-back link and add "Suivant" next to it
+  var backLink = document.querySelector('.post-back');
+  if (!backLink) return;
+
+  // Wrap in a flex container
+  var wrapper = document.createElement('div');
+  wrapper.style.cssText = 'display:flex;justify-content:space-between;align-items:center;margin-bottom:32px;';
+  backLink.parentNode.insertBefore(wrapper, backLink);
+  backLink.style.marginBottom = '0';
+  wrapper.appendChild(backLink);
+
+  // Add "Suivant →" link
   if (idx < posts.length - 1) {
-    var right = document.createElement('a');
-    right.href = posts[idx + 1];
-    right.className = 'post-nav-arrow post-nav-right';
-    right.innerHTML = '&#8594;';
-    right.title = 'Article suivant';
-    nav.appendChild(right);
+    var next = document.createElement('a');
+    next.href = posts[idx + 1];
+    next.className = 'post-back';
+    next.style.marginBottom = '0';
+    var lang = document.documentElement.lang || 'fr';
+    next.setAttribute('data-fr', 'Suivant →');
+    next.setAttribute('data-en', 'Next →');
+    next.textContent = lang === 'en' ? 'Next →' : 'Suivant →';
+    wrapper.appendChild(next);
   }
-  document.body.appendChild(nav);
 })();
