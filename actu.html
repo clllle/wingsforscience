@@ -982,19 +982,24 @@ Demain, nous redécollerons pour survoler e</p>
   for(var i = BATCH; i < cards.length; i++) cards[i].classList.add('hidden-card');
 
   function showMore(){
+    if(shown >= cards.length) return;
     var next = Math.min(shown + BATCH, cards.length);
     for(var i = shown; i < next; i++) cards[i].classList.remove('hidden-card');
     shown = next;
   }
 
-  var observer = new IntersectionObserver(function(entries){
-    if(entries[0].isIntersecting && shown < cards.length){
+  // Use scroll event for reliable infinite loading
+  var loading = false;
+  window.addEventListener('scroll', function(){
+    if(loading || shown >= cards.length) return;
+    var scrollBottom = window.innerHeight + window.scrollY;
+    var docHeight = document.documentElement.scrollHeight;
+    if(scrollBottom > docHeight - 800){
+      loading = true;
       showMore();
+      setTimeout(function(){ loading = false; }, 200);
     }
-  }, {rootMargin:'400px'});
-
-  var footer = document.getElementById('site-footer');
-  if(footer) observer.observe(footer);
+  });
 })();
 </script>
 
