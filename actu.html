@@ -948,14 +948,7 @@ Demain, nous redécollerons pour survoler e</p>
           <span class="blog-card-more" data-fr="Lire l&#39;article →" data-en="Read the article →">Lire l'article →</span>
         </div>
       </a>
-      <a class="blog-card" href="posts/derniere-preparation.html">
-        <div class="blog-card-img-wrap"><img class="blog-card-img" src="images/external/blogspot/375818_254284697952366_166736926707144_611635_284369357_n.jpeg" alt="" loading="lazy"></div>
-        <div class="blog-card-body">
-          <div class="blog-card-title" data-fr="Dernière préparation" data-en="Final preparation">Dernière préparation</div>
-          <p class="blog-card-excerpt" data-fr="Les points rouges correspondent à des clous d'arpenteur, positionnés par les missions précédentes, dont les coordonnées ont été relevées…" data-en="The red dots are surveyor's nails placed during previous missions, whose coordinates were recorded…">Les points rouges correspondent à des clous d'arpenteur, positionnés par les missions précédentes, dont les coordonnées ont été relevées…</p>
-          <span class="blog-card-more" data-fr="Lire l'article →" data-en="Read the article →">Lire l'article →</span>
-        </div>
-      </a>
+      
       <a class="blog-card" href="posts/arrivee-a-port-vila-on-s-approche.html">
         <div class="blog-card-img-wrap"><img class="blog-card-img" src="images/external/wix_posts/c88cd1_86a2522f31c149faaf62221e9a2d9b55~mv2.png" alt="" loading="lazy"></div>
         <div class="blog-card-body">
@@ -979,7 +972,6 @@ Demain, nous redécollerons pour survoler e</p>
 
       
   </div>
-  <div class="load-more-wrap"><button class="load-more-btn" id="loadMoreBtn" onclick="loadMore()" data-fr="Voir plus d'articles" data-en="See more articles">Voir plus d'articles</button></div>
 </div></div>
 
 <script>
@@ -987,15 +979,22 @@ Demain, nous redécollerons pour survoler e</p>
   var BATCH = 24;
   var cards = document.querySelectorAll('.blog-grid .blog-card');
   var shown = BATCH;
-  var btn = document.getElementById('loadMoreBtn');
   for(var i = BATCH; i < cards.length; i++) cards[i].classList.add('hidden-card');
-  if(cards.length <= BATCH) btn.style.display='none';
-  window.loadMore = function(){
+
+  function showMore(){
     var next = Math.min(shown + BATCH, cards.length);
     for(var i = shown; i < next; i++) cards[i].classList.remove('hidden-card');
     shown = next;
-    if(shown >= cards.length) btn.style.display='none';
-  };
+  }
+
+  var observer = new IntersectionObserver(function(entries){
+    if(entries[0].isIntersecting && shown < cards.length){
+      showMore();
+    }
+  }, {rootMargin:'400px'});
+
+  var footer = document.getElementById('site-footer');
+  if(footer) observer.observe(footer);
 })();
 </script>
 
