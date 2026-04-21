@@ -765,10 +765,6 @@ function openMissionVideo(url, caption) {
     var sep=url.includes('?')?'&':'?';
     url+=sep+'rel=0&modestbranding=1&iv_load_policy=3&color=white';
   }
-  if(url.includes('drive.google.com') && url.includes('/preview')){
-    location.href=url.replace('/preview','/view');
-    return;
-  }
   var embed=document.getElementById('missionEmbed');
   embed.innerHTML='<div onclick="closeMission()" style="position:absolute;top:0;left:0;right:0;height:50px;cursor:pointer;z-index:20;background:linear-gradient(rgba(0,0,0,0.6),transparent);display:flex;align-items:center;justify-content:flex-end;padding-right:16px;"><span style="color:#fff;font-size:24px;font-weight:700;">✕ Fermer</span></div><iframe src="'+url+'" allowfullscreen allow="autoplay; encrypted-media" style="width:100%;height:100%;border:none;display:block;"></iframe>';
   document.getElementById('missionVideoCaption').textContent = caption || '';
