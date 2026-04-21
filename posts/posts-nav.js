@@ -77,7 +77,6 @@
     "nouvelle-collection-photos.html",
     "objectif-en-vue.html",
     "on-a-survole-la-terre-episode-1-islande-our-movie-about-icel.html",
-    "on-a-survole-la-terre-episode-2-le-chili-2nd-movie-about-chi.html",
     "on-rentre-vers-port-vila.html",
     "partenariat-avec-l-eso.html",
     "petit-contretemps.html",
