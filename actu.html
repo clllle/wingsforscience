@@ -39,71 +39,8 @@
 </head>
 <body>
 <a href="#main-content" class="skip-link" data-fr="Aller au contenu principal" data-en="Skip to main content">Aller au contenu principal</a>
-<header>
-  <a class="logo-wrap" href="index.html"><img src="images/logo_wfs.png" alt="Logo"><div class="logo-text"><span data-fr="Des Ailes pour la Science" data-en="Wings for Science">Des Ailes pour la Science</span></div></a>
-  <nav>
-    <div class="nav-item">
-      <a class="nav-link" href="#" onclick="return false;"><span data-fr="Notre mission" data-en="Our mission">Notre mission</span> <span class="chevron">▼</span></a>
-      <div class="dropdown">
-        <a href="science-environnement.html" data-fr="Appuyer la Science et l&apos;Environnement" data-en="Supporting Science and the Environment">Appuyer la Science et l&apos;Environnement</a>
-        <a href="expeditions.html" data-fr="Par des Expéditions aéronautiques" data-en="Through Aeronautical Expeditions">Par des Expéditions aéronautiques</a>
-        <a href="sensibilisation.html" data-fr="Et de la sensibilisation" data-en="And Public Awareness">Et de la sensibilisation</a>
-      </div>
-    </div>
-    <div class="nav-item">
-      <a class="nav-link" href="#" onclick="return false;"><span data-fr="Nos actions" data-en="Our actions">Nos actions</span> <span class="chevron">▼</span></a>
-      <div class="dropdown">
-        <a href="campagne-scientifique.html" data-fr="Campagne scientifique" data-en="Scientific Campaign">Campagne scientifique</a>
-        <a href="conferences.html" data-fr="Conférences" data-en="Conferences">Conférences</a>
-        <a href="reportages.html" data-fr="Reportages" data-en="Documentaries">Reportages</a>
-        <a href="livres.html" data-fr="Livres" data-en="Books">Livres</a>
-        <a href="presse.html" data-fr="Presse" data-en="Press">Presse</a>
-        
-      </div>
-    </div>
-    <div class="nav-item">
-      <a class="nav-link" href="#" onclick="return false;"><span data-fr="Notre réseau" data-en="Our network">Notre réseau</span> <span class="chevron">▼</span></a>
-      <div class="dropdown">
-        <a href="confondateurs.html" data-fr="Les cofondateurs et parrains" data-en="Co-founders and Patrons">Les cofondateurs et parrains</a>
-        <a href="equipe.html" data-fr="L&apos;équipe" data-en="The Team">L&apos;équipe</a>
-        <a href="partenaires.html" data-fr="Les partenaires et sponsors" data-en="Partners and Sponsors">Les partenaires et sponsors</a>
-      </div>
-    </div>
-    <a class="btn btn-primary" href="contact.html" style="padding:9px 20px;font-size:11px;" data-fr="Contact" data-en="Contact">Contact</a>
-  </nav>
-  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-  <button class="lang-toggle" onclick="setLang(window.currentLang==='fr'?'en':'fr')">FR</button>
-</header>
-<div class="mobile-nav" id="mobileNav">
-  <div class="mobile-section-title" data-fr="Notre mission" data-en="Our mission">Notre mission</div>
-  <div class="mobile-sub">
-    <a href="science-environnement.html" data-fr="Science et Environnement" data-en="Science and Environment">Science et Environnement</a>
-    <a href="expeditions.html" data-fr="Expéditions aéronautiques" data-en="Aeronautical Expeditions">Expéditions aéronautiques</a>
-    <a href="sensibilisation.html" data-fr="Sensibilisation" data-en="Public Awareness">Sensibilisation</a>
-  </div>
-  <div class="mobile-section-title" data-fr="Nos actions" data-en="Our actions">Nos actions</div>
-  <div class="mobile-sub">
-    <a href="campagne-scientifique.html" data-fr="Campagne scientifique" data-en="Scientific Campaign">Campagne scientifique</a>
-    <a href="conferences.html" data-fr="Conférences" data-en="Conferences">Conférences</a>
-    <a href="reportages.html" data-fr="Reportages" data-en="Documentaries">Reportages</a>
-    <a href="livres.html" data-fr="Livres" data-en="Books">Livres</a>
-    <a href="presse.html" data-fr="Presse" data-en="Press">Presse</a>
-  </div>
-  <div class="mobile-section-title" data-fr="Notre réseau" data-en="Our network">Notre réseau</div>
-  <div class="mobile-sub">
-    <a href="confondateurs.html" data-fr="Cofondateurs et parrains" data-en="Co-founders and Patrons">Cofondateurs et parrains</a>
-    <a href="equipe.html" data-fr="L'équipe" data-en="The Team">L'équipe</a>
-    <a href="partenaires.html" data-fr="Partenaires et sponsors" data-en="Partners and Sponsors">Partenaires et sponsors</a>
-  </div>
-  
-  <a href="contact.html" data-fr="Contact" data-en="Contact">Contact</a>
-  <div class="mobile-lang">
-    <button class="active" data-lang="fr" onclick="setLang('fr');toggleMenu()">🇫🇷 Français</button>
-    <button data-lang="en" onclick="setLang('en');toggleMenu()">🇬🇧 English</button>
-  </div>
-</div>
+<header id="site-header"></header>
+<script src="header.js"></script>
 <section id="main-content" class="page-hero" style="background-image:url('images/wix_import/hero_actu.jpg');">
   <div class="page-hero-overlay"></div>
   <div class="page-hero-content">
@@ -279,7 +216,7 @@
       <a class="blog-card" href="posts/surtsey-island-3d-iceland-islande.html">
         <div class="blog-card-img-wrap"><img class="blog-card-img" src="https://img.youtube.com/vi/YnJrTSruDbI/hqdefault.jpg" alt="" loading="lazy"></div>
         <div class="blog-card-body">
-          <div class="blog-card-title" data-fr="SURTSEY ISLAND 3D, Iceland / Islande" data-en="SURTSEY ISLAND 3D, Iceland / Islande">SURTSEY ISLAND 3D, Iceland / Islande</div>
+          <div class="blog-card-title" data-fr="SURTSEY ISLAND 3D, Islande" data-en="SURTSEY ISLAND 3D, Iceland">SURTSEY ISLAND 3D, Islande</div>
           <p class="blog-card-excerpt" data-fr="Do you remember the second mission of Wings for Science ? We were in iceland to 3d-modelize the volcanic island of Surtsey, that went out of the water…" data-en="Do you remember the second mission of Wings for Science ? We were in iceland to 3d-modelize the volcanic island of Surtsey, that went out of the water…">Do you remember the second mission of Wings for Science ? We were in iceland to 3d-modelize the volcanic island of Surtsey, that went out of the water…</p>
           <span class="blog-card-more" data-fr="Lire l'article →" data-en="Read the article →">Lire l'article →</span>
         </div>
@@ -287,7 +224,7 @@
       <a class="blog-card" href="posts/luxembourg-3d-city.html">
         <div class="blog-card-img-wrap"><img class="blog-card-img" src="https://img.youtube.com/vi/faZSoE1qPxA/hqdefault.jpg" alt="" loading="lazy"></div>
         <div class="blog-card-body">
-          <div class="blog-card-title" data-fr="LUXEMBOURG 3D CITY" data-en="LUXEMBOURG 3D CITY">LUXEMBOURG 3D CITY</div>
+          <div class="blog-card-title" data-fr="LUXEMBOURG VILLE 3D" data-en="LUXEMBOURG 3D CITY">LUXEMBOURG VILLE 3D</div>
           <p class="blog-card-excerpt" data-fr="Wings for Science 1st mission started there…" data-en="Wings for Science 1st mission started there…">Wings for Science 1st mission started there…</p>
           <span class="blog-card-more" data-fr="Lire l'article →" data-en="Read the article →">Lire l'article →</span>
         </div>
@@ -296,7 +233,7 @@
       <a class="blog-card" href="posts/vol-de-demonstration-au-salon-du-bourget.html">
         <div class="blog-card-img-wrap"><img class="blog-card-img" src="https://img.youtube.com/vi/cqcXs-pBWSA/hqdefault.jpg" alt="" loading="lazy"></div>
         <div class="blog-card-body">
-          <div class="blog-card-title" data-fr="Vol de démonstration au Salon du Bourget !" data-en="Vol de démonstration au Salon du Bourget !">Vol de démonstration au Salon du Bourget !</div>
+          <div class="blog-card-title" data-fr="Vol de démonstration au Salon du Bourget !" data-en="Flying demonstration at the Paris Air Show!">Vol de démonstration au Salon du Bourget !</div>
           <p class="blog-card-excerpt" data-fr="Lien vers la vidéo / Video Link…" data-en="Lien vers la vidéo / Video Link…">Lien vers la vidéo / Video Link…</p>
           <span class="blog-card-more" data-fr="Lire l'article →" data-en="Read the article →">Lire l'article →</span>
         </div>
@@ -304,7 +241,7 @@
       <a class="blog-card" href="posts/on-a-survole-la-terre-episode-2-le-chili-2nd-movie-about-chi.html">
         <div class="blog-card-img-wrap"><img class="blog-card-img" src="images/logo_wfs.png" alt="" loading="lazy"></div>
         <div class="blog-card-body">
-          <div class="blog-card-title" data-fr="On a survolé la Terre Episode 2 : le Chili / 2nd Movie about Chile" data-en="On a survolé la Terre Episode 2 : le Chili / 2nd Movie about Chile">On a survolé la Terre Episode 2 : le Chili / 2nd Movie about Chile</div>
+          <div class="blog-card-title" data-fr="On a survolé la Terre Episode 2 : le Chili" data-en="We Flew Over the Earth Episode 2: Chile">On a survolé la Terre Episode 2 : le Chili</div>
           <p class="blog-card-excerpt" data-fr="Here is the second episode of &quot;We flew over the Earth&quot;, for the French Museum of Science. We sincerely hope you liked the last one, and that you will…" data-en="Here is the second episode of &quot;We flew over the Earth&quot;, for the French Museum of Science. We sincerely hope you liked the last one, and that you will…">Here is the second episode of &quot;We flew over the Earth&quot;, for the French Museum of Science. We sincerely hope you liked the last one, and that you will…</p>
           <span class="blog-card-more" data-fr="Lire l'article →" data-en="Read the article →">Lire l'article →</span>
         </div>
@@ -312,7 +249,7 @@
       <a class="blog-card" href="posts/on-a-survole-la-terre-episode-1-islande-our-movie-about-icel.html">
         <div class="blog-card-img-wrap"><img class="blog-card-img" src="images/logo_wfs.png" alt="" loading="lazy"></div>
         <div class="blog-card-body">
-          <div class="blog-card-title" data-fr="On a survolé la Terre Episode 1 : Islande / Our Movie about Iceland" data-en="On a survolé la Terre Episode 1 : Islande / Our Movie about Iceland">On a survolé la Terre Episode 1 : Islande / Our Movie about Iceland</div>
+          <div class="blog-card-title" data-fr="On a survolé la Terre Episode 1 : Islande" data-en="We Flew Over the Earth Episode 1: Iceland">On a survolé la Terre Episode 1 : Islande</div>
           <p class="blog-card-excerpt" data-fr="This is the first movie we made for the french Museum of Science ! You should recognize some of the area we described last summer…" data-en="This is the first movie we made for the french Museum of Science ! You should recognize some of the area we described last summer…">This is the first movie we made for the french Museum of Science ! You should recognize some of the area we described last summer…</p>
           <span class="blog-card-more" data-fr="Lire l'article →" data-en="Read the article →">Lire l'article →</span>
         </div>
@@ -320,7 +257,7 @@
       <a class="blog-card" href="posts/the-end-of-the-int-paris-air-show-le-salon-du-bourget-c-est-.html">
         <div class="blog-card-img-wrap"><img class="blog-card-img" src="images/external/blogspot/MO0A8467.JPG" alt="" loading="lazy"></div>
         <div class="blog-card-body">
-          <div class="blog-card-title" data-fr="The end of the Int. Paris Air show! / Le salon du Bourget, c'est fini!" data-en="The end of the Int. Paris Air show! / Le salon du Bourget, c'est fini!">The end of the Int. Paris Air show! / Le salon du Bourget, c&#x27;est fini!</div>
+          <div class="blog-card-title" data-fr="Le salon du Bourget, c'est fini !" data-en="The end of the Int. Paris Air Show!">Le salon du Bourget, c'est fini !</div>
           <p class="blog-card-excerpt" data-fr="That's it! Last day at the international Paris air show! Thank you everybody for your visits, we were very happy to see you again, and meet you! Inten…" data-en="That's it! Last day at the international Paris air show! Thank you everybody for your visits, we were very happy to see you again, and meet you! Inten…">That&#x27;s it! Last day at the international Paris air show! Thank you everybody for your visits, we were very happy to see you again, and meet you! Inten…</p>
           <span class="blog-card-more" data-fr="Lire l'article →" data-en="Read the article →">Lire l'article →</span>
         </div>
@@ -328,7 +265,7 @@
       <a class="blog-card" href="posts/friday-at-the-paris-air-show-vendredi-au-bourget.html">
         <div class="blog-card-img-wrap"><img class="blog-card-img" src="images/external/blogspot/IMG_7192.JPG" alt="" loading="lazy"></div>
         <div class="blog-card-body">
-          <div class="blog-card-title" data-fr="Friday at the Paris Air show / Vendredi au Bourget" data-en="Friday at the Paris Air show / Vendredi au Bourget">Friday at the Paris Air show / Vendredi au Bourget</div>
+          <div class="blog-card-title" data-fr="Vendredi au Bourget" data-en="Friday at the Paris Air Show">Vendredi au Bourget</div>
           <p class="blog-card-excerpt" data-fr="Grate day at the Paris Air Show! We thank our sponsor Pierre Lena and Claudie Haigner for the visit on our stand! Thanks also to our family and friend…" data-en="Grate day at the Paris Air Show! We thank our sponsor Pierre Lena and Claudie Haigner for the visit on our stand! Thanks also to our family and friend…">Grate day at the Paris Air Show! We thank our sponsor Pierre Lena and Claudie Haigner for the visit on our stand! Thanks also to our family and friend…</p>
           <span class="blog-card-more" data-fr="Lire l'article →" data-en="Read the article →">Lire l'article →</span>
         </div>
@@ -336,7 +273,7 @@
       <a class="blog-card" href="posts/wednesday-at-the-int-paris-air-show-mercredi-au-salon-du-bou.html">
         <div class="blog-card-img-wrap"><img class="blog-card-img" src="images/logo_wfs.png" alt="" loading="lazy"></div>
         <div class="blog-card-body">
-          <div class="blog-card-title" data-fr="Wednesday at the Int. Paris Air Show! / Mercredi, au salon du Bourget!" data-en="Wednesday at the Int. Paris Air Show! / Mercredi, au salon du Bourget!">Wednesday at the Int. Paris Air Show! / Mercredi, au salon du Bourget!</div>
+          <div class="blog-card-title" data-fr="Mercredi, au salon du Bourget !" data-en="Wednesday at the Int. Paris Air Show!">Mercredi, au salon du Bourget !</div>
           <p class="blog-card-excerpt" data-fr="--&gt; regardez la démo en vol d'adrien / Video of Adrien's flying demonstration!!! Ici…" data-en="--&gt; regardez la démo en vol d'adrien / Video of Adrien's flying demonstration!!! Ici…">--&gt; regardez la démo en vol d&#x27;adrien / Video of Adrien&#x27;s flying demonstration!!! Ici…</p>
           <span class="blog-card-more" data-fr="Lire l'article →" data-en="Read the article →">Lire l'article →</span>
         </div>
@@ -344,7 +281,7 @@
       <a class="blog-card" href="posts/princely-luxemburgish-afternoon-apres-midi-princiere-luxembo.html">
         <div class="blog-card-img-wrap"><img class="blog-card-img" src="images/external/blogspot/DSC_0026.JPG" alt="" loading="lazy"></div>
         <div class="blog-card-body">
-          <div class="blog-card-title" data-fr="Princely luxemburgish afternoon / Après-midi princière luxembourgeoise" data-en="Princely luxemburgish afternoon / Après-midi princière luxembourgeoise">Princely luxemburgish afternoon / Après-midi princière luxembourgeoise</div>
+          <div class="blog-card-title" data-fr="Après-midi princière luxembourgeoise" data-en="Princely Luxembourgish afternoon">Après-midi princière luxembourgeoise</div>
           <p class="blog-card-excerpt" data-fr="L’événement de la journée fut la visite du Grand-Duc Héritier et de la Grande- Duchesse Héritière du Luxembourg ! Ils ont pu nous féliciter, tester no…" data-en="L’événement de la journée fut la visite du Grand-Duc Héritier et de la Grande- Duchesse Héritière du Luxembourg ! Ils ont pu nous féliciter, tester no…">L’événement de la journée fut la visite du Grand-Duc Héritier et de la Grande- Duchesse Héritière du Luxembourg ! Ils ont pu nous féliciter, tester no…</p>
           <span class="blog-card-more" data-fr="Lire l'article →" data-en="Read the article →">Lire l'article →</span>
         </div>
