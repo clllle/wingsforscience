@@ -8,7 +8,6 @@
     "aircraft-back-new-sponsor.html",
     "arrivee-a-port-vila-on-s-approche.html",
     "arrivee-au-salon-du-bourget.html",
-    "arrives-a-port-vila.html",
     "bad-weather-instead-of-laos-we-go-to-myanmar.html",
     "bande-annonce-des-films-longs.html",
     "bientot-le-depart-sur-le-stromboli.html",
@@ -134,20 +133,16 @@
     "welcome-in-jordan.html",
     "whale-in-mingan-une-baleine-a-mingan.html",
   ];
-
   var current = location.pathname.split('/').pop();
   var idx = posts.indexOf(current);
   if (idx === -1) return;
-
   var backLink = document.querySelector('.post-back');
   if (!backLink) return;
-
   var wrapper = document.createElement('div');
   wrapper.style.cssText = 'display:flex;justify-content:space-between;align-items:center;margin-bottom:32px;';
   backLink.parentNode.insertBefore(wrapper, backLink);
   backLink.style.marginBottom = '0';
   wrapper.appendChild(backLink);
-
   if (idx < posts.length - 1) {
     var next = document.createElement('a');
     next.href = posts[idx + 1];
