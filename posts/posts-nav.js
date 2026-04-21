@@ -123,15 +123,45 @@
   backLink.parentNode.insertBefore(wrapper, backLink);
   backLink.style.marginBottom = '0';
   wrapper.appendChild(backLink);
+  var lang = document.documentElement.lang || 'fr';
+
   if (idx < posts.length - 1) {
     var next = document.createElement('a');
     next.href = posts[idx + 1];
     next.className = 'post-back';
     next.style.marginBottom = '0';
-    var lang = document.documentElement.lang || 'fr';
     next.setAttribute('data-fr', 'Suivant →');
     next.setAttribute('data-en', 'Next →');
     next.textContent = lang === 'en' ? 'Next →' : 'Suivant →';
     wrapper.appendChild(next);
+  }
+
+  // Bottom navigation bar (same as top)
+  var postBody = document.querySelector('.post-body');
+  if (postBody) {
+    var bottomNav = document.createElement('div');
+    bottomNav.style.cssText = 'display:flex;justify-content:space-between;align-items:center;margin-top:48px;padding-top:24px;border-top:1px solid rgba(95,168,211,0.15);';
+
+    var bottomBack = document.createElement('a');
+    bottomBack.href = '../actu.html';
+    bottomBack.className = 'post-back';
+    bottomBack.style.marginBottom = '0';
+    bottomBack.setAttribute('data-fr', '← Retour au carnet de route');
+    bottomBack.setAttribute('data-en', '← Back to logbook');
+    bottomBack.textContent = lang === 'en' ? '← Back to logbook' : '← Retour au carnet de route';
+    bottomNav.appendChild(bottomBack);
+
+    if (idx < posts.length - 1) {
+      var bottomNext = document.createElement('a');
+      bottomNext.href = posts[idx + 1];
+      bottomNext.className = 'post-back';
+      bottomNext.style.marginBottom = '0';
+      bottomNext.setAttribute('data-fr', 'Suivant →');
+      bottomNext.setAttribute('data-en', 'Next →');
+      bottomNext.textContent = lang === 'en' ? 'Next →' : 'Suivant →';
+      bottomNav.appendChild(bottomNext);
+    }
+
+    postBody.appendChild(bottomNav);
   }
 })();
