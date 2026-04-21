@@ -15,13 +15,11 @@
     "ca-chauffe.html",
     "cette-fois-on-y-va.html",
     "cette-semaine-au-salon-du-bourget.html",
-    "chili-l-or-bleu-venu-du-ciel.html",
     "conference-avec-michel-brunet.html",
     "conference-par-l-inrap.html",
     "dernier-jour-du-salon-international-du-bourget.html",
     "derniere-preparation.html",
     "des-nouvelles-argentines.html",
-    "design-final-du-super-petrel-de-wings-for-science-ii.html",
     "deux-magazines.html",
     "diversion-due-to-bad-visibility-but-nice-fishing-system.html",
     "dragon-de-komodo-komodo-dragons.html",
@@ -116,21 +114,17 @@
     "welcome-in-jordan.html",
     "whale-in-mingan-une-baleine-a-mingan.html",
   ];
-
   var current = location.pathname.split('/').pop();
   var idx = posts.indexOf(current);
   if (idx === -1) return;
-
   var nav = document.createElement('div');
   nav.className = 'post-nav-arrows';
-
   var left = document.createElement('a');
   left.href = '../actu.html';
   left.className = 'post-nav-arrow post-nav-left';
   left.innerHTML = '&#8592;';
   left.title = 'Carnet de route';
   nav.appendChild(left);
-
   if (idx < posts.length - 1) {
     var right = document.createElement('a');
     right.href = posts[idx + 1];
@@ -139,6 +133,5 @@
     right.title = 'Article suivant';
     nav.appendChild(right);
   }
-
   document.body.appendChild(nav);
 })();
