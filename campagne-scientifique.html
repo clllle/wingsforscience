@@ -767,12 +767,7 @@ function openMissionVideo(url, caption) {
   }
   var embed=document.getElementById('missionEmbed');
   var closeBar='<div onclick="closeMission()" style="position:absolute;top:0;left:0;right:0;height:50px;cursor:pointer;z-index:20;background:linear-gradient(rgba(0,0,0,0.6),transparent);display:flex;align-items:center;justify-content:flex-end;padding-right:16px;"><span style="color:#fff;font-size:24px;font-weight:700;">✕ Fermer</span></div>';
-  if(url.includes('drive.google.com')){
-    var viewUrl=url.replace('/preview','/view').replace('?resourcekey=','?resourcekey=');
-    embed.innerHTML=closeBar+'<iframe src="'+url+'" allowfullscreen allow="autoplay" style="width:100%;height:100%;border:none;display:block;" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'"></iframe><div style="display:none;width:100%;height:100%;align-items:center;justify-content:center;flex-direction:column;gap:16px;"><p style="color:#b0b8c4;font-size:16px;">Le document ne peut pas être affiché dans cette fenêtre.</p><a href="'+viewUrl+'" target="_blank" rel="noopener" style="color:#5fa8d3;font-size:14px;font-weight:700;text-decoration:none;border:1px solid #5fa8d3;padding:10px 20px;border-radius:4px;">Ouvrir le document ↗</a></div>';
-  } else {
-    embed.innerHTML=closeBar+'<iframe src="'+url+'" allowfullscreen allow="autoplay; encrypted-media" style="width:100%;height:100%;border:none;display:block;"></iframe>';
-  }
+  embed.innerHTML=closeBar+'<iframe src="'+url+'" allowfullscreen allow="autoplay; encrypted-media" style="width:100%;height:100%;border:none;display:block;"></iframe>';
   document.getElementById('missionVideoCaption').textContent = caption || '';
   document.getElementById('missionModal').classList.add('open');
   document.body.style.overflow='hidden';
