@@ -46,17 +46,13 @@
     "friday-at-the-paris-air-show-vendredi-au-bourget.html",
     "go-go-go.html",
     "greenlandic-album-photos-du-groenland.html",
-    "gulf-countries-now-at-1st-the-united-arab-emirates.html",
     "here-there-are-the-dinosaurs-footprints.html",
     "huge-discovery-in-caral-decouverte-importante-a-caral.html",
-    "hyenas-and-arab-oryx-in-a-protected-refuge-and-artificial-is.html",
-    "hyenes-et-oryx-emirats.html",
     "journee-princiere.html",
     "kulusuk.html",
     "kuujjuaq-canada.html",
     "l-essentiel-newspaper.html",
     "land-on-the-road-done.html",
-    "landing-at-the-international-paris-air-show-arrivee-au-salon.html",
     "last-but-not-least-meteorite-crater.html",
     "last-night-in-a-bus-listening-to-guitar.html",
     "le-ministere-de-l-education-au-luxembourg-apporte-son-soutie.html",
@@ -90,11 +86,9 @@
     "partenariat-avec-l-eso.html",
     "petit-contretemps.html",
     "petit-souci.html",
-    "princely-luxemburgish-afternoon-apres-midi-princiere-luxembo.html",
     "programme-de-la-journee.html",
     "quand-faut-y-aller.html",
     "quelques-chiffres-pour-decrire-cette-experience-incroyable.html",
-    "quelques-chiffres.html",
     "question-volume.html",
     "question-where-ou-est-ce-que-cette-photo-a-ete-prise.html",
     "radio.html",
@@ -115,7 +109,6 @@
     "survol-de-l-amazone-vers-les-andes.html",
     "take-off-from-westman-decollage-depuis-westman-en-islande.html",
     "the-answer-la-reponse.html",
-    "the-end-of-the-int-paris-air-show-le-salon-du-bourget-c-est-.html",
     "this-week-at-the-international-paris-air-show.html",
     "tous-engages-pour-la-science.html",
     "tout-n-est-pas-perdu-there-is-hope.html",
@@ -127,11 +120,10 @@
     "vol-de-demonstration-au-salon-du-bourget.html",
     "volcan-by-night.html",
     "wallaby.html",
-    "water-festival-in-yangoon.html",
     "we-fly-over-these-hand-made-artificial-islands-and-this-bigg.html",
     "wednesday-at-the-int-paris-air-show-mercredi-au-salon-du-bou.html",
     "welcome-in-jordan.html",
-    "whale-in-mingan-une-baleine-a-mingan.html",
+    "whale-in-mingan-une-baleine-a-mingan.html"
   ];
   var current = location.pathname.split('/').pop();
   var idx = posts.indexOf(current);
@@ -149,9 +141,9 @@
     next.className = 'post-back';
     next.style.marginBottom = '0';
     var lang = document.documentElement.lang || 'fr';
-    next.setAttribute('data-fr', 'Suivant →');
-    next.setAttribute('data-en', 'Next →');
-    next.textContent = lang === 'en' ? 'Next →' : 'Suivant →';
+    next.setAttribute('data-fr', 'Suivant \u2192');
+    next.setAttribute('data-en', 'Next \u2192');
+    next.textContent = lang === 'en' ? 'Next \u2192' : 'Suivant \u2192';
     wrapper.appendChild(next);
   }
 })();
