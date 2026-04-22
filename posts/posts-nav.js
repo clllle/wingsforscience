@@ -1,5 +1,6 @@
 (function() {
   var posts = [
+    "decouverte-archeo.html",
     "c-est-parti.html",
     "arrivee-a-port-vila-on-s-approche.html",
     "objectif-en-vue.html",
@@ -41,14 +42,14 @@
     "rtl-tv-reportage-6min.html",
     "journee-princiere.html",
     "go-go-go.html",
-    "this-week-at-the-international-paris-air-show.html",
+    "mission-volcanologique-islandaise.html",
     "kulusuk.html",
     "question-volume.html",
     "mad-max-6.html",
     "question-where-ou-est-ce-que-cette-photo-a-ete-prise.html",
     "kuujjuaq-canada.html",
-    "greenlandic-album-photos-du-groenland.html",
     "whale-in-mingan-une-baleine-a-mingan.html",
+    "greenlandic-album-photos-du-groenland.html",
     "the-answer-la-reponse.html",
     "take-off-from-westman-decollage-depuis-westman-en-islande.html",
     "reportage-sur-la-presse-canada-du-20-juillet.html",
@@ -67,48 +68,47 @@
     "bye-bye-l-avion-take-care-for-your-trip-to-australia.html",
     "les-etats-du-golfe-persique-maintenant.html",
     "les-hyenes-et-les-onyx-de-l-ile-refuge-des-emirats.html",
-    "maori-goodbye-for-the-gloworms.html",
+    "emirats-arabes-unis-arabie-saoudite.html",
     "partenariat-avec-l-eso.html",
+    "maori-goodbye-for-the-gloworms.html",
     "lemonde-uses-our-picture.html",
     "wallaby.html",
     "aircraft-back-new-sponsor.html",
     "flying-again-nous-revoici-en-vol.html",
+    "dragon-de-komodo-komodo-dragons.html",
     "festival-de-l-eau-a-rangoon.html",
     "last-but-not-least-meteorite-crater.html",
     "sad-news.html",
-    "c-est-gagne-dinosaur-footprints-soon.html",
     "tout-n-est-pas-perdu-there-is-hope.html",
+    "c-est-gagne-dinosaur-footprints-soon.html",
     "here-there-are-the-dinosaurs-footprints.html",
     "last-night-in-a-bus-listening-to-guitar.html",
-    "dragon-de-komodo-komodo-dragons.html",
     "new-sponsor-cnes.html",
     "underwater-snorkling.html",
     "bad-weather-instead-of-laos-we-go-to-myanmar.html",
     "diversion-due-to-bad-visibility-but-nice-fishing-system.html",
-    "emirats-arabes-unis-arabie-saoudite.html",
     "we-fly-over-these-hand-made-artificial-islands-and-this-bigg.html",
     "welcome-in-jordan.html",
+    "this-week-at-the-international-paris-air-show.html",
     "arrivee-au-salon-du-bourget.html",
     "friday-at-the-paris-air-show-vendredi-au-bourget.html",
     "quelques-chiffres-pour-decrire-cette-experience-incroyable.html",
     "on-a-survole-la-terre-episode-1-islande-our-movie-about-icel.html",
-    "mission-volcanologique-islandaise.html",
     "luxembourg-3d-city.html",
     "surtsey-island-3d-iceland-islande.html",
     "bande-annonce-des-films-longs.html",
     "dernier-jour-du-salon-international-du-bourget.html",
-    "decouverte-archeo.html",
-    "mission-exploration-decouverte-chili.html",
-    "mission-forets-fossilisees-tango.html",
     "des-nouvelles-argentines.html",
     "mission-communaute-pilaga.html",
     "mission-glacier-et-tsunami.html",
+    "mission-exploration-decouverte-chili.html",
+    "mission-forets-fossilisees-tango.html",
     "mission-bresil-buritis-parana.html",
     "bonne-annee-2017.html",
     "nouvelle-collection-photos.html",
     "tous-engages-pour-la-science.html",
-    "mission-au-surinam-paresseux.html",
     "mission-guyane-biodiversite.html",
+    "mission-au-surinam-paresseux.html",
     "deux-magazines.html",
     "en-vol-durant-l-eclipse-totale.html",
     "tribune-confinement.html",
@@ -124,7 +124,6 @@
   backLink.style.marginBottom = '0';
   wrapper.appendChild(backLink);
   var lang = document.documentElement.lang || 'fr';
-
   if (idx < posts.length - 1) {
     var next = document.createElement('a');
     next.href = posts[idx + 1];
@@ -135,13 +134,10 @@
     next.textContent = lang === 'en' ? 'Next →' : 'Suivant →';
     wrapper.appendChild(next);
   }
-
-  // Bottom navigation bar (same as top)
   var postBody = document.querySelector('.post-body');
   if (postBody) {
     var bottomNav = document.createElement('div');
     bottomNav.style.cssText = 'display:flex;justify-content:space-between;align-items:center;margin-top:48px;padding-top:24px;border-top:1px solid rgba(95,168,211,0.15);';
-
     var bottomBack = document.createElement('a');
     bottomBack.href = '../actu.html';
     bottomBack.className = 'post-back';
@@ -150,7 +146,6 @@
     bottomBack.setAttribute('data-en', '← Back to logbook');
     bottomBack.textContent = lang === 'en' ? '← Back to logbook' : '← Retour au carnet de route';
     bottomNav.appendChild(bottomBack);
-
     if (idx < posts.length - 1) {
       var bottomNext = document.createElement('a');
       bottomNext.href = posts[idx + 1];
@@ -161,7 +156,6 @@
       bottomNext.textContent = lang === 'en' ? 'Next →' : 'Suivant →';
       bottomNav.appendChild(bottomNext);
     }
-
     postBody.appendChild(bottomNav);
   }
 })();
