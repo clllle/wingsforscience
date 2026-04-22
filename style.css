@@ -549,7 +549,7 @@ footer {
 .footer-col ul { list-style: none; }
 .footer-col ul li { margin-bottom: 5px; }
 .footer-col ul li a { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
-.footer-col ul li a:hover { color: var(--accent); }
+.footer-col ul li a:hover { color: var(--white); }
 .footer-bottom {
   max-width: 1200px; margin: 0 auto;
   padding-top: 24px;
