@@ -878,4 +878,49 @@ Mais comment est-ce possible ? Il aura fallu une bonne dose de chance, une paire
         </div>
       </a>
   </div>
->
+
+  <div style="text-align:center;margin:40px 0 20px;">
+    <button id="loadMoreBtn" onclick="loadMore()" style="background:none;border:1px solid var(--accent);color:var(--accent);padding:12px 36px;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:background 0.3s,color 0.3s;border-radius:2px;" data-fr="Voir plus d'articles" data-en="See more articles">Voir plus d'articles</button>
+  </div>
+
+<script>
+(function(){
+  var BATCH = 12;
+  var cards = document.querySelectorAll('.blog-grid .blog-card');
+  var shown = BATCH;
+  var btn = document.getElementById('loadMoreBtn');
+  if(cards.length <= BATCH && btn) btn.style.display='none';
+  window.loadMore = function(){
+    var next = Math.min(shown + BATCH, cards.length);
+    for(var i = shown; i < next; i++) cards[i].classList.remove('hidden-card');
+    shown = next;
+    if(shown >= cards.length && btn) btn.style.display='none';
+  };
+})();
+</script>
+
+<script>
+document.querySelectorAll('.video-thumb').forEach(function(el){
+  var vid = el.dataset.vid;
+  el.addEventListener('mouseenter', function(e){
+    e.preventDefault();
+    if(!el.querySelector('iframe')){
+      var iframe = document.createElement('iframe');
+      iframe.src = 'https://www.youtube-nocookie.com/embed/' + vid + '?autoplay=1&mute=1&controls=0&loop=1&playlist=' + vid;
+      iframe.allow = 'autoplay';
+      el.appendChild(iframe);
+    }
+  });
+  el.addEventListener('mouseleave', function(){
+    var iframe = el.querySelector('iframe');
+    if(iframe) iframe.remove();
+  });
+});
+</script>
+
+<div id="site-footer"></div>
+<script src="footer.js"></script>
+<script src="lang.js"></script>
+<script src="shared.js"></script>
+</body>
+</html>
