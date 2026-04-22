@@ -17,7 +17,7 @@
 
   var html =
   '<a class="logo-wrap" href="' + p + 'index.html">' +
-    '<img src="' + p + 'images/logo_wfs.png" alt="Logo Wings for Science" width="48" height="48" decoding="async">' +
+    '<img src="' + p + 'images/logo_wfs.webp" alt="Logo Wings for Science" width="48" height="48" decoding="async">' +
     '<div class="logo-text"><span data-fr="Des Ailes pour la Science" data-en="Wings for Science">Des Ailes pour la Science</span></div>' +
   '</a>' +
   '<nav>' +

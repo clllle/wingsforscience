@@ -533,12 +533,16 @@ a:hover img, .clickable:hover img, [onclick]:hover img,
 }
 
 footer {
+  width: 100%;
   background: rgba(6, 13, 22, 0.95);
   border-top: 1px solid rgba(95,168,211,0.12);
   padding: 28px 60px 16px;
   margin-top: 40px;
   content-visibility: auto;
 }
+html, body { min-height: 100vh; }
+body { display: flex; flex-direction: column; }
+footer { margin-top: auto; }
 .footer-inner {
   max-width: 1200px; margin: 0 auto;
   display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr;
@@ -583,7 +587,7 @@ footer {
   .photo-row { grid-template-columns: repeat(2, 1fr); }
   .sens-links { grid-template-columns: 1fr; }
   .footer-inner { grid-template-columns: 1fr 1fr; gap: 20px; }
-  footer { padding: 32px 24px 20px; }
+  footer { width:100%;  padding: 32px 24px 20px; }
 }
 
 
@@ -980,7 +984,7 @@ footer {
 
   /* Footer */
   .footer-inner { grid-template-columns: 1fr 1fr; gap: 16px; }
-  footer { padding: 28px 20px 16px; }
+  footer { width:100%;  padding: 28px 20px 16px; }
   .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
 }
 
@@ -1424,7 +1428,7 @@ html {
 }
 @media(min-width:900px){
   html { scroll-snap-type: y proximity; }
-  .hero, .page-hero, .dest-band, .section, .actions-section, .about-strip, .content-section, footer {
+  .hero, .page-hero, .dest-band, .section, .actions-section, .about-strip, .content-section, footer { width:100%; 
     scroll-snap-align: start;
   }
 }

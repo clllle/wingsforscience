@@ -5,7 +5,7 @@
   var html = '<footer>' +
     '<div class="footer-inner">' +
       '<div class="footer-brand">' +
-        '<a class="logo-wrap" href="' + p + 'index.html"><img src="' + p + 'images/logo_wfs.png" alt="Logo"><div class="logo-text"><span data-fr="Des Ailes pour la Science" data-en="Wings for Science">Des Ailes pour la Science</span></div></a>' +
+        '<a class="logo-wrap" href="' + p + 'index.html"><img src="' + p + 'images/logo_wfs.webp" alt="Logo"><div class="logo-text"><span data-fr="Des Ailes pour la Science" data-en="Wings for Science">Des Ailes pour la Science</span></div></a>' +
         '<p data-fr="Association à but non lucratif œuvrant pour la science et la protection de l\'environnement depuis 2008." data-en="Non-profit association working for science and environmental protection since 2008.">Association à but non lucratif œuvrant pour la science et la protection de l\'environnement depuis 2008.</p>' +
         '<address class="footer-address" data-fr="Maison des associations, 38 bd Henri IV, 75004 Paris" data-en="Maison des associations, 38 bd Henri IV, 75004 Paris, France">Maison des associations, 38 bd Henri IV, 75004 Paris</address>' +
       '</div>' +
