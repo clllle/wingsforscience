@@ -1,10 +1,23 @@
 (function() {
+  // Inject font preconnect links for pages that load via header.js (especially posts)
+  if (!document.querySelector('link[rel="preconnect"][href="https://fonts.googleapis.com"]')) {
+    var pc1 = document.createElement('link');
+    pc1.rel = 'preconnect';
+    pc1.href = 'https://fonts.googleapis.com';
+    document.head.appendChild(pc1);
+    var pc2 = document.createElement('link');
+    pc2.rel = 'preconnect';
+    pc2.href = 'https://fonts.gstatic.com';
+    pc2.crossOrigin = '';
+    document.head.appendChild(pc2);
+  }
+
   var isPost = location.pathname.indexOf('/posts/') !== -1;
   var p = isPost ? '../' : '';
 
   var html =
   '<a class="logo-wrap" href="' + p + 'index.html">' +
-    '<img src="' + p + 'images/logo_wfs.png" alt="Logo">' +
+    '<img src="' + p + 'images/logo_wfs.png" alt="Logo Wings for Science" width="48" height="48" decoding="async">' +
     '<div class="logo-text"><span data-fr="Des Ailes pour la Science" data-en="Wings for Science">Des Ailes pour la Science</span></div>' +
   '</a>' +
   '<nav>' +
