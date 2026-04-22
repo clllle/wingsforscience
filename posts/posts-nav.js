@@ -22,8 +22,8 @@
     "deja-3-publications-scientifiques.html",
     "conference-avec-michel-brunet.html",
     "conference-par-l-inrap.html",
-    "essayage-de-l-equipement-de-survie.html",
     "le-ministere-de-l-education-au-luxembourg-apporte-son-soutie.html",
+    "essayage-de-l-equipement-de-survie.html",
     "bienvenue-a-l-ecole-du-parc-hosingen-welcome-to-hosingen-sch.html",
     "meeting-beringer.html",
     "new-supports-in-luxembourg-nouveaux-soutiens-officiels-au-lu.html",
@@ -41,8 +41,8 @@
     "question-volume.html",
     "question-where-ou-est-ce-que-cette-photo-a-ete-prise.html",
     "kuujjuaq-canada.html",
-    "whale-in-mingan-une-baleine-a-mingan.html",
     "greenlandic-album-photos-du-groenland.html",
+    "whale-in-mingan-une-baleine-a-mingan.html",
     "the-answer-la-reponse.html",
     "reportage-sur-la-presse-canada-du-20-juillet.html",
     "st-marteen-yacht-club.html",
@@ -55,10 +55,10 @@
     "escale-pakistanaise.html",
     "bye-bye-l-avion-take-care-for-your-trip-to-australia.html",
     "les-etats-du-golfe-persique-maintenant.html",
-    "les-hyenes-et-les-onyx-de-l-ile-refuge-des-emirats.html",
     "emirats-arabes-unis-arabie-saoudite.html",
-    "partenariat-avec-l-eso.html",
+    "les-hyenes-et-les-onyx-de-l-ile-refuge-des-emirats.html",
     "maori-goodbye-for-the-gloworms.html",
+    "partenariat-avec-l-eso.html",
     "lemonde-uses-our-picture.html",
     "wallaby.html",
     "aircraft-back-new-sponsor.html",
@@ -67,8 +67,8 @@
     "festival-de-l-eau-a-rangoon.html",
     "last-but-not-least-meteorite-crater.html",
     "sad-news.html",
-    "tout-n-est-pas-perdu-there-is-hope.html",
     "c-est-gagne-dinosaur-footprints-soon.html",
+    "tout-n-est-pas-perdu-there-is-hope.html",
     "here-there-are-the-dinosaurs-footprints.html",
     "last-night-in-a-bus-listening-to-guitar.html",
     "new-sponsor-cnes.html",
@@ -87,17 +87,18 @@
     "bande-annonce-des-films-longs.html",
     "design-du-nouvel-avion.html",
     "des-nouvelles-argentines.html",
-    "mission-communaute-pilaga.html",
     "mission-glacier-et-tsunami.html",
     "mission-exploration-decouverte-chili.html",
     "mission-forets-fossilisees-tango.html",
+    "mission-communaute-pilaga.html",
     "mission-bresil-buritis-parana.html",
     "bonne-annee-2017.html",
     "nouvelle-collection-photos.html",
     "tous-engages-pour-la-science.html",
-    "mission-guyane-biodiversite.html",
     "mission-au-surinam-paresseux.html",
+    "mission-guyane-biodiversite.html",
     "deux-magazines.html",
+    "oshkosh.html",
     "en-vol-durant-l-eclipse-totale.html",
     "tribune-confinement.html",
   ];
@@ -117,9 +118,9 @@
     next.href = posts[idx + 1];
     next.className = 'post-back';
     next.style.marginBottom = '0';
-    next.setAttribute('data-fr', 'Suivant →');
-    next.setAttribute('data-en', 'Next →');
-    next.textContent = lang === 'en' ? 'Next →' : 'Suivant →';
+    next.setAttribute('data-fr', 'Suivant \u2192');
+    next.setAttribute('data-en', 'Next \u2192');
+    next.textContent = lang === 'en' ? 'Next \u2192' : 'Suivant \u2192';
     wrapper.appendChild(next);
   }
   var postBody = document.querySelector('.post-body');
@@ -130,18 +131,18 @@
     bottomBack.href = '../actu.html';
     bottomBack.className = 'post-back';
     bottomBack.style.marginBottom = '0';
-    bottomBack.setAttribute('data-fr', '← Retour au carnet de route');
-    bottomBack.setAttribute('data-en', '← Back to logbook');
-    bottomBack.textContent = lang === 'en' ? '← Back to logbook' : '← Retour au carnet de route';
+    bottomBack.setAttribute('data-fr', '\u2190 Retour au carnet de route');
+    bottomBack.setAttribute('data-en', '\u2190 Back to logbook');
+    bottomBack.textContent = lang === 'en' ? '\u2190 Back to logbook' : '\u2190 Retour au carnet de route';
     bottomNav.appendChild(bottomBack);
     if (idx < posts.length - 1) {
       var bottomNext = document.createElement('a');
       bottomNext.href = posts[idx + 1];
       bottomNext.className = 'post-back';
       bottomNext.style.marginBottom = '0';
-      bottomNext.setAttribute('data-fr', 'Suivant →');
-      bottomNext.setAttribute('data-en', 'Next →');
-      bottomNext.textContent = lang === 'en' ? 'Next →' : 'Suivant →';
+      bottomNext.setAttribute('data-fr', 'Suivant \u2192');
+      bottomNext.setAttribute('data-en', 'Next \u2192');
+      bottomNext.textContent = lang === 'en' ? 'Next \u2192' : 'Suivant \u2192';
       bottomNav.appendChild(bottomNext);
     }
     postBody.appendChild(bottomNav);
