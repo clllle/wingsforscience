@@ -19,23 +19,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap"></noscript>
   <link rel="stylesheet" href="style.css">
-</head>
-<body>
-<a href="#main-content" class="skip-link" data-fr="Aller au contenu principal" data-en="Skip to main content">Aller au contenu principal</a>
-<header id="site-header"></header>
-<script src="header.js"></script>
-<section id="main-content" class="page-hero" style="background-image:url('images/wix_import/hero_contact.webp');">
-  <div class="page-hero-overlay"></div>
-  <div class="page-hero-content">
-    <span class="section-tag" data-fr="Notre réseau — 03" data-en="Our network — 03">Notre réseau — 03</span>
-    <h1 class="page-hero-title" data-fr="Partenaires et sponsors" data-en="Partners and Sponsors">Partenaires et sponsors</h1>
-    <p class="page-hero-sub" data-fr="Des organisations qui partagent nos valeurs et soutiennent nos missions." data-en="Organisations that share our values and support our missions.">Des organisations qui partagent nos valeurs et soutiennent nos missions.</p>
-  </div>
-</section>
-<div class="content-section"><div class="content-inner narrow">
-    <p class="lead-text" data-fr="Nous avons fait le choix de ne travailler qu'avec des entreprises et institutions qui partagent nos valeurs de protection de l'environnement et d'exemplarité sociale." data-en="We have chosen to work only with companies and institutions that share our values of environmental protection and social responsibility.">Nous avons fait le choix de ne travailler qu'avec des entreprises et institutions qui partagent nos valeurs de protection de l'environnement et d'exemplarité sociale.</p>
-  </div></div>
-  <style>
+<style>
     .sponsor-hero {
       display: flex; justify-content: center; align-items: center;
       padding: 48px; margin-bottom: 16px;
@@ -123,8 +107,61 @@
       font-size: 32px; cursor: pointer;
     }
   </style>
-
-  <div class="content-section" style="padding-top:0;"><div class="content-inner">
+<style>
+  .logo-modal-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 48px 56px;
+    display: flex; flex-direction: column;
+    align-items: center; gap: 20px;
+    max-width: 500px; width: 90%;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+  .logo-modal-img {
+    max-width: 100%; max-height: 180px;
+    object-fit: contain;
+    background: transparent !important;
+    padding: 0 !important; border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+  .logo-modal-name {
+    font-family: 'Merriweather', serif;
+    font-size: 22px; font-weight: 400;
+    color: #1a2a3a; text-align: center;
+  }
+  .logo-modal-link {
+    display: inline-block;
+    padding: 12px 28px;
+    background: var(--accent); color: #fff;
+    border-radius: 6px; font-size: 13px; font-weight: 600;
+    text-decoration: none; letter-spacing: 0.05em;
+    transition: background 0.2s;
+  }
+  .logo-modal-link:hover { background: #4a90b8; }
+  /* Dark bg logos in modal */
+  .logo-modal-img.dark-bg {
+    background: #111 !important;
+    padding: 20px !important;
+    border-radius: 8px !important;
+  }
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link" data-fr="Aller au contenu principal" data-en="Skip to main content">Aller au contenu principal</a>
+<header id="site-header"></header>
+<script src="header.js"></script>
+<section id="main-content" class="page-hero" style="background-image:url('images/wix_import/hero_contact.webp');">
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <span class="section-tag" data-fr="Notre réseau — 03" data-en="Our network — 03">Notre réseau — 03</span>
+    <h1 class="page-hero-title" data-fr="Partenaires et sponsors" data-en="Partners and Sponsors">Partenaires et sponsors</h1>
+    <p class="page-hero-sub" data-fr="Des organisations qui partagent nos valeurs et soutiennent nos missions." data-en="Organisations that share our values and support our missions.">Des organisations qui partagent nos valeurs et soutiennent nos missions.</p>
+  </div>
+</section>
+<div class="content-section"><div class="content-inner narrow">
+    <p class="lead-text" data-fr="Nous avons fait le choix de ne travailler qu'avec des entreprises et institutions qui partagent nos valeurs de protection de l'environnement et d'exemplarité sociale." data-en="We have chosen to work only with companies and institutions that share our values of environmental protection and social responsibility.">Nous avons fait le choix de ne travailler qu'avec des entreprises et institutions qui partagent nos valeurs de protection de l'environnement et d'exemplarité sociale.</p>
+  </div></div>
+<div class="content-section" style="padding-top:0;"><div class="content-inner">
 
     <!-- ══ 1. SPONSOR PRINCIPAL ══ -->
     <div class="partners-section-title" data-fr="Sponsor principal" data-en="Main sponsor">Sponsor principal</div>
@@ -225,45 +262,6 @@
     <a class="logo-modal-link" id="logoModalLink" href="#" target="_blank" rel="noopener">Visiter le site →</a>
   </div>
 </div>
-
-<style>
-  .logo-modal-card {
-    background: #fff;
-    border-radius: 16px;
-    padding: 48px 56px;
-    display: flex; flex-direction: column;
-    align-items: center; gap: 20px;
-    max-width: 500px; width: 90%;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-  }
-  .logo-modal-img {
-    max-width: 100%; max-height: 180px;
-    object-fit: contain;
-    background: transparent !important;
-    padding: 0 !important; border-radius: 0 !important;
-    box-shadow: none !important;
-  }
-  .logo-modal-name {
-    font-family: 'Merriweather', serif;
-    font-size: 22px; font-weight: 400;
-    color: #1a2a3a; text-align: center;
-  }
-  .logo-modal-link {
-    display: inline-block;
-    padding: 12px 28px;
-    background: var(--accent); color: #fff;
-    border-radius: 6px; font-size: 13px; font-weight: 600;
-    text-decoration: none; letter-spacing: 0.05em;
-    transition: background 0.2s;
-  }
-  .logo-modal-link:hover { background: #4a90b8; }
-  /* Dark bg logos in modal */
-  .logo-modal-img.dark-bg {
-    background: #111 !important;
-    padding: 20px !important;
-    border-radius: 8px !important;
-  }
-</style>
 
 <script>
 function openLogo(e) {

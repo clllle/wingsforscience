@@ -20,6 +20,23 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap"></noscript>
   <link rel="stylesheet" href="style.css">
+<style>
+      .sensib-carousel{position:relative;width:100%;aspect-ratio:16/9;max-height:500px;border-radius:8px;overflow:hidden;}
+      .sensib-slide{position:absolute;inset:0;opacity:0;transition:opacity 0.7s ease;}
+      .sensib-slide.active{opacity:1;}
+      .sensib-slide img{width:100%;height:100%;object-fit:cover;}
+      .sensib-caption{position:absolute;bottom:0;left:0;right:0;padding:20px 28px;background:linear-gradient(transparent,rgba(0,0,0,0.75));color:#fff;z-index:2;}
+      .sensib-caption-loc{font-family:'Merriweather',serif;font-size:16px;font-weight:400;}
+      .sensib-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:3;background:rgba(255,255,255,0.85);border:none;color:#1a2a3a;width:52px;height:52px;border-radius:50%;cursor:pointer;font-size:22px;font-weight:700;transition:background 0.3s,transform 0.3s;box-shadow:0 4px 12px rgba(0,0,0,0.3);}
+      .sensib-btn:hover{background:#fff;transform:translateY(-50%) scale(1.12);box-shadow:0 6px 20px rgba(0,0,0,0.4);}
+      .sensib-btn.prev{left:14px}.sensib-btn.next{right:14px}
+      .sensib-dots{position:absolute;bottom:10px;left:0;right:0;text-align:center;z-index:3;}
+      .sensib-dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,0.3);margin:0 4px;cursor:pointer;transition:background 0.3s,transform 0.3s;border:1px solid rgba(255,255,255,0.15);}
+      .sensib-dot.active{background:#fff;transform:scale(1.3);}
+    </style>
+<style>
+@media(max-width:700px){section .sensib-number{font-size:36px !important;} section [style*="grid-template-columns:repeat(4"]{grid-template-columns:repeat(2,1fr) !important;}}
+</style>
 </head>
 <body>
 <a href="#main-content" class="skip-link" data-fr="Aller au contenu principal" data-en="Skip to main content">Aller au contenu principal</a>
@@ -44,21 +61,7 @@
     <div style="text-align:center;margin-bottom:24px;">
       <span class="section-tag" data-fr="En images" data-en="In pictures">En images</span>
     </div>
-    <style>
-      .sensib-carousel{position:relative;width:100%;aspect-ratio:16/9;max-height:500px;border-radius:8px;overflow:hidden;}
-      .sensib-slide{position:absolute;inset:0;opacity:0;transition:opacity 0.7s ease;}
-      .sensib-slide.active{opacity:1;}
-      .sensib-slide img{width:100%;height:100%;object-fit:cover;}
-      .sensib-caption{position:absolute;bottom:0;left:0;right:0;padding:20px 28px;background:linear-gradient(transparent,rgba(0,0,0,0.75));color:#fff;z-index:2;}
-      .sensib-caption-loc{font-family:'Merriweather',serif;font-size:16px;font-weight:400;}
-      .sensib-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:3;background:rgba(255,255,255,0.85);border:none;color:#1a2a3a;width:52px;height:52px;border-radius:50%;cursor:pointer;font-size:22px;font-weight:700;transition:background 0.3s,transform 0.3s;box-shadow:0 4px 12px rgba(0,0,0,0.3);}
-      .sensib-btn:hover{background:#fff;transform:translateY(-50%) scale(1.12);box-shadow:0 6px 20px rgba(0,0,0,0.4);}
-      .sensib-btn.prev{left:14px}.sensib-btn.next{right:14px}
-      .sensib-dots{position:absolute;bottom:10px;left:0;right:0;text-align:center;z-index:3;}
-      .sensib-dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,0.3);margin:0 4px;cursor:pointer;transition:background 0.3s,transform 0.3s;border:1px solid rgba(255,255,255,0.15);}
-      .sensib-dot.active{background:#fff;transform:scale(1.3);}
-    </style>
-    <div class="sensib-carousel" id="sensibCarousel">
+<div class="sensib-carousel" id="sensibCarousel">
       <div class="sensib-slide active"><img src="images/ecole 3Paletuviers guyane.webp" alt="École des Trois-Paletuviers, Guyane"><div class="sensib-caption"><div class="sensib-caption-loc" data-fr="Trois-Paletuviers, Guyane française" data-en="Trois-Paletuviers, French Guiana">Trois-Paletuviers, Guyane française</div></div></div>
       <div class="sensib-slide"><img src="images/55 enfants tobalaba.webp" alt="55 enfants, Tobalaba, Chili"><div class="sensib-caption"><div class="sensib-caption-loc">Tobalaba, Chili</div></div></div>
       <div class="sensib-slide"><img src="images/classe amhedabad.webp" alt="Classe à Ahmedabad, Inde"><div class="sensib-caption"><div class="sensib-caption-loc">Ahmedabad, Inde</div></div></div>
@@ -100,10 +103,6 @@
     </div>
   </div>
 </section>
-<style>
-@media(max-width:700px){section .sensib-number{font-size:36px !important;} section [style*="grid-template-columns:repeat(4"]{grid-template-columns:repeat(2,1fr) !important;}}
-</style>
-
 <!-- TITRE NOS ACTIONS -->
 <div class="content-section" style="padding-bottom:0;">
   <div class="content-inner" style="text-align:center;">
