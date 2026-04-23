@@ -5,11 +5,11 @@
     try { localStorage.setItem(STORAGE_KEY, lang); } catch(e) {}
     document.documentElement.lang = lang;
 
-    // Translate all leaf elements with data-fr / data-en
+    // Translate elements with data-fr / data-en, sauf si un descendant a déjà ses propres data-fr (évite d'écraser la traduction des enfants)
     var els = document.querySelectorAll('[data-fr][data-en]');
     for (var i = 0; i < els.length; i++) {
       var el = els[i];
-      if (el.children.length === 0) {
+      if (!el.querySelector('[data-fr]')) {
         el.innerHTML = el.getAttribute('data-' + lang);
       }
     }
@@ -25,7 +25,8 @@
   function initLang() {
     var saved;
     try { saved = localStorage.getItem(STORAGE_KEY); } catch(e) {}
-    setLang(saved || 'fr');
+    // window.setLang plutôt que setLang local : respecte les overrides de pages (ex campagne-scientifique)
+    (window.setLang || setLang)(saved || 'fr');
   }
 
   window.setLang = setLang;

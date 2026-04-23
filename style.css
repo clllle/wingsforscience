@@ -627,6 +627,8 @@ footer { margin-top: auto; }
   gap: 40px; margin-bottom: 20px;
 }
 .footer-brand p { font-size: 13px; line-height: 1.8; color: var(--text-muted); max-width: 320px; margin-top: 12px; }
+.footer-brand .logo-text span { color: var(--accent) !important; padding: 0 !important; background: transparent !important; }
+.footer-brand .logo-wrap:hover .logo-text span { color: #a7dcf5 !important; font-weight: 500 !important; background: transparent !important; }
 .footer-address { font-size: 12px; color: rgba(176,184,196,0.8); margin-top: 12px; font-style: normal; }
 .footer-col-title { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
 .footer-col ul { list-style: none; }
