@@ -208,22 +208,23 @@ body {
   background: var(--sky);
   color: var(--white);
   min-height: 100vh;
-  padding-top: var(--nav-h);
+  padding-top: 0;
 }
+/* Hero passent derrière le header transparent */
+.hero, .page-hero { margin-top: 0; }
 
 /* ── HEADER ── */
 header {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  background: rgba(20, 32, 48, 0.95);
+  background: rgba(255, 255, 255, 0.55);
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(95, 168, 211, 0.15);
   height: var(--nav-h);
   display: flex;
   align-items: center;
   padding: 0 40px;
-  gap: 32px;
+  gap: 8px;
 }
 
 .logo-wrap {
@@ -239,53 +240,75 @@ header {
   filter: drop-shadow(0 0 8px rgba(95,168,211,0.3));
 }
 .logo-text { display: flex; flex-direction: column; line-height: 1.1; }
-.logo-text .en { font-family: 'Varela Round', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.06em; color: var(--accent); text-transform: none; }
-.logo-text .fr  { font-family: 'Varela Round', sans-serif; font-size: 10px; font-weight: 400; letter-spacing: 0.04em; color: var(--text-muted); text-transform: none; }
-.logo-text span { font-family: 'Varela Round', sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0.06em; color: var(--white) !important; text-transform: none; }
-.logo-wrap:hover .logo-text span { color: var(--accent) !important; transition: color 0.2s; }
+.logo-text .en { font-family: 'Varela Round', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.06em; color: #2f6b8f; text-transform: none; }
+.logo-text .fr  { font-family: 'Varela Round', sans-serif; font-size: 10px; font-weight: 400; letter-spacing: 0.04em; color: #5a6778; text-transform: none; }
+.logo-text span { font-family: 'Varela Round', sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0.06em; color: #1a2a3a !important; text-transform: none; padding: 4px 10px; border-radius: 4px; transition: background 0.2s, font-weight 0.2s; }
+.logo-wrap:hover .logo-text span { color: #1a2a3a !important; font-weight: 700; background: rgba(255,255,255,0.4); }
 
 nav { display: flex; align-items: center; gap: 4px; margin-left: auto; }
 
 .nav-item { position: relative; }
+
 
 .nav-link {
   display: flex; align-items: center; gap: 4px;
   padding: 8px 14px;
   font-size: 11.5px; font-weight: 600; letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--off-white);
+  color: #1a2a3a;
   text-decoration: none;
   border-radius: 4px;
-  transition: color 0.2s, background 0.2s;
+  transition: color 0.2s, background 0.2s, text-decoration-color 0.2s;
   white-space: nowrap; cursor: pointer;
 }
-.nav-link:hover, .nav-link.active { color: var(--accent); background: rgba(95,168,211,0.08); }
+.nav-link:hover, .nav-link.active, .nav-item.active-drop > .nav-link, .nav-item.current > .nav-link { color: #1a2a3a; font-weight: 700; background: rgba(255,255,255,0.4); border-radius: 4px; }
 .nav-link .chevron { font-size: 8px; opacity: 0.6; transition: transform 0.2s; }
-.nav-item:hover .chevron { transform: rotate(180deg); }
+.nav-item.active-drop .chevron { transform: rotate(180deg); }
 
 .dropdown {
-  position: absolute;
-  top: 100%; left: 0;
-  background: rgba(18, 30, 44, 0.97);
-  border: 1px solid rgba(95,168,211,0.15);
-  border-radius: 6px;
-  min-width: 260px; padding: 6px 0;
-  opacity: 0; pointer-events: none;
-  transform: translateY(-6px);
+  position: fixed;
+  left: 0; right: 0;
+  top: calc(var(--nav-h) + 14px);
+  width: 100vw;
+  min-width: 0;
+  margin: 0;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(8px);
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 0;
+  box-shadow: none;
+  padding: 14px 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 4px 28px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-4px);
   transition: opacity 0.2s, transform 0.2s;
-  backdrop-filter: blur(12px);
-  z-index: 9999;
+  z-index: 99;
 }
-.nav-item:hover .dropdown { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.nav-item.active-drop .dropdown { opacity: 1; pointer-events: auto; transform: translateY(0); }
 .dropdown a { position: relative; z-index: 201; }
 .dropdown a {
-  display: block; padding: 9px 18px; white-space: normal; line-height: 1.4;
+  display: inline-flex; align-items: center;
+  padding: 8px 14px; white-space: nowrap; line-height: 1.4;
   position: relative; z-index: 9999;
-  font-size: 11.5px; font-weight: 400; letter-spacing: 0.05em;
-  color: var(--text-muted); text-decoration: none;
-  transition: color 0.15s, background 0.15s;
+  font-size: 11.5px; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #1a2a3a; text-decoration: none;
+  border-radius: 4px;
+  transition: color 0.15s, background 0.15s, text-decoration-color 0.15s;
 }
-.dropdown a:hover { color: var(--accent); background: rgba(95,168,211,0.06); }
+.dropdown a:hover, .dropdown a.active {
+  color: #1a2a3a; font-weight: 700;
+  background: rgba(255,255,255,0.4);
+  border-radius: 4px;
+}
 
 /* ── BUTTONS ── */
 .btn {
@@ -642,21 +665,8 @@ footer { margin-top: auto; }
 }
 
 /* ── LANGUAGE SWITCHER ── */
-.lang-toggle {
-  margin-left: 8px;
-  flex-shrink: 0;
-  padding: 5px 14px;
-  border-radius: 4px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  cursor: pointer;
-  border: 1px solid rgba(95,168,211,0.4);
-  background: rgba(95,168,211,0.08);
-  color: var(--accent);
-  transition: all 0.2s;
-}
-.lang-toggle:hover { background: rgba(95,168,211,0.15); border-color: var(--accent); color: var(--white); }
+.lang-toggle { background: transparent; border: 1px solid rgba(0,0,0,0.25); color: #1a2a3a; padding: 6px 14px; font-size: 11.5px; font-weight: 600; letter-spacing: 0.08em; border-radius: 4px; cursor: pointer; transition: background 0.2s, color 0.2s; }
+.lang-toggle:hover { background: rgba(255,255,255,0.4); color: #1a2a3a; font-weight: 700; }
 
 /* ═══════════════════════════════════════
    HOMEPAGE SPECIFIC STYLES
@@ -1439,3 +1449,31 @@ a:focus-visible, button:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
+
+/* ── RETRAITS V6 — hero home simplifiée ── */
+.hero-eyebrow, .hero-subtitle, .hero-scroll { display: none; }
+.slide-arrow, .slide-prev, .slide-next { display: none; }
+
+/* Contact : bouton encadré noir cohérent avec les titres de menu */
+header .btn.btn-primary {
+  background: transparent !important;
+  color: #1a2a3a !important;
+  border: 1px solid rgba(0,0,0,0.25) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  box-shadow: none !important;
+}
+header .btn.btn-primary:hover,
+header .btn.btn-primary.active {
+  background: rgba(255,255,255,0.4) !important;
+  color: #1a2a3a !important;
+  font-weight: 700 !important;
+  border-color: rgba(0,0,0,0.35) !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Fusion visuelle header ↔ dropdown ouvert */
+header.hover-expanded { background: rgba(255, 255, 255, 0.55); box-shadow: none; border: none; }
+.dropdown { box-shadow: none; border: none; }

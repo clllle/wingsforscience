@@ -37,7 +37,7 @@
         '<a href="' + p + 'reportages.html" data-fr="Reportages" data-en="Documentaries">Reportages</a>' +
         '<a href="' + p + 'livres.html" data-fr="Livres" data-en="Books">Livres</a>' +
         '<a href="' + p + 'presse.html" data-fr="Presse" data-en="Press">Presse</a>' +
-        '<a href="' + p + 'actu.html" style="margin-top:8px;padding-top:8px;border-top:1px solid rgba(95,168,211,0.2);" data-fr="Carnet de route" data-en="Logbook">Carnet de route</a>' +
+        '<a href="' + p + 'actu.html" data-fr="Carnet de route" data-en="Logbook">Carnet de route</a>' +
       '</div>' +
     '</div>' +
     '<div class="nav-item">' +
@@ -70,7 +70,7 @@
       '<a href="' + p + 'reportages.html" data-fr="Reportages" data-en="Documentaries">Reportages</a>' +
       '<a href="' + p + 'livres.html" data-fr="Livres" data-en="Books">Livres</a>' +
       '<a href="' + p + 'presse.html" data-fr="Presse" data-en="Press">Presse</a>' +
-      '<a href="' + p + 'actu.html" style="margin-top:8px;padding-top:8px;border-top:1px solid rgba(95,168,211,0.2);" data-fr="Carnet de route" data-en="Logbook">Carnet de route</a>' +
+      '<a href="' + p + 'actu.html" data-fr="Carnet de route" data-en="Logbook">Carnet de route</a>' +
     '</div>' +
     '<div class="mobile-section-title" data-fr="Notre réseau" data-en="Our network">Notre réseau</div>' +
     '<div class="mobile-sub">' +
@@ -89,5 +89,83 @@
   if (headerEl) {
     headerEl.innerHTML = html;
     headerEl.insertAdjacentHTML('afterend', mobileNav);
+    setupMenuInteractions(headerEl);
+    markCurrentPage(headerEl);
+  }
+
+  function markCurrentPage(hdr) {
+    var currentFile = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+    var links = hdr.querySelectorAll('.dropdown a, nav a.btn');
+    links.forEach(function(a) {
+      var href = (a.getAttribute('href') || '').toLowerCase();
+      var hrefFile = href.split('/').pop();
+      if (hrefFile && hrefFile === currentFile) {
+        a.classList.add('active');
+        var parent = a.closest('.nav-item');
+        if (parent) parent.classList.add('current');
+      }
+    });
+  }
+
+  function setupMenuInteractions(hdr) {
+    var items = hdr.querySelectorAll('.nav-item');
+    var pinned = false;
+    var closeTimer = null;
+
+    function clearTimer() {
+      if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
+    }
+
+    function openOnly(item) {
+      clearTimer();
+      items.forEach(function(o) {
+        if (o !== item) o.classList.remove('active-drop');
+      });
+      item.classList.add('active-drop');
+    }
+
+    function closeAll() {
+      clearTimer();
+      items.forEach(function(o) { o.classList.remove('active-drop'); });
+      pinned = false;
+    }
+
+    function scheduleClose() {
+      if (pinned) return;
+      clearTimer();
+      closeTimer = setTimeout(function() {
+        items.forEach(function(o) { o.classList.remove('active-drop'); });
+      }, 200);
+    }
+
+    items.forEach(function(item) {
+      var link = item.querySelector('.nav-link');
+      var drop = item.querySelector('.dropdown');
+
+      item.addEventListener('mouseenter', function() {
+        if (pinned) return;
+        openOnly(item);
+      });
+      item.addEventListener('mouseleave', scheduleClose);
+
+      if (drop) {
+        drop.addEventListener('mouseenter', clearTimer);
+        drop.addEventListener('mouseleave', scheduleClose);
+      }
+
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        var wasPinnedOnThis = item.classList.contains('active-drop') && pinned;
+        closeAll();
+        if (!wasPinnedOnThis) {
+          item.classList.add('active-drop');
+          pinned = true;
+        }
+      });
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!hdr.contains(e.target)) closeAll();
+    });
   }
 })();
