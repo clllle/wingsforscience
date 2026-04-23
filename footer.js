@@ -25,7 +25,7 @@
           '<li><a href="' + p + 'science-environnement.html" data-fr="Science &amp; Environnement" data-en="Science &amp; Environment">Science &amp; Environnement</a></li>' +
           '<li><a href="' + p + 'expeditions.html" data-fr="Expéditions aéronautiques" data-en="Aeronautical Expeditions">Expéditions aéronautiques</a></li>' +
           '<li><a href="' + p + 'sensibilisation.html" data-fr="Sensibilisation" data-en="Public Awareness">Sensibilisation</a></li>' +
-          '<li style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(95,168,211,0.15);"><a href="' + p + 'actu.html" style="color:var(--accent);font-weight:600;" data-fr="Carnet de route" data-en="Logbook">Carnet de route</a></li>' +
+          '<li style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(95,168,211,0.15);"><a href="' + p + 'actu.html" class="footer-link-featured" data-fr="Carnet de route" data-en="Logbook">Carnet de route</a></li>' +
         '</ul>' +
       '</div>' +
       '<div class="footer-col">' +
@@ -34,7 +34,7 @@
           '<li><a href="' + p + 'confondateurs.html" data-fr="Cofondateurs &amp; parrains" data-en="Co-founders &amp; Patrons">Cofondateurs &amp; parrains</a></li>' +
           '<li><a href="' + p + 'equipe.html" data-fr="L\'équipe" data-en="The Team">L\'équipe</a></li>' +
           '<li><a href="' + p + 'partenaires.html" data-fr="Partenaires &amp; sponsors" data-en="Partners &amp; Sponsors">Partenaires &amp; sponsors</a></li>' +
-          '<li style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(95,168,211,0.15);"><a href="' + p + 'contact.html" style="color:var(--accent);font-weight:600;" data-fr="Contact" data-en="Contact">Contact</a></li>' +
+          '<li style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(95,168,211,0.15);"><a href="' + p + 'contact.html" class="footer-link-featured" data-fr="Contact" data-en="Contact">Contact</a></li>' +
         '</ul>' +
       '</div>' +
     '</div>' +
