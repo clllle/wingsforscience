@@ -59,9 +59,9 @@
   '<div class="mobile-nav" id="mobileNav">' +
     '<div class="mobile-section-title" data-fr="Notre mission" data-en="Our mission">Notre mission</div>' +
     '<div class="mobile-sub">' +
-      '<a href="' + p + 'science-environnement.html" data-fr="Science et Environnement" data-en="Science and Environment">Science et Environnement</a>' +
-      '<a href="' + p + 'expeditions.html" data-fr="Expéditions aéronautiques" data-en="Aeronautical Expeditions">Expéditions aéronautiques</a>' +
-      '<a href="' + p + 'sensibilisation.html" data-fr="Sensibilisation" data-en="Public Awareness">Sensibilisation</a>' +
+      '<a href="' + p + 'science-environnement.html" data-fr="Appuyer la Science et l\'Environnement" data-en="Supporting Science and the Environment">Appuyer la Science et l\'Environnement</a>' +
+      '<a href="' + p + 'expeditions.html" data-fr="Par des Expéditions aéronautiques" data-en="Through Aeronautical Expeditions">Par des Expéditions aéronautiques</a>' +
+      '<a href="' + p + 'sensibilisation.html" data-fr="Et de la sensibilisation" data-en="And Public Awareness">Et de la sensibilisation</a>' +
     '</div>' +
     '<div class="mobile-section-title" data-fr="Nos actions" data-en="Our actions">Nos actions</div>' +
     '<div class="mobile-sub">' +
@@ -74,9 +74,9 @@
     '</div>' +
     '<div class="mobile-section-title" data-fr="Notre réseau" data-en="Our network">Notre réseau</div>' +
     '<div class="mobile-sub">' +
-      '<a href="' + p + 'confondateurs.html" data-fr="Cofondateurs et parrains" data-en="Co-founders and Patrons">Cofondateurs et parrains</a>' +
+      '<a href="' + p + 'confondateurs.html" data-fr="Les cofondateurs et parrains" data-en="Co-founders and Patrons">Les cofondateurs et parrains</a>' +
       '<a href="' + p + 'equipe.html" data-fr="L\'équipe" data-en="The Team">L\'équipe</a>' +
-      '<a href="' + p + 'partenaires.html" data-fr="Partenaires et sponsors" data-en="Partners and Sponsors">Partenaires et sponsors</a>' +
+      '<a href="' + p + 'partenaires.html" data-fr="Les partenaires et sponsors" data-en="Partners and Sponsors">Les partenaires et sponsors</a>' +
     '</div>' +
     '<a href="' + p + 'contact.html" data-fr="Contact" data-en="Contact">Contact</a>' +
     '<div class="mobile-lang">' +

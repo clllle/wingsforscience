@@ -7,16 +7,16 @@
       '<div class="footer-top">' +
         '<div class="footer-brand">' +
           '<a class="logo-wrap" href="' + p + 'index.html"><img src="' + p + 'images/logo_wfs.webp" alt="Logo"><div class="logo-text"><span data-fr="Des Ailes pour la Science" data-en="Wings for Science">Des Ailes pour la Science</span></div></a>' +
-          '<p data-fr="Association à but non lucratif œuvrant pour la science et la protection de l\'environnement depuis 2008." data-en="Non-profit association working for science and environmental protection since 2008.">Association à but non lucratif œuvrant pour la science et la protection de l\'environnement depuis 2008.</p>' +
+          '<p class="footer-tagline" data-fr="Association à but non lucratif depuis 2008." data-en="Non-profit association since 2008.">Association à but non lucratif depuis 2008.</p>' +
         '</div>' +
-        '<div class="footer-mission">' +
-          '<div class="footer-mission-label" data-fr="Notre mission" data-en="Our mission">Notre mission</div>' +
-          '<p class="footer-mission-phrase" ' +
-            'data-fr="Aider la &lt;a href=&quot;' + p + 'science-environnement.html&quot;&gt;science et l\'environnement&lt;/a&gt;, par des &lt;a href=&quot;' + p + 'expeditions.html&quot;&gt;expéditions aéronautiques&lt;/a&gt; et des actions de &lt;a href=&quot;' + p + 'sensibilisation.html&quot;&gt;sensibilisation&lt;/a&gt;." ' +
-            'data-en="Helping &lt;a href=&quot;' + p + 'science-environnement.html&quot;&gt;science and the environment&lt;/a&gt;, through &lt;a href=&quot;' + p + 'expeditions.html&quot;&gt;aeronautical expeditions&lt;/a&gt; and &lt;a href=&quot;' + p + 'sensibilisation.html&quot;&gt;public awareness&lt;/a&gt; actions.">' +
-            'Aider la <a href="' + p + 'science-environnement.html">science et l\'environnement</a>, par des <a href="' + p + 'expeditions.html">expéditions aéronautiques</a> et des actions de <a href="' + p + 'sensibilisation.html">sensibilisation</a>.' +
-          '</p>' +
-        '</div>' +
+        '<p class="footer-mission-phrase">' +
+          '<span class="footer-mission-label" data-fr="Notre mission :" data-en="Our mission:">Notre mission :</span> ' +
+          '<a href="' + p + 'science-environnement.html" data-fr="Aider la science et l\'environnement" data-en="Helping science and the environment">Aider la science et l\'environnement</a>' +
+          '<span class="footer-mission-sep">·</span>' +
+          '<a href="' + p + 'expeditions.html" data-fr="par des expéditions aéronautiques" data-en="through aeronautical expeditions">par des expéditions aéronautiques</a>' +
+          '<span class="footer-mission-sep">·</span>' +
+          '<a href="' + p + 'sensibilisation.html" data-fr="et des actions de sensibilisation" data-en="and public awareness actions">et des actions de sensibilisation</a>' +
+        '</p>' +
       '</div>' +
       '<div class="footer-cols">' +
         '<div class="footer-col">' +
@@ -43,7 +43,6 @@
           '<ul>' +
             '<li><a href="' + p + 'contact.html" class="footer-link-featured" data-fr="Nous écrire" data-en="Get in touch">Nous écrire</a></li>' +
           '</ul>' +
-          '<address class="footer-address" data-fr="Maison des associations<br>38 bd Henri IV<br>75004 Paris" data-en="Maison des associations<br>38 bd Henri IV<br>75004 Paris, France">Maison des associations<br>38 bd Henri IV<br>75004 Paris</address>' +
         '</div>' +
       '</div>' +
     '</div>' +
