@@ -23,10 +23,20 @@
   }
 
   function initLang() {
+    // Priorité : ?lang=xx dans l'URL (visiteur arrivant via redirection .fr→.com?lang=fr)
+    // > choix utilisateur sauvegardé en localStorage
+    // > défaut selon hostname (.com → en, sinon → fr)
+    var urlMatch = location.search.match(/[?&]lang=(fr|en)\b/);
+    var urlLang = urlMatch ? urlMatch[1] : null;
+
     var saved;
     try { saved = localStorage.getItem(STORAGE_KEY); } catch(e) {}
+
+    var hostDefault = location.hostname.endsWith('.com') ? 'en' : 'fr';
+
+    var lang = urlLang || saved || hostDefault;
     // window.setLang plutôt que setLang local : respecte les overrides de pages (ex campagne-scientifique)
-    (window.setLang || setLang)(saved || 'fr');
+    (window.setLang || setLang)(lang);
   }
 
   window.setLang = setLang;
