@@ -122,11 +122,21 @@
     pointer-events: none;
   }
 
+  /* Sur tous écrans : si .duo-half a la classe .is-open (toggle au clic), même rendu que le hover */
+  .duo-half.is-open::before {
+    background: linear-gradient(0deg, rgba(13,37,64,0.95) 0%, rgba(13,37,64,0.6) 40%, rgba(13,37,64,0.1) 100%);
+  }
+  .duo-half.is-open img { transform: scale(1.05); }
+  .duo-half.is-open .duo-name { color: var(--accent); }
+  .duo-half.is-open .duo-bio { max-height: 500px; opacity: 1; }
+
   @media(max-width:768px) {
     .cofounders-duo { grid-template-columns: 1fr; min-height: auto; }
     .cofounders-duo::after { display: none; }
     .duo-half img { min-height: 400px; }
-    .duo-half .duo-bio { max-height: 500px; opacity: 1; }
+    /* Mobile : la bio reste cachée par défaut, révélée uniquement quand on tape sur la photo (.is-open) */
+    .duo-half .duo-bio { max-height: 0; opacity: 0; }
+    .duo-half.is-open .duo-bio { max-height: 500px; opacity: 1; }
     .patron-card { grid-template-columns: 1fr; }
     .patron-card img { max-height: 300px; }
   }
@@ -224,5 +234,40 @@
 <script src="footer.js"></script>
 <script src="lang.js"></script>
 <script src="shared.js"></script>
+<script>
+// Toggle bio au clic (utile en mobile où :hover n'existe pas, et en complément sur desktop)
+(function() {
+  document.querySelectorAll('.duo-half').forEach(function(half) {
+    half.addEventListener('click', function() {
+      var wasOpen = half.classList.contains('is-open');
+      // Ferme tous les autres ouverts (un seul à la fois)
+      document.querySelectorAll('.duo-half.is-open').forEach(function(h) {
+        h.classList.remove('is-open');
+      });
+      if (!wasOpen) half.classList.add('is-open');
+    });
+  });
+  // Adapte le hint "Survolez" → "Tapez" sur mobile
+  function updateHints() {
+    var isMobile = window.matchMedia('(max-width: 768px)').matches;
+    document.querySelectorAll('.duo-hint').forEach(function(h) {
+      if (isMobile) {
+        h.setAttribute('data-fr', 'Tapez pour découvrir');
+        h.setAttribute('data-en', 'Tap to discover');
+      } else {
+        h.setAttribute('data-fr', 'Survolez pour découvrir');
+        h.setAttribute('data-en', 'Hover to discover');
+      }
+      var lang = window.currentLang || document.documentElement.lang || 'fr';
+      h.textContent = h.getAttribute('data-' + lang);
+    });
+  }
+  updateHints();
+  window.addEventListener('resize', updateHints);
+  // Si la langue change après init, on met à jour aussi
+  var origSetLang = window.setLang;
+  window.setLang = function(lang) { if (origSetLang) origSetLang(lang); updateHints(); };
+})();
+</script>
 </body>
 </html>
