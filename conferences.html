@@ -54,6 +54,12 @@
       .conf-dots{position:absolute;bottom:10px;left:0;right:0;text-align:center;z-index:3;}
       .conf-dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,0.3);margin:0 4px;cursor:pointer;transition:background 0.3s,transform 0.3s;border:1px solid rgba(255,255,255,0.15);}
       .conf-dot.active{background:#fff;transform:scale(1.3);}
+      @media(max-width:700px){
+        .conf-carousel{aspect-ratio:auto;height:60vh;min-height:360px;max-height:520px;}
+        .conf-caption{padding:14px 18px;}
+        .conf-caption-loc{font-size:14px;}
+        .conf-btn{width:42px;height:42px;font-size:18px;}
+      }
     </style>
     <div class="conf-carousel" id="confCarousel">
       <div class="conf-slide active"><img src="images/55 enfants tobalaba.webp" alt="55 enfants, Tobalaba, Chili"><div class="conf-caption"><div class="conf-caption-loc" data-fr="Tobalaba, Chili" data-en="Tobalaba, Chile">Tobalaba, Chili</div></div></div>

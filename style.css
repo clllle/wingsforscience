@@ -1010,6 +1010,17 @@ footer { margin-top: auto; }
 
   :root { --nav-h: 64px; }
 
+  /* Header compact pour éviter le débordement du bouton FR */
+  header { padding: 0 12px; gap: 8px; }
+  .logo-wrap { gap: 8px; }
+  .logo-wrap img { width: 38px; height: 38px; }
+  .logo-text .en { font-size: 12px; }
+  .logo-text .fr { font-size: 9px; }
+  .logo-text span { font-size: 13px; padding: 3px 6px; }
+  .hamburger { width: 32px; height: 32px; }
+  .hamburger span { width: 20px; }
+  .lang-toggle { padding: 5px 10px; font-size: 11px; letter-spacing: 0.04em; }
+
   /* Hero */
   .hero { height: 100svh; min-height: 500px; }
   .hero-content { padding: 0 20px; max-width: 100%; }
@@ -1156,10 +1167,20 @@ footer { margin-top: auto; }
 /* (hero and hero-content defined in HOMEPAGE SPECIFIC STYLES above) */
 
 @media (max-width: 600px) {
-  
-  .slide-arrow { display: none; }
+
   .hero-content { padding: 0 20px; }
-  .slide-dots { bottom: 20px; }
+  /* Flèches blanches affichées et bullets masqués sur mobile pour éviter le débordement */
+  .slide-dots { display: none; }
+  .slide-arrow {
+    display: flex;
+    width: 38px; height: 38px;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.35);
+    color: #fff;
+    font-size: 16px;
+  }
+  .slide-prev { left: 10px; }
+  .slide-next { right: 10px; }
 }
 
 /* ── SLIDE INFO PANEL ── */
