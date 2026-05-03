@@ -34,10 +34,10 @@
             '<li><a href="' + p + 'partenaires.html" data-fr="Partenaires &amp; sponsors" data-en="Partners &amp; Sponsors">Partenaires &amp; sponsors</a></li>' +
           '</ul>' +
         '</div>' +
-      '</div>' +
-      '<div class="footer-cols footer-cols-secondary">' +
-        '<a class="footer-col-title-link" href="' + p + 'contact.html" data-fr="Contact" data-en="Contact">Contact</a>' +
-        '<a class="footer-col-title-link" href="' + p + 'actu.html" data-fr="Carnet de route" data-en="Logbook">Carnet de route</a>' +
+        '<div class="footer-col footer-col-shortcuts">' +
+          '<a class="footer-col-title-link" href="' + p + 'contact.html" data-fr="Contact" data-en="Contact">Contact</a>' +
+          '<a class="footer-col-title-link" href="' + p + 'actu.html" data-fr="Carnet de route" data-en="Logbook">Carnet de route</a>' +
+        '</div>' +
       '</div>' +
     '</div>' +
     '<div class="footer-bottom">' +
