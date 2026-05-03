@@ -41,7 +41,7 @@
       '</div>' +
     '</div>' +
     '<div class="footer-bottom">' +
-      '<span class="footer-copy" data-fr="© 2026 Clementine Bacri pour Wings for Science" data-en="© 2026 Wings for Science / Des Ailes pour la Science. Non-profit association.">© 2026 Clementine Bacri pour Wings for Science</span>' +
+      '<span class="footer-copy" data-fr="© 2026 Clementine Bacri pour Wings for Science" data-en="© 2026 Clementine Bacri for Wings for Science">© 2026 Clementine Bacri pour Wings for Science</span>' +
     '</div>' +
   '</footer>';
 
