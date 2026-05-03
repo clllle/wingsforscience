@@ -1,8 +1,14 @@
 (function() {
   var STORAGE_KEY = 'wfs_lang';
+  // Flag interne : pendant l'init, on applique la langue sans la persister en localStorage.
+  // Sinon une langue déduite de l'URL (?lang=fr) ou du hostname (.com→en) écraserait
+  // la préférence utilisateur, et la prochaine visite directe garderait cette langue forcée.
+  var _skipPersist = false;
 
   function setLang(lang) {
-    try { localStorage.setItem(STORAGE_KEY, lang); } catch(e) {}
+    if (!_skipPersist) {
+      try { localStorage.setItem(STORAGE_KEY, lang); } catch(e) {}
+    }
     document.documentElement.lang = lang;
 
     // Translate elements with data-fr / data-en, sauf si un descendant a déjà ses propres data-fr (évite d'écraser la traduction des enfants)
@@ -36,7 +42,8 @@
 
     var lang = urlLang || saved || hostDefault;
     // window.setLang plutôt que setLang local : respecte les overrides de pages (ex campagne-scientifique)
-    (window.setLang || setLang)(lang);
+    _skipPersist = true;
+    try { (window.setLang || setLang)(lang); } finally { _skipPersist = false; }
   }
 
   window.setLang = setLang;
