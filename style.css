@@ -642,7 +642,7 @@ footer { margin-top: auto; }
 }
 .footer-mission-list {
   list-style: none;
-  padding: 0; margin: 18px 0 0;
+  padding: 0; margin: 8px 0 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
@@ -658,7 +658,7 @@ footer { margin-top: auto; }
 }
 .footer-col-shortcuts {
   display: flex; flex-direction: column;
-  gap: 14px; align-items: flex-start;
+  gap: 32px; align-items: flex-start;
 }
 .footer-brand p { font-size: 13px; line-height: 1.8; color: var(--text-muted); margin-top: 12px; }
 .footer-brand .logo-text span { color: var(--accent) !important; padding: 0 !important; background: transparent !important; }
