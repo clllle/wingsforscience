@@ -125,7 +125,7 @@
       <div class="series-header">
         <div>
           <div class="section-tag" data-fr="Web-série — 9 épisodes" data-en="Web series — 9 episodes">Web-série — 9 épisodes</div>
-          <h2 class="section-heading" data-fr="Les Chercheurs du bout du monde" data-en="Researchers from the ends of the earth">Les Chercheurs du bout du monde</h2>
+          <h2 class="section-heading" data-fr="Les Chercheurs du bout du monde" data-en="Scientists at the End of the World">Les Chercheurs du bout du monde</h2>
           <p class="series-desc" data-fr="Des scientifiques racontent leur métier, filmés en plein travail dans des décors naturels à couper le souffle. Pour donner envie aux jeunes d'explorer, de comprendre et de protéger notre planète." data-en="Scientists tell us about their work, filmed on location in breathtaking natural settings. Inspiring young people to explore, understand and protect our planet.">Des scientifiques racontent leur métier, filmés en plein travail dans des décors naturels à couper le souffle. Pour donner envie aux jeunes d'explorer, de comprendre et de protéger notre planète.</p>
         </div>
         <div class="series-count"><span data-fr="9 épisodes · ~9 min" data-en="9 episodes · ~9 min">9 épisodes · ~9 min</span></div>
@@ -247,7 +247,7 @@
       <div class="series-header">
         <div>
           <div class="section-tag" data-fr="Web-série — 9 épisodes" data-en="Web series — 9 episodes">Web-série — 9 épisodes</div>
-          <h2 class="section-heading" data-fr="On a survolé la Terre" data-en="We flew over the Earth">On a survolé la Terre</h2>
+          <h2 class="section-heading" data-fr="On a survolé la Terre" data-en="We Flew Over the Earth">On a survolé la Terre</h2>
           <p class="series-desc" data-fr="Des images aériennes à couper le souffle de chaque zone géographique survolée, avec un message inspirant et éducatif sur l'environnement et les enjeux locaux." data-en="Breathtaking aerial footage from every region we flew over, with an inspiring and educational message about the environment and local challenges.">Des images aériennes à couper le souffle de chaque zone géographique survolée, avec un message inspirant et éducatif sur l'environnement et les enjeux locaux.</p>
         </div>
         <div class="series-count"><span data-fr="9 épisodes · ~9 min" data-en="9 episodes · ~9 min">9 épisodes · ~9 min</span></div>
@@ -318,7 +318,78 @@
 <script src="footer.js"></script>
 
 <script>
+// Traductions FR→EN des titres et séries (appliquées via data-fr/data-en avant lang.js)
+(function() {
+  var seriesTrad = window._reportageSeriesTrad = {
+    "Les Chercheurs du bout du monde": "Scientists at the End of the World",
+    "Les Expéditions scientifiques": "Scientific Expeditions",
+    "On a survolé la Terre": "We Flew Over the Earth"
+  };
+  var titleTrad = window._reportageTitleTrad = {
+    // Saison 1 — Les Chercheurs du bout du monde
+    "Les prairies de Posidonies — biologiste en Grèce": "Posidonia meadows — biologist in Greece",
+    "Au cœur des pierres — archéologue en Jordanie": "In the heart of stones — archaeologist in Jordan",
+    "Gardien des étoiles — astronome au Chili": "Guardian of the stars — astronomer in Chile",
+    "Sous les vagues de Thaïlande — biologiste marine": "Beneath Thai waves — marine biologist",
+    "Sur les traces des dinosaures — paléontologue en Australie": "On the trail of dinosaurs — palaeontologist in Australia",
+    "Dans le ventre de la Terre — spéléologue en Nouvelle-Zélande": "Into the belly of the Earth — speleologist in New Zealand",
+    "À la rencontre des baleines — biologiste au Canada": "Meeting the whales — biologist in Canada",
+    "Le monde des oiseaux — ornithologue en Islande": "The world of birds — ornithologist in Iceland",
+    "Les secrets de Caral — archéologue au Pérou": "The secrets of Caral — archaeologist in Peru",
+    // Saison 2 — Les Expéditions scientifiques
+    "À la rescousse des géants des mers — Canada": "To the rescue of the ocean giants — Canada",
+    "L'eau qui tombe du ciel pour sauver des vies — Chili": "Water from the sky saving lives — Chile",
+    "Sous les vagues grecques, un trésor invisible": "Beneath Greek waves, an invisible treasure",
+    "Vivre sur un volcan en fusion — Indonésie": "Living on an erupting volcano — Indonesia",
+    "L'île secrète des gazelles — Émirats": "The secret island of the gazelles — UAE",
+    "Les manchots face à l'océan — Australie": "Penguins facing the ocean — Australia",
+    "Les pierres précieuses des aborigènes — Australie": "The precious stones of the Aboriginals — Australia",
+    "Les cités englouties par le désert — Jordanie": "Cities swallowed by the desert — Jordan",
+    "Caral, la civilisation oubliée — Pérou": "Caral, the forgotten civilisation — Peru",
+    // Saison 3 — On a survolé la Terre
+    "Là où la glace et le feu se rencontrent": "Where ice and fire meet",
+    "L'infini du désert vu du ciel": "The infinity of the desert from above",
+    "Les canyons rouges du bout du monde": "The red canyons at the end of the world",
+    "Survoler des volcans en fusion": "Flying over erupting volcanoes",
+    "Le désert le plus hostile de la planète": "The most hostile desert on the planet",
+    "Le cœur brûlant d'un continent": "The burning heart of a continent",
+    "La mer la plus menacée du monde": "The most threatened sea in the world",
+    "La forêt qui sauve la planète": "The forest that saves the planet",
+    "Dans les secrets du peuple aborigène": "Inside the secrets of the Aboriginal people"
+  };
+  function applyTrad() {
+    document.querySelectorAll('.video-card').forEach(function(card) {
+      var sEl = card.querySelector('.video-series');
+      var tEl = card.querySelector('.video-title');
+      if (sEl) {
+        var s = sEl.textContent.trim();
+        if (seriesTrad[s] && !sEl.hasAttribute('data-fr')) {
+          sEl.setAttribute('data-fr', s);
+          sEl.setAttribute('data-en', seriesTrad[s]);
+        }
+      }
+      if (tEl) {
+        var t = tEl.textContent.trim();
+        if (titleTrad[t] && !tEl.hasAttribute('data-fr')) {
+          tEl.setAttribute('data-fr', t);
+          tEl.setAttribute('data-en', titleTrad[t]);
+        }
+      }
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', applyTrad);
+  } else {
+    applyTrad();
+  }
+})();
+
 function openModal(src,series,title){
+  // Si la langue courante est EN, traduire les libellés (les onclick passent les versions FR par défaut)
+  if (window.currentLang === 'en') {
+    if (window._reportageSeriesTrad && window._reportageSeriesTrad[series]) series = window._reportageSeriesTrad[series];
+    if (window._reportageTitleTrad && window._reportageTitleTrad[title]) title = window._reportageTitleTrad[title];
+  }
   document.getElementById('modalSeries').textContent=series;
   document.getElementById('modalTitle').textContent=title;
   // Ajouter les paramètres YouTube pour un embed minimal
