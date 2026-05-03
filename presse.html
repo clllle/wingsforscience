@@ -19,12 +19,30 @@
   <link rel="stylesheet" href="style.css">
   <style>
     @media(max-width:700px){
+      /* Boutons rapatriés à l'intérieur du cadre */
       .press-carousel button[onclick^="pressNav"]{
         left:auto !important;right:auto !important;
         background:rgba(0,0,0,0.55) !important;border:1px solid rgba(255,255,255,0.25) !important;color:#fff !important;
       }
       .press-carousel button[onclick="pressNav(-1)"]{left:8px !important;}
       .press-carousel button[onclick="pressNav(1)"]{right:8px !important;}
+      /* Vidéo TV en pleine largeur (cohérent avec les autres carrousels) */
+      .press-carousel{
+        max-width:none !important;
+        width:100vw !important;
+        margin-left:50% !important;
+        margin-right:0 !important;
+        transform:translateX(-50%);
+      }
+      .press-carousel-main{border-radius:0 !important;}
+      /* Icones décoratifs (TV/presse/radio) réduits ou cachés pour libérer la largeur des titres */
+      .content-section img[src*="icon_tv"],
+      .content-section img[src*="icon_presse"],
+      .content-section img[src*="icon_radio"]{
+        width:70px !important;
+      }
+      /* Nuage de texte "presse en parle" prend toute la largeur dispo */
+      #textCloud{max-width:none !important;}
     }
   </style>
 </head>

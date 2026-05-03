@@ -107,6 +107,72 @@
     .pub-badge.volc{background:rgba(200,100,80,0.2);color:#e0a090;border:1px solid rgba(200,100,80,0.3);}
     .pub-badge.marine{background:rgba(95,168,211,0.2);color:#7fc4eb;border:1px solid rgba(95,168,211,0.3);}
     .pub-badge.geo{background:rgba(200,169,110,0.2);color:#d4b87a;border:1px solid rgba(200,169,110,0.3);}
+
+    /* ── TABLEAU MISSIONS RESPONSIVE : cartes verticales sur mobile ── */
+    @media (max-width: 700px) {
+      /* Boutons de scroll vertical externes : sans objet en mode cartes */
+      #missionsPanel + div { display: none !important; }
+      #missionsPanel {
+        max-height: none !important;
+        overflow: visible !important;
+        border: none !important;
+      }
+      .missions-table { display: block; width: 100%; }
+      .missions-table thead { display: none; }
+      .missions-table tbody { display: block; }
+      .missions-table tbody tr {
+        display: block;
+        background: rgba(14,26,40,0.4);
+        border: 1px solid rgba(95,168,211,0.15) !important;
+        border-left: 3px solid rgba(95,168,211,0.4) !important;
+        border-radius: 6px;
+        padding: 14px 16px;
+        margin-bottom: 10px;
+      }
+      .missions-table tbody tr.mission-active {
+        border-left-color: var(--accent) !important;
+        background: rgba(95,168,211,0.08) !important;
+      }
+      .missions-table td {
+        display: block;
+        width: 100%;
+        padding: 3px 0 !important;
+        border: none !important;
+        white-space: normal !important;
+        line-height: 1.5;
+      }
+      .missions-table td:first-child { white-space: normal !important; }
+      .missions-table .col-periode {
+        font-size: 10px; font-weight: 700;
+        letter-spacing: 0.1em; text-transform: uppercase;
+        color: var(--accent);
+        padding-bottom: 4px !important;
+      }
+      .missions-table .col-lieu {
+        font-size: 14px; color: var(--off-white);
+        padding-bottom: 6px !important;
+      }
+      .missions-table .col-lieu strong { color: var(--off-white); }
+      .missions-table .col-country {
+        font-size: 12px; color: var(--text-muted); font-weight: 400;
+      }
+      .missions-table td:nth-child(3),
+      .missions-table td:nth-child(4),
+      .missions-table td:nth-child(5) {
+        font-size: 12px; color: var(--text-muted);
+        padding-top: 4px !important;
+      }
+      .missions-table td:nth-child(n+3):not(:empty)::before {
+        display: block;
+        font-size: 9px; font-weight: 700;
+        letter-spacing: 0.1em; text-transform: uppercase;
+        color: var(--accent); opacity: 0.75;
+        margin-top: 2px; margin-bottom: 2px;
+      }
+      .missions-table td:nth-child(3)::before { content: attr(data-label-partenaire); }
+      .missions-table td:nth-child(4)::before { content: attr(data-label-mission); }
+      .missions-table td:nth-child(5)::before { content: attr(data-label-objectif); }
+    }
   </style>
 </head>
 <body>
@@ -253,15 +319,19 @@
   function buildTable() {
     var tbody = document.getElementById('missionsTbody');
     if (!tbody) return;
+    var lang = window.currentLang || 'fr';
+    var labels = lang === 'en'
+      ? { partenaire: 'Partner', mission: 'Mission', objectif: 'Objective' }
+      : { partenaire: 'Partenaire', mission: 'Mission', objectif: 'Objectif' };
     var out = '';
     missions.forEach(function(m) {
       var flag = COUNTRY_FLAGS[m.country] || '';
       out += '<tr>'
         + '<td class="col-periode">' + pickField(m, 'periode') + '</td>'
         + '<td class="col-lieu"><strong>' + pickField(m, 'name') + '</strong><br><span class="col-country">' + flag + ' ' + pickField(m, 'country') + '</span></td>'
-        + '<td>' + pickField(m, 'institution') + '</td>'
-        + '<td>' + pickField(m, 'mission') + '</td>'
-        + '<td>' + pickField(m, 'objectif') + '</td>'
+        + '<td data-label-partenaire="' + labels.partenaire + '">' + pickField(m, 'institution') + '</td>'
+        + '<td data-label-mission="' + labels.mission + '">' + pickField(m, 'mission') + '</td>'
+        + '<td data-label-objectif="' + labels.objectif + '">' + pickField(m, 'objectif') + '</td>'
         + '</tr>';
     });
     tbody.innerHTML = out;

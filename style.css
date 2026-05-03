@@ -186,7 +186,7 @@
 /* ── PROTECTION OVERFLOW (mobile safety net) ── */
 img, video, iframe, svg { max-width: 100%; height: auto; }
 table, pre { max-width: 100%; overflow-x: auto; }
-body { overflow-wrap: break-word; }
+body { overflow-wrap: break-word; overflow-x: hidden; }
 
 :root {
   --sky: #1a2a3a;
