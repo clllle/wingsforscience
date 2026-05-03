@@ -8,11 +8,13 @@
         '<div class="footer-brand">' +
           '<a class="logo-wrap" href="' + p + 'index.html"><img src="' + p + 'images/logo_wfs.webp" alt="Logo"><div class="logo-text"><span data-fr="Des Ailes pour la Science" data-en="Wings for Science">Des Ailes pour la Science</span></div></a>' +
           '<p class="footer-tagline" data-fr="Association à but non lucratif fondée en 2008, dont la mission est :" data-en="Non-profit association founded in 2008, whose mission is to:">Association à but non lucratif fondée en 2008, dont la mission est :</p>' +
-          '<ul class="footer-mission-list">' +
-            '<li><a href="' + p + 'science-environnement.html" data-fr="Aider la science et l\'environnement" data-en="Help science and the environment">Aider la science et l\'environnement</a></li>' +
-            '<li><a href="' + p + 'expeditions.html" data-fr="Par des expéditions aéronautiques" data-en="Through aeronautical expeditions">Par des expéditions aéronautiques</a></li>' +
-            '<li><a href="' + p + 'sensibilisation.html" data-fr="Et des actions de sensibilisation" data-en="And public awareness actions">Et des actions de sensibilisation</a></li>' +
-          '</ul>' +
+          '<div class="footer-mission-line">' +
+            '<a href="' + p + 'science-environnement.html" data-fr="Aider la science et l\'environnement" data-en="Help science and the environment">Aider la science et l\'environnement</a>' +
+            '<span class="footer-mission-sep" aria-hidden="true">•</span>' +
+            '<a href="' + p + 'expeditions.html" data-fr="Par des expéditions aéronautiques" data-en="Through aeronautical expeditions">Par des expéditions aéronautiques</a>' +
+            '<span class="footer-mission-sep" aria-hidden="true">•</span>' +
+            '<a href="' + p + 'sensibilisation.html" data-fr="Et des actions de sensibilisation" data-en="And public awareness actions">Et des actions de sensibilisation</a>' +
+          '</div>' +
         '</div>' +
       '</div>' +
       '<div class="footer-cols">' +

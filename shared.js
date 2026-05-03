@@ -1,5 +1,18 @@
 /* ── Wings for Science — Shared JS ── */
 
+/* Désinscrit tout Service Worker hérité (Wix laissait un SW qui servait
+   l'ancien site même après migration GitHub Pages — résiste au hard reload). */
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.getRegistrations().then(function(regs) {
+    for (var i = 0; i < regs.length; i++) regs[i].unregister();
+  }).catch(function() {});
+  if (window.caches && caches.keys) {
+    caches.keys().then(function(keys) {
+      for (var i = 0; i < keys.length; i++) caches.delete(keys[i]);
+    }).catch(function() {});
+  }
+}
+
 /* Mobile menu toggle */
 function toggleMenu() {
   var nav = document.getElementById('mobileNav');
