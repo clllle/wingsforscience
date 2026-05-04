@@ -342,13 +342,15 @@ nav { display: flex; align-items: center; gap: 4px; margin-left: auto; }
 /* ── PAGE HERO ── */
 .page-hero {
   position: relative;
-  height: 60vh; min-height: 400px;
+  height: 80vh; min-height: 520px;
   background-size: cover; background-position: center;
   display: flex; align-items: flex-end;
 }
 .page-hero-overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(10,20,32,0.85) 0%, rgba(10,20,32,0.15) 50%, rgba(10,20,32,0.1) 100%);
+  background:
+    linear-gradient(135deg, rgba(95,168,211,0.07) 0%, transparent 38%, rgba(26,42,58,0.48) 100%),
+    linear-gradient(to top, rgba(10,20,32,0.92) 0%, rgba(10,20,32,0.25) 48%, rgba(10,20,32,0.05) 100%);
 }
 .page-hero-content {
   position: relative;
@@ -1058,7 +1060,7 @@ footer { margin-top: auto; }
   /* Content sections */
   .content-section { padding: 40px 20px; }
   .content-inner { padding: 0; }
-  .page-hero { min-height: 60vh; }
+  .page-hero { height: 72vh; min-height: 480px; }
   .page-hero-content { padding: 30px 20px; }
   .page-hero-title { font-size: clamp(30px, 7vw, 56px); letter-spacing: -0.018em; }
   .breadcrumb { padding: 12px 20px; }
@@ -1137,7 +1139,7 @@ footer { margin-top: auto; }
   .dest-band { display: none; }
 
   /* Page heros */
-  .page-hero { min-height: 50vh; }
+  .page-hero { height: 65vh; min-height: 420px; }
   .page-hero-title { font-size: clamp(28px, 9vw, 48px); letter-spacing: -0.018em; }
   .page-hero-sub { font-size: 14px; }
 
