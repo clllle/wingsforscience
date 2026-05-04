@@ -647,9 +647,10 @@ footer { margin-top: auto; }
   font-size: 10px; font-weight: 700; letter-spacing: 0.2em;
   text-transform: uppercase;
   line-height: 1.8;
+  color: var(--off-white);
 }
 .footer-mission-sep {
-  color: var(--accent); opacity: 0.55;
+  color: var(--off-white); opacity: 0.45;
   margin: 0 22px;
   font-size: 14px;
   user-select: none;
@@ -697,13 +698,13 @@ footer { margin-top: auto; }
 }
 .footer-mission-line a {
   display: inline-block;
-  color: var(--accent);
+  color: var(--off-white);
   text-decoration: none;
   transition: color 0.2s, text-shadow 0.2s;
 }
 .footer-mission-line a:hover {
-  color: #a7dcf5;
-  text-shadow: 0 0 12px rgba(95,168,211,0.5);
+  color: var(--accent);
+  text-shadow: 0 0 12px rgba(95,168,211,0.4);
 }
 .footer-col ul li a.footer-link-featured {
   color: var(--accent);
