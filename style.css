@@ -1442,29 +1442,6 @@ footer { margin-top: auto; }
   border: 1px solid rgba(95,168,211,0.2);
 }
 
-/* ── SKIP LINK (Accessibility) ── */
-.skip-link {
-  position: fixed;
-  top: -200px;
-  left: 16px;
-  z-index: 9999;
-  background: var(--accent);
-  color: #fff;
-  padding: 12px 24px;
-  border-radius: 0 0 6px 6px;
-  font-weight: 600;
-  font-size: 14px;
-  text-decoration: none;
-  transition: top 0.3s;
-  clip: rect(0,0,0,0);
-  overflow: hidden;
-}
-.skip-link:focus {
-  top: 0;
-  clip: auto;
-  overflow: visible;
-}
-
 /* ── BACK TO TOP BUTTON ── */
 .back-to-top {
   position: fixed;
