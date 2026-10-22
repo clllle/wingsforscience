@@ -1619,3 +1619,14 @@ header.hover-expanded { background: rgba(255, 255, 255, 0.55); box-shadow: none;
   header .nav-item.current > .nav-link .chevron { color: var(--accent); }
 }
 
+
+/* ── MOBILE : aucune section ne doit élargir la page (évite le « dézoom » sur téléphone) ── */
+body > * { min-width: 0; }
+.content-section, .content-inner { min-width: 0; }
+.content-section { width: 100%; } /* marges auto dans le body en colonne : sans ça la section prend la largeur de son contenu */
+body { overflow-x: clip; }
+@media (max-width: 700px) {
+  /* Flèches des citations (accueil) ramenées à l'intérieur du cadre */
+  .quote-arrow.quote-prev { left: 4px !important; }
+  .quote-arrow.quote-next { right: 4px !important; }
+}
