@@ -17,7 +17,7 @@
   <link rel="canonical" href="https://clllle.github.io/wingsforscience/campagne-scientifique.html">
   <link rel="preload" as="font" type="font/woff2" href="fonts/raleway-400-latin.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="fonts/merriweather-300-latin.woff2" crossorigin>
-  <link rel="stylesheet" href="style.css?v=20261022c">
+  <link rel="stylesheet" href="style.css?v=20261022d">
   <style>
     /* ── DOC CARDS ── */
     .doc-grid {
@@ -227,8 +227,8 @@
     3: 'Expédition en amphibie Super Pétrel'
   };
 
-  var tileClean = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-    attribution: '© OpenStreetMap © CARTO', subdomains: 'abcd', maxZoom: 19
+  var tileClean = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors', maxZoom: 19
   });
 
   var map = L.map('wfsMissionsMap', {
