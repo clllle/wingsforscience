@@ -1630,3 +1630,14 @@ body { overflow-x: clip; }
   .quote-arrow.quote-prev { left: 4px !important; }
   .quote-arrow.quote-next { right: 4px !important; }
 }
+
+/* ── Accueil « Nos actions » : 5 tuiles sans trou (2 grandes + 3) ── */
+.actions-grid:has(> .action-tile:nth-child(5):last-child) { grid-template-columns: repeat(6, 1fr); }
+.actions-grid:has(> .action-tile:nth-child(5):last-child) > .action-tile { grid-column: span 2; }
+.actions-grid:has(> .action-tile:nth-child(5):last-child) > .action-tile:nth-child(-n+2) { grid-column: span 3; aspect-ratio: 16/9; }
+@media (max-width: 960px) {
+  .actions-grid:has(> .action-tile:nth-child(5):last-child) { grid-template-columns: repeat(2, 1fr); }
+  .actions-grid:has(> .action-tile:nth-child(5):last-child) > .action-tile,
+  .actions-grid:has(> .action-tile:nth-child(5):last-child) > .action-tile:nth-child(-n+2) { grid-column: span 1; aspect-ratio: 1; }
+  .actions-grid:has(> .action-tile:nth-child(5):last-child) > .action-tile:first-child { grid-column: 1 / -1; aspect-ratio: 16/9; }
+}
