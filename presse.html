@@ -42,7 +42,7 @@
         width:70px !important;
       }
       /* Nuage de texte "presse en parle" prend toute la largeur dispo */
-      #textCloud{max-width:none !important;}
+      #textCloud{max-width:none !important;padding:24px 14px !important;gap:8px 14px !important;max-height:560px;-webkit-mask-image:linear-gradient(#000 80%,transparent);mask-image:linear-gradient(#000 80%,transparent);}
     }
   </style>
 </head>
@@ -158,6 +158,9 @@
       </div>
     </div>
     <style>
+
+      #textCloud .media-word:hover{opacity:1 !important;transform:translateY(-2px);}
+      #textCloud:hover{border-color:rgba(95,168,211,0.35) !important;}
       #textCloud::before {
         content:"PRESSE PRESS PRENSA STAMPA IMPRENSA PRESSE PRESS PRENSA STAMPA IMPRENSA PRESSE PRESS PRENSA STAMPA IMPRENSA PRESSE PRESS PRENSA STAMPA IMPRENSA PRESSE PRESS PRENSA STAMPA IMPRENSA PRESSE PRESS PRENSA STAMPA IMPRENSA PRESSE PRESS PRENSA STAMPA IMPRENSA PRESSE PRESS PRENSA STAMPA IMPRENSA PRESSE PRESS PRENSA STAMPA IMPRENSA PRESSE PRESS PRENSA STAMPA IMPRENSA PRESSE PRESS PRENSA STAMPA IMPRENSA PRESSE PRESS PRENSA STAMPA IMPRENSA";
         position:absolute;top:0;left:0;right:0;bottom:0;
@@ -294,40 +297,27 @@
         {t:"FRANCE BLEU",s:15,fw:"700",c:"#5fa8d3"}
       ];
       var box = document.getElementById('textCloud');
-      var W = box.clientWidth, H = box.clientHeight;
-      var items = [];
-      words.forEach(function(w){
+      // Mur des médias : noms rangés en lignes centrées, sans chevauchement (remplace le nuage flottant illisible)
+      box.style.height = 'auto';
+      box.style.padding = '36px 28px';
+      box.style.display = 'flex';
+      box.style.flexWrap = 'wrap';
+      box.style.justifyContent = 'center';
+      box.style.alignItems = 'baseline';
+      box.style.gap = '10px 22px';
+      var seen = {};
+      words = words.filter(function(w){ var k = w.t.toUpperCase(); if (seen[k]) return false; seen[k] = 1; return true; });
+      words.forEach(function(w, i){
         var el = document.createElement('span');
+        el.className = 'media-word';
         el.textContent = w.t;
-        el.style.cssText = 'position:absolute;top:0;left:0;white-space:nowrap;pointer-events:none;font-family:Raleway,sans-serif;letter-spacing:0.08em;';
-        el.style.fontSize = w.s + 'px';
+        el.style.cssText = 'position:relative;z-index:1;white-space:nowrap;font-family:Raleway,sans-serif;letter-spacing:0.08em;line-height:1.3;transition:opacity .25s,transform .25s;';
+        el.style.fontSize = Math.max(11, w.s) + 'px';
         el.style.fontWeight = w.fw;
         el.style.color = w.c;
-        el.style.opacity = 0.5 + Math.random() * 0.4;
+        el.style.opacity = w.s >= 18 ? 1 : (w.s >= 14 ? 0.85 : 0.7);
         box.appendChild(el);
-        items.push({
-          el: el,
-          x: Math.random() * (W - 100),
-          y: 20 + Math.random() * (H - 80),
-          vx: (Math.random() - 0.5) * 0.7,
-          vy: (Math.random() - 0.5) * 0.45
-        });
       });
-      function loop(){
-        W = box.clientWidth; H = box.clientHeight;
-        for(var i=0;i<items.length;i++){
-          var p = items[i];
-          p.x += p.vx; p.y += p.vy;
-          var ew = p.el.offsetWidth || 80;
-          if(p.x <= 0 || p.x >= W - ew) p.vx *= -1;
-          if(p.y <= 10 || p.y >= H - 50) p.vy *= -1;
-          p.x = Math.max(0, Math.min(p.x, W - ew));
-          p.y = Math.max(10, Math.min(p.y, H - 50));
-          p.el.style.transform = 'translate('+p.x+'px,'+p.y+'px)';
-        }
-        requestAnimationFrame(loop);
-      }
-      loop();
     })();
     </script>
     <!-- GALERIE PHOTOS INTERVIEWS -->
@@ -431,7 +421,6 @@
             playlist.appendChild(row);
           });
           radioPlay(0);
-          audioEl.pause();
           </script>
         </div>
       </div>
