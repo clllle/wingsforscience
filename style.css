@@ -1573,7 +1573,7 @@ header.hover-expanded { background: rgba(255, 255, 255, 0.55); box-shadow: none;
 
 /* ── MENU ORDINATEUR : boutons uniformes + états survol / sélection ──
    Repos      : pastille blanche quasi opaque, texte bleu nuit
-   Survol     : blanc plein, texte bleu, soulignement bleu, léger relief
+   Survol     : bleu très clair, texte bleu, soulignement bleu, léger relief
    Sélection  : page (ou rubrique) en cours = fond bleu nuit, texte blanc */
 @media (min-width: 961px) {
   header .nav-link,
@@ -1594,9 +1594,9 @@ header.hover-expanded { background: rgba(255, 255, 255, 0.55); box-shadow: none;
   .dropdown a:hover,
   header .lang-toggle:hover,
   header .btn.btn-primary:hover {
-    background: #fff !important;
-    color: #1f6f9f !important;
-    box-shadow: inset 0 -3px 0 var(--accent), 0 3px 10px rgba(13, 28, 43, 0.22) !important;
+    background: #d9ecf7 !important;
+    color: #155a85 !important;
+    box-shadow: inset 0 -3px 0 #3d8fc2, 0 3px 10px rgba(13, 28, 43, 0.25) !important;
     transform: translateY(-1px) !important;
   }
   /* Sélection : page en cours dans le sous-menu, rubrique en cours dans le menu principal */
