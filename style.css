@@ -1641,3 +1641,6 @@ body { overflow-x: clip; }
   .actions-grid:has(> .action-tile:nth-child(5):last-child) > .action-tile:nth-child(-n+2) { grid-column: span 1; aspect-ratio: 1; }
   .actions-grid:has(> .action-tile:nth-child(5):last-child) > .action-tile:first-child { grid-column: 1 / -1; aspect-ratio: 16/9; }
 }
+/* Articles du carnet : corps à pleine largeur disponible, longs liens coupés */
+.post-body { width: 100%; }
+.post-body a { overflow-wrap: anywhere; }
