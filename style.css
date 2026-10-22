@@ -1570,3 +1570,15 @@ header .btn.btn-primary.active {
 /* Fusion visuelle header ↔ dropdown ouvert */
 header.hover-expanded { background: rgba(255, 255, 255, 0.55); box-shadow: none; border: none; }
 .dropdown { box-shadow: none; border: none; }
+
+/* Sous-menu (ordinateur) : fond blanc renforcé sous chaque intitulé pour la lisibilité */
+@media (min-width: 961px) {
+  .dropdown a {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 1px 3px rgba(13, 28, 43, 0.12);
+  }
+  .dropdown a:hover, .dropdown a.active {
+    background: #fff;
+    box-shadow: 0 1px 4px rgba(13, 28, 43, 0.2);
+  }
+}
