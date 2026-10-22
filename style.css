@@ -1619,5 +1619,3 @@ header.hover-expanded { background: rgba(255, 255, 255, 0.55); box-shadow: none;
   header .nav-item.current > .nav-link .chevron { color: var(--accent); }
 }
 
-/* Fond de carte sombre (OpenStreetMap assombri) — remplace CARTO dark_all, désormais soumis à clé */
-.leaflet-tile.tiles-dark, .tiles-dark .leaflet-tile { filter: invert(1) hue-rotate(180deg) brightness(.85) contrast(.9) saturate(.6); }
