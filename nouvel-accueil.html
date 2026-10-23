@@ -85,12 +85,14 @@ em{font-style:italic}
 .diapo.active{opacity:1}
 .diapo img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 9s ease-out}
 .diapo.active img{transform:scale(1)}
-.heros::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,22,34,.55) 0%,rgba(11,22,34,0) 26%,rgba(11,22,34,0) 45%,rgba(11,22,34,.78) 100%);pointer-events:none}
+.heros::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,22,34,.55) 0%,rgba(11,22,34,0) 22%,rgba(11,22,34,.25) 40%,rgba(11,22,34,.85) 100%),linear-gradient(90deg,rgba(11,22,34,.6) 0%,rgba(11,22,34,.35) 45%,rgba(11,22,34,0) 75%);pointer-events:none}
+.heros-texte{text-shadow:0 2px 18px rgba(0,0,0,.55),0 1px 3px rgba(0,0,0,.45)}
+.heros .btn{text-shadow:none}
 .heros-contenu{position:relative;z-index:2;display:flex;align-items:flex-end;justify-content:space-between;gap:40px;flex-wrap:wrap;padding-bottom:64px}
 .heros-texte{max-width:820px}
 .heros .surtitre{margin:0 0 22px;font-size:14px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#fff}
 .heros h1{font-size:clamp(40px,6vw,86px);line-height:1.05;letter-spacing:-.02em;color:#fff}
-.heros h1 em{color:var(--ciel-clair)}
+.heros h1 em{color:#d4ecfa}
 .heros .chapo{margin:28px 0 0;max-width:580px;font-size:clamp(17px,1.5vw,21px);line-height:1.55;color:#fff}
 .heros .actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:36px}
 .legende-diapo{display:flex;flex-direction:column;align-items:flex-end;gap:14px}
