@@ -1,4 +1,8 @@
 #!/usr/bin/env node
+// index.html n'utilise plus style.css depuis la refonte de l'accueil (octobre 2026) :
+// ses styles sont dans son propre <style>. Ce script ne doit plus l'écraser.
+console.log('build-inline.js : désactivé — index.html a ses propres styles depuis la refonte.');
+process.exit(0);
 const fs = require('fs');
 const path = require('path');
 

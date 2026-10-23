@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wings for Science – Des Ailes pour la Science</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wings for Science – Des Ailes pour la Science</title>
   <meta name="description" content="Wings for Science : expéditions aéronautiques au service de la science. Deux ULM sur mesure, 100 000 km et une quarantaine de missions scientifiques.">
   <meta property="og:title" content="Wings for Science - Des Ailes pour la Science">
   <meta property="og:description" content="Association loi 1901 oeuvrant pour la science et l'environnement par des expeditions aeronautiques depuis 2008.">
@@ -20,439 +18,784 @@
   <meta name="twitter:title" content="Wings for Science - Des Ailes pour la Science">
   <meta name="twitter:description" content="Association loi 1901 oeuvrant pour la science et l'environnement par des expeditions aeronautiques depuis 2008.">
   <meta name="twitter:image" content="images/logo_wfs.webp">
-  <link rel="preload" as="image" href="images/wix_import/hero_contact.webp" fetchpriority="high">
-  <link rel="preload" as="font" type="font/woff2" href="fonts/raleway-400-latin.woff2" crossorigin>
-  <link rel="preload" as="font" type="font/woff2" href="fonts/merriweather-300-latin.woff2" crossorigin>
-  <style>@font-face{font-family:'Raleway';font-style:normal;font-weight:300;font-display:swap;src:url('fonts/raleway-300-lat-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Raleway';font-style:normal;font-weight:300;font-display:swap;src:url('fonts/raleway-300-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Raleway';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/raleway-400-lat-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Raleway';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/raleway-400-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Raleway';font-style:normal;font-weight:600;font-display:swap;src:url('fonts/raleway-600-lat-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Raleway';font-style:normal;font-weight:600;font-display:swap;src:url('fonts/raleway-600-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Raleway';font-style:normal;font-weight:700;font-display:swap;src:url('fonts/raleway-700-lat-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Raleway';font-style:normal;font-weight:700;font-display:swap;src:url('fonts/raleway-700-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:300;font-display:swap;src:url('fonts/cormorant-300-lat-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:300;font-display:swap;src:url('fonts/cormorant-300-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/cormorant-400-lat-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/cormorant-400-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:300;font-display:swap;src:url('fonts/cormorant-300i-lat-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:300;font-display:swap;src:url('fonts/cormorant-300i-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:400;font-display:swap;src:url('fonts/cormorant-400i-lat-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:400;font-display:swap;src:url('fonts/cormorant-400i-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Merriweather';font-style:normal;font-weight:300;font-display:swap;src:url('fonts/merriweather-300-lat-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Merriweather';font-style:normal;font-weight:300;font-display:swap;src:url('fonts/merriweather-300-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Merriweather';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/merriweather-400-lat-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Merriweather';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/merriweather-400-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Varela Round';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/varelaround-400-lat-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Varela Round';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/varelaround-400-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}img,video,iframe,svg{max-width:100%;height:auto}table,pre{max-width:100%;overflow-x:auto}body{overflow-wrap:break-word;overflow-x:hidden}:root{--sky:#1a2a3a;--sky-mid:#243447;--sky-light:#2e4460;--accent:#5fa8d3;--accent2:#5fa8d3;--white:#f5f0eb;--off-white:#e8e0d5;--text-muted:#b0b8c4;--gold:#c8a96e;--nav-h:80px}html{scroll-behavior:smooth}body{font-family:'Raleway',sans-serif;background:var(--sky);color:var(--white);min-height:100vh;padding-top:0}.hero,.page-hero{margin-top:0}header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.55);backdrop-filter:blur(8px);height:var(--nav-h);display:flex;align-items:center;padding:0 40px;gap:8px}.logo-wrap{display:flex;align-items:center;gap:14px;text-decoration:none;flex-shrink:0}.logo-wrap img{width:48px;height:48px;object-fit:contain;filter:drop-shadow(0 0 8px rgba(95,168,211,0.3))}.logo-text{display:flex;flex-direction:column;line-height:1.1}.logo-text .en{font-family:'Varela Round',sans-serif;font-size:13px;font-weight:500;letter-spacing:0.06em;color:#2f6b8f;text-transform:none}.logo-text .fr{font-family:'Varela Round',sans-serif;font-size:10px;font-weight:400;letter-spacing:0.04em;color:#5a6778;text-transform:none}.logo-text span{font-family:'Varela Round',sans-serif;font-size:15px;font-weight:500;letter-spacing:0.06em;color:#1a2a3a !important;text-transform:none;padding:4px 10px;border-radius:4px;transition:background 0.2s,font-weight 0.2s}.logo-wrap:hover .logo-text span{color:#1a2a3a !important;font-weight:700;background:rgba(255,255,255,0.4)}nav{display:flex;align-items:center;gap:4px;margin-left:auto}.nav-item{position:relative}.nav-link{display:flex;align-items:center;gap:4px;padding:8px 14px;font-size:11.5px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#1a2a3a;text-decoration:none;border-radius:4px;transition:color 0.2s,background 0.2s,text-decoration-color 0.2s;white-space:nowrap;cursor:pointer}.nav-link:hover,.nav-link.active,.nav-item.active-drop>.nav-link,.nav-item.current>.nav-link{color:#1a2a3a;font-weight:700;background:rgba(255,255,255,0.4);border-radius:4px}.nav-link .chevron{font-size:8px;color:var(--accent);transition:transform 0.2s}.nav-item.active-drop .chevron{transform:rotate(180deg)}.dropdown{position:fixed;left:0;right:0;top:calc(var(--nav-h) + 14px);width:100vw;min-width:0;margin:0;background:rgba(255,255,255,0.55);backdrop-filter:blur(8px);border:none;border-top:1px solid rgba(0,0,0,0.08);border-bottom:1px solid rgba(0,0,0,0.08);border-radius:0;box-shadow:none;padding:14px 40px;box-sizing:border-box;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:4px 28px;opacity:0;pointer-events:none;transform:translateY(-4px);transition:opacity 0.2s,transform 0.2s;z-index:99}.nav-item.active-drop .dropdown{opacity:1;pointer-events:auto;transform:translateY(0)}.dropdown a{position:relative;z-index:201}.dropdown a{display:inline-flex;align-items:center;padding:8px 14px;white-space:nowrap;line-height:1.4;position:relative;z-index:9999;font-size:11.5px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#1a2a3a;text-decoration:none;border-radius:4px;transition:color 0.15s,background 0.15s,text-decoration-color 0.15s}.dropdown a:hover,.dropdown a.active{color:#1a2a3a;font-weight:700;background:rgba(255,255,255,0.4);border-radius:4px}.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border-radius:4px;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;transition:all 0.25s;cursor:pointer;border:1.5px solid transparent}.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(95,168,211,0.25)}.btn:active{transform:translateY(0);box-shadow:none}.btn-primary,.btn-outline{background:transparent;color:var(--white);border:1px solid var(--white)}.btn-primary:hover,.btn-outline:hover{background:rgba(255,255,255,0.2);border-color:var(--accent);color:var(--accent)}.btn-primary:active,.btn-outline:active{background:rgba(255,255,255,0.1);border-color:var(--accent);color:var(--accent)}.section-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(95,168,211,0.3);padding:5px 12px;border-radius:20px;margin-bottom:20px}.page-hero{position:relative;height:80vh;min-height:520px;background-size:cover;background-position:center;display:flex;align-items:flex-end;overflow:hidden}.page-hero-bg-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;filter:contrast(1.2) saturate(1.3) brightness(1.05);z-index:0}.page-hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(135deg,rgba(255,255,255,0.12) 0%,transparent 40%,rgba(10,20,32,0.45) 100%),linear-gradient(to top,rgba(10,20,32,0.92) 0%,rgba(10,20,32,0.25) 48%,rgba(10,20,32,0.05) 100%)}.page-hero-content{position:relative;z-index:2;padding:60px 60px;max-width:900px}.page-hero-title{font-family:'Merriweather',serif;font-size:clamp(36px,5.5vw,76px);font-weight:300;line-height:1.08;letter-spacing:-0.02em;color:var(--white);margin-bottom:16px}.page-hero-title em{font-style:italic;color:var(--accent)}.page-hero-sub{font-family:'Merriweather',serif;font-size:17px;font-weight:300;font-style:italic;letter-spacing:0.005em;line-height:1.55;color:var(--gold);margin-top:10px;margin-bottom:0}.breadcrumb{display:flex;align-items:center;gap:8px;padding:14px 60px;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;background:rgba(8,17,28,0.5);border-bottom:1px solid rgba(95,168,211,0.07)}.breadcrumb a{color:var(--text-muted);text-decoration:none;transition:color 0.2s}.breadcrumb a:hover{color:var(--accent)}.breadcrumb .sep{color:rgba(176,184,196,0.3)}.breadcrumb .current{color:var(--accent)}.content-section{padding:80px 60px;max-width:1200px;margin:0 auto}.content-inner{width:100%}.content-inner.narrow{max-width:740px;margin:0 auto}.lead-text{font-family:'Merriweather',serif;font-size:18px;font-weight:300;line-height:1.85;color:var(--off-white)}.section-heading{font-family:'Merriweather',serif;font-size:clamp(26px,3.4vw,44px);font-weight:300;line-height:1.18;letter-spacing:-0.015em;color:var(--white);margin-bottom:20px}.section-heading em{font-style:italic;color:var(--accent)}.pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:60px}.pillar-card{display:flex;flex-direction:column;background:rgba(16,28,42,0.6);border:1px solid rgba(95,168,211,0.1);text-decoration:none;transition:border-color 0.3s,transform 0.3s;overflow:hidden}.pillar-card:hover{border-color:rgba(95,168,211,0.35);transform:translateY(-4px)}.pillar-img-wrap{height:220px;overflow:hidden;background:rgba(10,20,32,0.5);display:flex;align-items:center;justify-content:center}.pillar-img-wrap img{width:100%;height:100%;object-fit:cover;filter:brightness(0.9) saturate(0.95);transition:filter 0.4s,transform 0.5s}.pillar-card:hover .pillar-img-wrap img{filter:brightness(1.2) saturate(1.3);transform:scale(1.04)}.pillar-body{padding:28px;flex:1;display:flex;flex-direction:column}.pillar-num{font-size:10px;font-weight:700;letter-spacing:0.22em;color:var(--accent);text-transform:uppercase;margin-bottom:10px}.pillar-title{font-family:'Merriweather',serif;font-size:18px;font-weight:300;line-height:1.35;color:var(--white);margin-bottom:12px}.pillar-text{font-size:13.5px;line-height:1.75;color:var(--text-muted);flex:1;margin-bottom:20px}.pillar-link{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);transition:color 0.2s}.pillar-card:hover .pillar-link{color:var(--accent)}.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:3px;margin-top:40px}.partners-grid{display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:flex-start;margin-top:36px}.partner-logo{background:rgba(255,255,255,0.95);border:1px solid rgba(95,168,211,0.1);border-radius:8px;padding:16px 22px;min-height:72px;display:flex;align-items:center;justify-content:center;transition:transform 0.2s,box-shadow 0.2s,border-color 0.2s}.partner-logo:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,0.2);border-color:var(--accent)}.partner-logo img{max-height:48px;max-width:140px;object-fit:contain}.partner-text{font-size:14px;font-weight:700;color:#1a2a3a;letter-spacing:0.03em}.divider{border:none;border-top:1px solid rgba(95,168,211,0.1);margin:60px 0}a img,.clickable img,[onclick] img,.disc-card img,.doc-card img,.partner-logo img,.profile-card img,.video-card img,.blog-card-img,.ac-slide img{transition:filter 0.4s,transform 0.5s}a:hover img,.clickable:hover img,[onclick]:hover img,.disc-card:hover img,.partner-logo:hover img,.profile-card:hover img,.video-card:hover img,.ac-slide:hover img{filter:brightness(1.2) saturate(1.3);transform:scale(1.03)}.modal-overlay{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.92);align-items:center;justify-content:center}.modal-overlay.open{display:flex}.modal-box{background:#0d1c2b;border:1px solid rgba(95,168,211,.2);border-radius:6px;overflow:hidden;width:92%;max-width:940px;position:relative}.modal-close{position:fixed;top:16px;right:24px;z-index:1010;font-size:32px;color:#fff;cursor:pointer;background:rgba(0,0,0,0.6);border:2px solid rgba(255,255,255,0.4);border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center;line-height:1;transition:background .2s,transform .2s}.modal-close:hover{background:rgba(255,255,255,0.2);transform:scale(1.1)}.modal-embed{aspect-ratio:16/9}.modal-embed iframe{width:100%;height:100%;border:none;display:block}.modal-info{padding:14px 18px}.modal-series{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}.modal-title{font-size:15px;font-weight:700;color:var(--white)}.science-quote{position:relative;max-width:800px;margin:48px auto;padding:40px 48px;background:rgba(245,240,235,0.97);border-radius:4px;box-shadow:0 2px 16px rgba(0,0,0,0.15),inset 0 0 40px rgba(0,0,0,0.03)}.science-quote::before{content:'\201C';position:absolute;top:8px;left:20px;font-size:56px;font-family:'Cormorant Garamond',serif;color:var(--accent);opacity:0.25;line-height:1}.science-quote p{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:400;font-style:italic;line-height:1.75;color:#1a2a3a;margin:0 0 16px;padding-left:28px}.science-quote-author{padding-left:28px;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent)}.quote-slide{display:none}.quote-slide.quote-active{display:block}.quote-slide.quote-entering p{animation:quillWrite 1.2s ease-out forwards}.quote-slide.quote-entering .science-quote-author{animation:fadeInUp 0.6s ease-out 0.8s both}@keyframes quillWrite{0%{opacity:0;clip-path:inset(0 100% 0 0)}100%{opacity:1;clip-path:inset(0 0 0 0)}}@keyframes fadeInUp{0%{opacity:0;transform:translateY(10px)}100%{opacity:1;transform:translateY(0)}}.quote-slide.quote-leaving{animation:quillFade 0.6s ease-in forwards}@keyframes quillFade{0%{opacity:1}100%{opacity:0}}@media(max-width:600px){.science-quote{padding:24px 20px;margin:32px auto}.science-quote p{font-size:20px;padding-left:16px}}footer{width:100%;background:rgba(6,13,22,0.95);border-top:1px solid rgba(95,168,211,0.12);padding:28px 60px 16px;margin-top:40px}html,body{min-height:100vh}body{display:flex;flex-direction:column}footer{margin-top:auto}.footer-inner{max-width:1200px;margin:0 auto;margin-bottom:10px}.footer-top{padding-bottom:20px;border-bottom:1px solid rgba(95,168,211,0.1);margin-bottom:22px}.footer-brand{display:flex;align-items:center;flex-wrap:wrap;gap:20px}.footer-tagline{font-size:13px;line-height:1.5;color:var(--text-muted);margin:0;flex:1;min-width:280px}.footer-mission-line{margin:6px 0 0;display:flex;flex-wrap:wrap;align-items:center;gap:0;font-size:13px;line-height:1.6;color:var(--off-white)}.footer-mission-sep{color:var(--off-white);opacity:0.4;margin:0 24px;font-size:14px;user-select:none}.footer-cols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px}.footer-col-shortcuts{display:flex;flex-direction:column;gap:32px;align-items:flex-start}.footer-brand p{font-size:13px;line-height:1.8;color:var(--text-muted);margin-top:12px}.footer-brand .logo-text span{color:var(--accent) !important;padding:0 !important;background:transparent !important}.footer-brand .logo-wrap:hover .logo-text span{color:#a7dcf5 !important;font-weight:500 !important;background:transparent !important}.footer-address{font-size:12px;color:rgba(176,184,196,0.8);margin-top:14px;font-style:normal;line-height:1.7}.footer-col-title,.footer-col-title-link{font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}.footer-col-title-link{display:inline-block;text-decoration:none;margin-bottom:0;transition:color 0.2s,transform 0.2s,text-shadow 0.2s}.footer-col-title-link:hover{color:#a7dcf5;transform:translateX(3px);text-shadow:0 0 12px rgba(95,168,211,0.5)}.footer-col ul{list-style:none}.footer-col ul li{margin-bottom:5px}.footer-col ul li a{font-size:13px;color:var(--off-white);text-decoration:none;display:inline-block;transition:color 0.2s,transform 0.2s}.footer-col ul li a:hover{color:var(--accent);transform:translateX(3px)}.footer-mission-line a{display:inline-block;color:var(--off-white);text-decoration:none;transition:color 0.2s,transform 0.2s}.footer-mission-line a:hover{color:var(--accent);transform:translateX(3px)}.footer-col ul li a.footer-link-featured{color:var(--accent);font-weight:600;transition:color 0.2s,text-shadow 0.2s}.footer-col ul li a.footer-link-featured:hover{color:#a7dcf5;text-shadow:0 0 12px rgba(95,168,211,0.55)}.footer-bottom{max-width:1200px;margin:0 auto;padding-top:14px;border-top:1px solid rgba(95,168,211,0.08);display:flex;align-items:center;justify-content:space-between}.footer-copy{font-size:11px;color:rgba(176,184,196,0.75)}@media (max-width:960px){.content-section{padding:50px 24px}.page-hero-content{padding:40px 24px}.breadcrumb{padding:12px 24px}.pillars-grid{grid-template-columns:1fr}.footer-top{padding-bottom:18px;margin-bottom:22px}.footer-mission-sep{margin:0 12px}.footer-cols{grid-template-columns:1fr 1fr;gap:20px}.footer-col-shortcuts{grid-column:1 / -1;flex-direction:row;gap:24px;padding-top:16px;border-top:1px solid rgba(95,168,211,0.08)}footer{width:100%;padding:32px 24px 20px}}.lang-toggle{background:transparent;border:1px solid var(--accent);color:#1a2a3a;padding:6px 14px;font-size:11.5px;font-weight:600;letter-spacing:0.08em;border-radius:4px;cursor:pointer;transition:background 0.2s,color 0.2s}.lang-toggle:hover{background:rgba(255,255,255,0.4);color:#1a2a3a;font-weight:700}.hero{position:relative;height:100vh;min-height:600px;display:flex;align-items:center;overflow:hidden;background:var(--dark)}.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#0a1420 0%,#0e1e2e 50%,#0a1828 100%)}.hero-content{position:relative;z-index:5;padding:0 80px;max-width:800px}.hero-eyebrow{font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:20px}.hero-title{font-family:'Merriweather',serif;font-size:clamp(44px,6.5vw,88px);font-weight:300;line-height:1.05;letter-spacing:-0.025em;color:var(--white);margin-bottom:26px;text-shadow:0 2px 12px rgba(8,16,28,0.7),0 0 40px rgba(8,16,28,0.5)}.hero-title em{color:var(--accent);font-style:italic}.hero-subtitle{font-size:17px;font-weight:300;line-height:1.65;letter-spacing:0.005em;color:var(--text-muted);margin-bottom:42px;max-width:540px}.hero-scroll{position:absolute;bottom:40px;left:80px;display:flex;flex-direction:column;align-items:center;gap:10px;z-index:2}.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,transparent,var(--accent));animation:scrollPulse 2s ease-in-out infinite}.scroll-label{font-size:9px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);opacity:0.6;writing-mode:vertical-rl}@keyframes scrollPulse{0%,100%{opacity:.3}50%{opacity:1}}.dest-band{background:rgba(95,168,211,0.04);border-top:1px solid rgba(95,168,211,0.08);border-bottom:1px solid rgba(95,168,211,0.08);overflow:hidden;padding:12px 0}.dest-track{display:flex;gap:0;white-space:nowrap;animation:marquee 40s linear infinite}.dest-item{display:inline-flex;align-items:center;gap:10px;padding:0 28px;font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted)}.dest-item .dot{width:4px;height:4px;border-radius:50%;background:var(--accent);flex-shrink:0}@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}.section{padding:100px 80px;max-width:1300px;margin:0 auto;content-visibility:auto}.section-title{font-family:'Merriweather',serif;font-size:clamp(26px,3.5vw,46px);font-weight:300;line-height:1.18;letter-spacing:-0.018em;color:var(--white);margin-bottom:22px}.section-lead{font-size:17px;line-height:1.75;letter-spacing:0.005em;color:var(--text-muted);margin-bottom:56px;max-width:640px}.mission-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}.mission-card{position:relative;overflow:hidden;aspect-ratio:4/3;cursor:pointer;display:block;text-decoration:none}.mission-card img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s ease,filter 0.4s;filter:brightness(0.9) saturate(0.95)}.mission-card:hover img{transform:scale(1.05);filter:brightness(1.2) saturate(1.3)}.mission-card-label{position:absolute;bottom:0;left:0;right:0;padding:20px;background:linear-gradient(to top,rgba(10,20,32,.7) 0%,transparent 100%)}.mission-card-num{font-size:9px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;text-shadow:0 1px 4px rgba(0,0,0,0.5)}.mission-card-title{font-family:'Merriweather',serif;font-size:18px;font-weight:300;color:var(--white);line-height:1.3;text-shadow:0 1px 6px rgba(0,0,0,0.5)}.mission-desc-bar{padding:24px 0 0;opacity:0;max-height:0;overflow:hidden;transition:opacity 0.3s,max-height 0.3s;display:flex;align-items:baseline;gap:24px}.mission-desc-bar.visible{opacity:1;max-height:120px}.mission-desc-text{font-size:14px;line-height:1.75;color:var(--text-muted);flex:1}.mission-desc-link{font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);text-decoration:none;white-space:nowrap}.actions-section{background:rgba(14,26,40,0.5)}.actions-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}.actions-grid:has(.action-tile:nth-child(4)){grid-template-columns:repeat(3,1fr)}.action-tile{position:relative;overflow:hidden;aspect-ratio:4/3;text-decoration:none;display:block}.action-tile img{width:100%;height:100%;object-fit:cover;filter:brightness(0.9) saturate(0.95);transition:filter 0.4s,transform 0.5s}.action-tile:hover img{filter:brightness(1.2) saturate(1.3);transform:scale(1.05)}.action-tile-label{position:absolute;inset:0;display:flex;align-items:flex-end;padding:20px 16px;background:linear-gradient(to top,rgba(10,20,32,.85) 0%,rgba(10,20,32,.3) 30%,transparent 45%)}.action-tile-name{font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--white)}.about-strip{display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:500px}.about-image-wrap{overflow:hidden}.about-image-wrap img{width:100%;height:100%;object-fit:cover;filter:brightness(0.9) saturate(0.95)}.about-strip>div:last-child{padding:80px;background:rgba(14,26,40,0.95);display:flex;flex-direction:column;justify-content:center}.about-body{font-size:15px;line-height:1.8;color:var(--text-muted);margin-bottom:32px}.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;cursor:pointer;margin-left:auto;background:none;border:none;padding:4px;z-index:200}.hamburger span{display:block;width:22px;height:2px;background:var(--off-white);border-radius:2px;transition:transform 0.3s,opacity 0.3s}.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}.hamburger.open span:nth-child(2){opacity:0}.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}.mobile-nav{display:none}@media (max-width:960px){header{padding:0 20px;gap:16px}nav{display:none}.hamburger{display:flex}.lang-toggle{margin-left:0}.mobile-nav{display:none;position:fixed;top:var(--nav-h);left:0;right:0;bottom:0;background:rgba(10,18,28,0.98);backdrop-filter:blur(16px);z-index:150;overflow-y:auto;padding:32px 24px 60px;flex-direction:column;gap:4px}.mobile-nav.open{display:flex}.mobile-nav a{display:block;padding:14px 16px;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--off-white);text-decoration:none;border-bottom:1px solid rgba(95,168,211,0.08);transition:color 0.2s}.mobile-nav a:hover,.mobile-nav a.active{color:var(--accent)}.mobile-nav .mobile-section-title{font-size:9px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);padding:20px 16px 8px;opacity:0.7}.mobile-nav .mobile-sub a{font-size:12px;font-weight:400;letter-spacing:0.05em;text-transform:none;color:var(--text-muted);padding:10px 16px 10px 28px}.mobile-nav .mobile-lang{display:flex;gap:12px;padding:24px 16px 0}.mobile-nav .mobile-lang button{flex:1;padding:12px;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer;background:rgba(95,168,211,0.08);border:1px solid rgba(95,168,211,0.2);color:var(--text-muted);transition:all 0.2s}.mobile-nav .mobile-lang button.active{background:rgba(95,168,211,0.15);border-color:var(--accent);color:var(--accent)}.content-section{padding:40px 20px}.content-inner{padding:0}.page-hero{height:72vh;min-height:480px}.page-hero-content{padding:30px 20px}.page-hero-title{font-size:clamp(30px,7vw,56px);letter-spacing:-0.018em}.breadcrumb{padding:12px 20px}.pillars-grid{grid-template-columns:1fr;gap:16px}.pillar-card{flex-direction:column}.pillar-img-wrap{height:200px}.partners-grid{grid-template-columns:repeat(2,1fr)}.blog-grid{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}.footer-cols{grid-template-columns:1fr 1fr;gap:18px}footer{width:100%;padding:28px 20px 16px}.footer-bottom{flex-direction:column;gap:16px;text-align:center}}@media (max-width:600px){:root{--nav-h:64px}header{padding:0 12px;gap:8px}.logo-wrap{gap:8px}.logo-wrap img{width:38px;height:38px}.logo-text .en{font-size:12px}.logo-text .fr{font-size:9px}.logo-text span{font-size:13px;padding:3px 6px}.hamburger{width:32px;height:32px}.hamburger span{width:20px}.lang-toggle{padding:5px 10px;font-size:11px;letter-spacing:0.04em}.hero{height:100svh;min-height:500px}.hero-content{padding:0 20px;max-width:100%}.hero-title{font-size:clamp(34px,11vw,56px);letter-spacing:-0.02em}.hero-subtitle{font-size:15px}.hero-scroll{display:none}.section{padding:56px 20px}.section-title{font-size:clamp(24px,7.5vw,36px);letter-spacing:-0.015em}.section-lead{font-size:15px;margin-bottom:36px}.mission-grid{grid-template-columns:1fr;gap:3px}.mission-card{aspect-ratio:4/3}.actions-grid{grid-template-columns:repeat(2,1fr);gap:3px}.action-tile{aspect-ratio:1}.about-strip{grid-template-columns:1fr}.about-image-wrap{height:220px}.about-strip>div:last-child{padding:40px 20px}.dest-band{display:none}.page-hero{height:65vh;min-height:420px}.page-hero-title{font-size:clamp(28px,9vw,48px);letter-spacing:-0.018em}.page-hero-sub{font-size:14px}.content-section{padding:36px 18px}.lead-text{font-size:15px}.partners-grid{grid-template-columns:1fr}.blog-grid{grid-template-columns:1fr;gap:2px}.blog-card-title{font-size:14px}.post-body{padding:36px 18px 60px}.post-title{font-size:clamp(20px,6vw,32px)}.post-meta{padding:24px 18px}.btn{padding:12px 22px;font-size:10px}.footer-copy{font-size:10px}}.slideshow{position:absolute;inset:0;overflow:hidden}.slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.2s ease-in-out;z-index:0;will-change:transform}.slide.active{opacity:1;z-index:1}.slide-overlay{position:absolute;inset:0;background:linear-gradient( to right,rgba(8,18,30,0.6) 0%,rgba(8,18,30,0.25) 30%,rgba(8,18,30,0.0) 55% );z-index:2}.slide-dots{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:10}.slide-dot{width:48px;height:48px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:none;cursor:pointer;padding:0}.slide-dot::before{content:"";width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.5);transition:background 0.3s,transform 0.3s}.slide-dot:hover::before{background:rgba(255,255,255,0.8)}.slide-dot.active::before{background:var(--accent);transform:scale(1.4)}.slide-arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.7);width:44px;height:44px;border-radius:50%;font-size:18px;cursor:pointer;z-index:10;transition:background 0.2s,color 0.2s;display:flex;align-items:center;justify-content:center}.slide-arrow:hover{background:rgba(95,168,211,0.2);color:var(--white)}.slide-prev{left:24px}.slide-next{right:24px}@media (max-width:600px){.hero-content{padding:0 20px}.slide-dots{display:none}.slide-arrow{display:flex;width:38px;height:38px;background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.35);color:#fff;font-size:16px}.slide-prev{left:10px}.slide-next{right:10px}}.slide-info{position:absolute;bottom:80px;right:40px;max-width:420px;background:rgba(8,16,28,0.72);backdrop-filter:blur(10px);border:1px solid rgba(95,168,211,0.15);border-radius:6px;padding:16px 20px;z-index:4;opacity:0;transform:translateY(10px);transition:opacity 0.8s ease,transform 0.8s ease;pointer-events:none}.slide-info.visible{opacity:1;transform:translateY(0)}.slide-info-title{font-size:9px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}.slide-info-desc{font-size:11.5px;line-height:1.65;color:rgba(220,230,240,0.85);font-weight:300}.slide-info-credit{font-size:9.5px;line-height:1.5;color:var(--accent);font-weight:400;letter-spacing:0.04em;margin-top:10px;padding-top:8px;border-top:1px solid rgba(220,230,240,0.15)}@media (max-width:600px){.slide-info{bottom:60px;right:12px;left:12px;max-width:100%}.slide-info-desc{font-size:10.5px}}.missions-map-container{position:relative;margin-top:32px}#missionsLeafletMap{width:100%;height:560px;border-radius:6px;border:1px solid rgba(95,168,211,0.15);z-index:1}.map-legend{display:flex;flex-wrap:wrap;gap:16px;margin-top:14px;padding:12px 16px;background:rgba(14,26,40,0.6);border:1px solid rgba(95,168,211,0.1);border-radius:6px}.legend-item{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--text-muted)}.legend-line{display:inline-block;width:24px;height:2px;border-top:2px solid;flex-shrink:0}.legend-dot{width:10px;height:10px;background:#5fa8d3;border:2px solid #fff;border-radius:50%;flex-shrink:0}.wfs-popup .leaflet-popup-content-wrapper{background:rgba(14,26,40,0.95) !important;border:1px solid rgba(95,168,211,0.2) !important;border-radius:6px !important;box-shadow:0 8px 32px rgba(0,0,0,0.5) !important}.wfs-popup .leaflet-popup-tip{background:rgba(14,26,40,0.95) !important}.wfs-popup .leaflet-popup-close-button{color:#5fa8d3 !important}@media(max-width:600px){#missionsLeafletMap{height:360px}.map-legend{gap:10px}}.missions-table{width:100%;border-collapse:collapse;font-size:13px}.missions-table thead th{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);padding:8px 10px;border-bottom:2px solid rgba(95,168,211,0.2);text-align:left;white-space:nowrap}.missions-table tbody tr{border-bottom:1px solid rgba(95,168,211,0.07);transition:background .15s}.missions-table tbody tr:hover{background:rgba(95,168,211,0.05)}.missions-table td{padding:6px 10px;color:var(--text-muted);vertical-align:top;line-height:1.45}.missions-table td:first-child{white-space:nowrap}.wfs-popup .leaflet-popup-content-wrapper{background:#fff !important;border-radius:6px !important;box-shadow:0 4px 24px rgba(0,0,0,0.15) !important;border:1px solid #dde8f0 !important}.wfs-popup .leaflet-popup-tip{background:#fff !important}.wfs-popup .leaflet-popup-close-button{color:#5fa8d3 !important;font-size:16px !important}.col-periode{white-space:nowrap;font-style:italic;font-size:11px}.col-lieu strong{color:var(--white)}.col-country{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}.doc-grid-2col{display:grid;grid-template-columns:1fr 1fr;gap:10px}@media(max-width:700px){.doc-grid-2col{grid-template-columns:1fr}}.doc-icon-pub{font-size:24px;background:rgba(95,168,211,0.08);border:1px solid rgba(95,168,211,0.2)}.back-to-top{position:fixed;bottom:32px;right:32px;z-index:90;width:44px;height:44px;border-radius:50%;border:1px solid rgba(95,168,211,0.3);background:rgba(20,32,48,0.9);backdrop-filter:blur(8px);color:var(--accent);font-size:20px;cursor:pointer;opacity:0;transform:translateY(16px);transition:opacity 0.3s,transform 0.3s,background 0.2s;pointer-events:none}.back-to-top.visible{opacity:1;transform:translateY(0);pointer-events:auto}.back-to-top:hover{background:var(--accent);color:#fff;border-color:var(--accent)}.scroll-down{position:fixed;bottom:32px;right:88px;z-index:90;width:44px;height:44px;border-radius:50%;border:1px solid rgba(95,168,211,0.3);background:rgba(20,32,48,0.9);backdrop-filter:blur(8px);color:var(--accent);font-size:20px;cursor:pointer;opacity:0;transform:translateY(16px);transition:opacity 0.3s,transform 0.3s,background 0.2s;pointer-events:none}.scroll-down.visible{opacity:1;transform:translateY(0);pointer-events:auto}.scroll-down:hover{background:var(--accent);color:#fff;border-color:var(--accent)}@media (max-width:400px){.footer-cols{grid-template-columns:1fr;gap:18px}.section,.content-section,.world-section{padding-left:16px;padding-right:16px}footer{padding-left:16px;padding-right:16px}.page-hero-content{padding:40px 16px}.breadcrumb{padding-left:16px;padding-right:16px}.btn{padding:12px 18px;font-size:11px;letter-spacing:0.08em}}html{scroll-behavior:smooth}@media(min-width:900px){html{scroll-snap-type:y proximity}.hero,.page-hero,.dest-band,.section,.actions-section,.about-strip,.content-section,footer{width:100%;scroll-snap-align:start}}.fade-in{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease;will-change:transform}.fade-in.visible{opacity:1;transform:translateY(0)}a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}.hero-eyebrow,.hero-subtitle,.hero-scroll{display:none}.slide-arrow,.slide-prev,.slide-next{display:none}header .btn.btn-primary{background:transparent !important;color:#1a2a3a !important;border:1px solid var(--accent) !important;font-weight:600 !important;letter-spacing:0.1em !important;text-transform:uppercase !important;box-shadow:none !important}header .btn.btn-primary:hover,header .btn.btn-primary.active{background:rgba(255,255,255,0.4) !important;color:#1a2a3a !important;font-weight:700 !important;border-color:var(--accent) !important;transform:none !important;box-shadow:none !important}header.hover-expanded{background:rgba(255,255,255,0.55);box-shadow:none;border:none}.dropdown{box-shadow:none;border:none}@media (min-width:961px){header .nav-link,.dropdown a,header .lang-toggle,header .btn.btn-primary{background:rgba(255,255,255,0.9) !important;color:#1a2a3a !important;font-weight:600 !important;box-shadow:0 1px 3px rgba(13,28,43,0.14) !important;border-radius:4px;transform:none !important;transition:background .18s,color .18s,box-shadow .18s,transform .18s !important}header .nav-link:hover,header .nav-item.active-drop>.nav-link,.dropdown a:hover,header .lang-toggle:hover,header .btn.btn-primary:hover{background:#d9ecf7 !important;color:#155a85 !important;box-shadow:inset 0 -3px 0 #3d8fc2,0 3px 10px rgba(13,28,43,0.25) !important;transform:translateY(-1px) !important}.dropdown a.active,header .nav-item.current>.nav-link,header .btn.btn-primary.active{background:#1a2a3a !important;color:#fff !important;font-weight:700 !important;box-shadow:inset 0 -3px 0 var(--accent),0 1px 3px rgba(13,28,43,0.25) !important;transform:none !important}.dropdown a.active:hover,header .nav-item.current>.nav-link:hover,header .nav-item.current.active-drop>.nav-link,header .btn.btn-primary.active:hover{background:#243447 !important;color:#fff !important}header .nav-item.current>.nav-link .chevron{color:var(--accent)}}body>*{min-width:0}.content-section,.content-inner{min-width:0}.content-section{width:100%}body{overflow-x:clip}@media (max-width:700px){.quote-arrow.quote-prev{left:4px !important}.quote-arrow.quote-next{right:4px !important}}.actions-grid:has(>.action-tile:nth-child(5):last-child){grid-template-columns:repeat(6,1fr)}.actions-grid:has(>.action-tile:nth-child(5):last-child)>.action-tile{grid-column:span 2}.actions-grid:has(>.action-tile:nth-child(5):last-child)>.action-tile:nth-child(-n+2){grid-column:span 3;aspect-ratio:16/9}@media (max-width:960px){.actions-grid:has(>.action-tile:nth-child(5):last-child){grid-template-columns:repeat(2,1fr)}.actions-grid:has(>.action-tile:nth-child(5):last-child)>.action-tile,.actions-grid:has(>.action-tile:nth-child(5):last-child)>.action-tile:nth-child(-n+2){grid-column:span 1;aspect-ratio:1}.actions-grid:has(>.action-tile:nth-child(5):last-child)>.action-tile:first-child{grid-column:1 / -1;aspect-ratio:16/9}}.post-body{width:100%}.post-body a{overflow-wrap:anywhere}</style>
+<link rel="alternate" hreflang="fr" href="https://www.wingsforscience.com/?lang=fr">
+<link rel="alternate" hreflang="en" href="https://www.wingsforscience.com/?lang=en">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" as="image" href="images/accueil/upsala-1920.webp" imagesrcset="images/accueil/upsala-900.webp 900w, images/accueil/upsala-1920.webp 1920w" imagesizes="100vw">
+<style>
+@font-face{font-family:'Merriweather';font-style:normal;font-weight:300;font-display:swap;src:url('fonts/merriweather-300-latin.woff2') format('woff2')}
+@font-face{font-family:'Merriweather';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/merriweather-400-latin.woff2') format('woff2')}
+@font-face{font-family:'Raleway';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/raleway-400-latin.woff2') format('woff2')}
+@font-face{font-family:'Raleway';font-style:normal;font-weight:600;font-display:swap;src:url('fonts/raleway-600-latin.woff2') format('woff2')}
+@font-face{font-family:'Raleway';font-style:normal;font-weight:700;font-display:swap;src:url('fonts/raleway-700-latin.woff2') format('woff2')}
+
+:root{
+  --nuit:#0b1622; --nuit-2:#13243a; --nuit-3:#060e17; --ligne:#22344a;
+  --ivoire:#f5f1ea; --ivoire-ligne:#e0d7c9; --encre:#0b1622; --gris:#3b4652; --gris-2:#4a5560;
+  --ciel:#8ec6e8; --ciel-clair:#bfe0f3; --ciel-fonce:#2b6f9e; --orange:#c94a26;
+  --serif:'Merriweather',Georgia,serif; --sans:'Raleway','Helvetica Neue',Arial,sans-serif;
+  --pad:56px;
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--nuit);color:var(--ivoire);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.01em;margin:0}
+em{font-style:italic}
+.wrap{padding-left:var(--pad);padding-right:var(--pad)}
+.kicker{margin:0 0 14px;font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ciel)}
+.ivoire .kicker{color:var(--ciel-fonce)}
+.h2{font-size:clamp(30px,3.6vw,52px);line-height:1.15}
+.ivoire{background:var(--ivoire);color:var(--encre)}
+.section{padding-top:120px;padding-bottom:120px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:700;font-size:15px;letter-spacing:.04em;text-decoration:none;padding:16px 28px;border-radius:999px;border:1.5px solid transparent;cursor:pointer;font-family:var(--sans);transition:transform .2s,background .2s,color .2s,border-color .2s;min-height:48px}
+.btn:hover{transform:translateY(-2px)}
+.btn-blanc{background:#fff;color:var(--nuit)}
+.btn-contour{color:#fff;border-color:rgba(255,255,255,.8);background:transparent}
+.btn-contour:hover{background:rgba(255,255,255,.12)}
+.btn-orange{background:var(--orange);color:#fff}
+.btn-orange:hover{background:#b23f1f}
+.btn-nuit{background:var(--nuit);color:#fff}
+.btn-contour-nuit{color:var(--nuit);border-color:var(--nuit)}
+.btn-contour-nuit:hover{background:var(--nuit);color:#fff}
+:focus-visible{outline:3px solid var(--ciel);outline-offset:3px}
+
+/* ── EN-TÊTE ── */
+.entete{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:22px var(--pad);transition:background .3s,padding .3s,box-shadow .3s}
+.entete.plein{background:rgba(11,22,34,.94);backdrop-filter:blur(10px);padding-top:12px;padding-bottom:12px;box-shadow:0 1px 0 var(--ligne)}
+.logo{display:flex;align-items:center;gap:14px;color:#fff;text-decoration:none}
+.logo img{width:48px;height:48px}
+.logo span{font-size:17px;font-weight:600;letter-spacing:.04em}
+.nav{display:flex;align-items:center;gap:8px}
+.nav-item{position:relative}
+.nav-lien{display:inline-flex;align-items:center;gap:6px;color:#fff;text-decoration:none;font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:12px 14px;border-radius:6px;background:none;border:0;cursor:pointer;font-family:var(--sans)}
+.nav-lien:hover,.nav-item:focus-within>.nav-lien{background:rgba(255,255,255,.12)}
+.nav-lien svg{transition:transform .2s}
+.nav-item.ouvert .nav-lien svg{transform:rotate(180deg)}
+.sous-menu{position:absolute;top:100%;left:0;min-width:250px;margin-top:8px;background:#fff;border-radius:10px;padding:8px;box-shadow:0 18px 40px rgba(0,0,0,.25);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .18s,transform .18s,visibility .18s}
+.nav-item.ouvert .sous-menu,.nav-item:hover .sous-menu{opacity:1;visibility:visible;transform:none}
+.sous-menu a{display:block;padding:12px 14px;border-radius:6px;color:var(--nuit);text-decoration:none;font-size:15px;font-weight:600}
+.sous-menu a:hover{background:#e7f2fa;color:var(--ciel-fonce)}
+.langue{background:none;cursor:pointer;font-family:var(--sans);color:#fff;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.08em;padding:9px 13px;border:1px solid rgba(255,255,255,.55);border-radius:999px;margin-left:6px}
+.nav .btn-orange{margin-left:10px;padding:13px 22px;font-size:14px}
+.burger{display:none;width:48px;height:48px;border-radius:999px;border:1px solid rgba(255,255,255,.6);background:rgba(11,22,34,.3);color:#fff;align-items:center;justify-content:center;cursor:pointer}
+
+/* menu mobile */
+.menu-mobile{position:fixed;inset:0;z-index:60;background:var(--nuit);padding:22px 20px 40px;overflow-y:auto;transform:translateX(100%);transition:transform .3s;display:flex;flex-direction:column;gap:6px}
+.menu-mobile.ouvert{transform:none}
+.menu-mobile .haut{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.menu-mobile details{border-bottom:1px solid var(--ligne)}
+.menu-mobile summary{list-style:none;cursor:pointer;padding:18px 0;font-family:var(--serif);font-size:26px;font-weight:300;display:flex;justify-content:space-between;align-items:center}
+.menu-mobile summary::-webkit-details-marker{display:none}
+.menu-mobile details a{display:block;padding:12px 0 12px 4px;color:var(--ciel-clair);text-decoration:none;font-size:18px}
+.menu-mobile details[open]{padding-bottom:12px}
+.menu-mobile .lien-simple{display:block;padding:18px 0;border-bottom:1px solid var(--ligne);font-family:var(--serif);font-size:26px;font-weight:300;color:#fff;text-decoration:none}
+.menu-mobile .btn{margin-top:24px}
+
+/* ── HÉROS ── */
+.heros{position:relative;height:100vh;min-height:640px;max-height:1000px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
+.diapo{position:absolute;inset:0;opacity:0;transition:opacity 1.6s ease}
+.diapo.active{opacity:1}
+.diapo img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 9s ease-out}
+.diapo.active img{transform:scale(1)}
+.heros::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,22,34,.55) 0%,rgba(11,22,34,0) 22%,rgba(11,22,34,.25) 40%,rgba(11,22,34,.85) 100%),linear-gradient(90deg,rgba(11,22,34,.6) 0%,rgba(11,22,34,.35) 45%,rgba(11,22,34,0) 75%);pointer-events:none}
+.heros-texte{text-shadow:0 2px 18px rgba(0,0,0,.55),0 1px 3px rgba(0,0,0,.45)}
+.heros .btn{text-shadow:none}
+.heros-contenu{position:relative;z-index:2;display:flex;align-items:flex-end;justify-content:space-between;gap:40px;flex-wrap:wrap;padding-bottom:64px}
+.heros-texte{max-width:820px}
+.heros .surtitre{margin:0 0 22px;font-size:14px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#fff}
+.heros h1{font-size:clamp(40px,6vw,86px);line-height:1.05;letter-spacing:-.02em;color:#fff}
+.heros h1 em{color:#d4ecfa}
+.heros .chapo{margin:28px 0 0;max-width:580px;font-size:clamp(17px,1.5vw,21px);line-height:1.55;color:#fff}
+.heros .actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:36px}
+.legende-diapo{display:flex;flex-direction:column;align-items:flex-end;gap:14px}
+.legende-carte{background:rgba(11,22,34,.55);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:16px 20px;max-width:330px;transition:opacity .6s}
+.legende-carte p{margin:0}
+.legende-carte .lieu{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ciel-clair)}
+.legende-carte .desc{margin-top:6px;font-size:15px;line-height:1.5;color:#fff}
+.points{display:flex;gap:6px}
+.points button{width:28px;height:28px;padding:0;border:0;background:none;cursor:pointer;display:flex;align-items:center}
+.points button span{display:block;width:100%;height:3px;border-radius:2px;background:rgba(255,255,255,.45);transition:background .3s}
+.points button[aria-current="true"] span{background:#fff}
+
+/* ── CHIFFRES ── */
+.chiffres{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px;padding-top:64px;padding-bottom:64px}
+.chiffre{border-left:1px solid #d8cfc1;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.chiffre strong{font-family:var(--serif);font-weight:300;font-size:clamp(40px,4.4vw,64px);line-height:1}
+.chiffre span{font-size:15px;font-weight:600;color:var(--gris-2)}
+
+/* ── MANIFESTE ── */
+.manifeste{padding-top:48px;padding-bottom:120px}
+.manifeste .grille{max-width:1100px;margin:0 auto;display:flex;gap:24px 64px;flex-wrap:wrap}
+.manifeste .kicker{flex:0 0 180px;margin-top:10px}
+.manifeste .texte{flex:1 1 300px;min-width:0}
+.manifeste h2{font-size:clamp(28px,3.2vw,46px);line-height:1.25}
+.manifeste h2 em{color:var(--ciel-fonce)}
+.manifeste p{margin:32px 0 0;max-width:640px;font-size:19px;line-height:1.7;color:var(--gris)}
+
+/* ── DONNÉES INACCESSIBLES ── */
+.donnees-tete{margin-bottom:48px;max-width:860px}
+.donnees-tete em{color:var(--ciel)}
+.cartes-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.carte-donnee{display:flex;flex-direction:column;gap:14px}
+.carte-donnee .img{border-radius:8px;overflow:hidden;height:420px}
+.carte-donnee img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.carte-donnee:hover img{transform:scale(1.05)}
+.carte-donnee .lieu{margin:0;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ciel)}
+.carte-donnee h3{font-size:26px;line-height:1.25}
+
+/* ── PILIERS ── */
+.piliers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px}
+.pilier{position:relative;height:680px;overflow:hidden;color:#fff;text-decoration:none;display:flex;flex-direction:column;justify-content:flex-end}
+.pilier img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.pilier:hover img{transform:scale(1.05)}
+.pilier::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,22,34,0) 45%,rgba(11,22,34,.85) 100%)}
+.pilier .contenu{position:relative;z-index:1;padding:40px}
+.pilier .num{margin:0;font-size:13px;font-weight:700;letter-spacing:.2em;color:var(--ciel-clair)}
+.pilier h3{margin:12px 0 10px;font-size:clamp(26px,2.4vw,34px);line-height:1.2}
+.pilier p{margin:0;font-size:16px;line-height:1.6;max-width:360px}
+.pilier .fleche{display:inline-block;margin-top:16px;font-weight:700;font-size:15px;border-bottom:1px solid rgba(255,255,255,.5)}
+
+/* ── CITATIONS ── */
+.citations{position:relative;height:680px;overflow:hidden;display:flex;align-items:center}
+.citations>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.citations::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,22,34,.88) 0%,rgba(11,22,34,.6) 55%,rgba(11,22,34,.15) 85%);z-index:1}
+.citations figure{position:relative;z-index:2;margin:0;max-width:820px}
+.citations blockquote{margin:0;font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(22px,2.4vw,34px);line-height:1.45;color:#fff;min-height:4.4em;transition:opacity .4s}
+.citations figcaption{margin-top:26px;font-size:16px;line-height:1.5;color:#fff;transition:opacity .4s}
+.citations .fleches{display:flex;gap:10px;margin-top:34px}
+.rond{width:48px;height:48px;border-radius:999px;border:1px solid rgba(255,255,255,.6);background:transparent;color:#fff;font-size:18px;cursor:pointer}
+.rond:hover{background:rgba(255,255,255,.12)}
+
+/* ── GALERIE ── */
+.galerie-tete{display:flex;justify-content:space-between;align-items:flex-end;gap:24px 32px;flex-wrap:wrap;margin-bottom:40px}
+.galerie{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:270px;gap:6px}
+.galerie button{position:relative;margin:0;padding:0;border:0;overflow:hidden;border-radius:6px;cursor:zoom-in;background:var(--nuit-2);text-align:left;color:#fff;font-family:var(--sans)}
+.galerie button img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.galerie button:hover img{transform:scale(1.05)}
+.galerie .legende{position:absolute;left:0;right:0;bottom:0;padding:16px;background:linear-gradient(transparent,rgba(11,22,34,.85));font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.galerie .g2{grid-column:span 2}
+.galerie .g22{grid-column:span 2;grid-row:span 2}
+
+/* ── VOYAGE ── */
+.voyages{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}
+.voyage{background:#fff;border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
+.voyage img{width:100%;height:340px;object-fit:cover}
+.voyage .corps{padding:30px 28px 34px}
+.voyage .date{margin:0;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ciel-fonce)}
+.voyage h3{margin:12px 0 22px;font-size:32px}
+.voyage .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;border-top:1px solid #e5ddd0;padding-top:22px}
+.voyage .stats strong{display:block;font-family:var(--serif);font-weight:300;font-size:26px}
+.voyage .stats span{font-size:14px;color:var(--gris-2)}
+.voyage .texte{margin:0;border-top:1px solid #e5ddd0;padding-top:22px;font-size:17px;line-height:1.65;color:var(--gris)}
+.actions-ligne{margin-top:40px;display:flex;gap:14px;flex-wrap:wrap}
+
+/* ── ACTIONS ── */
+.actions-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:36px 24px}
+.action{color:var(--ivoire);text-decoration:none;display:flex;flex-direction:column;gap:14px}
+.action .img{border-radius:8px;overflow:hidden;height:380px}
+.action img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.action:hover img{transform:scale(1.05)}
+.action strong{font-family:var(--serif);font-size:38px;font-weight:300;line-height:1}
+.action .titre{font-size:19px;font-weight:700}
+.action .desc{font-size:16px;line-height:1.6;color:#b6c2cf}
+
+/* ── PARTENAIRES ── */
+.partenaires{padding-top:80px;padding-bottom:80px}
+.partenaires .kicker{text-align:center}
+.logos{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:12px;max-width:1240px;margin:0 auto}
+.logos div{background:#fff;border-radius:8px;height:104px;display:flex;align-items:center;justify-content:center;padding:14px}
+.logos img{max-width:100%;max-height:70px;object-fit:contain}
+.logos .texte-logo{font-size:19px;font-weight:700;letter-spacing:.06em;color:var(--nuit)}
+.sponsor-principal{max-width:1240px;margin:0 auto 12px;background:#fff;border-radius:8px;padding:22px 32px;display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap;text-align:center}
+.sponsor-principal img{height:96px;width:auto}
+.sponsor-principal span{font-size:14px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gris)}
+.lien-tous{margin:28px 0 0;text-align:center}
+.lien-tous a{color:var(--nuit);font-weight:700;font-size:15px}
+
+/* ── APPEL ── */
+.appel{position:relative;height:640px;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center}
+.appel>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.appel::before{content:"";position:absolute;inset:0;background:rgba(11,22,34,.45);z-index:1}
+.appel .contenu{position:relative;z-index:2;max-width:760px;padding:0 20px}
+.appel h2{font-size:clamp(36px,4.6vw,60px);line-height:1.12;color:#fff}
+.appel p{margin:24px auto 0;max-width:560px;font-size:20px;line-height:1.6;color:#fff}
+.appel .actions{display:flex;gap:14px;justify-content:center;margin-top:38px;flex-wrap:wrap}
+
+/* ── PIED DE PAGE ── */
+.pied{background:var(--nuit-3);padding-top:72px;padding-bottom:40px;color:#d9e1e8}
+.pied .marque{display:flex;align-items:center;gap:14px 18px;flex-wrap:wrap}
+.pied .marque img{width:56px;height:56px}
+.pied .marque .nom{font-size:20px;font-weight:600;color:var(--ciel);text-decoration:none}
+.pied .missions{margin:22px 0 40px;display:flex;flex-wrap:wrap;gap:8px 14px;font-size:16px}
+.pied .missions a{color:var(--ivoire);text-decoration:none}
+.pied .missions a:hover{text-decoration:underline}
+.pied .cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;border-top:1px solid #1d2c3c;padding-top:36px}
+.pied .col{display:flex;flex-direction:column;gap:12px;font-size:16px}
+.pied .col-titre{font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ciel);text-decoration:none}
+.pied .col a{color:var(--ivoire);text-decoration:none}
+.pied .col a:hover{text-decoration:underline}
+.pied .copy{margin:40px 0 0;font-size:14px;color:#93a2b1}
+
+/* ── VISIONNEUSE ── */
+.visionneuse{position:fixed;inset:0;z-index:100;background:rgba(6,14,23,.96);display:none;align-items:center;justify-content:center;padding:70px 20px 40px}
+.visionneuse.ouverte{display:flex}
+.visionneuse figure{margin:0;max-width:1400px;width:100%;display:flex;flex-direction:column;align-items:center;gap:16px}
+.visionneuse img{max-height:78vh;width:auto;max-width:100%;border-radius:6px}
+.visionneuse figcaption{text-align:center;font-size:16px;color:#fff}
+.visionneuse figcaption strong{display:block;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ciel-clair);margin-bottom:4px}
+.visionneuse .fermer{position:absolute;top:18px;right:18px}
+.visionneuse .prec,.visionneuse .suiv{position:absolute;top:50%;transform:translateY(-50%)}
+.visionneuse .prec{left:18px}.visionneuse .suiv{right:18px}
+.visionneuse .video{width:min(1100px,100%);aspect-ratio:16/9;background:#000;border-radius:8px;overflow:hidden}
+.visionneuse iframe{width:100%;height:100%;border:0}
+
+/* ── BANDEAU APERÇU ── */
+.apercu{position:fixed;left:16px;bottom:16px;z-index:40;background:#fff;color:var(--nuit);font-size:13px;font-weight:700;padding:10px 14px;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+
+/* ── RESPONSIVE ── */
+@media (max-width:1100px){
+  :root{--pad:32px}
+  .nav .nav-lien{padding:10px 9px;font-size:13px}
+  .cartes-4,.actions-4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .logos{grid-template-columns:repeat(5,minmax(0,1fr))}
+}
+@media (max-width:900px){
+  .nav{display:none}
+  .burger{display:inline-flex}
+}
+@media (max-width:760px){
+  :root{--pad:20px}
+  body{font-size:16px}
+  .section{padding-top:64px;padding-bottom:64px}
+  .entete{padding-top:14px;padding-bottom:14px}
+  .logo img{width:40px;height:40px}
+  .logo span{font-size:15px}
+  .heros{height:92vh;min-height:600px}
+  .heros-contenu{padding-bottom:40px}
+  .legende-diapo{display:none}
+  .heros .actions{flex-direction:column}
+  .heros .actions .btn{width:100%}
+  .chiffres{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 16px;padding-top:40px;padding-bottom:40px}
+  .chiffre{padding-left:14px}
+  .manifeste{padding-top:16px;padding-bottom:64px}
+  .manifeste p{font-size:17px}
+  .cartes-4{gap:18px 12px}
+  .carte-donnee .img{height:180px}
+  .carte-donnee h3{font-size:19px}
+  .carte-donnee .lieu{font-size:11px}
+  .piliers{grid-template-columns:1fr}
+  .pilier{height:440px}
+  .pilier .contenu{padding:24px 20px}
+  .citations{height:auto;min-height:560px;align-items:flex-end;padding-bottom:40px}
+  .citations::before{background:linear-gradient(180deg,rgba(11,22,34,.1) 0%,rgba(11,22,34,.9) 60%)}
+  .galerie{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:170px}
+  .galerie .legende{font-size:11px;padding:10px}
+  .voyages{grid-template-columns:1fr}
+  .voyage img{height:240px}
+  .actions-ligne{flex-direction:column}
+  .actions-4{grid-template-columns:1fr;gap:40px}
+  .action .img{height:240px}
+  .logos{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .logos div{height:84px}
+  .sponsor-principal img{height:72px}
+  .appel{height:520px}
+  .appel p{font-size:17px}
+  .appel .actions{flex-direction:column}
+  .pied .cols{grid-template-columns:1fr}
+  .visionneuse .prec,.visionneuse .suiv{top:auto;bottom:16px;transform:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+  html{scroll-behavior:auto}
+  .diapo img{transform:none}
+}
+</style>
 </head>
 <body>
 
-<header id="site-header"></header>
-<script src="header.js?v=20260505b" defer></script>
-<section id="main-content" class="hero">
-  <div class="slideshow">
-    <div class="slide active" style="background-image:url('images/krakatoa_ulm_wfs.webp')">
-      <div class="slide-info">
-        <div class="slide-info-title" data-fr="Volcan Krakatau, Indonésie" data-en="Krakatau Volcano, Indonesia">Volcan Krakatau, Indonésie</div>
-        <div class="slide-info-desc" data-fr="Notre capteur embarqué quantifie les flux de SO₂ libérés par ce volcan célèbre — une source encore absente des bilans mondiaux." data-en="Our onboard sensor quantifies the SO₂ fluxes released by this famous volcano — a source still missing from global assessments.">Notre capteur embarqué quantifie les flux de SO₂ libérés par ce volcan célèbre — une source encore absente des bilans mondiaux.</div>
-        <div class="slide-info-credit" data-fr="Partenariat scientifique avec le Center for Volcanology and Geological Hazard Mitigation" data-en="Scientific partnership with the Center for Volcanology and Geological Hazard Mitigation">Partenariat scientifique avec le Center for Volcanology and Geological Hazard Mitigation</div>
+<!-- ══ EN-TÊTE ══ -->
+<header class="entete" id="entete">
+  <a class="logo" href="index.html"><img src="images/logo_wfs.webp" alt="" width="48" height="48"><span data-fr="Des Ailes pour la Science" data-en="Wings for Science">Des Ailes pour la Science</span></a>
+  <nav class="nav" aria-label="Navigation principale">
+    <div class="nav-item">
+      <button class="nav-lien" type="button" aria-expanded="false"><span data-fr="Notre mission" data-en="Our mission">Notre mission</span> <svg aria-hidden="true" width="10" height="6" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none"/></svg></button>
+      <div class="sous-menu">
+        <a href="science-environnement.html" data-fr="Appuyer la science et l&#x27;environnement" data-en="Supporting science and the environment">Appuyer la science et l'environnement</a>
+        <a href="expeditions.html" data-fr="Des expéditions aéronautiques" data-en="Aeronautical expeditions">Des expéditions aéronautiques</a>
+        <a href="sensibilisation.html" data-fr="Et de la sensibilisation" data-en="And public awareness">Et de la sensibilisation</a>
       </div>
     </div>
-    <div class="slide" data-bg="images/lac_eyre_ulm_wfs.webp">
-      <div class="slide-info">
-        <div class="slide-info-title" data-fr="Lac Eyre, Australie" data-en="Lake Eyre, Australia">Lac Eyre, Australie</div>
-        <div class="slide-info-desc" data-fr="Le plus grand lac salé d'Australie, rarement rempli, révèle ses couleurs irréelles depuis les airs." data-en="Australia's largest salt lake, rarely filled, reveals its unreal colours from the air.">Le plus grand lac salé d'Australie, rarement rempli, révèle ses couleurs irréelles depuis les airs.</div>
-        <div class="slide-info-credit"></div>
+    <div class="nav-item">
+      <button class="nav-lien" type="button" aria-expanded="false"><span data-fr="Nos actions" data-en="Our actions">Nos actions</span> <svg aria-hidden="true" width="10" height="6" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none"/></svg></button>
+      <div class="sous-menu">
+        <a href="campagne-scientifique.html" data-fr="Campagne scientifique" data-en="Scientific campaign">Campagne scientifique</a>
+        <a href="conferences.html" data-fr="Conférences" data-en="Conferences">Conférences</a>
+        <a href="reportages.html" data-fr="Reportages" data-en="Documentaries">Reportages</a>
+        <a href="livres.html" data-fr="Livres" data-en="Books">Livres</a>
+        <a href="presse.html" data-fr="Presse" data-en="Press">Presse</a>
       </div>
     </div>
-    <div class="slide" data-bg="images/horizontal_falls_australie_wfs.webp">
-      <div class="slide-info">
-        <div class="slide-info-title" data-fr="Horizontal Falls, Australie" data-en="Horizontal Falls, Australia">Horizontal Falls, Australie</div>
-        <div class="slide-info-desc" data-fr="Une cascade horizontale créée par les marées du Kimberley : l'océan s'engouffre à plus de 30 km/h entre deux parois rocheuses. Phénomène unique au monde, visible seulement depuis les airs." data-en="A horizontal waterfall created by the Kimberley tides: the ocean rushes at over 30 km/h between two rocky walls. A phenomenon unique in the world, visible only from the air.">Une cascade horizontale créée par les marées du Kimberley : l'océan s'engouffre à plus de 30 km/h entre deux parois rocheuses. Phénomène unique au monde, visible seulement depuis les airs.</div>
-        <div class="slide-info-credit"></div>
+    <div class="nav-item">
+      <button class="nav-lien" type="button" aria-expanded="false"><span data-fr="Notre réseau" data-en="Our network">Notre réseau</span> <svg aria-hidden="true" width="10" height="6" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none"/></svg></button>
+      <div class="sous-menu">
+        <a href="confondateurs.html" data-fr="Cofondateurs &amp; parrains" data-en="Co-founders &amp; patrons">Cofondateurs &amp; parrains</a>
+        <a href="equipe.html" data-fr="L&#x27;équipe" data-en="The team">L'équipe</a>
+        <a href="partenaires.html" data-fr="Partenaires &amp; sponsors" data-en="Partners &amp; sponsors">Partenaires &amp; sponsors</a>
       </div>
     </div>
-    <div class="slide" data-bg="images/groenland_glacier_wfs.webp">
-      <div class="slide-info">
-        <div class="slide-info-title" data-fr="Sud-ouest du Groenland" data-en="South-west Greenland">Sud-ouest du Groenland</div>
-        <div class="slide-info-desc" data-fr="Documentation photographique des glaciers en recul, pour une étude sur le changement climatique — ici les langues de glace se retirent chaque année un peu plus." data-en="Photographic documentation of receding glaciers, for a climate change study — here the ice tongues retreat a little more each year.">Documentation photographique des glaciers en recul, pour une étude sur le changement climatique — ici les langues de glace se retirent chaque année un peu plus.</div>
-        <div class="slide-info-credit" data-fr="Partenariat scientifique avec Asiaq — Greenland Survey" data-en="Scientific partnership with Asiaq — Greenland Survey">Partenariat scientifique avec Asiaq — Greenland Survey</div>
-      </div>
-    </div>
-    <div class="slide" data-bg="images/baleine_ocean_biologie_marine.webp">
-      <div class="slide-info">
-        <div class="slide-info-title" data-fr="Grèce" data-en="Greece">Grèce</div>
-        <div class="slide-info-desc" data-fr="En pleine cartographie des prairies de posidonie, nous survolons par hasard une maman cachalot allaitant son petit. Moteur coupé, nous planons en silence pour ne pas les déranger." data-en="While mapping seagrass meadows, we chance upon a mother sperm whale nursing her calf. Engine off, we glide in silence so as not to disturb them.">En pleine cartographie des prairies de posidonie, nous survolons par hasard une maman cachalot allaitant son petit. Moteur coupé, nous planons en silence pour ne pas les déranger.</div>
-        <div class="slide-info-credit" data-fr="Partenariat scientifique avec l'Archipelagos Institute of Marine Conservation" data-en="Scientific partnership with the Archipelagos Institute of Marine Conservation">Partenariat scientifique avec l'Archipelagos Institute of Marine Conservation</div>
-      </div>
-    </div>
-    <div class="slide" data-bg="images/cockpit super petrel.avif">
-      <div class="slide-info">
-        <div class="slide-info-title" data-fr="Rivière Bermejo, Argentine" data-en="Bermejo River, Argentina">Rivière Bermejo, Argentine</div>
-        <div class="slide-info-desc" data-fr="Au dessus du Gran Chaco, l'une des dernières grandes régions sauvages du continent, nous recherchons des nids d'aigles, de caïmans et de capybaras, afin de convaincre les autorités argentines de créer une zone protégée fluviale." data-en="Above the Gran Chaco, one of the continent's last great wild regions, we search for eagle nests, caimans and capybaras, to convince Argentine authorities to create a protected fluvial area.">Au dessus du Gran Chaco, l'une des dernières grandes régions sauvages du continent, nous recherchons des nids d'aigles, de caïmans et de capybaras, afin de convaincre les autorités argentines de créer une zone protégée fluviale.</div>
-        <div class="slide-info-credit" data-fr="Partenariat scientifique avec la Fundación ProYungas" data-en="Scientific partnership with Fundación ProYungas">Partenariat scientifique avec la Fundación ProYungas</div>
-      </div>
-    </div>
-    <div class="slide" data-bg="images/parana_bresil_wfs.webp">
-      <div class="slide-info">
-        <div class="slide-info-title" data-fr="Fleuve Paraná, Brésil" data-en="Paraná River, Brazil">Fleuve Paraná, Brésil</div>
-        <div class="slide-info-desc" data-fr="Survol du Paraná à la recherche des harpies féroces — le plus grand rapace des Amériques." data-en="Flying over the Paraná in search of harpy eagles — the Americas' largest raptor.">Survol du Paraná à la recherche des harpies féroces — le plus grand rapace des Amériques.</div>
-        <div class="slide-info-credit" data-fr="Partenariat scientifique avec l'ICMBio — Instituto Chico Mendes de Conservação da Biodiversidade" data-en="Scientific partnership with ICMBio — Instituto Chico Mendes de Conservação da Biodiversidade">Partenariat scientifique avec l'ICMBio — Instituto Chico Mendes de Conservação da Biodiversidade</div>
-      </div>
-    </div>
-    <div class="slide" data-bg="images/andes_cockpit_wfs.webp">
-      <div class="slide-info">
-        <div class="slide-info-title" data-fr="Cordillère des Andes, Chili" data-en="Andes Cordillera, Chile">Cordillère des Andes, Chili</div>
-        <div class="slide-info-desc" data-fr="Depuis le cockpit, la cordillère apparaît dans la brume. Ces reliefs isolés abritent des biotopes que la science commence à peine à cataloguer." data-en="From the cockpit, the mountain range emerges through the mist. These remote reliefs host biotopes science is only beginning to catalogue.">Depuis le cockpit, la cordillère apparaît dans la brume. Ces reliefs isolés abritent des biotopes que la science commence à peine à cataloguer.</div>
-        <div class="slide-info-credit"></div>
-      </div>
-    </div>
-    <div class="slide" data-bg="images/upsala_glacier_wfs.webp">
-      <div class="slide-info">
-        <div class="slide-info-title" data-fr="Glacier Upsala, Argentine" data-en="Upsala Glacier, Argentina">Glacier Upsala, Argentine</div>
-        <div class="slide-info-desc" data-fr="Modèle 3D du front du glacier Upsala et du glissement de terrain voisin, à l'origine d'un tsunami sur le lac. Données utilisées par le laboratoire pour étudier le retrait des glaces en Patagonie." data-en="3D model of the Upsala glacier front and the neighbouring landslide that triggered a lake tsunami. Data used by the lab to study ice retreat in Patagonia.">Modèle 3D du front du glacier Upsala et du glissement de terrain voisin, à l'origine d'un tsunami sur le lac. Données utilisées par le laboratoire pour étudier le retrait des glaces en Patagonie.</div>
-        <div class="slide-info-credit" data-fr="Partenariat scientifique avec le Glaciarium / Pr. Pedro Skvarca" data-en="Scientific partnership with Glaciarium / Prof. Pedro Skvarca">Partenariat scientifique avec le Glaciarium / Pr. Pedro Skvarca</div>
-      </div>
-    </div>
-    <div class="slide" data-bg="images/toodina_meteorite_wfs.webp">
-      <div class="slide-info">
-        <div class="slide-info-title" data-fr="Cratère de Toodina, Australie" data-en="Toodina Crater, Australia">Cratère de Toodina, Australie</div>
-        <div class="slide-info-desc" data-fr="Un impact de météorite de plusieurs centaines de millions d'années, invisible depuis le sol, creuse encore le désert australien." data-en="A meteorite impact hundreds of millions of years old, invisible from the ground, still scars the Australian desert.">Un impact de météorite de plusieurs centaines de millions d'années, invisible depuis le sol, creuse encore le désert australien.</div>
-        <div class="slide-info-credit"></div>
-      </div>
-    </div>
-    <div class="slide" data-bg="images/banado_la_estrella_formosa_argentine.webp">
-      <div class="slide-info">
-        <div class="slide-info-title" data-fr="Bañado La Estrella, Argentine" data-en="Bañado La Estrella, Argentina">Bañado La Estrella, Argentine</div>
-        <div class="slide-info-desc" data-fr="Deuxième plus grande zone humide d'Amérique du Sud : jaguars, tapirs, caïmans et plus de 300 espèces d'oiseaux peuplent cette rivière, que nous cartographions pour délimiter le premier parc naturel fluvial d'Argentine." data-en="South America's second-largest wetland: jaguars, tapirs, caimans and over 300 bird species inhabit this river, which we map to delineate Argentina's first fluvial natural park.">Deuxième plus grande zone humide d'Amérique du Sud : jaguars, tapirs, caïmans et plus de 300 espèces d'oiseaux peuplent cette rivière, que nous cartographions pour délimiter le premier parc naturel fluvial d'Argentine.</div>
-        <div class="slide-info-credit" data-fr="Partenariat scientifique avec la Fundación ProYungas" data-en="Scientific partnership with Fundación ProYungas">Partenariat scientifique avec la Fundación ProYungas</div>
-      </div>
-    </div>
-    <div class="slide" data-bg="images/wix_import/post_collection_photos.webp">
-      <div class="slide-info">
-        <div class="slide-info-title" data-fr="Laguna Epecuén, Patagonie" data-en="Laguna Epecuén, Patagonia">Laguna Epecuén, Patagonie</div>
-        <div class="slide-info-desc" data-fr="Le rose profond des eaux est dû à la concentration d'artémies — minuscules crustacés aux trois yeux et onze paires de pattes, nourriture des flamants roses. Nous les comptabilisons depuis les airs pour documenter cet écosystème unique." data-en="The deep pink of the water comes from brine shrimp — tiny crustaceans with three eyes and eleven pairs of legs, the food source of flamingos. We count them from the air to document this unique ecosystem.">Le rose profond des eaux est dû à la concentration d'artémies — minuscules crustacés aux trois yeux et onze paires de pattes, nourriture des flamants roses. Nous les comptabilisons depuis les airs pour documenter cet écosystème unique.</div>
-        <div class="slide-info-credit" data-fr="Partenariat scientifique avec la Reserva Natural Municipal de la Laguna Epecuén" data-en="Scientific partnership with the Reserva Natural Municipal de la Laguna Epecuén">Partenariat scientifique avec la Reserva Natural Municipal de la Laguna Epecuén</div>
-      </div>
-    </div>
-    <div class="slide" data-bg="images/wix_import/hero_contact.webp">
-      <div class="slide-info">
-        <div class="slide-info-title" data-fr="Cordillère des Andes, Argentine" data-en="Andes Cordillera, Argentina">Cordillère des Andes, Argentine</div>
-        <div class="slide-info-desc" data-fr="Dans le dédale des montagnes et des volcans, sans GPS ni carte fiable, c'est à vue que navigue l'équipage entre les sommets enneigés du Tronador." data-en="Through the maze of mountains and volcanoes, without reliable GPS or maps, the crew navigates by sight between the snow-capped peaks of Tronador.">Dans le dédale des montagnes et des volcans, sans GPS ni carte fiable, c'est à vue que navigue l'équipage entre les sommets enneigés du Tronador.</div>
-        <div class="slide-info-credit"></div>
-      </div>
-    </div>
-    <div class="slide-overlay"></div>
-    <div class="slide-dots">
-    <button class="slide-dot active" onclick="goToSlide(0)" aria-label="Diapositive 1"></button>
-    <button class="slide-dot" onclick="goToSlide(1)" aria-label="Diapositive 2"></button>
-    <button class="slide-dot" onclick="goToSlide(2)" aria-label="Diapositive 3"></button>
-    <button class="slide-dot" onclick="goToSlide(3)" aria-label="Diapositive 4"></button>
-    <button class="slide-dot" onclick="goToSlide(4)" aria-label="Diapositive 5"></button>
-    <button class="slide-dot" onclick="goToSlide(5)" aria-label="Diapositive 6"></button>
-    <button class="slide-dot" onclick="goToSlide(6)" aria-label="Diapositive 7"></button>
-    <button class="slide-dot" onclick="goToSlide(7)" aria-label="Diapositive 8"></button>
-    <button class="slide-dot" onclick="goToSlide(8)" aria-label="Diapositive 9"></button>
-    <button class="slide-dot" onclick="goToSlide(9)" aria-label="Diapositive 10"></button>
-    <button class="slide-dot" onclick="goToSlide(10)" aria-label="Diapositive 11"></button>
-    <button class="slide-dot" onclick="goToSlide(11)" aria-label="Diapositive 12"></button>
-    <button class="slide-dot" onclick="goToSlide(12)" aria-label="Diapositive 13"></button>
-    </div>
-    <button class="slide-arrow slide-prev" onclick="prevSlide()" aria-label="Diapositive precedente">&#8592;</button>
-    <button class="slide-arrow slide-next" onclick="nextSlide()" aria-label="Diapositive suivante">&#8594;</button>
+    <a class="nav-lien" href="actu.html" data-fr="Carnet de route" data-en="Logbook">Carnet de route</a>
+    <button class="langue lang-toggle" type="button" onclick="setLang(window.currentLang==='fr'?'en':'fr')" aria-label="Changer de langue / Switch language">FR</button>
+    <a class="btn btn-orange" href="contact.html" data-fr="Nous soutenir" data-en="Support us">Nous soutenir</a>
+  </nav>
+  <button class="burger" type="button" aria-label="Ouvrir le menu" aria-controls="menuMobile" aria-expanded="false" id="burger">
+    <svg aria-hidden="true" width="20" height="14" viewBox="0 0 20 14"><path d="M1 1h18M1 7h18M1 13h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
+</header>
+
+<div class="menu-mobile" id="menuMobile" aria-label="Menu" role="dialog" aria-modal="true">
+  <div class="haut">
+    <a class="logo" href="index.html"><img src="images/logo_wfs.webp" alt="" width="40" height="40"><span data-fr="Des Ailes pour la Science" data-en="Wings for Science">Des Ailes pour la Science</span></a>
+    <button class="rond" type="button" aria-label="Fermer le menu" id="fermerMenu">✕</button>
   </div>
-  <div class="hero-content">
-    <p class="hero-eyebrow" data-fr="Association de loi 1901 · Fondée en 2008" data-en="Non-profit association · Founded in 2008">Association de loi 1901 · Fondée en 2008</p>
-    <h1 class="hero-title">
-      <span data-fr="Donner des" data-en="Giving">Donner des</span> <em><span data-fr="Ailes" data-en="Wings">Ailes</span></em> <span data-fr="à la Nature, par la Science" data-en="to Nature, through Science">à la Nature, par la Science</span>
-    </h1>
-    <p class="hero-subtitle" data-fr="Expéditions aéronautiques au service de la recherche et de l'environnement" data-en="Aeronautical expeditions in the service of research and the environment">Expéditions aéronautiques au service de la recherche et de l'environnement</p>
+  <details><summary><span data-fr="Notre mission" data-en="Our mission">Notre mission</span> <span aria-hidden="true">+</span></summary>
+    <a href="science-environnement.html" data-fr="Appuyer la science et l&#x27;environnement" data-en="Supporting science and the environment">Appuyer la science et l'environnement</a>
+    <a href="expeditions.html" data-fr="Des expéditions aéronautiques" data-en="Aeronautical expeditions">Des expéditions aéronautiques</a>
+    <a href="sensibilisation.html" data-fr="Et de la sensibilisation" data-en="And public awareness">Et de la sensibilisation</a>
+  </details>
+  <details><summary><span data-fr="Nos actions" data-en="Our actions">Nos actions</span> <span aria-hidden="true">+</span></summary>
+    <a href="campagne-scientifique.html" data-fr="Campagne scientifique" data-en="Scientific campaign">Campagne scientifique</a>
+    <a href="conferences.html" data-fr="Conférences" data-en="Conferences">Conférences</a>
+    <a href="reportages.html" data-fr="Reportages" data-en="Documentaries">Reportages</a>
+    <a href="livres.html" data-fr="Livres" data-en="Books">Livres</a>
+    <a href="presse.html" data-fr="Presse" data-en="Press">Presse</a>
+  </details>
+  <details><summary><span data-fr="Notre réseau" data-en="Our network">Notre réseau</span> <span aria-hidden="true">+</span></summary>
+    <a href="confondateurs.html" data-fr="Cofondateurs &amp; parrains" data-en="Co-founders &amp; patrons">Cofondateurs &amp; parrains</a>
+    <a href="equipe.html" data-fr="L&#x27;équipe" data-en="The team">L'équipe</a>
+    <a href="partenaires.html" data-fr="Partenaires &amp; sponsors" data-en="Partners &amp; sponsors">Partenaires &amp; sponsors</a>
+  </details>
+  <a class="lien-simple" href="actu.html" data-fr="Carnet de route" data-en="Logbook">Carnet de route</a>
+  <a class="lien-simple" href="contact.html">Contact</a>
+  <button class="lien-simple lang-toggle" type="button" style="background:none;border:0;border-bottom:1px solid var(--ligne);text-align:left;width:100%;cursor:pointer" onclick="setLang(window.currentLang==='fr'?'en':'fr')">FR</button>
+  <a class="btn btn-orange" href="contact.html" data-fr="Nous soutenir" data-en="Support us">Nous soutenir</a>
+</div>
+
+<main>
+<!-- ══ HÉROS : diaporama plein écran ══ -->
+<section class="heros" aria-label="Présentation">
+  <div class="diapo active" data-lieu="Glacier Upsala · Argentine" data-desc="Modèle 3D du front glaciaire, pour étudier le retrait des glaces en Patagonie." data-lieu-en="Upsala Glacier · Argentina" data-desc-en="3D model of the glacier front, to study ice retreat in Patagonia.">
+    <img src="images/accueil/upsala-1920.webp" srcset="images/accueil/upsala-900.webp 900w, images/accueil/upsala-1920.webp 1920w" sizes="100vw" alt="Le Super Pétrel survole un lac de Patagonie face aux sommets enneigés" style="object-position:55% 50%">
   </div>
-  <div class="hero-scroll">
-    <div class="scroll-line"></div>
-    <span class="scroll-label" data-fr="Découvrir" data-en="Explore">Découvrir</span>
+  <div class="diapo" data-lieu="Volcan Krakatau · Indonésie" data-desc="Notre capteur embarqué quantifie les flux de SO₂ libérés par ce volcan célèbre." data-lieu-en="Krakatau Volcano · Indonesia" data-desc-en="Our onboard sensor quantifies the SO₂ fluxes released by this famous volcano.">
+    <img src="images/accueil/krakatoa-1920.webp" srcset="images/accueil/krakatoa-900.webp 900w, images/accueil/krakatoa-1920.webp 1920w" sizes="100vw" alt="Le volcan Anak Krakatau fume au-dessus de la mer" loading="lazy">
+  </div>
+  <div class="diapo" data-lieu="Sud-ouest du Groenland" data-desc="Documentation photographique des glaciers en recul, pour une étude sur le changement climatique." data-lieu-en="South-west Greenland" data-desc-en="Photographic documentation of receding glaciers, for a climate change study.">
+    <img src="images/accueil/groenland-1920.webp" srcset="images/accueil/groenland-900.webp 900w, images/accueil/groenland-1920.webp 1920w" sizes="100vw" alt="Glaciers et lacs de fonte bleus au Groenland" loading="lazy">
+  </div>
+  <div class="diapo" data-lieu="Lac Eyre · Australie" data-desc="Le plus grand lac salé d'Australie, rarement rempli, révèle ses couleurs irréelles depuis les airs." data-lieu-en="Lake Eyre · Australia" data-desc-en="Australia's largest salt lake, rarely filled, reveals its unreal colours from the air.">
+    <img src="images/accueil/lac-eyre-1920.webp" srcset="images/accueil/lac-eyre-900.webp 900w, images/accueil/lac-eyre-1920.webp 1920w" sizes="100vw" alt="Les couleurs orange et blanches du lac Eyre vues du ciel" loading="lazy">
+  </div>
+  <div class="diapo" data-lieu="Fleuve Paraná · Brésil" data-desc="Survol du Paraná à la recherche des harpies féroces, le plus grand rapace des Amériques." data-lieu-en="Paraná River · Brazil" data-desc-en="Flying over the Paraná in search of harpy eagles, the Americas' largest raptor.">
+    <img src="images/accueil/parana-1920.webp" srcset="images/accueil/parana-900.webp 900w, images/accueil/parana-1920.webp 1920w" sizes="100vw" alt="L'ULM survole les méandres verts du fleuve Paraná" loading="lazy">
+  </div>
+
+  <div class="heros-contenu wrap">
+    <div class="heros-texte">
+      <p class="surtitre" data-fr="Association · Expéditions aéronautiques depuis 2008" data-en="Non-profit · Aeronautical expeditions since 2008">Association · Expéditions aéronautiques depuis 2008</p>
+      <h1 data-fr="Donner des &lt;em&gt;ailes&lt;/em&gt; à la nature, par la science" data-en="Giving &lt;em&gt;wings&lt;/em&gt; to nature, through science">Donner des <em>ailes</em> à la nature, par la science</h1>
+      <p class="chapo" data-fr="Glaciers, volcans, déserts, océans : des expéditions aéronautiques au service de la recherche et de l&#x27;environnement." data-en="Glaciers, volcanoes, deserts, oceans: aeronautical expeditions in the service of research and the environment.">Glaciers, volcans, déserts, océans : des expéditions aéronautiques au service de la recherche et de l'environnement.</p>
+      <div class="actions">
+        <a class="btn btn-blanc" href="#donnees" data-fr="Découvrir nos missions" data-en="Discover our missions">Découvrir nos missions</a>
+        <button class="btn btn-contour" type="button" id="voirFilm"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14"><path d="M3 1.5v11l9-5.5z" fill="currentColor"/></svg><span data-fr="Voir la bande-annonce" data-en="Watch the trailer">Voir la bande-annonce</span></button>
+      </div>
+    </div>
+    <div class="legende-diapo">
+      <div class="legende-carte" id="legendeCarte" aria-live="polite">
+        <p class="lieu" id="legendeLieu" data-fr="Glacier Upsala · Argentine" data-en="Upsala Glacier · Argentina">Glacier Upsala · Argentine</p>
+        <p class="desc" id="legendeDesc">Modèle 3D du front glaciaire, pour étudier le retrait des glaces en Patagonie.</p>
+      </div>
+      <div class="points" id="points" aria-label="Choisir une photo"></div>
+    </div>
   </div>
 </section>
 
+<!-- ══ CHIFFRES ══ -->
+<section class="ivoire wrap chiffres" aria-label="Chiffres clés">
+  <div class="chiffre"><strong>50</strong><span data-fr="pays survolés" data-en="countries overflown">pays survolés</span></div>
+  <div class="chiffre"><strong data-fr="100 000" data-en="100,000">100 000</strong><span data-fr="kilomètres parcourus" data-en="kilometres covered">kilomètres parcourus</span></div>
+  <div class="chiffre"><strong>34</strong><span data-fr="missions scientifiques" data-en="scientific missions">missions scientifiques</span></div>
+  <div class="chiffre"><strong>100+</strong><span data-fr="scientifiques accompagnés" data-en="scientists supported">scientifiques accompagnés</span></div>
+</section>
+
+<!-- ══ MANIFESTE ══ -->
+<section class="ivoire wrap manifeste">
+  <div class="grille">
+    <p class="kicker" data-fr="Notre mission" data-en="Our mission">Notre mission</p>
+    <div class="texte">
+      <h2 data-fr="Des centaines de scientifiques tentent de comprendre et de préserver la planète. &lt;em&gt;Nos expéditions sont à leur service, et au vôtre.&lt;/em&gt;" data-en="Hundreds of scientists are working to understand and protect our planet. &lt;em&gt;Our expeditions are at their service, and yours.&lt;/em&gt;">Des centaines de scientifiques tentent de comprendre et de préserver la planète. <em>Nos expéditions sont à leur service, et au vôtre.</em></h2>
+      <p data-fr="Depuis 2008, nous œuvrons pour la production scientifique, l&#x27;action politique et l&#x27;éducation en faveur de l&#x27;environnement — à bord d&#x27;ULM conçus avec leurs fabricants pour acquérir des données scientifiques nouvelles." data-en="Since 2008, we have been working for scientific production, political action and environmental education — aboard microlight aircraft designed with their manufacturers to acquire new scientific data.">Depuis 2008, nous œuvrons pour la production scientifique, l'action politique et l'éducation en faveur de l'environnement — à bord d'ULM conçus avec leurs fabricants pour acquérir des données scientifiques nouvelles.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ DONNÉES INACCESSIBLES ══ -->
+<section class="wrap section" id="donnees" style="scroll-margin-top:60px">
+  <div class="donnees-tete">
+    <p class="kicker" data-fr="Sur le terrain" data-en="In the field">Sur le terrain</p>
+    <h2 class="h2" data-fr="Les données que les chercheurs ne peuvent pas atteindre, &lt;em&gt;nous allons les chercher.&lt;/em&gt;" data-en="The data researchers cannot reach, &lt;em&gt;we go and get it.&lt;/em&gt;">Les données que les chercheurs ne peuvent pas atteindre, <em>nous allons les chercher.</em></h2>
+  </div>
+  <div class="cartes-4">
+    <article class="carte-donnee">
+      <div class="img"><img src="images/accueil/krakatoa-900.webp" alt="Le volcan Anak Krakatau en activité" loading="lazy"></div>
+      <p class="lieu" data-fr="Krakatau · Indonésie" data-en="Krakatau · Indonesia">Krakatau · Indonésie</p>
+      <h3 data-fr="Gaz volcaniques" data-en="Volcanic gases">Gaz volcaniques</h3>
+    </article>
+    <article class="carte-donnee">
+      <div class="img"><img src="images/accueil/lac-amarrage-900.webp" alt="Le Super Pétrel amarré sur la rive d'un lac de Patagonie" loading="lazy"></div>
+      <p class="lieu" data-fr="Patagonie" data-en="Patagonia">Patagonie</p>
+      <h3 data-fr="Eau des lacs isolés" data-en="Water from isolated lakes">Eau des lacs isolés</h3>
+    </article>
+    <article class="carte-donnee">
+      <div class="img"><img src="images/accueil/fossiles-900.webp" alt="L'ULM survole le désert de Patagonie au-dessus d'un gisement de fossiles" loading="lazy"></div>
+      <p class="lieu" data-fr="Trelew · Argentine" data-en="Trelew · Argentina">Trelew · Argentine</p>
+      <h3 data-fr="Fossiles du désert" data-en="Desert fossils">Fossiles du désert</h3>
+    </article>
+    <article class="carte-donnee">
+      <div class="img"><img src="images/accueil/front-glacier-900.webp" alt="Le Super Pétrel vole devant le front d'un glacier de Patagonie" loading="lazy"></div>
+      <p class="lieu" data-fr="Glacier Upsala · Argentine" data-en="Upsala Glacier · Argentina">Glacier Upsala · Argentine</p>
+      <h3 data-fr="Glaciers en 3D" data-en="Glaciers in 3D">Glaciers en 3D</h3>
+    </article>
+  </div>
+</section>
+
+<!-- ══ PILIERS ══ -->
+<section class="piliers" aria-label="Nos trois missions">
+  <a class="pilier" href="science-environnement.html">
+    <img src="images/accueil/krakatoa-900.webp" srcset="images/accueil/krakatoa-900.webp 900w, images/accueil/krakatoa-1920.webp 1920w" sizes="(max-width:760px) 100vw, 33vw" alt="" loading="lazy">
+    <div class="contenu"><p class="num" data-fr="01 — APPUYER" data-en="01 — SUPPORT">01 — APPUYER</p><h3 data-fr="La science et l&#x27;environnement" data-en="Science and the environment">La science et l'environnement</h3><p data-fr="Données aériennes, modèles 3D et publications pour 13 disciplines." data-en="Aerial data, 3D models and publications for 13 disciplines.">Données aériennes, modèles 3D et publications pour 13 disciplines.</p><span class="fleche" data-fr="En savoir plus →" data-en="Learn more →">En savoir plus →</span></div>
+  </a>
+  <a class="pilier" href="expeditions.html">
+    <img src="images/accueil/virus-desert-900.webp" srcset="images/accueil/virus-desert-900.webp 900w, images/accueil/virus-desert-1920.webp 1920w" sizes="(max-width:760px) 100vw, 33vw" alt="" loading="lazy">
+    <div class="contenu"><p class="num" data-fr="02 — EXPLORER" data-en="02 — EXPLORE">02 — EXPLORER</p><h3 data-fr="Des expéditions aéronautiques" data-en="Aeronautical expeditions">Des expéditions aéronautiques</h3><p data-fr="Un tour du monde complet, puis d&#x27;Ushuaïa aux Grands Lacs canadiens, en ULM." data-en="A complete round-the-world trip, then from Ushuaia to the Canadian Great Lakes, by microlight.">Un tour du monde complet, puis d'Ushuaïa aux Grands Lacs canadiens, en ULM.</p><span class="fleche" data-fr="En savoir plus →" data-en="Learn more →">En savoir plus →</span></div>
+  </a>
+  <a class="pilier" href="sensibilisation.html">
+    <img src="images/accueil/crepuscule-900.webp" srcset="images/accueil/crepuscule-900.webp 900w, images/accueil/crepuscule-1920.webp 1920w" sizes="(max-width:760px) 100vw, 33vw" alt="" loading="lazy">
+    <div class="contenu"><p class="num" data-fr="03 — SENSIBILISER" data-en="03 — EDUCATE">03 — SENSIBILISER</p><h3 data-fr="Partager avec le plus grand nombre" data-en="Sharing with as many people as possible">Partager avec le plus grand nombre</h3><p data-fr="Films, livres, conférences dans les écoles et les médias." data-en="Films, books, talks in schools and in the media.">Films, livres, conférences dans les écoles et les médias.</p><span class="fleche" data-fr="En savoir plus →" data-en="Learn more →">En savoir plus →</span></div>
+  </a>
+</section>
+
+<!-- ══ CITATIONS ══ -->
+<section class="citations" aria-label="Paroles de scientifiques">
+  <img src="images/accueil/groenland-1920.webp" srcset="images/accueil/groenland-900.webp 900w, images/accueil/groenland-1920.webp 1920w" sizes="100vw" alt="" loading="lazy">
+  <figure class="wrap">
+    <p class="kicker" style="color:var(--ciel-clair)" data-fr="Paroles de scientifiques" data-en="Scientists speak">Paroles de scientifiques</p>
+    <blockquote id="citTexte">« Grâce aux photos aériennes, nous avons pu reconstituer la structure en 3D du dôme résurgent, afin de prévenir les habitants des zones qui menacent de s'effondrer. »</blockquote>
+    <figcaption id="citAuteur"><strong>Elodie Brothelande</strong> — Volcanologue, Laboratoire Magmas et Volcans (CNRS)</figcaption>
+    <div class="fleches">
+      <button class="rond" type="button" aria-label="Citation précédente" id="citPrec">←</button>
+      <button class="rond" type="button" aria-label="Citation suivante" id="citSuiv">→</button>
+    </div>
+  </figure>
+</section>
+
+<!-- ══ GALERIE ══ -->
+<section class="wrap section" aria-label="Galerie">
+  <div class="galerie-tete">
+    <div>
+      <p class="kicker" data-fr="Vu du ciel" data-en="Seen from the sky">Vu du ciel</p>
+      <h2 class="h2" data-fr="La planète comme les chercheurs ne la voient jamais" data-en="The planet as researchers never see it">La planète comme les chercheurs ne la voient jamais</h2>
+    </div>
+    <button class="btn btn-contour" type="button" data-galerie="0" data-fr="Ouvrir la galerie plein écran →" data-en="Open the full-screen gallery →">Ouvrir la galerie plein écran →</button>
+  </div>
+  <div class="galerie" id="galerie">
+    <button class="g22" type="button" data-galerie="0"><img src="images/accueil/lac-eyre-900.webp" alt="Les couleurs du lac Eyre vues du ciel" loading="lazy"><span class="legende" data-fr="Lac Eyre · Australie" data-en="Lake Eyre · Australia">Lac Eyre · Australie</span></button>
+    <button type="button" data-galerie="1"><img src="images/accueil/horizontal-falls-900.webp" alt="Les Horizontal Falls, cascade horizontale créée par les marées" loading="lazy"><span class="legende">Horizontal Falls</span></button>
+    <button type="button" data-galerie="2"><img src="images/accueil/cachalots-900.webp" alt="Une maman cachalot et son petit en surface" loading="lazy"><span class="legende" data-fr="Cachalots · Grèce" data-en="Sperm whales · Greece">Cachalots · Grèce</span></button>
+    <button class="g2" type="button" data-galerie="3"><img src="images/accueil/parana-900.webp" alt="L'ULM survole les méandres du fleuve Paraná" loading="lazy"><span class="legende" data-fr="Fleuve Paraná · Brésil" data-en="Paraná River · Brazil">Fleuve Paraná · Brésil</span></button>
+    <button type="button" data-galerie="4"><img src="images/accueil/banado-900.webp" alt="Oiseaux au-dessus de la zone humide du Bañado La Estrella" loading="lazy"><span class="legende">Bañado La Estrella</span></button>
+    <button type="button" data-galerie="5"><img src="images/accueil/andes-900.webp" alt="La cordillère des Andes dans la brume, vue depuis le cockpit" loading="lazy"><span class="legende" data-fr="Andes · Chili" data-en="Andes · Chile">Andes · Chili</span></button>
+    <button class="g2" type="button" data-galerie="6"><img src="images/accueil/baleine-vagues-900.webp" alt="Observation de baleines depuis un ULM" loading="lazy"><span class="legende" data-fr="Biologie marine" data-en="Marine biology">Biologie marine</span></button>
+  </div>
+</section>
+
+<!-- ══ EXPÉDITIONS ══ -->
+<section class="ivoire wrap section">
+  <p class="kicker" data-fr="Nos expéditions" data-en="Our expeditions">Nos expéditions</p>
+  <h2 class="h2" style="max-width:820px;margin-bottom:48px" data-fr="Un tour du monde complet, puis les Amériques d&#x27;Ushuaïa aux Grands Lacs" data-en="A complete round-the-world trip, then the Americas from Ushuaia to the Great Lakes">Un tour du monde complet, puis les Amériques d'Ushuaïa aux Grands Lacs</h2>
+  <div class="voyages">
+    <article class="voyage">
+      <img src="images/accueil/virus-desert-900.webp" alt="Le Pipistrel Virus en vol au-dessus du désert australien" loading="lazy">
+      <div class="corps">
+        <p class="date" data-fr="Juin 2012 – juin 2013 · Pipistrel Virus SW" data-en="June 2012 – June 2013 · Pipistrel Virus SW">Juin 2012 – juin 2013 · Pipistrel Virus SW</p>
+        <h3 data-fr="Le tour du monde" data-en="The round-the-world trip">Le tour du monde</h3>
+        <div class="stats">
+          <div><strong>54 000</strong><span data-fr="kilomètres" data-en="kilometres">kilomètres</span></div>
+          <div><strong>50</strong><span data-fr="pays" data-en="countries">pays</span></div>
+          <div><strong>120</strong><span data-fr="étapes" data-en="stages">étapes</span></div>
+        </div>
+      </div>
+    </article>
+    <article class="voyage">
+      <img src="images/accueil/equipage-900.webp" alt="L'équipage prépare un vol à côté du Super Pétrel amphibie" loading="lazy">
+      <div class="corps">
+        <p class="date" data-fr="Janvier 2016 – novembre 2017 · Super Pétrel" data-en="January 2016 – November 2017 · Super Pétrel">Janvier 2016 – novembre 2017 · Super Pétrel</p>
+        <h3 data-fr="La traversée des Amériques" data-en="Crossing the Americas">La traversée des Amériques</h3>
+        <p class="texte" data-fr="D&#x27;Ushuaïa, au bout de la Terre de Feu, jusqu&#x27;aux Grands Lacs canadiens, en hydravion amphibie : du sud au nord des Amériques." data-en="From Ushuaia, at the tip of Tierra del Fuego, to the Canadian Great Lakes, by amphibious seaplane: from the south to the north of the Americas.">D'Ushuaïa, au bout de la Terre de Feu, jusqu'aux Grands Lacs canadiens, en hydravion amphibie : du sud au nord des Amériques.</p>
+      </div>
+    </article>
+  </div>
+  <div class="actions-ligne">
+    <a class="btn btn-nuit" href="expeditions.html" data-fr="Découvrir nos avions et nos trajets" data-en="Discover our aircraft and routes">Découvrir nos avions et nos trajets</a>
+    <a class="btn btn-contour-nuit" href="actu.html" data-fr="Lire le carnet de route" data-en="Read the logbook">Lire le carnet de route</a>
+  </div>
+</section>
+
+<!-- ══ ACTIONS ══ -->
+<section class="wrap section">
+  <p class="kicker" data-fr="Nos actions" data-en="Our actions">Nos actions</p>
+  <h2 class="h2" style="max-width:780px;margin-bottom:48px" data-fr="Partager la science avec le plus grand nombre" data-en="Sharing science with as many people as possible">Partager la science avec le plus grand nombre</h2>
+  <div class="actions-4">
+    <a class="action" href="reportages.html">
+      <div class="img"><img src="images/accueil/films-900.webp" alt="Tournage d'un épisode en bateau" loading="lazy"></div>
+      <strong>32</strong><span class="titre" data-fr="Films et web-séries" data-en="Films and web series">Films et web-séries</span>
+      <span class="desc" data-fr="Longs métrages diffusés sur Planète Thalassa et Le Blob, web-série Les Chercheurs du bout du monde." data-en="Feature films broadcast on Planète Thalassa and Le Blob, and the web series Les Chercheurs du bout du monde.">Longs métrages diffusés sur Planète Thalassa et Le Blob, web-série Les Chercheurs du bout du monde.</span>
+    </a>
+    <a class="action" href="livres.html">
+      <div class="img"><img src="images/accueil/livres-900.webp" alt="Couverture du livre Un tour du monde pas comme les autres" loading="lazy"></div>
+      <strong>2</strong><span class="titre" data-fr="Livres" data-en="Books">Livres</span>
+      <span class="desc" data-fr="Le récit du tour du monde en deux tomes, aux éditions Le Pommier." data-en="The story of the round-the-world trip in two volumes, published by Le Pommier.">Le récit du tour du monde en deux tomes, aux éditions Le Pommier.</span>
+    </a>
+    <a class="action" href="conferences.html">
+      <div class="img"><img src="images/accueil/conferences-900.webp" alt="Conférence dans une salle de classe" loading="lazy"></div>
+      <strong>59</strong><span class="titre" data-fr="Conférences" data-en="Conferences">Conférences</span>
+      <span class="desc" data-fr="Auprès des élèves, des enseignants et du grand public." data-en="For pupils, teachers and the general public.">Auprès des élèves, des enseignants et du grand public.</span>
+    </a>
+    <a class="action" href="presse.html">
+      <div class="img"><img src="images/accueil/presse-900.webp" alt="Interview radio sur un plateau" loading="lazy"></div>
+      <strong>434</strong><span class="titre" data-fr="Articles de presse" data-en="Press articles">Articles de presse</span>
+      <span class="desc" data-fr="Le Monde, AFP, Arte, France Inter, RTL… dans plus de 60 médias." data-en="Le Monde, AFP, Arte, France Inter, RTL… in more than 60 media outlets.">Le Monde, AFP, Arte, France Inter, RTL… dans plus de 60 médias.</span>
+    </a>
+  </div>
+</section>
+
+<!-- ══ PARTENAIRES & SPONSORS ══ -->
+<section class="ivoire wrap partenaires" aria-label="Partenaires et sponsors">
+  <p class="kicker" data-fr="32 institutions partenaires" data-en="32 partner institutions">32 institutions partenaires</p>
+  <div class="logos" style="margin-top:28px">
+    <div><img src="images/logos/scientifiques/logo_sci_institut_de_recherche_pour_le_developpement.webp" alt="Institut de Recherche pour le Développement" loading="lazy"></div>
+    <div><img src="images/logos/scientifiques/logo_sci_lsce,_laboratoire_des_sciences_du_climat_et_de_l'environnement.jpg" alt="LSCE — CNRS" loading="lazy"></div>
+    <div><img src="images/logos/scientifiques/logo_sci_laboratoire_magmas_volcans_lmv.webp" alt="Laboratoire Magmas et Volcans" loading="lazy"></div>
+    <div><img src="images/logos/scientifiques/logo_sci_eso_european_southern_observatory_observatoire_europeen_austral.webp" alt="European Southern Observatory" loading="lazy"></div>
+    <div><img src="images/logos/scientifiques/logo_sci_inrap.webp" alt="INRAP" loading="lazy"></div>
+    <div><img src="images/logos/scientifiques/logo_sci_institut_francais_du_proche_orient.webp" alt="Institut français du Proche-Orient" loading="lazy"></div>
+    <div><img src="images/logos/scientifiques/logo_sci_universite_du_luxembourg.webp" alt="Université du Luxembourg" loading="lazy"></div>
+    <div><img src="images/logos/scientifiques/logo_sci_archipelagos_institute_of_marine_conservation.webp" alt="Archipelagos Institute of Marine Conservation" loading="lazy"></div>
+    <div><img src="images/logos/scientifiques/logo_sci_fundación_proyungas.webp" alt="Fundación ProYungas" loading="lazy"></div>
+    <div><img src="images/logos/scientifiques/logo_sci_icmbio.webp" alt="ICMBio" loading="lazy"></div>
+    <div><img src="images/logos/partenaires/fnr.webp" alt="Fonds National de la Recherche Luxembourg" loading="lazy"></div>
+    <div><img src="images/logos/partenaires/academie_sciences.webp" alt="Académie des Sciences" loading="lazy"></div>
+    <div><img src="images/logos/partenaires/universcience.webp" alt="Universcience" loading="lazy"></div>
+    <div><img src="images/logos/partenaires/eufar.webp" alt="European Facility for Airborne Research" loading="lazy"></div>
+  </div>
+
+  <p class="kicker" style="margin-top:56px;margin-bottom:24px" data-fr="Nos sponsors" data-en="Our sponsors">Nos sponsors</p>
+  <div class="sponsor-principal">
+    <img src="images/logos/partenaires/sos_malus.webp" alt="SOS Malus" loading="lazy">
+    <span data-fr="Sponsor principal · Financement des expéditions et assurances" data-en="Main sponsor · Expedition funding and insurance">Sponsor principal · Financement des expéditions et assurances</span>
+  </div>
+  <div class="logos">
+    <div><img src="images/logos/partenaires/zodiac_aerospace.webp" alt="Zodiac Aerospace" loading="lazy"></div>
+    <div><img src="images/logos/partenaires/dynon.webp" alt="Dynon Avionics" loading="lazy"></div>
+    <div><img src="images/logos/partenaires/duc_helices.webp" alt="DUC Hélices" loading="lazy"></div>
+    <div><img src="images/logos/partenaires/scoda.webp" alt="Scoda Aeronautica" loading="lazy"></div>
+    <div><span class="texte-logo">BERINGER</span></div>
+    <div><img src="images/logos/partenaires/white_rose.webp" alt="White Rose Aviation" loading="lazy"></div>
+    <div><img src="images/logos/partenaires/finesse_max.webp" alt="Finesse Max" loading="lazy"></div>
+    <div><img src="images/logos/partenaires/bose.webp" alt="Bose" loading="lazy"></div>
+    <div><img src="images/logos/partenaires/parrot.webp" alt="Parrot" loading="lazy"></div>
+    <div><img src="images/logos/partenaires/kawet.webp" alt="Kawet" loading="lazy"></div>
+    <div><img src="images/logos/partenaires/comapping.webp" alt="Comapping" loading="lazy"></div>
+    <div><img src="images/logos/partenaires/bentley.webp" alt="Bentley Systems" loading="lazy"></div>
+    <div><img src="images/logos/partenaires/p2go.webp" alt="Prepare 2 Go" loading="lazy"></div>
+    <div><img src="images/logos/partenaires/elvinger.webp" alt="Elvinger Hoss Prussen" loading="lazy"></div>
+  </div>
+  <p class="lien-tous"><a href="partenaires.html" data-fr="Voir tous nos partenaires et sponsors →" data-en="See all our partners and sponsors →">Voir tous nos partenaires et sponsors →</a></p>
+</section>
+
+<!-- ══ APPEL À L'ACTION ══ -->
+<section class="appel">
+  <img src="images/accueil/aile-nuages-1920.webp" srcset="images/accueil/aile-nuages-900.webp 900w, images/accueil/aile-nuages-1920.webp 1920w" sizes="100vw" alt="" loading="lazy">
+  <div class="contenu">
+    <h2 data-fr="Embarquez avec nous" data-en="Come aboard">Embarquez avec nous</h2>
+    <p data-fr="Chercheur, mécène, enseignant ou simple curieux : soutenez nos actions ou proposez-nous un projet." data-en="Researcher, patron, teacher or simply curious: support our work or propose a project to us.">Chercheur, mécène, enseignant ou simple curieux : soutenez nos actions ou proposez-nous un projet.</p>
+    <div class="actions">
+      <a class="btn btn-orange" href="contact.html" data-fr="Nous soutenir" data-en="Support us">Nous soutenir</a>
+      <a class="btn btn-blanc" href="contact.html" data-fr="Proposer une mission" data-en="Propose a mission">Proposer une mission</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ══ PIED DE PAGE (contenu actuel) ══ -->
+<footer class="pied wrap">
+  <div class="marque">
+    <img src="images/logo_wfs.webp" alt="" width="56" height="56">
+    <a class="nom" href="index.html" data-fr="Des Ailes pour la Science" data-en="Wings for Science">Des Ailes pour la Science</a>
+    <span data-fr="Association à but non lucratif fondée en 2008, dont la mission est :" data-en="Non-profit association founded in 2008, whose mission is to:">Association à but non lucratif fondée en 2008, dont la mission est :</span>
+  </div>
+  <div class="missions">
+    <a href="science-environnement.html" data-fr="Aider la science et l&#x27;environnement" data-en="Help science and the environment">Aider la science et l'environnement</a><span aria-hidden="true">•</span>
+    <a href="expeditions.html" data-fr="Par des expéditions aéronautiques" data-en="Through aeronautical expeditions">Par des expéditions aéronautiques</a><span aria-hidden="true">•</span>
+    <a href="sensibilisation.html" data-fr="Et des actions de sensibilisation" data-en="And public awareness actions">Et des actions de sensibilisation</a>
+  </div>
+  <div class="cols">
+    <div class="col">
+      <span class="col-titre" data-fr="Nos actions" data-en="Our actions">Nos actions</span>
+      <a href="campagne-scientifique.html" data-fr="Campagne scientifique" data-en="Scientific campaign">Campagne scientifique</a>
+      <a href="conferences.html" data-fr="Conférences" data-en="Conferences">Conférences</a>
+      <a href="reportages.html" data-fr="Reportages" data-en="Documentaries">Reportages</a>
+      <a href="livres.html" data-fr="Livres" data-en="Books">Livres</a>
+      <a href="presse.html" data-fr="Presse" data-en="Press">Presse</a>
+    </div>
+    <div class="col">
+      <span class="col-titre" data-fr="Notre réseau" data-en="Our network">Notre réseau</span>
+      <a href="confondateurs.html" data-fr="Cofondateurs &amp; parrains" data-en="Co-founders &amp; patrons">Cofondateurs &amp; parrains</a>
+      <a href="equipe.html" data-fr="L&#x27;équipe" data-en="The team">L'équipe</a>
+      <a href="partenaires.html" data-fr="Partenaires &amp; sponsors" data-en="Partners &amp; sponsors">Partenaires &amp; sponsors</a>
+    </div>
+    <div class="col">
+      <a class="col-titre" href="contact.html">Contact</a>
+      <a class="col-titre" href="actu.html" data-fr="Carnet de route" data-en="Logbook">Carnet de route</a>
+    </div>
+  </div>
+  <p class="copy" data-fr="© 2026 Clementine Bacri pour Wings for Science" data-en="© 2026 Clementine Bacri for Wings for Science">© 2026 Clementine Bacri pour Wings for Science</p>
+</footer>
+
+<!-- ══ VISIONNEUSE (galerie + vidéo) ══ -->
+<div class="visionneuse" id="visionneuse" role="dialog" aria-modal="true" aria-label="Visionneuse">
+  <button class="rond fermer" type="button" aria-label="Fermer" id="visFermer">✕</button>
+  <button class="rond prec" type="button" aria-label="Photo précédente" id="visPrec">←</button>
+  <button class="rond suiv" type="button" aria-label="Photo suivante" id="visSuiv">→</button>
+  <figure id="visFigure">
+    <img id="visImg" src="" alt="">
+    <figcaption id="visLegende"></figcaption>
+  </figure>
+  <div class="video" id="visVideo" hidden></div>
+</div>
+
+
 <script>
-var currentSlide = 0;
-var slideTimer;
-var infoTimer;
-var slides, dots;
+(function(){
+  function en(){return document.documentElement.lang==='en';}
+  // En-tête : fond plein au défilement
+  var entete=document.getElementById('entete');
+  function majEntete(){entete.classList.toggle('plein',window.scrollY>40);}
+  window.addEventListener('scroll',majEntete,{passive:true});majEntete();
 
-function loadSlideBg(i) {
-  if (!slides || !slides[i]) return;
-  var s = slides[i], url = s.getAttribute('data-bg');
-  if (url) { s.style.backgroundImage = "url('" + url + "')"; s.removeAttribute('data-bg'); }
-}
+  // Sous-menus : clic / clavier (le survol est géré en CSS)
+  document.querySelectorAll('.nav-item').forEach(function(item){
+    var b=item.querySelector('.nav-lien');
+    b.addEventListener('click',function(e){
+      e.stopPropagation();
+      var ouvert=!item.classList.contains('ouvert');
+      document.querySelectorAll('.nav-item.ouvert').forEach(function(o){o.classList.remove('ouvert');o.querySelector('.nav-lien').setAttribute('aria-expanded','false');});
+      item.classList.toggle('ouvert',ouvert);b.setAttribute('aria-expanded',ouvert?'true':'false');
+    });
+  });
+  document.addEventListener('click',function(){document.querySelectorAll('.nav-item.ouvert').forEach(function(o){o.classList.remove('ouvert');});});
 
-function scheduleLazyLoad(el) {
-  var io = new IntersectionObserver(function(entries) {
-    if (!entries[0].isIntersecting) return;
-    io.disconnect();
-    var idx = 1;
-    var idle = window.requestIdleCallback || function(cb){ return setTimeout(cb, 200); };
-    var step = function(){ if (idx < slides.length) { loadSlideBg(idx++); idle(step, {timeout: 2000}); } };
-    idle(step, {timeout: 2000});
-  }, { threshold: 0.1 });
-  io.observe(el);
-}
+  // Menu mobile
+  var menu=document.getElementById('menuMobile'),burger=document.getElementById('burger');
+  function menuOuvrir(o){menu.classList.toggle('ouvert',o);burger.setAttribute('aria-expanded',o?'true':'false');document.body.style.overflow=o?'hidden':'';}
+  burger.addEventListener('click',function(){menuOuvrir(true);});
+  document.getElementById('fermerMenu').addEventListener('click',function(){menuOuvrir(false);});
 
-function initSlideshow() {
-  var el = document.querySelector('.slideshow');
-  slides = [];
-  var children = el.children;
-  for (var i = 0; i < children.length; i++) {
-    if (children[i].classList.contains('slide')) slides.push(children[i]);
+  // Diaporama du héros
+  var diapos=[].slice.call(document.querySelectorAll('.diapo')),points=document.getElementById('points'),idx=0,minuteur;
+  var lieu=document.getElementById('legendeLieu'),desc=document.getElementById('legendeDesc');
+  diapos.forEach(function(d,i){
+    var b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Photo '+(i+1)+' : '+d.dataset.lieu);
+    b.innerHTML='<span></span>';b.addEventListener('click',function(){montrer(i);relancer();});points.appendChild(b);
+  });
+  function montrer(i){
+    diapos[idx].classList.remove('active');idx=i;diapos[idx].classList.add('active');
+    var img=diapos[idx].querySelector('img');img.loading='eager';
+    majLegende();
+    [].forEach.call(points.children,function(p,j){p.setAttribute('aria-current',j===idx?'true':'false');});
   }
-  dots = document.querySelectorAll('.slide-dot');
-  startTimer();
-  infoTimer = setTimeout(function() {
-    var info = slides[0] && slides[0].querySelector('.slide-info');
-    if (info) info.classList.add('visible');
-  }, 1500);
-  scheduleLazyLoad(el);
-}
+  function majLegende(){var d=diapos[idx].dataset;lieu.textContent=en()?d.lieuEn:d.lieu;desc.textContent=en()?d.descEn:d.desc;}
+  function relancer(){clearInterval(minuteur);if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){minuteur=setInterval(function(){montrer((idx+1)%diapos.length);},7000);}}
+  montrer(0);relancer();
 
-function showSlide(n) {
-  if (!slides || slides.length === 0) return;
-  slides[currentSlide].classList.remove('active');
-  dots[currentSlide].classList.remove('active');
-  var info = slides[currentSlide].querySelector('.slide-info');
-  if (info) info.classList.remove('visible');
-  currentSlide = (n + slides.length) % slides.length;
-  loadSlideBg(currentSlide);
-  slides[currentSlide].classList.add('active');
-  dots[currentSlide].classList.add('active');
-  clearTimeout(infoTimer);
-  infoTimer = setTimeout(function() {
-    var newInfo = slides[currentSlide].querySelector('.slide-info');
-    if (newInfo) newInfo.classList.add('visible');
-  }, 1500);
-}
-
-function nextSlide() { clearInterval(slideTimer); showSlide(currentSlide + 1); startTimer(); }
-function prevSlide() { clearInterval(slideTimer); showSlide(currentSlide - 1); startTimer(); }
-function goToSlide(n) { clearInterval(slideTimer); showSlide(n); startTimer(); }
-function startTimer() { slideTimer = setInterval(function() { showSlide(currentSlide + 1); }, 12000); }
-
-document.addEventListener('DOMContentLoaded', initSlideshow);
-</script>
-
-<div class="dest-band">
-  <div class="dest-track">
-    <span class="dest-item"><span class="dot"></span>Upsala, Argentina</span>
-    <span class="dest-item"><span class="dot"></span>Canada</span>
-    <span class="dest-item"><span class="dot"></span>Kulusuk, Greenland</span>
-    <span class="dest-item"><span class="dot"></span>Krakatau, Indonesia</span>
-    <span class="dest-item"><span class="dot"></span>Kuala Lumpur, Malaysia</span>
-    <span class="dest-item"><span class="dot"></span>Amazonia, Brazil</span>
-    <span class="dest-item"><span class="dot"></span>Mediterranean, Greece</span>
-    <span class="dest-item"><span class="dot"></span>Paraná, Brazil</span>
-    <span class="dest-item"><span class="dot"></span>Rio de Janeiro, Brazil</span>
-    <span class="dest-item"><span class="dot"></span>Trelew, Argentina</span>
-    <span class="dest-item"><span class="dot"></span>Salar, Argentina</span>
-    <span class="dest-item"><span class="dot"></span>Upsala, Argentina</span>
-    <span class="dest-item"><span class="dot"></span>Canada</span>
-    <span class="dest-item"><span class="dot"></span>Kulusuk, Greenland</span>
-    <span class="dest-item"><span class="dot"></span>Krakatau, Indonesia</span>
-    <span class="dest-item"><span class="dot"></span>Kuala Lumpur, Malaysia</span>
-    <span class="dest-item"><span class="dot"></span>Amazonia, Brazil</span>
-    <span class="dest-item"><span class="dot"></span>Mediterranean, Greece</span>
-    <span class="dest-item"><span class="dot"></span>Paraná, Brazil</span>
-    <span class="dest-item"><span class="dot"></span>Rio de Janeiro, Brazil</span>
-    <span class="dest-item"><span class="dot"></span>Trelew, Argentina</span>
-    <span class="dest-item"><span class="dot"></span>Salar, Argentina</span>
-  </div>
-</div>
-
-<div style="background:rgba(10,20,32,0.95);padding:40px 60px;border-top:1px solid rgba(95,168,211,0.08);border-bottom:1px solid rgba(95,168,211,0.08);">
-  <div style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-around;flex-wrap:wrap;gap:24px;text-align:center;">
-    <div><div class="count-up" data-count="50" style="font-family:'Merriweather',serif;font-size:clamp(36px,5vw,56px);font-weight:300;color:var(--accent);">0</div><div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);" data-fr="Pays survolés" data-en="Countries overflown">Pays survolés</div></div>
-    <div><div class="count-up" data-count="100000" data-separator=" " style="font-family:'Merriweather',serif;font-size:clamp(36px,5vw,56px);font-weight:300;color:var(--accent);">0</div><div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);" data-fr="Kilomètres parcourus" data-en="Kilometres covered">Kilomètres parcourus</div></div>
-    <div><div class="count-up" data-count="34" style="font-family:'Merriweather',serif;font-size:clamp(36px,5vw,56px);font-weight:300;color:var(--accent);">0</div><div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);" data-fr="Missions scientifiques" data-en="Scientific missions">Missions scientifiques</div></div>
-    <div><div class="count-up" data-count="100" data-suffix="+" style="font-family:'Merriweather',serif;font-size:clamp(36px,5vw,56px);font-weight:300;color:var(--accent);">0</div><div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);" data-fr="Scientifiques accompagnés" data-en="Scientists supported">Scientifiques accompagnés</div></div>
-  </div>
-</div>
-
-<div class="section">
-  <span class="section-tag" data-fr="Notre mission" data-en="Our mission">Notre mission</span>
-  <h2 class="section-title" data-fr="Des centaines de scientifiques tentent de comprendre et préserver la planète" data-en="Hundreds of scientists are working to understand and protect our planet">Des centaines de scientifiques tentent de comprendre et préserver la planète</h2>
-  <p class="section-lead" data-fr="Nos expéditions sont à leur service, et au vôtre. Depuis 2008, nous œuvrons pour la production scientifique, l'action politique et l'éducation en faveur de l'environnement." data-en="Our expeditions are at their service, and yours. Since 2008, we have been working for scientific production, political action and environmental education.">Nos expéditions sont à leur service, et au vôtre. Depuis 2008, nous œuvrons pour la production scientifique, l'action politique et l'éducation en faveur de l'environnement.</p>
-  <div class="mission-grid">
-    <div>
-      <a class="mission-card" href="science-environnement.html" onmouseenter="showMissionDesc(0)" onmouseleave="hideMissionDesc()">
-        <img src="images/baleines et secretions.webp" srcset="images/baleines et secretions-small.webp 400w, images/baleines et secretions.webp 1000w" sizes="(max-width:768px) 100vw, 33vw" alt="Observation de baleines depuis un ULM lors d'une mission de biologie marine" width="1000" height="666" loading="lazy" decoding="async">
-        <div class="mission-card-label">
-          <div class="mission-card-num" data-fr="01 / Appuyer" data-en="01 / Support">01 / Appuyer</div>
-          <h3 class="mission-card-title" data-fr="La Science &amp; l'Environnement" data-en="Science &amp; the Environment">La Science &amp; l'Environnement</h3>
-        </div>
-      </a>
-    </div>
-    <div>
-      <a class="mission-card" href="expeditions.html" onmouseenter="showMissionDesc(1)" onmouseleave="hideMissionDesc()">
-        <img src="images/vers_volcan_chili.webp" srcset="images/vers_volcan_chili-small.webp 400w, images/vers_volcan_chili.webp 1000w" sizes="(max-width:768px) 100vw, 33vw" alt="Vol en ULM vers un volcan au Chili lors d'une expedition aeronautique" width="1000" height="666" loading="lazy" decoding="async">
-        <div class="mission-card-label">
-          <div class="mission-card-num" data-fr="02 / Explorer" data-en="02 / Explore">02 / Explorer</div>
-          <h3 class="mission-card-title" data-fr="Des Expéditions aéronautiques" data-en="Aeronautical Expeditions">Des Expéditions aéronautiques</h3>
-        </div>
-      </a>
-    </div>
-    <div>
-      <a class="mission-card" href="sensibilisation.html" onmouseenter="showMissionDesc(2)" onmouseleave="hideMissionDesc()">
-        <img src="images/55 enfants tobalaba.webp" srcset="images/55 enfants tobalaba-small.webp 400w, images/55 enfants tobalaba.webp 1000w" sizes="(max-width:768px) 100vw, 33vw" alt="Sensibilisation aupres des enfants a Tobalaba lors d'une conference educative" width="1000" height="750" loading="lazy" decoding="async">
-        <div class="mission-card-label">
-          <div class="mission-card-num" data-fr="03 / Sensibiliser" data-en="03 / Educate">03 / Sensibiliser</div>
-          <h3 class="mission-card-title" data-fr="Et de la Sensibilisation" data-en="And Public Awareness">Et de la Sensibilisation</h3>
-        </div>
-      </a>
-    </div>
-  </div>
-  <div class="mission-desc-bar" id="missionDescBar" onmouseenter="clearTimeout(window._mdt)" onmouseleave="hideMissionDesc()">
-    <p class="mission-desc-text" id="missionDescText"></p>
-    <a class="mission-desc-link" id="missionDescLink" href="">En savoir plus →</a>
-  </div>
-  <script>
-  var missionDescs = [
-    {fr:"Soutenir la production scientifique indépendante et l'action politique en faveur de l'environnement.",en:"Supporting independent scientific production and political action in favour of the environment.",href:"science-environnement.html"},
-    {fr:"Développer des réseaux de pilotes et d'aéroclubs partout sur terre pour créer des partenariats avec les chercheurs.",en:"Developing networks of pilots and flying clubs around the world to create partnerships with researchers.",href:"expeditions.html"},
-    {fr:"Éduquer le grand public, les jeunes et leurs enseignants à la science et à la protection de l'environnement.",en:"Educating the general public, young people and their teachers about science and environmental protection.",href:"sensibilisation.html"}
+  // Citations
+  var cits=[
+    ['« Grâce aux photos aériennes, nous avons pu reconstituer la structure en 3D du dôme résurgent, afin de prévenir les habitants des zones qui menacent de s’effondrer. »','Elodie Brothelande','Volcanologue, Laboratoire Magmas et Volcans (CNRS)'],
+    ['« Wings for Science apporte une contribution importante en permettant la quantification de SO₂ libéré par le Krakatau, une source encore non prise en compte dans les bilans mondiaux. »','Philipson Bani','Volcanologue, IRD'],
+    ['« Le fait que vous survoliez notre zone d’étude, ça va nous permettre de retrouver les baleines que l’on recherche, et ainsi de pouvoir les étudier pour mieux les protéger. »','Sophie Comtois','Biologiste marine, MICS, Canada'],
+    ['« Les prospections aériennes, les photos et les modèles 3D devraient faciliter l’exploration et préciser la relation qu’entretenaient ces deux sanctuaires antiques. »','Pauline Piraud-Fournet','Archéologue, IFPO, Jordanie'],
+    ['« Un grand merci pour avoir entrepris ces vols photographiques dans des conditions climatiques parfois très précaires. »','Daniel Hofstadt','CPA Rupanco, Chili']
+  ],ci=0,ct=document.getElementById('citTexte'),ca=document.getElementById('citAuteur');
+  var citsEn=[
+    ['“Thanks to the aerial photos, we were able to reconstruct the 3D structure of the resurgent dome, in order to warn residents of areas at risk of collapse.”','Elodie Brothelande','Volcanologist, Magmas and Volcanoes Laboratory (CNRS)'],
+    ['“Wings for Science makes an important contribution by enabling the quantification of SO₂ released by Krakatau, a source not yet accounted for in global assessments.”','Philipson Bani','Volcanologist, IRD'],
+    ['“Your flights over our study area will help us locate the whales we are searching for, so we can study them and better protect them.”','Sophie Comtois','Marine Biologist, MICS, Canada'],
+    ['“The aerial surveys, photos and 3D models should facilitate exploration and clarify the relationship between these two ancient sanctuaries.”','Pauline Piraud-Fournet','Archaeologist, IFPO, Jordan'],
+    ['“Many thanks for undertaking these photographic flights in sometimes very precarious weather conditions.”','Daniel Hofstadt','CPA Rupanco, Chile']
   ];
-  function showMissionDesc(i){
-    clearTimeout(window._mdt);
-    var lang=document.documentElement.lang||'fr';
-    var d=missionDescs[i];
-    document.getElementById('missionDescText').textContent=d[lang]||d.fr;
-    document.getElementById('missionDescLink').href=d.href;
-    document.getElementById('missionDescBar').classList.add('visible');
-  }
-  function hideMissionDesc(){
-    window._mdt=setTimeout(function(){
-      document.getElementById('missionDescBar').classList.remove('visible');
-    },300);
-  }
-  </script>
-</div>
+  function citAff(){var c=(en()?citsEn:cits)[ci];ct.textContent=c[0];ca.innerHTML='<strong>'+c[1]+'</strong> — '+c[2];}
+  function cit(i){ci=(i+cits.length)%cits.length;ct.style.opacity=ca.style.opacity=0;setTimeout(function(){citAff();ct.style.opacity=ca.style.opacity=1;},250);}
+  document.getElementById('citPrec').addEventListener('click',function(){cit(ci-1);});
+  document.getElementById('citSuiv').addEventListener('click',function(){cit(ci+1);});
 
-<section class="actions-section">
-  <div class="section">
-    <span class="section-tag" data-fr="Nos actions" data-en="Our actions">Nos actions</span>
-    <h2 class="section-title" data-fr="Nous déployons nos moyens pour œuvrer aux côtés des scientifiques" data-en="We deploy our resources to work alongside scientists">Nous déployons nos moyens pour œuvrer aux côtés des scientifiques</h2>
-    <p class="section-lead" data-fr="Campagnes scientifiques, conférences, reportages, livres et présence dans les médias." data-en="Scientific campaigns, conferences, documentaries, books and media presence.">Campagnes scientifiques, conférences, reportages, livres et présence dans les médias.</p>
-    <div style="display:flex;justify-content:space-around;flex-wrap:wrap;gap:20px;text-align:center;margin:32px 0 40px;padding:24px 0;border-top:1px solid rgba(95,168,211,0.1);border-bottom:1px solid rgba(95,168,211,0.1);">
-      <div><div class="count-up" data-count="32" style="font-size:28px;font-weight:700;color:var(--accent);">0</div><div style="font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:2px;" data-fr="Institutions" data-en="Institutions">Institutions</div></div>
-      <div><div class="count-up" data-count="12" style="font-size:28px;font-weight:700;color:var(--accent);">0</div><div style="font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:2px;" data-fr="Publications" data-en="Publications">Publications</div></div>
-      <div><div class="count-up" data-count="10" style="font-size:28px;font-weight:700;color:var(--accent);">0</div><div style="font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:2px;" data-fr="Modèles 3D" data-en="3D Models">Modèles 3D</div></div>
-      <div><div class="count-up" data-count="59" style="font-size:28px;font-weight:700;color:var(--accent);">0</div><div style="font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:2px;" data-fr="Conférences" data-en="Conferences">Conférences</div></div>
-      <div><div class="count-up" data-count="32" style="font-size:28px;font-weight:700;color:var(--accent);">0</div><div style="font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:2px;" data-fr="Films" data-en="Films">Films</div></div>
-      <div><div class="count-up" data-count="434" style="font-size:28px;font-weight:700;color:var(--accent);">0</div><div style="font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:2px;" data-fr="Articles presse" data-en="Press articles">Articles presse</div></div>
-    </div>
-    <div class="actions-grid">
-      <a class="action-tile" href="campagne-scientifique.html"><img src="images/wix_import/category_science.webp" srcset="images/wix_import/category_science-small.webp 400w, images/wix_import/category_science.webp 850w" sizes="(max-width:768px) 50vw, 20vw" alt="Campagne scientifique Wings for Science" width="850" height="494" loading="lazy" decoding="async"><div class="action-tile-label"><span class="action-tile-name" data-fr="Science" data-en="Science">Science</span></div></a>
-      <a class="action-tile" href="reportages.html"><img src="images/wix_import/category_reportages.webp" srcset="images/wix_import/category_reportages-small.webp 400w, images/wix_import/category_reportages.webp 492w" sizes="(max-width:768px) 50vw, 20vw" alt="Reportages et documentaires Wings for Science" width="492" height="277" loading="lazy" decoding="async"><div class="action-tile-label"><span class="action-tile-name" data-fr="Reportages" data-en="Documentaries">Reportages</span></div></a>
-      <a class="action-tile" href="conferences.html"><img src="images/wix_import/category_conferences.webp" srcset="images/wix_import/category_conferences-small.webp 400w, images/wix_import/category_conferences.webp 850w" sizes="(max-width:768px) 50vw, 20vw" alt="Conferences Wings for Science" width="850" height="637" loading="lazy" decoding="async"><div class="action-tile-label"><span class="action-tile-name" data-fr="Conférences" data-en="Conferences">Conférences</span></div></a>
-      <a class="action-tile" href="livres.html"><img src="images/wix_import/category_livres.webp" srcset="images/wix_import/category_livres-small.webp 400w, images/wix_import/category_livres.webp 523w" sizes="(max-width:768px) 50vw, 20vw" alt="Livres Wings for Science" width="523" height="712" loading="lazy" decoding="async"><div class="action-tile-label"><span class="action-tile-name" data-fr="Livres" data-en="Books">Livres</span></div></a>
-      <a class="action-tile" href="presse.html"><img src="images/wix_import/category_presse.webp" srcset="images/wix_import/category_presse-small.webp 400w, images/wix_import/category_presse.webp 600w" sizes="(max-width:768px) 50vw, 20vw" alt="Couverture presse Wings for Science" width="600" height="450" loading="lazy" decoding="async"><div class="action-tile-label"><span class="action-tile-name" data-fr="Médias" data-en="Media">Médias</span></div></a>
-    </div>
-  </div>
-</section>
-
-<div class="content-section" style="opacity:1;transform:none;">
-  <div class="content-inner">
-    <span class="section-tag" data-fr="Ils travaillent avec nous" data-en="They work with us">Ils travaillent avec nous</span>
-    <h2 class="section-heading" data-fr="Paroles de scientifiques" data-en="Scientists speak">Paroles de scientifiques</h2>
-    <div class="science-quote" style="min-height:180px;position:relative;">
-      <button class="quote-arrow quote-prev" onclick="quoteNav(-1)" aria-label="Citation précédente" style="position:absolute;top:50%;left:-56px;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;background:transparent;border:1px solid rgba(95,168,211,0.3);color:rgba(95,168,211,0.7);font-size:16px;cursor:pointer;z-index:10;display:flex;align-items:center;justify-content:center;transition:background 0.2s,color 0.2s,border-color 0.2s;">&#8592;</button>
-      <button class="quote-arrow quote-next" onclick="quoteNav(1)" aria-label="Citation suivante" style="position:absolute;top:50%;right:-56px;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;background:transparent;border:1px solid rgba(95,168,211,0.3);color:rgba(95,168,211,0.7);font-size:16px;cursor:pointer;z-index:10;display:flex;align-items:center;justify-content:center;transition:background 0.2s,color 0.2s,border-color 0.2s;">&#8594;</button>
-      <div id="quoteCarousel">
-        <div class="quote-slide quote-active quote-entering">
-          <p data-fr="Grâce aux photos aériennes, nous avons pu reconstituer la structure en 3D du dôme résurgent, afin de prévenir les habitants des zones qui menacent de s'effondrer." data-en="Thanks to the aerial photos, we were able to reconstruct the 3D structure of the resurgent dome, in order to warn residents of areas at risk of collapse.">Grâce aux photos aériennes, nous avons pu reconstituer la structure en 3D du dôme résurgent, afin de prévenir les habitants des zones qui menacent de s'effondrer.</p>
-          <div class="science-quote-author" data-fr="Elodie Brothelande — Volcanologue, Laboratoire Magmas et Volcans (CNRS)" data-en="Elodie Brothelande — Volcanologist, Magmas and Volcanoes Laboratory (CNRS)">Elodie Brothelande — Volcanologue, Laboratoire Magmas et Volcans (CNRS)</div>
-        </div>
-        <div class="quote-slide">
-          <p data-fr="Wings for Science apporte une contribution importante en permettant la quantification de SO₂ libéré par le Krakatau, une source encore non prise en compte dans les bilans mondiaux." data-en="Wings for Science makes an important contribution by enabling the quantification of SO₂ released by Krakatau, a source not yet accounted for in global assessments.">Wings for Science apporte une contribution importante en permettant la quantification de SO₂ libéré par le Krakatau, une source encore non prise en compte dans les bilans mondiaux.</p>
-          <div class="science-quote-author" data-fr="Philipson Bani — Volcanologue, IRD" data-en="Philipson Bani — Volcanologist, IRD">Philipson Bani — Volcanologue, IRD</div>
-        </div>
-        <div class="quote-slide">
-          <p data-fr="Le fait que vous survoliez notre zone d'étude, ça va nous permettre de retrouver les baleines que l'on recherche, et ainsi de pouvoir les étudier pour mieux les protéger." data-en="Your flights over our study area will help us locate the whales we are searching for, so we can study them and better protect them.">Le fait que vous survoliez notre zone d'étude, ça va nous permettre de retrouver les baleines que l'on recherche, et ainsi de pouvoir les étudier pour mieux les protéger.</p>
-          <div class="science-quote-author" data-fr="Sophie Comtois — Biologiste marine, MICS, Canada" data-en="Sophie Comtois — Marine Biologist, MICS, Canada">Sophie Comtois — Biologiste marine, MICS, Canada</div>
-        </div>
-        <div class="quote-slide">
-          <p data-fr="Les prospections aériennes, les photos et les modèles 3D devraient faciliter l'exploration et préciser la relation qu'entretenaient ces deux sanctuaires antiques." data-en="The aerial surveys, photos and 3D models should facilitate exploration and clarify the relationship between these two ancient sanctuaries.">Les prospections aériennes, les photos et les modèles 3D devraient faciliter l'exploration et préciser la relation qu'entretenaient ces deux sanctuaires antiques.</p>
-          <div class="science-quote-author" data-fr="Pauline Piraud-Fournet — Archéologue, IFPO, Jordanie" data-en="Pauline Piraud-Fournet — Archaeologist, IFPO, Jordan">Pauline Piraud-Fournet — Archéologue, IFPO, Jordanie</div>
-        </div>
-        <div class="quote-slide">
-          <p data-fr="Un grand merci pour avoir entrepris ces vols photographiques dans des conditions climatiques parfois très précaires." data-en="Many thanks for undertaking these photographic flights in sometimes very precarious weather conditions.">Un grand merci pour avoir entrepris ces vols photographiques dans des conditions climatiques parfois très précaires.</p>
-          <div class="science-quote-author" data-fr="Daniel Hofstadt — CPA Rupanco, Chili" data-en="Daniel Hofstadt — CPA Rupanco, Chile">Daniel Hofstadt — CPA Rupanco, Chili</div>
-        </div>
-      </div>
-    </div></div>
-  </div>
-
-<div class="about-strip">
-  <div class="about-image-wrap">
-    <img src="images/wix_import/hero_reseau.webp" alt="L'equipe Wings for Science et son reseau de partenaires" width="1000" height="666" loading="lazy" decoding="async">
-  </div>
-  <div>
-    <span class="section-tag" data-fr="Qui sommes-nous" data-en="About us">Qui sommes-nous</span>
-    <h2 class="section-title" data-fr="Une association au service de la planète depuis 2008" data-en="An association serving the planet since 2008">Une association au service de la planète depuis 2008</h2>
-    <p class="about-body" data-fr="DES AILES POUR LA SCIENCE est une association de loi 1901 à but non lucratif fondée en 2008, dont la mission est d'œuvrer pour la production scientifique, l'action politique et l'éducation en faveur de l'environnement." data-en="WINGS FOR SCIENCE is a non-profit association founded in 2008, whose mission is to work for scientific production, political action and environmental education.">DES AILES POUR LA SCIENCE est une association de loi 1901 à but non lucratif fondée en 2008, dont la mission est d'œuvrer pour la production scientifique, l'action politique et l'éducation en faveur de l'environnement.</p>
-    <div style="display:flex;gap:12px;flex-wrap:wrap;">
-      <a class="btn btn-outline" href="confondateurs.html" data-fr="Cofondateurs →" data-en="Co-founders →">Cofondateurs →</a>
-      <a class="btn btn-outline" href="equipe.html" data-fr="Équipe →" data-en="Team →">Équipe →</a>
-      <a class="btn btn-outline" href="partenaires.html" data-fr="Partenaires →" data-en="Partners →">Partenaires →</a>
-    </div>
-  </div>
-</div>
-
-
-
-<div id="site-footer"></div>
-<script src="footer.js?v=20260505b" defer></script>
-
-<script src="lang.js?v=20260505b" defer></script>
-<script src="shared.js?v=20260505b" defer></script>
-<script>
-(function(){
-  var slides=document.querySelectorAll('.quote-slide');
-  if(!slides.length)return;
-  var idx=0;
-  var timer;
-  function show(newIdx){
-    var current=slides[idx];
-    current.classList.add('quote-leaving');
-    setTimeout(function(){
-      current.classList.remove('quote-active','quote-leaving','quote-entering');
-      idx=newIdx;
-      slides[idx].classList.add('quote-active','quote-entering');
-    },600);
-  }
-  function resetTimer(){
-    clearInterval(timer);
-    timer=setInterval(function(){show((idx+1)%slides.length);},7000);
-  }
-  window.quoteNav=function(dir){
-    show((idx+dir+slides.length)%slides.length);
-    resetTimer();
-  };
-  slides[0].classList.add('quote-entering');
-  resetTimer();
-})();
-// Compteur animé — chaque élément s'anime indépendamment
-(function(){
-  var els=document.querySelectorAll('.count-up');
-  if(!els.length)return;
-  function animateEl(el){
-    if(el.dataset.animated)return;
-    el.dataset.animated='1';
-    var target=parseInt(el.getAttribute('data-count'));
-    var suffix=el.getAttribute('data-suffix')||'';
-    var sep=el.getAttribute('data-separator')||'';
-    var duration=1500;
-    var start=performance.now();
-    function step(now){
-      var progress=Math.min((now-start)/duration,1);
-      var ease=1-Math.pow(1-progress,3);
-      var val=Math.round(ease*target);
-      if(sep){
-        el.textContent=val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,sep)+suffix;
-      } else {
-        el.textContent=val+suffix;
-      }
-      if(progress<1) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
-  }
-  if('IntersectionObserver' in window){
-    var obs=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){if(e.isIntersecting)animateEl(e.target);});
-    },{threshold:0.3});
-    els.forEach(function(el){obs.observe(el);});
-  } else { els.forEach(animateEl); }
-  setTimeout(function(){els.forEach(animateEl);},3000);
+  // Visionneuse
+  var vis=document.getElementById('visionneuse'),vImg=document.getElementById('visImg'),vLeg=document.getElementById('visLegende'),vFig=document.getElementById('visFigure'),vVid=document.getElementById('visVideo');
+  var photos=[
+    ['lac-eyre','Lac Eyre · Australie','Le plus grand lac salé d’Australie, rarement rempli, révèle ses couleurs irréelles depuis les airs.'],
+    ['horizontal-falls','Horizontal Falls · Australie','Une cascade horizontale créée par les marées du Kimberley, visible seulement depuis les airs.'],
+    ['cachalots','Grèce','En pleine cartographie des prairies de posidonie, nous survolons par hasard une maman cachalot allaitant son petit.'],
+    ['parana','Fleuve Paraná · Brésil','Survol du Paraná à la recherche des harpies féroces, le plus grand rapace des Amériques.'],
+    ['banado','Bañado La Estrella · Argentine','Deuxième plus grande zone humide d’Amérique du Sud, que nous cartographions pour délimiter le premier parc naturel fluvial d’Argentine.'],
+    ['andes','Cordillère des Andes · Chili','Depuis le cockpit, la cordillère apparaît dans la brume.'],
+    ['baleine-vagues','Biologie marine','Observation de baleines depuis un ULM lors d’une mission de biologie marine.']
+  ],pi=0,dernierFocus=null;
+  var photosEn=[
+    'Lake Eyre · Australia|Australia’s largest salt lake, rarely filled, reveals its unreal colours from the air.',
+    'Horizontal Falls · Australia|A horizontal waterfall created by the Kimberley tides, visible only from the air.',
+    'Greece|While mapping seagrass meadows, we chance upon a mother sperm whale nursing her calf.',
+    'Paraná River · Brazil|Flying over the Paraná in search of harpy eagles, the Americas’ largest raptor.',
+    'Bañado La Estrella · Argentina|South America’s second-largest wetland, which we map to delineate Argentina’s first fluvial natural park.',
+    'Andes Cordillera · Chile|From the cockpit, the mountain range emerges through the mist.',
+    'Marine biology|Whale watching from a microlight during a marine biology mission.'
+  ];
+  function ouvrirVis(){dernierFocus=document.activeElement;vis.classList.add('ouverte');document.body.style.overflow='hidden';document.getElementById('visFermer').focus();}
+  function photo(i){pi=(i+photos.length)%photos.length;var p=photos[pi];vFig.hidden=false;vVid.hidden=true;vVid.innerHTML='';
+    document.getElementById('visPrec').hidden=document.getElementById('visSuiv').hidden=false;
+    var t=en()?photosEn[pi].split('|'):[p[1],p[2]];vImg.src='images/accueil/'+p[0]+'-1920.webp';vImg.alt=t[0];vLeg.innerHTML='<strong>'+t[0]+'</strong>'+t[1];}
+  function fermerVis(){vis.classList.remove('ouverte');vVid.innerHTML='';document.body.style.overflow='';if(dernierFocus)dernierFocus.focus();}
+  document.querySelectorAll('[data-galerie]').forEach(function(b){b.addEventListener('click',function(){photo(+b.dataset.galerie);ouvrirVis();});});
+  document.getElementById('visPrec').addEventListener('click',function(){photo(pi-1);});
+  document.getElementById('visSuiv').addEventListener('click',function(){photo(pi+1);});
+  document.getElementById('visFermer').addEventListener('click',fermerVis);
+  vis.addEventListener('click',function(e){if(e.target===vis)fermerVis();});
+  document.addEventListener('keydown',function(e){
+    if(!vis.classList.contains('ouverte')){if(e.key==='Escape')menuOuvrir(false);return;}
+    if(e.key==='Escape')fermerVis();
+    if(!vFig.hidden){if(e.key==='ArrowLeft')photo(pi-1);if(e.key==='ArrowRight')photo(pi+1);}
+  });
+  // Bande-annonce (Vimeo, déjà utilisée sur la page Reportages)
+  document.getElementById('voirFilm').addEventListener('click',function(){
+    vFig.hidden=true;vVid.hidden=false;document.getElementById('visPrec').hidden=document.getElementById('visSuiv').hidden=true;
+    vVid.innerHTML=en()?'<iframe src="https://player.vimeo.com/video/69533561?autoplay=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Trailer — Wings for Science"></iframe>':'<iframe src="https://player.vimeo.com/video/1181527083?autoplay=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Bande-annonce — Des Ailes pour la Science"></iframe>';
+    ouvrirVis();
+  });
+  // Changement de langue (lang.js modifie l'attribut lang de <html>)
+  new MutationObserver(function(){majLegende();citAff();if(vis.classList.contains('ouverte')&&!vFig.hidden)photo(pi);}).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
 })();
 </script>
+<script src="lang.js?v=20261024" defer></script>
 </body>
 </html>
-<!-- deployed -->
-<!-- public -->
