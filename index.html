@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wings for Science – Des Ailes pour la Science</title>
-  <meta name="description" content="Wings for Science : expéditions aéronautiques au service de la science. Deux ULM sur mesure, 100 000 km et une quarantaine de missions scientifiques.">
+  <meta name="description" content="Wings for Science : expéditions aéronautiques au service de la science. Deux ULM sur mesure, près de 100 000 km et 34 missions scientifiques.">
   <meta property="og:title" content="Wings for Science - Des Ailes pour la Science">
-  <meta property="og:description" content="Association loi 1901 oeuvrant pour la science et l'environnement par des expeditions aeronautiques depuis 2008.">
+  <meta property="og:description" content="Association loi 1901 œuvrant pour la science et l'environnement : expéditions aéronautiques de 2008 à 2017, conférences aujourd'hui.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.wingsforscience.com/">
   <meta property="og:image" content="images/logo_wfs.webp">
@@ -16,7 +16,7 @@
   <meta name="theme-color" content="#1a2a3a">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Wings for Science - Des Ailes pour la Science">
-  <meta name="twitter:description" content="Association loi 1901 oeuvrant pour la science et l'environnement par des expeditions aeronautiques depuis 2008.">
+  <meta name="twitter:description" content="Association loi 1901 œuvrant pour la science et l'environnement : expéditions aéronautiques de 2008 à 2017, conférences aujourd'hui.">
   <meta name="twitter:image" content="images/logo_wfs.webp">
 <link rel="alternate" hreflang="fr" href="https://www.wingsforscience.com/?lang=fr">
 <link rel="alternate" hreflang="en" href="https://www.wingsforscience.com/?lang=en">
@@ -125,7 +125,9 @@ em{font-style:italic}
 .chiffres{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px;padding-top:64px;padding-bottom:64px}
 .chiffre{border-left:1px solid #d8cfc1;padding-left:20px;display:flex;flex-direction:column;gap:6px}
 .chiffre strong{font-family:var(--serif);font-weight:300;font-size:clamp(40px,4.4vw,64px);line-height:1}
-.chiffre span{font-size:15px;font-weight:600;color:var(--gris-2)}
+.chiffre strong .pres{display:block;font-family:var(--sans);font-size:14px;font-weight:600;color:var(--gris-2);margin-bottom:6px}
+.chiffre strong span{font:inherit;color:inherit}
+.chiffre>span{font-size:15px;font-weight:600;color:var(--gris-2)}
 
 /* ── MANIFESTE ── */
 .manifeste{padding-top:48px;padding-bottom:120px}
@@ -212,6 +214,8 @@ em{font-style:italic}
 .logos .texte-logo{font-size:19px;font-weight:700;letter-spacing:.06em;color:var(--nuit)}
 .sponsor-principal{max-width:1240px;margin:0 auto 12px;background:#fff;border-radius:8px;padding:22px 32px;display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap;text-align:center}
 .sponsor-principal img{height:96px;width:auto}
+.sponsor-argent{padding:16px 32px}
+.sponsor-argent .mot-logo{font-size:30px;letter-spacing:.08em;color:var(--nuit)}
 .sponsor-principal span{font-size:14px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gris)}
 .lien-tous{margin:28px 0 0;text-align:center}
 .lien-tous a{color:var(--nuit);font-weight:700;font-size:15px}
@@ -349,7 +353,7 @@ em{font-style:italic}
     </div>
     <a class="nav-lien" href="actu.html" data-fr="Carnet de route" data-en="Logbook">Carnet de route</a>
     <button class="langue lang-toggle" type="button" onclick="setLang(window.currentLang==='fr'?'en':'fr')" aria-label="Changer de langue / Switch language">FR</button>
-    <a class="btn btn-orange" href="contact.html" data-fr="Nous soutenir" data-en="Support us">Nous soutenir</a>
+    <a class="btn btn-orange" href="contact.html#soutenir" data-fr="Nous soutenir" data-en="Support us">Nous soutenir</a>
   </nav>
   <button class="burger" type="button" aria-label="Ouvrir le menu" aria-controls="menuMobile" aria-expanded="false" id="burger">
     <svg aria-hidden="true" width="20" height="14" viewBox="0 0 20 14"><path d="M1 1h18M1 7h18M1 13h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -381,7 +385,7 @@ em{font-style:italic}
   <a class="lien-simple" href="actu.html" data-fr="Carnet de route" data-en="Logbook">Carnet de route</a>
   <a class="lien-simple" href="contact.html">Contact</a>
   <button class="lien-simple lang-toggle" type="button" style="background:none;border:0;border-bottom:1px solid var(--ligne);text-align:left;width:100%;cursor:pointer" onclick="setLang(window.currentLang==='fr'?'en':'fr')">FR</button>
-  <a class="btn btn-orange" href="contact.html" data-fr="Nous soutenir" data-en="Support us">Nous soutenir</a>
+  <a class="btn btn-orange" href="contact.html#soutenir" data-fr="Nous soutenir" data-en="Support us">Nous soutenir</a>
 </div>
 
 <main>
@@ -405,7 +409,7 @@ em{font-style:italic}
 
   <div class="heros-contenu wrap">
     <div class="heros-texte">
-      <p class="surtitre" data-fr="Association · Expéditions aéronautiques depuis 2008" data-en="Non-profit · Aeronautical expeditions since 2008">Association · Expéditions aéronautiques depuis 2008</p>
+      <p class="surtitre" data-fr="Association · Expéditions aéronautiques 2008–2017 · Conférences" data-en="Non-profit · Aeronautical expeditions 2008–2017 · Talks">Association · Expéditions aéronautiques 2008–2017 · Conférences</p>
       <h1 data-fr="Donner des &lt;em&gt;ailes&lt;/em&gt; à la nature, par la science" data-en="Giving &lt;em&gt;wings&lt;/em&gt; to nature, through science">Donner des <em>ailes</em> à la nature, par la science</h1>
       <p class="chapo" data-fr="Glaciers, volcans, déserts, océans : des expéditions aéronautiques au service de la recherche et de l&#x27;environnement." data-en="Glaciers, volcanoes, deserts, oceans: aeronautical expeditions in the service of research and the environment.">Glaciers, volcans, déserts, océans : des expéditions aéronautiques au service de la recherche et de l'environnement.</p>
       <div class="actions">
@@ -426,7 +430,7 @@ em{font-style:italic}
 <!-- ══ CHIFFRES ══ -->
 <section class="ivoire wrap chiffres" aria-label="Chiffres clés">
   <div class="chiffre"><strong>50</strong><span data-fr="pays survolés" data-en="countries overflown">pays survolés</span></div>
-  <div class="chiffre"><strong data-fr="100 000" data-en="100,000">100 000</strong><span data-fr="kilomètres parcourus" data-en="kilometres covered">kilomètres parcourus</span></div>
+  <div class="chiffre"><strong><small class="pres" data-fr="près de" data-en="nearly">près de</small> <span data-fr="100 000" data-en="100,000">100 000</span></strong><span data-fr="km parcourus" data-en="km covered">km parcourus</span></div>
   <div class="chiffre"><strong>34</strong><span data-fr="missions scientifiques" data-en="scientific missions">missions scientifiques</span></div>
   <div class="chiffre"><strong>100+</strong><span data-fr="scientifiques accompagnés" data-en="scientists supported">scientifiques accompagnés</span></div>
 </section>
@@ -436,8 +440,8 @@ em{font-style:italic}
   <div class="grille">
     <p class="kicker" data-fr="Notre mission" data-en="Our mission">Notre mission</p>
     <div class="texte">
-      <h2 data-fr="Des centaines de scientifiques tentent de comprendre et de préserver la planète. &lt;em&gt;Nos expéditions sont à leur service, et au vôtre.&lt;/em&gt;" data-en="Hundreds of scientists are working to understand and protect our planet. &lt;em&gt;Our expeditions are at their service, and yours.&lt;/em&gt;">Des centaines de scientifiques tentent de comprendre et de préserver la planète. <em>Nos expéditions sont à leur service, et au vôtre.</em></h2>
-      <p data-fr="Depuis 2008, nous œuvrons pour la production scientifique, l&#x27;action politique et l&#x27;éducation en faveur de l&#x27;environnement — à bord d&#x27;ULM conçus avec leurs fabricants pour acquérir des données scientifiques nouvelles." data-en="Since 2008, we have been working for scientific production, political action and environmental education — aboard microlight aircraft designed with their manufacturers to acquire new scientific data.">Depuis 2008, nous œuvrons pour la production scientifique, l'action politique et l'éducation en faveur de l'environnement — à bord d'ULM conçus avec leurs fabricants pour acquérir des données scientifiques nouvelles.</p>
+      <h2 data-fr="Des centaines de scientifiques tentent de comprendre et de préserver la planète. &lt;em&gt;Nos expéditions ont été à leur service ; nos conférences sont au vôtre.&lt;/em&gt;" data-en="Hundreds of scientists are working to understand and protect our planet. &lt;em&gt;Our expeditions served them; our talks are here for you.&lt;/em&gt;">Des centaines de scientifiques tentent de comprendre et de préserver la planète. <em>Nos expéditions ont été à leur service ; nos conférences sont au vôtre.</em></h2>
+      <p data-fr="Depuis 2008, nous œuvrons pour la production scientifique et l&#x27;éducation en faveur de l&#x27;environnement : de 2008 à 2017 par des expéditions aéronautiques, à bord d&#x27;ULM conçus avec leurs fabricants pour acquérir des données scientifiques nouvelles ; aujourd&#x27;hui par des conférences, pour partager ce que nous avons vu et appris." data-en="Since 2008, we have been working for scientific production and environmental education: from 2008 to 2017 through aeronautical expeditions, aboard microlights designed with their manufacturers to acquire new scientific data; today through talks, sharing what we saw and learned.">Depuis 2008, nous œuvrons pour la production scientifique et l'éducation en faveur de l'environnement : de 2008 à 2017 par des expéditions aéronautiques, à bord d'ULM conçus avec leurs fabricants pour acquérir des données scientifiques nouvelles ; aujourd'hui par des conférences, pour partager ce que nous avons vu et appris.</p>
     </div>
   </div>
 </section>
@@ -446,7 +450,7 @@ em{font-style:italic}
 <section class="wrap section" id="donnees" style="scroll-margin-top:60px">
   <div class="donnees-tete">
     <p class="kicker" data-fr="Sur le terrain" data-en="In the field">Sur le terrain</p>
-    <h2 class="h2" data-fr="Les données que les chercheurs ne peuvent pas atteindre, &lt;em&gt;nous allons les chercher.&lt;/em&gt;" data-en="The data researchers cannot reach, &lt;em&gt;we go and get it.&lt;/em&gt;">Les données que les chercheurs ne peuvent pas atteindre, <em>nous allons les chercher.</em></h2>
+    <h2 class="h2" data-fr="Les données que les chercheurs ne pouvaient pas atteindre, &lt;em&gt;nous sommes allés les chercher.&lt;/em&gt;" data-en="The data researchers could not reach, &lt;em&gt;we went and got it.&lt;/em&gt;">Les données que les chercheurs ne pouvaient pas atteindre, <em>nous sommes allés les chercher.</em></h2>
   </div>
   <div class="cartes-4">
     <article class="carte-donnee">
@@ -562,7 +566,7 @@ em{font-style:italic}
     <a class="action" href="reportages.html">
       <div class="img"><img src="images/accueil/films-900.webp" alt="Tournage d'un épisode en bateau" loading="lazy"></div>
       <strong>32</strong><span class="titre" data-fr="Films et web-séries" data-en="Films and web series">Films et web-séries</span>
-      <span class="desc" data-fr="Longs métrages diffusés sur Planète Thalassa et Le Blob, web-série Les Chercheurs du bout du monde." data-en="Feature films broadcast on Planète Thalassa and Le Blob, and the web series Les Chercheurs du bout du monde.">Longs métrages diffusés sur Planète Thalassa et Le Blob, web-série Les Chercheurs du bout du monde.</span>
+      <span class="desc" data-fr="5 films documentaires (4 × 26 min, 1 × 52 min) diffusés sur Planète Thalassa et Le Blob, et 27 épisodes de web-séries pour Universcience." data-en="5 documentary films (4 × 26 min, 1 × 52 min) broadcast on Planète Thalassa and Le Blob, and 27 web-series episodes for Universcience.">5 films documentaires (4 × 26 min, 1 × 52 min) diffusés sur Planète Thalassa et Le Blob, et 27 épisodes de web-séries pour Universcience.</span>
     </a>
     <a class="action" href="livres.html">
       <div class="img"><img src="images/accueil/livres-900.webp" alt="Couverture du livre Un tour du monde pas comme les autres" loading="lazy"></div>
@@ -571,8 +575,8 @@ em{font-style:italic}
     </a>
     <a class="action" href="conferences.html">
       <div class="img"><img src="images/accueil/conferences-900.webp" alt="Conférence dans une salle de classe" loading="lazy"></div>
-      <strong>59</strong><span class="titre" data-fr="Conférences" data-en="Conferences">Conférences</span>
-      <span class="desc" data-fr="Auprès des élèves, des enseignants et du grand public." data-en="For pupils, teachers and the general public.">Auprès des élèves, des enseignants et du grand public.</span>
+      <strong data-fr="Plus de 100" data-en="Over 100">Plus de 100</strong><span class="titre" data-fr="Conférences" data-en="Talks">Conférences</span>
+      <span class="desc" data-fr="Auprès des élèves, des enseignants et du grand public, et toujours aujourd’hui." data-en="For pupils, teachers and the general public, and still today.">Auprès des élèves, des enseignants et du grand public, et toujours aujourd’hui.</span>
     </a>
     <a class="action" href="presse.html">
       <div class="img"><img src="images/accueil/presse-900.webp" alt="Interview radio sur un plateau" loading="lazy"></div>
@@ -584,7 +588,7 @@ em{font-style:italic}
 
 <!-- ══ PARTENAIRES & SPONSORS ══ -->
 <section class="ivoire wrap partenaires" aria-label="Partenaires et sponsors">
-  <p class="kicker" data-fr="32 institutions partenaires" data-en="32 partner institutions">32 institutions partenaires</p>
+  <p class="kicker" data-fr="72 partenaires" data-en="72 partners">72 partenaires</p>
   <div class="logos" style="margin-top:28px">
     <div><img src="images/logos/scientifiques/logo_sci_institut_de_recherche_pour_le_developpement.webp" alt="Institut de Recherche pour le Développement" loading="lazy"></div>
     <div><img src="images/logos/scientifiques/logo_sci_lsce,_laboratoire_des_sciences_du_climat_et_de_l'environnement.jpg" alt="LSCE — CNRS" loading="lazy"></div>
@@ -607,12 +611,15 @@ em{font-style:italic}
     <img src="images/logos/partenaires/sos_malus.webp" alt="SOS Malus" loading="lazy">
     <span data-fr="Sponsor principal · Financement des expéditions et assurances" data-en="Main sponsor · Expedition funding and insurance">Sponsor principal · Financement des expéditions et assurances</span>
   </div>
+  <div class="sponsor-principal sponsor-argent">
+    <b class="mot-logo">BERINGER</b>
+    <span data-fr="Sponsor argent · Roues et freins" data-en="Silver sponsor · Wheels and brakes">Sponsor argent · Roues et freins</span>
+  </div>
   <div class="logos">
     <div><img src="images/logos/partenaires/zodiac_aerospace.webp" alt="Zodiac Aerospace" loading="lazy"></div>
     <div><img src="images/logos/partenaires/dynon.webp" alt="Dynon Avionics" loading="lazy"></div>
     <div><img src="images/logos/partenaires/duc_helices.webp" alt="DUC Hélices" loading="lazy"></div>
     <div><img src="images/logos/partenaires/scoda.webp" alt="Scoda Aeronautica" loading="lazy"></div>
-    <div><span class="texte-logo">BERINGER</span></div>
     <div><img src="images/logos/partenaires/white_rose.webp" alt="White Rose Aviation" loading="lazy"></div>
     <div><img src="images/logos/partenaires/finesse_max.webp" alt="Finesse Max" loading="lazy"></div>
     <div><img src="images/logos/partenaires/bose.webp" alt="Bose" loading="lazy"></div>
@@ -630,11 +637,11 @@ em{font-style:italic}
 <section class="appel">
   <img src="images/accueil/aile-nuages-1920.webp" srcset="images/accueil/aile-nuages-900.webp 900w, images/accueil/aile-nuages-1920.webp 1920w" sizes="100vw" alt="" loading="lazy">
   <div class="contenu">
-    <h2 data-fr="Embarquez avec nous" data-en="Come aboard">Embarquez avec nous</h2>
-    <p data-fr="Chercheur, mécène, enseignant ou simple curieux : soutenez nos actions ou proposez-nous un projet." data-en="Researcher, patron, teacher or simply curious: support our work or propose a project to us.">Chercheur, mécène, enseignant ou simple curieux : soutenez nos actions ou proposez-nous un projet.</p>
+    <h2 data-fr="Partagez l’aventure" data-en="Share the adventure">Partagez l’aventure</h2>
+    <p data-fr="Écoles, entreprises, festivals, institutions : invitez-nous à raconter ces expéditions et la science qu&#x27;elles ont servie, ou soutenez nos actions." data-en="Schools, companies, festivals, institutions: invite us to tell the story of these expeditions and the science they served, or support our work.">Écoles, entreprises, festivals, institutions : invitez-nous à raconter ces expéditions et la science qu'elles ont servie, ou soutenez nos actions.</p>
     <div class="actions">
-      <a class="btn btn-orange" href="contact.html" data-fr="Nous soutenir" data-en="Support us">Nous soutenir</a>
-      <a class="btn btn-blanc" href="contact.html" data-fr="Proposer une mission" data-en="Propose a mission">Proposer une mission</a>
+      <a class="btn btn-orange" href="contact.html?sujet=conference" data-fr="Organiser une conférence" data-en="Book a talk">Organiser une conférence</a>
+      <a class="btn btn-blanc" href="contact.html#soutenir" data-fr="Nous soutenir" data-en="Support us">Nous soutenir</a>
     </div>
   </div>
 </section>
@@ -758,7 +765,7 @@ em{font-style:italic}
     ['horizontal-falls','Horizontal Falls · Australie','Une cascade horizontale créée par les marées du Kimberley, visible seulement depuis les airs.'],
     ['cachalots','Grèce','En pleine cartographie des prairies de posidonie, nous survolons par hasard une maman cachalot allaitant son petit.'],
     ['parana','Fleuve Paraná · Brésil','Survol du Paraná à la recherche des harpies féroces, le plus grand rapace des Amériques.'],
-    ['banado','Bañado La Estrella · Argentine','Deuxième plus grande zone humide d’Amérique du Sud, que nous cartographions pour délimiter le premier parc naturel fluvial d’Argentine.'],
+    ['banado','Bañado La Estrella · Argentine','Deuxième plus grande zone humide d’Amérique du Sud, que nous avons cartographiée en appui au projet de création d’une zone protégée fluviale.'],
     ['andes','Cordillère des Andes · Chili','Depuis le cockpit, la cordillère apparaît dans la brume.'],
     ['baleine-vagues','Biologie marine','Observation de baleines depuis un ULM lors d’une mission de biologie marine.']
   ],pi=0,dernierFocus=null;
@@ -767,7 +774,7 @@ em{font-style:italic}
     'Horizontal Falls · Australia|A horizontal waterfall created by the Kimberley tides, visible only from the air.',
     'Greece|While mapping seagrass meadows, we chance upon a mother sperm whale nursing her calf.',
     'Paraná River · Brazil|Flying over the Paraná in search of harpy eagles, the Americas’ largest raptor.',
-    'Bañado La Estrella · Argentina|South America’s second-largest wetland, which we map to delineate Argentina’s first fluvial natural park.',
+    'Bañado La Estrella · Argentina|South America’s second-largest wetland, which we mapped in support of the project to create a protected river area.',
     'Andes Cordillera · Chile|From the cockpit, the mountain range emerges through the mist.',
     'Marine biology|Whale watching from a microlight during a marine biology mission.'
   ];
