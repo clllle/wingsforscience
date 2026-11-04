@@ -1,200 +1,100 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sensibilisation – Wings for Science</title>
-  <meta name="description" content="Sensibilisation par Wings for Science : conferences scolaires, interventions et actions educatives pour la science et l'environnement.">
-  <meta property="og:title" content="Sensibilisation - Wings for Science">
-  <meta property="og:description" content="Actions de sensibilisation educative pour la science et l'environnement.">
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://www.wingsforscience.com/sensibilisation.html">
-  <meta property="og:image" content="images/logo_wfs.webp">
-  <meta property="og:locale" content="fr_FR">
-  <meta property="og:locale:alternate" content="en_GB">
-  <link rel="canonical" href="https://www.wingsforscience.com/sensibilisation.html">
-  <link rel="preload" as="font" type="font/woff2" href="fonts/raleway-400-latin.woff2" crossorigin>
-  <link rel="preload" as="font" type="font/woff2" href="fonts/merriweather-300-latin.woff2" crossorigin>
-  <link rel="stylesheet" href="style.css?v=20261022h">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sensibilisation – Wings for Science</title>
+<meta name="description" content="Plus de 100 conférences, des films, des livres : Wings for Science partage ses expéditions avec les jeunes et le grand public.">
+<meta property="og:title" content="Sensibilisation – Wings for Science">
+<meta property="og:description" content="Plus de 100 conférences, des films, des livres : Wings for Science partage ses expéditions avec les jeunes et le grand public.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.wingsforscience.com/sensibilisation.html">
+<meta property="og:image" content="images/logo_wfs.webp">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_GB">
+<link rel="canonical" href="https://www.wingsforscience.com/sensibilisation.html">
+<link rel="alternate" hreflang="fr" href="https://www.wingsforscience.com/sensibilisation.html?lang=fr">
+<link rel="alternate" hreflang="en" href="https://www.wingsforscience.com/sensibilisation.html?lang=en">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#0b1622">
+<link rel="stylesheet" href="refonte.css?v=20261104c">
 <style>
-      .sensib-carousel{position:relative;width:100%;aspect-ratio:16/9;max-height:500px;border-radius:8px;overflow:hidden;}
-      .sensib-slide{position:absolute;inset:0;opacity:0;transition:opacity 0.7s ease;}
-      .sensib-slide.active{opacity:1;}
-      .sensib-slide img{width:100%;height:100%;object-fit:cover;}
-      .sensib-caption{position:absolute;bottom:0;left:0;right:0;padding:20px 28px;background:linear-gradient(transparent,rgba(0,0,0,0.75));color:#fff;z-index:2;}
-      .sensib-caption-loc{font-family:'Merriweather',serif;font-size:16px;font-weight:400;}
-      .sensib-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:3;background:rgba(255,255,255,0.85);border:none;color:#1a2a3a;width:52px;height:52px;border-radius:50%;cursor:pointer;font-size:22px;font-weight:700;transition:background 0.3s,transform 0.3s;box-shadow:0 4px 12px rgba(0,0,0,0.3);}
-      .sensib-btn:hover{background:#fff;transform:translateY(-50%) scale(1.12);box-shadow:0 6px 20px rgba(0,0,0,0.4);}
-      .sensib-btn.prev{left:14px}.sensib-btn.next{right:14px}
-      .sensib-dots{position:absolute;bottom:10px;left:0;right:0;text-align:center;z-index:3;}
-      .sensib-dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,0.3);margin:0 4px;cursor:pointer;transition:background 0.3s,transform 0.3s;border:1px solid rgba(255,255,255,0.15);}
-      .sensib-dot.active{background:#fff;transform:scale(1.3);}
-      @media(max-width:700px){
-        .sensib-carousel{aspect-ratio:auto;height:60vh;min-height:360px;max-height:520px;width:100vw;margin-left:calc(50% - 50vw);transform:none;border-radius:0;}
-        .sensib-caption{padding:14px 18px;}
-        .sensib-caption-loc{font-size:14px;}
-        .sensib-btn{width:42px;height:42px;font-size:18px;}
-      }
-    </style>
-<style>
-@media(max-width:700px){section .sensib-number{font-size:36px !important;} section [style*="grid-template-columns:repeat(4"]{grid-template-columns:repeat(2,1fr) !important;}}
+
 </style>
 </head>
 <body>
-<header id="site-header"></header>
-<script src="header.js?v=20260505b"></script>
-<section id="main-content" class="page-hero">
-  <img class="page-hero-bg-img" src="images/hero_sensibilisation.webp" alt="" aria-hidden="true">
-  <div class="page-hero-overlay"></div>
-  <div class="page-hero-content">
-    <span class="section-tag" data-fr="Notre mission — 03" data-en="Our mission — 03">Notre mission — 03</span>
-    <h1 class="page-hero-title" data-fr="Une aventure au service de l'éducation" data-en="An adventure in the service of education">Une aventure au service de l'éducation</h1>
-    <p class="page-hero-sub" data-fr="Rencontrer, partager, éduquer — auprès des jeunes et du grand public." data-en="Meet, share, educate — with young people and the general public.">Rencontrer, partager, éduquer — auprès des jeunes et du grand public.</p>
+<div id="r-entete"></div>
+<script src="refonte.js?v=20261104c"></script>
+<main>
+<section class="p-heros">
+  <img src="images/hero_sensibilisation.webp" alt="Conférence devant une classe" style="object-position:50% 50%">
+  <div class="contenu wrap">
+    <p class="kicker" data-fr="Notre mission · 03 — Sensibiliser" data-en="Our mission · 03 — Educate">Notre mission · 03 — Sensibiliser</p>
+    <h1 data-fr="Une aventure &lt;em&gt;au service de l&#x27;éducation&lt;/em&gt;" data-en="An adventure &lt;em&gt;in the service of education&lt;/em&gt;">Une aventure <em>au service de l'éducation</em></h1>
   </div>
 </section>
-
-<div class="content-section"><div class="content-inner narrow">
-    <p class="lead-text" data-fr="Cette folle aventure et la variété des collaborations scientifiques sont un matériau fantastique pour comprendre les enjeux liés à la science et à l'environnement ! Nous rencontrons des élèves et leurs enseignants, mais aussi des citoyens, afin de partager notre expérience." data-en="This extraordinary adventure and our varied scientific collaborations provide fantastic material for understanding the challenges of science and the environment! We meet students, their teachers, and citizens to share our experience.">Cette folle aventure et la variété des collaborations scientifiques sont un matériau fantastique pour comprendre les enjeux liés à la science et à l'environnement ! Nous rencontrons des élèves et leurs enseignants, mais aussi des citoyens, afin de partager notre expérience.</p>
-  </div></div>
-
-<!-- GALERIE ÉDUCATION -->
-<div class="content-section" style="padding-top:0;padding-bottom:40px;">
-  <div class="content-inner">
-    <div style="text-align:center;margin-bottom:24px;">
-      <span class="section-tag" data-fr="En images" data-en="In pictures">En images</span>
-    </div>
-<div class="sensib-carousel" id="sensibCarousel">
-      <div class="sensib-slide active"><img src="images/ecole 3Paletuviers guyane.webp" alt="École des Trois-Paletuviers, Guyane"><div class="sensib-caption"><div class="sensib-caption-loc" data-fr="Trois-Paletuviers, Guyane française" data-en="Trois-Paletuviers, French Guiana">Trois-Paletuviers, Guyane française</div></div></div>
-      <div class="sensib-slide"><img src="images/55 enfants tobalaba.webp" alt="55 enfants, Tobalaba, Chili"><div class="sensib-caption"><div class="sensib-caption-loc">Tobalaba, Chili</div></div></div>
-      <div class="sensib-slide"><img src="images/classe amhedabad.webp" alt="Classe à Ahmedabad, Inde"><div class="sensib-caption"><div class="sensib-caption-loc">Ahmedabad, Inde</div></div></div>
-      <div class="sensib-slide"><img src="images/classe osorno.webp" alt="Classe à Osorno, Chili"><div class="sensib-caption"><div class="sensib-caption-loc">Osorno, Chili</div></div></div>
-      <div class="sensib-slide"><img src="images/170 ayla.webp" alt="170 enfants, Ayla, Jordanie"><div class="sensib-caption"><div class="sensib-caption-loc">Ayla, Jordanie</div></div></div>
-      <div class="sensib-slide"><img src="images/classe pakistan.jpg" alt="Classe au Pakistan"><div class="sensib-caption"><div class="sensib-caption-loc">Pakistan</div></div></div>
-      <div class="sensib-slide"><img src="images/classe paletuviers 2.webp" alt="École des Paletuviers, Guyane"><div class="sensib-caption"><div class="sensib-caption-loc" data-fr="Trois-Paletuviers, Guyane française" data-en="Trois-Paletuviers, French Guiana">Trois-Paletuviers, Guyane française</div></div></div>
-      <div class="sensib-slide"><img src="images/conf_beyond_grand_rex.webp" alt="Beyond, Grand Rex, Paris"><div class="sensib-caption"><div class="sensib-caption-loc">Beyond, Grand Rex, Paris</div></div></div>
-      <div class="sensib-slide"><img src="images/amhenabad 2.webp" alt="Ahmedabad, Inde"><div class="sensib-caption"><div class="sensib-caption-loc">Ahmedabad, Inde</div></div></div>
-      <div class="sensib-slide"><img src="images/conf_tobalaba_chili.webp" alt="Tobalaba, Chili"><div class="sensib-caption"><div class="sensib-caption-loc">Tobalaba, Chili</div></div></div>
-      <div class="sensib-slide"><img src="images/lecture conf.jpg" alt="Lecture en conférence"><div class="sensib-caption"><div class="sensib-caption-loc" data-fr="Conférence" data-en="Conference">Conférence</div></div></div>
-      <div class="sensib-slide"><img src="images/conf_sensibilisation.webp" alt="Sensibilisation enfants, aérodrome Luxembourg"><div class="sensib-caption"><div class="sensib-caption-loc" data-fr="Aérodrome, Luxembourg" data-en="Airfield, Luxembourg">Aérodrome, Luxembourg</div></div></div>
-      <div class="sensib-slide"><img src="images/intv3.webp" alt="Interview"><div class="sensib-caption"><div class="sensib-caption-loc">Interview</div></div></div>
-      <button class="sensib-btn prev" onclick="sensibNav(-1)">&#8592;</button>
-      <button class="sensib-btn next" onclick="sensibNav(1)">&#8594;</button>
-      <div class="sensib-dots" id="sensibDots"></div>
-    </div>
+<section class="ivoire wrap section">
+  <div class="intro">
+    <p class="kicker" data-fr="Rencontrer, partager, éduquer" data-en="Meet, share, educate">Rencontrer, partager, éduquer</p>
+    <div class="texte"><h2 data-fr="Cette folle aventure et la variété des collaborations scientifiques sont un matériau fantastique pour comprendre les enjeux liés à la science et à l&#x27;environnement ! Nous rencontrons des élèves et leurs enseignants, mais aussi des citoyens, afin de partager notre expérience." data-en="This extraordinary adventure and our varied scientific collaborations provide fantastic material for understanding the challenges of science and the environment! We meet students, their teachers, and citizens to share our experience.">Cette folle aventure et la variété des collaborations scientifiques sont un matériau fantastique pour comprendre les enjeux liés à la science et à l'environnement ! Nous rencontrons des élèves et leurs enseignants, mais aussi des citoyens, afin de partager notre expérience.</h2></div>
   </div>
-</div>
-
-<!-- CHIFFRES CLÉS -->
-<section style="padding:60px 60px;background:linear-gradient(135deg,rgba(14,26,40,0.7),rgba(26,42,58,0.5));border-top:1px solid rgba(95,168,211,0.08);border-bottom:1px solid rgba(95,168,211,0.08);">
-  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;max-width:1000px;margin:0 auto;text-align:center;">
-    <div>
-      <div class="sensib-number" data-count="100" style="font-family:'Merriweather',serif;font-size:clamp(36px,5vw,52px);font-weight:300;color:var(--accent);line-height:1;">0<span style="font-size:0.5em;vertical-align:top;margin-left:2px;">+</span></div>
-      <div style="font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--text-muted);margin-top:12px;" data-fr="Conférences" data-en="Conferences">Conférences</div>
-    </div>
-    <div>
-      <div class="sensib-number" data-count="15" style="font-family:'Merriweather',serif;font-size:clamp(36px,5vw,52px);font-weight:300;color:var(--accent);line-height:1;">0</div>
-      <div style="font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--text-muted);margin-top:12px;" data-fr="Pays" data-en="Countries">Pays</div>
-    </div>
-    <div>
-      <div class="sensib-number" data-count="4000" style="font-family:'Merriweather',serif;font-size:clamp(36px,5vw,52px);font-weight:300;color:var(--accent);line-height:1;">0<span style="font-size:0.5em;vertical-align:top;margin-left:2px;">+</span></div>
-      <div style="font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--text-muted);margin-top:12px;" data-fr="Personnes touchées" data-en="People reached">Personnes touchées</div>
-    </div>
-    <div>
-      <div class="sensib-number" data-count="4" style="font-family:'Merriweather',serif;font-size:clamp(36px,5vw,52px);font-weight:300;color:var(--accent);line-height:1;">0</div>
-      <div style="font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--text-muted);margin-top:12px;" data-fr="Langues" data-en="Languages">Langues</div>
-    </div>
+  <div class="compteurs-l">
+    <div><strong>100+</strong><span data-fr="conférences" data-en="talks">conférences</span></div>
+    <div><strong>15</strong><span data-fr="pays" data-en="countries">pays</span></div>
+    <div><strong>4&nbsp;000+</strong><span data-fr="personnes touchées" data-en="people reached">personnes touchées</span></div>
+    <div><strong>4</strong><span data-fr="langues" data-en="languages">langues</span></div>
   </div>
 </section>
-<!-- TITRE NOS ACTIONS -->
-<div class="content-section" style="padding-bottom:0;">
-  <div class="content-inner" style="text-align:center;">
-    <span class="section-tag" data-fr="Nos outils de sensibilisation" data-en="Our outreach tools">Nos outils de sensibilisation</span>
-    <h2 class="section-heading" style="margin-top:16px;" data-fr="Partager notre aventure avec <em>le plus grand nombre</em>" data-en="Sharing our adventure with <em>as many people as possible</em>">Partager notre aventure avec <em>le plus grand nombre</em></h2>
+<section class="wrap section">
+  <div class="tete-section">
+    <p class="kicker" data-fr="En images" data-en="In pictures">En images</p>
+    <h2 class="h2" data-fr="Des écoles de Guyane &lt;em&gt;aux salles de conférence&lt;/em&gt;" data-en="From schools in French Guiana &lt;em&gt;to lecture halls&lt;/em&gt;">Des écoles de Guyane <em>aux salles de conférence</em></h2>
   </div>
-</div>
-
-  <div class="content-section" style="padding-top:0;"><div class="content-inner">
-    <div class="pillars-grid">
-      <a class="pillar-card" href="conferences.html">
-        <div class="pillar-img-wrap"><img src="images/wix_import/category_conferences.webp" alt="" loading="lazy"></div>
-        <div class="pillar-body">
-          <div class="pillar-num">01</div>
-          <h2 class="pillar-title" data-fr="Conférences" data-en="Conferences">Conférences</h2>
-          <p class="pillar-text" data-fr="Interventions dans les écoles, universités et auprès du grand public." data-en="Talks at schools, universities and with the general public.">Interventions dans les écoles, universités et auprès du grand public.</p>
-          <span class="pillar-link" data-fr="Explorer →" data-en="Explore →">Explorer →</span>
-        </div>
-      </a>
-      <a class="pillar-card" href="reportages.html">
-        <div class="pillar-img-wrap"><img src="images/wix_import/category_reportages.webp" alt="" loading="lazy"></div>
-        <div class="pillar-body">
-          <div class="pillar-num">02</div>
-          <h2 class="pillar-title" data-fr="Reportages" data-en="Documentaries">Reportages</h2>
-          <p class="pillar-text" data-fr="Web-séries et films documentaires sur nos expéditions." data-en="Web series and documentary films about our expeditions.">Web-séries et films documentaires sur nos expéditions.</p>
-          <span class="pillar-link" data-fr="Explorer →" data-en="Explore →">Explorer →</span>
-        </div>
-      </a>
-      <a class="pillar-card" href="livres.html">
-        <div class="pillar-img-wrap"><img src="images/wix_import/category_livres.webp" alt="" loading="lazy"></div>
-        <div class="pillar-body">
-          <div class="pillar-num">03</div>
-          <h2 class="pillar-title" data-fr="Livres" data-en="Books">Livres</h2>
-          <p class="pillar-text" data-fr="Deux livres d'aventures scientifiques pour le grand public." data-en="Two science adventure books for the general public.">Deux livres d'aventures scientifiques pour le grand public.</p>
-          <span class="pillar-link" data-fr="Explorer →" data-en="Explore →">Explorer →</span>
-        </div>
-      </a>
-    </div>
-  </div></div>
-
-<div id="site-footer"></div>
-<script src="footer.js?v=20260505b"></script>
-<script src="lang.js?v=20260505b"></script>
-<script src="shared.js?v=20260505b"></script>
-<script>
-/* ── Animated counters ── */
-(function(){
-  var counted=false;
-  var nums=document.querySelectorAll('.sensib-number[data-count]');
-  if(!nums.length)return;
-  var obs=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting&&!counted){
-        counted=true;
-        nums.forEach(function(el){
-          var target=parseInt(el.getAttribute('data-count'));
-          var duration=1600;
-          var start=performance.now();
-          var hasPlus=el.querySelector('span');
-          function tick(now){
-            var p=Math.min((now-start)/duration,1);
-            var eased=1-Math.pow(1-p,3);
-            var val=Math.round(eased*target);
-            if(hasPlus){el.innerHTML=val+'<span style="font-size:0.5em;vertical-align:top;margin-left:2px;">+</span>';}
-            else{el.textContent=val;}
-            if(p<1)requestAnimationFrame(tick);
-          }
-          requestAnimationFrame(tick);
-        });
-      }
-    });
-  },{threshold:0.3});
-  obs.observe(nums[0].parentElement.parentElement);
-})();
-
-/* ── Sensibilisation carousel ── */
-(function(){
-  var slides=document.querySelectorAll('#sensibCarousel .sensib-slide');
-  if(!slides.length)return;
-  var cur=0,timer;
-  var dotsC=document.getElementById('sensibDots');
-  slides.forEach(function(_,i){var d=document.createElement('span');d.className='sensib-dot'+(i===0?' active':'');d.onclick=function(){go(i);};dotsC.appendChild(d);});
-  function go(n){slides[cur].classList.remove('active');dotsC.children[cur].classList.remove('active');cur=(n+slides.length)%slides.length;slides[cur].classList.add('active');dotsC.children[cur].classList.add('active');resetTimer();}
-  window.sensibNav=function(d){go(cur+d);};
-  function resetTimer(){clearInterval(timer);timer=setInterval(function(){go(cur+1);},5000);}
-  resetTimer();
-})();
-</script>
+  <div class="tuiles-photo">
+    <figure class="tuile-photo grand"><img src="images/conf_beyond_grand_rex.webp" alt="Conférence Beyond au Grand Rex, Paris" data-alt-en="Beyond talk at the Grand Rex, Paris" loading="lazy"><figcaption><span data-fr="Grand Rex, Paris" data-en="Grand Rex, Paris">Grand Rex, Paris</span></figcaption></figure>
+    <figure class="tuile-photo"><img src="images/ecole 3Paletuviers guyane.webp" alt="École des Trois-Paletuviers, Guyane" data-alt-en="Trois-Paletuviers school, French Guiana" loading="lazy"><figcaption><span data-fr="Trois-Paletuviers, Guyane française" data-en="Trois-Paletuviers, French Guiana">Trois-Paletuviers, Guyane française</span></figcaption></figure>
+    <figure class="tuile-photo"><img src="images/55 enfants tobalaba.webp" alt="55 enfants, Tobalaba, Chili" data-alt-en="55 children, Tobalaba, Chile" loading="lazy"><figcaption><span data-fr="Tobalaba, Chili" data-en="Tobalaba, Chile">Tobalaba, Chili</span></figcaption></figure>
+    <figure class="tuile-photo"><img src="images/classe amhedabad.webp" alt="Classe à Ahmedabad, Inde" data-alt-en="Class in Ahmedabad, India" loading="lazy"><figcaption><span data-fr="Ahmedabad, Inde" data-en="Ahmedabad, India">Ahmedabad, Inde</span></figcaption></figure>
+    <figure class="tuile-photo"><img src="images/classe osorno.webp" alt="Classe à Osorno, Chili" data-alt-en="Class in Osorno, Chile" loading="lazy"><figcaption><span data-fr="Osorno, Chili" data-en="Osorno, Chile">Osorno, Chili</span></figcaption></figure>
+    <figure class="tuile-photo"><img src="images/170 ayla.webp" alt="170 enfants, Ayla, Jordanie" data-alt-en="170 children, Ayla, Jordan" loading="lazy"><figcaption><span data-fr="Ayla, Jordanie" data-en="Ayla, Jordan">Ayla, Jordanie</span></figcaption></figure>
+    <figure class="tuile-photo"><img src="images/classe pakistan.jpg" alt="Classe au Pakistan" data-alt-en="Class in Pakistan" loading="lazy"><figcaption><span data-fr="Pakistan" data-en="Pakistan">Pakistan</span></figcaption></figure>
+    <figure class="tuile-photo"><img src="images/classe paletuviers 2.webp" alt="École des Trois-Paletuviers, Guyane" data-alt-en="Trois-Paletuviers school, French Guiana" loading="lazy"><figcaption><span data-fr="Trois-Paletuviers, Guyane française" data-en="Trois-Paletuviers, French Guiana">Trois-Paletuviers, Guyane française</span></figcaption></figure>
+    <figure class="tuile-photo"><img src="images/amhenabad 2.webp" alt="Ahmedabad, Inde" data-alt-en="Ahmedabad, India" loading="lazy"><figcaption><span data-fr="Ahmedabad, Inde" data-en="Ahmedabad, India">Ahmedabad, Inde</span></figcaption></figure>
+    <figure class="tuile-photo"><img src="images/conf_tobalaba_chili.webp" alt="Conférence à Tobalaba, Chili" data-alt-en="Talk in Tobalaba, Chile" loading="lazy"><figcaption><span data-fr="Tobalaba, Chili" data-en="Tobalaba, Chile">Tobalaba, Chili</span></figcaption></figure>
+    <figure class="tuile-photo"><img src="images/lecture conf.jpg" alt="Lecture en conférence" data-alt-en="Reading during a talk" loading="lazy"><figcaption><span data-fr="Conférence" data-en="Talk">Conférence</span></figcaption></figure>
+    <figure class="tuile-photo"><img src="images/conf_sensibilisation.webp" alt="Sensibilisation des enfants, aérodrome, Luxembourg" data-alt-en="Children&#x27;s outreach, airfield, Luxembourg" loading="lazy"><figcaption><span data-fr="Aérodrome, Luxembourg" data-en="Airfield, Luxembourg">Aérodrome, Luxembourg</span></figcaption></figure>
+    <figure class="tuile-photo"><img src="images/intv3.webp" alt="Interview" data-alt-en="Interview" loading="lazy"><figcaption><span data-fr="Interview" data-en="Interview">Interview</span></figcaption></figure>
+  </div>
+</section>
+<section class="wrap section" style="padding-top:0">
+  <div class="tete-section">
+    <p class="kicker" data-fr="Nos outils de sensibilisation" data-en="Our outreach tools">Nos outils de sensibilisation</p>
+    <h2 class="h2" data-fr="Partager notre aventure avec &lt;em&gt;le plus grand nombre&lt;/em&gt;" data-en="Sharing our adventure with &lt;em&gt;as many people as possible&lt;/em&gt;">Partager notre aventure avec <em>le plus grand nombre</em></h2>
+  </div>
+  <div class="cartes-outils">
+    <a class="carte-outil" href="conferences.html"><div class="img"><img src="images/accueil/conferences-900.webp" alt="" loading="lazy"></div><span class="num">01</span><h3 data-fr="Conférences" data-en="Talks">Conférences</h3><p data-fr="Interventions dans les écoles, universités et auprès du grand public." data-en="Talks at schools, universities and with the general public.">Interventions dans les écoles, universités et auprès du grand public.</p><span class="lien" data-fr="Explorer →" data-en="Explore →">Explorer →</span></a>
+    <a class="carte-outil" href="reportages.html"><div class="img"><img src="images/accueil/films-900.webp" alt="" loading="lazy"></div><span class="num">02</span><h3 data-fr="Reportages" data-en="Documentaries">Reportages</h3><p data-fr="Web-séries et films documentaires sur nos expéditions." data-en="Web series and documentary films about our expeditions.">Web-séries et films documentaires sur nos expéditions.</p><span class="lien" data-fr="Explorer →" data-en="Explore →">Explorer →</span></a>
+    <a class="carte-outil" href="livres.html"><div class="img"><img src="images/accueil/livres-900.webp" alt="" loading="lazy"></div><span class="num">03</span><h3 data-fr="Livres" data-en="Books">Livres</h3><p data-fr="Deux livres d&#x27;aventures scientifiques pour le grand public." data-en="Two science adventure books for the general public.">Deux livres d'aventures scientifiques pour le grand public.</p><span class="lien" data-fr="Explorer →" data-en="Explore →">Explorer →</span></a>
+  </div>
+</section>
+<section class="bandeau-cta wrap">
+  <img src="images/accueil/aile-nuages-1920.webp" srcset="images/accueil/aile-nuages-900.webp 900w, images/accueil/aile-nuages-1920.webp 1920w" sizes="100vw" alt="" loading="lazy">
+  <div class="contenu">
+    <p class="kicker" data-fr="Conférences" data-en="Talks">Conférences</p>
+    <h2 data-fr="Invitez-nous &lt;em&gt;dans votre école, votre entreprise ou votre festival&lt;/em&gt;" data-en="Invite us &lt;em&gt;to your school, company or festival&lt;/em&gt;">Invitez-nous <em>dans votre école, votre entreprise ou votre festival</em></h2>
+    <p data-fr="Nous racontons ces expéditions et la science qu&#x27;elles ont servie, en français, en anglais, en espagnol ou en portugais." data-en="We tell the story of these expeditions and the science they served, in French, English, Spanish or Portuguese.">Nous racontons ces expéditions et la science qu'elles ont servie, en français, en anglais, en espagnol ou en portugais.</p>
+    <div class="actions"><a class="btn btn-orange" href="contact.html?sujet=conference" data-fr="Organiser une conférence" data-en="Book a talk">Organiser une conférence</a><a class="btn btn-contour" href="conferences.html" data-fr="Voir nos conférences" data-en="See our talks">Voir nos conférences</a></div>
+  </div>
+</section>
+<a class="suivante wrap" href="campagne-scientifique.html">
+  <img src="images/accueil/groenland-1920.webp" srcset="images/accueil/groenland-900.webp 900w, images/accueil/groenland-1920.webp 1920w" sizes="100vw" alt="" loading="lazy">
+  <div><p class="kicker" data-fr="Nos actions · Campagne scientifique" data-en="Our actions · Scientific campaign">Nos actions · Campagne scientifique</p><h2 data-fr="34 missions, des modèles 3D et des publications" data-en="34 missions, 3D models and publications">34 missions, des modèles 3D et des publications</h2></div>
+  <span class="rond" aria-hidden="true" style="display:inline-flex;align-items:center;justify-content:center">→</span>
+</a>
+</main>
+<div id="r-pied"></div>
+<script src="lang.js?v=20261104c" defer></script>
 
 </body>
 </html>
