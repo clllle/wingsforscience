@@ -23,7 +23,11 @@
     // Update single lang toggle button (shows CURRENT language)
     var toggles = document.querySelectorAll('.lang-toggle');
     for (var k = 0; k < toggles.length; k++) {
-      toggles[k].textContent = lang === 'fr' ? 'FR' : 'EN';
+      // Le bouton indique la langue vers laquelle on bascule
+      var long = toggles[k].classList.contains('lien-simple');
+      toggles[k].textContent = lang === 'fr' ? (long ? 'English' : 'ENG') : (long ? 'Français' : 'FR');
+      toggles[k].setAttribute('lang', lang === 'fr' ? 'en' : 'fr');
+      toggles[k].setAttribute('aria-label', lang === 'fr' ? 'Switch to English' : 'Passer en français');
     }
     window.currentLang = lang;
   }
