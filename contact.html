@@ -14,40 +14,43 @@
   <meta property="og:locale" content="fr_FR">
   <meta property="og:locale:alternate" content="en_GB">
   <link rel="canonical" href="https://www.wingsforscience.com/contact.html">
-  <link rel="preload" as="font" type="font/woff2" href="fonts/raleway-400-latin.woff2" crossorigin>
-  <link rel="preload" as="font" type="font/woff2" href="fonts/merriweather-300-latin.woff2" crossorigin>
-  <link rel="stylesheet" href="style.css?v=20261022h">
-  <style>
-    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;margin-top:50px;}
-    .contact-info-item{display:flex;gap:16px;align-items:flex-start;margin-bottom:28px;}
-    .contact-info-icon{font-size:22px;flex-shrink:0;margin-top:2px;}
-    .contact-info-label{font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:5px;}
-    .contact-info-value{font-size:14px;color:var(--off-white);line-height:1.7;}
-    .contact-info-value a{color:var(--accent2);text-decoration:none;}
-    .contact-form{display:flex;flex-direction:column;gap:16px;}
-    .form-group{display:flex;flex-direction:column;gap:7px;}
-    .form-group label{font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);}
-    .form-group input,.form-group select,.form-group textarea{background:rgba(14,26,40,0.7);border:1px solid rgba(95,168,211,0.15);border-radius:4px;padding:12px 16px;font-size:14px;font-family:Raleway,sans-serif;color:var(--white);transition:border-color 0.2s;outline:none;width:100%;box-sizing:border-box;}
-    .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:rgba(95,168,211,0.5);}
-    .form-group input::placeholder,.form-group textarea::placeholder{color:rgba(176,184,196,0.4);}
-    .form-group select option{background:#1a2a3a;}
-    .form-group textarea{min-height:140px;resize:vertical;}
-    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-    @media(max-width:860px){.contact-grid{grid-template-columns:1fr;}.form-row{grid-template-columns:1fr;}}
-  </style>
+  <link rel="stylesheet" href="refonte.css?v=20261104c">
+<link rel="stylesheet" href="ancien.css?v=20261104c">
+<style>
+.ancien .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;margin-top:50px;}
+.ancien .contact-info-item{display:flex;gap:16px;align-items:flex-start;margin-bottom:28px;}
+.ancien .contact-info-icon{font-size:22px;flex-shrink:0;margin-top:2px;}
+.ancien .contact-info-label{font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:5px;}
+.ancien .contact-info-value{font-size:14px;color:var(--off-white);line-height:1.7;}
+.ancien .contact-info-value a{color:var(--accent2);text-decoration:none;}
+.ancien .contact-form{display:flex;flex-direction:column;gap:16px;}
+.ancien .form-group{display:flex;flex-direction:column;gap:7px;}
+.ancien .form-group label{font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);}
+.ancien .form-group input, .ancien .form-group select, .ancien .form-group textarea{background:rgba(14,26,40,0.7);border:1px solid rgba(95,168,211,0.15);border-radius:4px;padding:12px 16px;font-size:14px;font-family:Raleway,sans-serif;color:var(--white);transition:border-color 0.2s;outline:none;width:100%;box-sizing:border-box;}
+.ancien .form-group input:focus, .ancien .form-group select:focus, .ancien .form-group textarea:focus{border-color:rgba(95,168,211,0.5);}
+.ancien .form-group input::placeholder, .ancien .form-group textarea::placeholder{color:rgba(176,184,196,0.4);}
+.ancien .form-group select option{background:#1a2a3a;}
+.ancien .form-group textarea{min-height:140px;resize:vertical;}
+.ancien .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media(max-width:860px){.ancien .contact-grid{grid-template-columns:1fr;}
+.ancien .form-row{grid-template-columns:1fr;}}
+.ancien .contact-form input,.ancien .contact-form select,.ancien .contact-form textarea{font-size:16px}
+</style>
+  
+<meta name="theme-color" content="#0b1622">
 </head>
 <body>
-<header id="site-header"></header>
-<script src="header.js?v=20260505b"></script>
-<section id="main-content" class="page-hero">
-  <img class="page-hero-bg-img" src="images/wix_import/hero_contact.webp" alt="" aria-hidden="true">
-  <div class="page-hero-overlay"></div>
-  <div class="page-hero-content">
-    <span class="section-tag" data-fr="Nous contacter" data-en="Contact us">Nous contacter</span>
-    <h1 class="page-hero-title"><span data-fr="Parlons de la" data-en="Let's talk about the">Parlons de la</span> <em><span data-fr="planète" data-en="planet">planète</span></em> <span data-fr="ensemble" data-en="together">ensemble</span></h1>
-    <p class="page-hero-sub" data-fr="Une question, un partenariat, une conférence — nous sommes à l'écoute" data-en="A question, a partnership, a conference — we are listening">Une question, un partenariat, une conférence — nous sommes à l'écoute</p>
+<div id="r-entete"></div>
+<script src="refonte.js?v=20261104c"></script>
+<main>
+<section class="p-heros">
+  <img src="images/accueil/aile-nuages-1920.webp" srcset="images/accueil/aile-nuages-900.webp 900w, images/accueil/aile-nuages-1920.webp 1920w" sizes="100vw" alt="" style="object-position:50% 50%">
+  <div class="contenu wrap">
+    <p class="kicker" data-fr="Nous contacter" data-en="Contact us">Nous contacter</p>
+    <h1 data-fr="Parlons de la &lt;em&gt;planète&lt;/em&gt; ensemble" data-en="Let&#x27;s talk about the &lt;em&gt;planet&lt;/em&gt; together">Parlons de la <em>planète</em> ensemble</h1>
   </div>
 </section>
+<div class="ancien">
 <div class="content-section"><div class="content-inner">
   <div class="contact-grid">
     <div>
@@ -78,6 +81,7 @@
             <option value="" data-fr="Choisissez un sujet..." data-en="Choose a subject...">Choisissez un sujet...</option>
             <option value="conference" data-fr="Organiser une conférence" data-en="Organise a conference">Organiser une conférence</option>
             <option value="partenariat" data-fr="Partenariat / sponsoring" data-en="Partnership / sponsorship">Partenariat / sponsoring</option>
+            <option value="don" data-fr="Faire un don / reçu fiscal" data-en="Donation / tax receipt">Faire un don / reçu fiscal</option>
             <option value="presse" data-fr="Demande presse" data-en="Press request">Demande presse</option>
             <option value="autre" data-fr="Autre" data-en="Other">Autre</option>
           </select>
@@ -91,8 +95,20 @@
     </div>
   </div>
 </div></div>
-<div id="site-footer"></div>
-<script src="footer.js?v=20260505b"></script>
+</div>
+<section class="ivoire wrap section" id="soutenir" style="scroll-margin-top:90px">
+  <div class="intro">
+    <p class="kicker" data-fr="Nous soutenir" data-en="Support us">Nous soutenir</p>
+    <div class="texte">
+      <h2 data-fr="Soutenez nos actions de partage et d&#x27;éducation &lt;em&gt;autour de la science et de l&#x27;environnement.&lt;/em&gt;" data-en="Support our outreach and education work &lt;em&gt;around science and the environment.&lt;/em&gt;">Soutenez nos actions de partage et d'éducation <em>autour de la science et de l'environnement.</em></h2>
+      <p data-fr="L&#x27;association est habilitée à délivrer des reçus fiscaux : votre don ouvre droit à une réduction d&#x27;impôt, dans les conditions prévues par la loi. Écrivez-nous et nous vous indiquerons comment procéder." data-en="The association can issue tax receipts: in France, your donation is eligible for a tax reduction under the conditions set by law. Write to us and we will explain how to proceed.">L'association est habilitée à délivrer des reçus fiscaux : votre don ouvre droit à une réduction d'impôt, dans les conditions prévues par la loi. Écrivez-nous et nous vous indiquerons comment procéder.</p>
+      <p style="margin-top:28px"><a class="btn btn-orange" href="#contactForm" onclick="var s=document.getElementById('sujet');if(s)s.value='don';" data-fr="Faire un don" data-en="Make a donation">Faire un don</a></p>
+    </div>
+  </div>
+</section>
+</main>
+<div id="r-pied"></div>
+<div class="ancien ancien-fin">
 <script>
 function handleSubmit(e){{
   e.preventDefault();
@@ -102,7 +118,8 @@ function handleSubmit(e){{
   window.location.href=mailto;
 }}
 </script>
-<script src="lang.js?v=20260505b"></script>
-<script src="shared.js?v=20260505b"></script>
+<script src="lang.js?v=20261104c"></script>
+</div>
+<script>(function(){var m=location.search.match(/[?&]sujet=(\w+)/);if(m){var s=document.getElementById("sujet");if(s)s.value=m[1];}})();</script>
 </body>
 </html>

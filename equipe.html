@@ -1,300 +1,72 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>L'équipe – Wings for Science</title>
-  <meta name="description" content="L'équipe Wings for Science : pilotes, scientifiques et bénévoles qui rendent possibles nos expéditions aéronautiques autour du monde.">
-  <meta property="og:title" content="L'equipe - Wings for Science">
-  <meta property="og:description" content="Les membres benevoles qui font vivre l'association.">
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://www.wingsforscience.com/equipe.html">
-  <meta property="og:image" content="images/logo_wfs.webp">
-  <meta property="og:locale" content="fr_FR">
-  <meta property="og:locale:alternate" content="en_GB">
-  <link rel="canonical" href="https://www.wingsforscience.com/equipe.html">
-  <link rel="preload" as="font" type="font/woff2" href="fonts/raleway-400-latin.woff2" crossorigin>
-  <link rel="preload" as="font" type="font/woff2" href="fonts/merriweather-300-latin.woff2" crossorigin>
-  <link rel="stylesheet" href="style.css?v=20261022h">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L&#x27;équipe – Wings for Science</title>
+<meta name="description" content="L&#x27;équipe qui a porté les expéditions de Wings for Science de 2008 à 2017 : comité scientifique, équipe opérationnelle et soutien logistique.">
+<meta property="og:title" content="L&#x27;équipe – Wings for Science">
+<meta property="og:description" content="L&#x27;équipe qui a porté les expéditions de Wings for Science de 2008 à 2017 : comité scientifique, équipe opérationnelle et soutien logistique.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.wingsforscience.com/equipe.html">
+<meta property="og:image" content="images/logo_wfs.webp">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_GB">
+<link rel="canonical" href="https://www.wingsforscience.com/equipe.html">
+<link rel="alternate" hreflang="fr" href="https://www.wingsforscience.com/equipe.html?lang=fr">
+<link rel="alternate" hreflang="en" href="https://www.wingsforscience.com/equipe.html?lang=en">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#0b1622">
+<link rel="stylesheet" href="refonte.css?v=20261104c">
 <style>
-  /* ── TEAM SPLIT CARDS (same as confondateurs) ── */
-  .team-duo {
-    position: relative;
-    display: grid; grid-template-columns: 1fr 1fr;
-    border-radius: 12px; overflow: hidden;
-    min-height: 420px; margin-bottom: 32px;
-  }
-  .team-duo .duo-half {
-    position: relative; overflow: hidden; cursor: pointer;
-  }
-  .team-duo .duo-half img {
-    width: 100%; height: 100%; min-height: 420px;
-    object-fit: cover; display: block;
-    transition: transform 0.6s ease, filter 0.6s ease;
-  }
-  .team-duo .duo-half::before {
-    content: ''; position: absolute; inset: 0; z-index: 1;
-    background: linear-gradient(0deg, rgba(13,37,64,0.92) 0%, rgba(13,37,64,0.4) 50%, rgba(13,37,64,0.15) 100%);
-    transition: background 0.5s;
-  }
-  .team-duo .duo-half:hover::before {
-    background: linear-gradient(0deg, rgba(13,37,64,0.95) 0%, rgba(13,37,64,0.6) 40%, rgba(13,37,64,0.1) 100%);
-  }
-  .team-duo .duo-half:hover img { transform: scale(1.05); }
-  .team-duo:hover .duo-half:not(:hover) img { filter: brightness(0.5); }
-  .team-duo::after {
-    content: ''; position: absolute;
-    top: 10%; bottom: 10%; left: 50%; width: 2px;
-    transform: translateX(-50%);
-    background: linear-gradient(180deg, transparent, var(--accent), transparent);
-    z-index: 3; opacity: 0.4; pointer-events: none;
-  }
-  .team-duo .duo-info {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    z-index: 2; padding: 28px 24px 24px;
-  }
-  .team-duo .duo-role {
-    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
-    text-transform: uppercase; color: var(--accent); margin-bottom: 6px;
-  }
-  .team-duo .duo-name {
-    font-family: 'Merriweather', serif; font-size: 22px; font-weight: 400;
-    color: #fff; margin-bottom: 12px; transition: color 0.3s;
-  }
-  .team-duo .duo-half:hover .duo-name { color: var(--accent); }
-  .team-duo .duo-bio {
-    font-size: 12px; line-height: 1.75; color: var(--off-white);
-    max-height: 0; overflow: hidden; opacity: 0;
-    transition: max-height 0.6s ease, opacity 0.4s ease 0.1s;
-  }
-  .team-duo .duo-half:hover .duo-bio { max-height: 400px; opacity: 1; }
 
-  /* ── TRIO LAYOUT ── */
-  .team-trio {
-    display: grid; grid-template-columns: 1fr 1fr 1fr;
-    gap: 0; border-radius: 12px; overflow: hidden;
-    min-height: 480px; margin-bottom: 32px;
-    position: relative;
-  }
-  .trio-member {
-    position: relative; overflow: hidden; cursor: pointer;
-  }
-  .trio-member img {
-    width: 100%; height: 100%; min-height: 480px;
-    object-fit: cover; display: block;
-    transition: transform 0.6s ease, filter 0.6s ease;
-  }
-  .trio-member::before {
-    content: ''; position: absolute; inset: 0; z-index: 1;
-    background: linear-gradient(0deg, rgba(13,37,64,0.92) 0%, rgba(13,37,64,0.4) 50%, rgba(13,37,64,0.15) 100%);
-    transition: background 0.5s;
-  }
-  .trio-member:hover::before {
-    background: linear-gradient(0deg, rgba(13,37,64,0.95) 0%, rgba(13,37,64,0.6) 40%, rgba(13,37,64,0.1) 100%);
-  }
-  .trio-member:hover img { transform: scale(1.05); }
-  .team-trio:hover .trio-member:not(:hover) img { filter: brightness(0.5); }
-  .trio-info {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    z-index: 2; padding: 24px 18px 20px;
-  }
-  .trio-info .duo-role {
-    font-size: 9px; font-weight: 700; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--accent); margin-bottom: 4px;
-  }
-  .trio-info .duo-name { font-size: 17px; margin-bottom: 10px; }
-  .trio-info .duo-bio { font-size: 11px; line-height: 1.7; }
-  .trio-member:hover .duo-name { color: var(--accent); }
-  .trio-member:hover .duo-bio { max-height: 400px; opacity: 1; }
-
-  /* Accent lines between trio members */
-  .trio-member + .trio-member { border-left: 1px solid rgba(95,168,211,0.15); }
-
-  @media(max-width:960px) {
-    .team-trio { grid-template-columns: 1fr; min-height: auto; }
-    .trio-member img { min-height: 360px; }
-    .trio-member .duo-bio { max-height: 400px; opacity: 1; }
-    .trio-member + .trio-member { border-left: none; border-top: 1px solid rgba(95,168,211,0.15); }
-  }
-
-  /* ── ORG DUO (logos) ── */
-  .org-duo {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
-    margin-bottom: 32px;
-  }
-  .org-card {
-    display: flex; align-items: center; gap: 24px;
-    padding: 28px; background: rgba(14,26,40,0.5);
-    border: 1px solid rgba(95,168,211,0.1); border-radius: 10px;
-    transition: border-color 0.3s, transform 0.3s;
-  }
-  .org-card:hover { border-color: rgba(95,168,211,0.3); transform: translateY(-3px); }
-  .org-card img {
-    width: 80px; height: 80px; object-fit: contain; flex-shrink: 0;
-    background: rgba(255,255,255,0.95); border-radius: 8px; padding: 8px;
-  }
-  .org-card .org-body { flex: 1; }
-  .org-card .org-role { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
-  .org-card .org-name { font-family: 'Merriweather', serif; font-size: 18px; color: var(--white); margin-bottom: 8px; }
-  .org-card .org-bio { font-size: 12px; line-height: 1.7; color: var(--text-muted); }
-
-  /* ── PROFILE CARDS (trio replacement) ── */
-  .team-profiles {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
-    margin-bottom: 32px;
-  }
-  .profile-card {
-    background: rgba(14,26,40,0.5);
-    border: 1px solid rgba(95,168,211,0.1);
-    border-radius: 12px;
-    overflow: hidden;
-    transition: border-color 0.3s, transform 0.3s;
-  }
-  .profile-card:hover {
-    border-color: rgba(95,168,211,0.3);
-    transform: translateY(-4px);
-  }
-  .profile-card img {
-    width: 100%; aspect-ratio: 1/1; object-fit: cover; object-position: center 20%; display: block;
-  }
-  .profile-info {
-    padding: 20px 20px 24px;
-  }
-  .profile-info .duo-role {
-    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
-    text-transform: uppercase; color: var(--accent); margin-bottom: 6px;
-  }
-  .profile-info .duo-name {
-    font-family: 'Merriweather', serif; font-size: 18px; font-weight: 400;
-    color: #fff; margin-bottom: 12px;
-  }
-  .profile-bio {
-    font-size: 13px; line-height: 1.75; color: var(--text-muted);
-  }
-
-  @media(max-width:768px) {
-    .team-duo { grid-template-columns: 1fr; min-height: auto; }
-    .team-duo::after { display: none; }
-    .team-duo .duo-half img { min-height: 260px; }
-    .team-duo .duo-half .duo-bio { max-height: 400px; opacity: 1; }
-    .team-solo .duo-bio { max-height: 400px; opacity: 1; }
-    .org-duo { grid-template-columns: 1fr; }
-    .team-profiles { grid-template-columns: 1fr !important; }
-    .team-trio { grid-template-columns: 1fr; }
-    .trio-member img { min-height: 260px; }
-    .profile-card img { aspect-ratio: 4/3; }
-    .profile-card[style*="display:flex"] {
-      flex-direction: column; text-align: center;
-    }
-    .profile-card[style*="display:flex"] img {
-      width: 80px; height: 80px; margin: 0 auto;
-    }
-    .duo-name { font-size: 18px !important; }
-    .profile-bio { font-size: 12px; }
-  }
 </style>
 </head>
 <body>
-<header id="site-header"></header>
-<script src="header.js?v=20260505b"></script>
-<section id="main-content" class="page-hero">
-  <img class="page-hero-bg-img" src="images/wix_import/hero_reseau.webp" alt="" aria-hidden="true">
-  <div class="page-hero-overlay"></div>
-  <div class="page-hero-content">
-    <span class="section-tag" data-fr="Notre réseau — 02" data-en="Our network — 02">Notre réseau — 02</span>
-    <h1 class="page-hero-title" data-fr="Notre équipe" data-en="Our Team">Notre équipe</h1>
-    <p class="page-hero-sub" data-fr="Des professionnels engagés au service de la science et de l'environnement." data-en="Committed professionals serving science and the environment.">Des professionnels engagés au service de la science et de l'environnement.</p>
+<div id="r-entete"></div>
+<script src="refonte.js?v=20261104c"></script>
+<main>
+<section class="p-heros">
+  <img src="images/accueil/lac-amarrage-1920.webp" srcset="images/accueil/lac-amarrage-900.webp 900w, images/accueil/lac-amarrage-1920.webp 1920w" sizes="100vw" alt="Le Super Pétrel amarré sur la rive d&#x27;un lac de Patagonie" style="object-position:50% 50%">
+  <div class="contenu wrap">
+    <p class="kicker" data-fr="Notre réseau · 02 — L’équipe" data-en="Our network · 02 — The team">Notre réseau · 02 — L’équipe</p>
+    <h1 data-fr="L&#x27;équipe &lt;em&gt;des expéditions 2008–2017&lt;/em&gt;" data-en="The team &lt;em&gt;behind the 2008–2017 expeditions&lt;/em&gt;">L'équipe <em>des expéditions 2008–2017</em></h1>
   </div>
 </section>
-<div class="content-section"><div class="content-inner narrow">
-    <p class="lead-text" data-fr="Voici l'équipe qui a porté les expéditions de 2008 à 2017 : ses membres permanents, et tous les membres contributeurs qui nous ont assistés ponctuellement." data-en="Meet the team that carried the expeditions from 2008 to 2017: its permanent members, and all the contributing members who helped us along the way.">Voici l'équipe qui a porté les expéditions de 2008 à 2017 : ses membres permanents, et tous les membres contributeurs qui nous ont assistés ponctuellement.</p>
-  </div></div>
-<div class="content-section" style="padding-top:0;">
-  <div class="content-inner">
-
-    <!-- COMITÉ SCIENTIFIQUE -->
-    <div style="text-align:center;margin-bottom:32px;">
-      <span class="section-tag" data-fr="Comité scientifique" data-en="Scientific committee">Comité scientifique</span>
-    </div>
-    <div class="team-profiles" style="grid-template-columns:repeat(2,1fr);">
-      <div class="profile-card">
-        <img src="images/equipe/Aurelie_Colomb.webp" alt="Aurélie Colomb" loading="lazy">
-        <div class="profile-info">
-          <div class="duo-role" data-fr="Membre du comité scientifique" data-en="Scientific committee member">Membre du comité scientifique</div>
-          <h2 class="duo-name">Aurélie COLOMB</h2>
-          <p class="profile-bio" data-fr="Chercheuse en Chimie Atmosphérique Globale et maître de conférence à l'Université Clermont Auvergne, elle est aussi enseignante-chercheuse au Laboratoire de Météorologie Physique (LaMP) et à l'Observatoire de Physique du Globe de Clermont-Ferrand (OPGC). C'est aussi une aventurière, associant toujours la science à ses expéditions." data-en="Researcher in Global Atmospheric Chemistry and lecturer at Clermont Auvergne University, she is also a researcher at the Laboratory of Physical Meteorology (LaMP) and the Observatory of Physics of the Globe of Clermont-Ferrand (OPGC). She is also an adventurer, always combining science with her expeditions.">Chercheuse en Chimie Atmosphérique Globale et maître de conférence à l'Université Clermont Auvergne, elle est aussi enseignante-chercheuse au Laboratoire de Météorologie Physique (LaMP) et à l'Observatoire de Physique du Globe de Clermont-Ferrand (OPGC). C'est aussi une aventurière, associant toujours la science à ses expéditions.</p>
-        </div>
-      </div>
-      <div class="profile-card">
-        <img src="images/equipe/Valerie-Gros-2.webp" alt="Valérie Gros" loading="lazy">
-        <div class="profile-info">
-          <div class="duo-role" data-fr="Membre du comité scientifique" data-en="Scientific committee member">Membre du comité scientifique</div>
-          <h2 class="duo-name">Valérie GROS</h2>
-          <p class="profile-bio" data-fr="Directrice de recherche CNRS au Laboratoire des Sciences du Climat et de l'Environnement LSCE, elle est aussi responsable de l'équipe de chimie atmosphérique expérimentale. Elle fait partie de l'équipe depuis le début, aidant à façonner les programmes scientifiques de Wings for Science." data-en="CNRS Research Director at the Laboratory of Climate and Environmental Sciences (LSCE), she also leads the experimental atmospheric chemistry team. She has been part of the team from the start, helping shape Wings for Science's scientific programmes.">Directrice de recherche CNRS au Laboratoire des Sciences du Climat et de l'Environnement LSCE, elle est aussi responsable de l'équipe de chimie atmosphérique expérimentale. Elle fait partie de l'équipe depuis le début, aidant à façonner les programmes scientifiques de Wings for Science.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- ERNEST + KASIA + RÉBECCA — profile cards -->
-    <div style="text-align:center;margin-bottom:32px;margin-top:48px;">
-      <span class="section-tag" data-fr="Équipe opérationnelle" data-en="Operational team">Équipe opérationnelle</span>
-    </div>
-    <div class="team-profiles">
-      <div class="profile-card">
-        <img src="images/equipe/ernest.avif" alt="Ernest Kirpach" loading="lazy">
-        <div class="profile-info">
-          <div class="duo-role" data-fr="Météorologue" data-en="Meteorologist">Météorologue</div>
-          <h2 class="duo-name">Ernest KIRPACH</h2>
-          <p class="profile-bio" data-fr="Diplômé en météorologie, Ernest a travaillé pendant de nombreuses années à l'aéroport international de Luxembourg en tant que météorologue. C'est aussi un pilote privé et un enseignant en météorologie aéronautique." data-en="A meteorology graduate, Ernest worked for many years at Luxembourg International Airport as a meteorologist. He is also a private pilot and an instructor in aeronautical meteorology.">Diplômé en météorologie, Ernest a travaillé pendant de nombreuses années à l'aéroport international de Luxembourg en tant que météorologue. C'est aussi un pilote privé et un enseignant en météorologie aéronautique.</p>
-        </div>
-      </div>
-      <div class="profile-card">
-        <img src="images/equipe/kasia kolo.avif" alt="Katarzyna Kolodziejczyk" loading="lazy">
-        <div class="profile-info">
-          <div class="duo-role" data-fr="Responsable réseaux sociaux" data-en="Social media manager">Responsable réseaux sociaux</div>
-          <h2 class="duo-name">Katarzyna KOLODZIEJCZYK</h2>
-          <p class="profile-bio" data-fr="Cette globetrotteuse vient de Pologne, a vécu aux États-Unis, puis a travaillé en Slovaquie, en Autriche et au Luxembourg. Fondatrice de Fail Learn Succeed Forum, elle sait construire et animer des communautés." data-en="This globetrotter comes from Poland, lived in the United States, then worked in Slovakia, Austria and Luxembourg. Founder of Fail Learn Succeed Forum, she knows how to build and lead communities.">Cette globetrotteuse vient de Pologne, a vécu aux États-Unis, puis a travaillé en Slovaquie, en Autriche et au Luxembourg. Fondatrice de Fail Learn Succeed Forum, elle sait construire et animer des communautés.</p>
-        </div>
-      </div>
-      <div class="profile-card">
-        <img src="images/equipe/rebecca.avif" alt="Rébecca Rotnemer" loading="lazy">
-        <div class="profile-info">
-          <div class="duo-role" data-fr="Responsable médicale" data-en="Medical officer">Responsable médicale</div>
-          <h2 class="duo-name">Rébecca ROTNEMER</h2>
-          <p class="profile-bio" data-fr="Médecin aux multiples spécialités, Rébecca travaille en cabinet privé ainsi qu'aux urgences hospitalières. Elle est également élue au Conseil de l'Ordre. Elle suit les pilotes lors de chaque expédition." data-en="A doctor with multiple specialities, Rébecca works in private practice and in hospital emergency departments. She also serves on the Medical Council. She supports the pilots during every expedition.">Médecin aux multiples spécialités, Rébecca travaille en cabinet privé ainsi qu'aux urgences hospitalières. Elle est également élue au Conseil de l'Ordre. Elle suit les pilotes lors de chaque expédition.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- SOUTIEN LOGISTIQUE -->
-    <div style="text-align:center;margin:48px 0 32px;">
-      <span class="section-tag" data-fr="Soutien logistique" data-en="Logistical support">Soutien logistique</span>
-    </div>
-    <div class="team-profiles" style="grid-template-columns:repeat(2,1fr);">
-      <a class="profile-card" href="https://www.la-guilde.org" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:24px;padding:28px;text-decoration:none;color:inherit;cursor:pointer;">
-        <img src="images/equipe/logo-la-guilde1.avif" alt="La Guilde" style="width:140px;height:140px;aspect-ratio:1;object-fit:contain;background:rgba(255,255,255,0.95);border-radius:12px;padding:8px;">
-        <div class="profile-info" style="padding:0;">
-          <div class="duo-role" data-fr="Soutien logistique" data-en="Logistical support">Soutien logistique</div>
-          <h2 class="duo-name" style="font-size:18px;">La Guilde</h2>
-          <p class="profile-bio" data-fr="Grande ONG basée à Paris, portant le statut d'utilité publique. Son expérience globale en collaboration locale est très utile pour nos objectifs." data-en="Large Paris-based NGO with public utility status. Their global experience in local collaboration is very useful for our goals.">Grande ONG basée à Paris, portant le statut d'utilité publique. Son expérience globale en collaboration locale est très utile pour nos objectifs.</p>
-        </div>
-      </a>
-      <a class="profile-card" href="https://www.prepare2go.com" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:24px;padding:28px;text-decoration:none;color:inherit;cursor:pointer;">
-        <img src="images/logos/partenaires/p2go.webp" alt="Prepare 2 Go" style="width:140px;height:140px;aspect-ratio:1;object-fit:contain;background:rgba(255,255,255,0.95);border-radius:12px;padding:8px;">
-        <div class="profile-info" style="padding:0;">
-          <div class="duo-role" data-fr="Soutien logistique" data-en="Logistical support">Soutien logistique</div>
-          <h2 class="duo-name" style="font-size:18px;">Prepare 2 Go</h2>
-          <p class="profile-bio" data-fr="Équipe internationale basée en Belgique, spécialisée dans la logistique en milieux extrêmes. Ils sont capables de sortir des personnes et du matériel de n'importe où !" data-en="International team based in Belgium, specialising in logistics in extreme environments. They can extract people and equipment from anywhere!">Équipe internationale basée en Belgique, spécialisée dans la logistique en milieux extrêmes. Ils sont capables de sortir des personnes et du matériel de n'importe où !</p>
-        </div>
-      </a>
-    </div>
-
+<section class="ivoire wrap section">
+  <div class="intro" style="margin-bottom:88px"><p class="kicker" data-fr="Notre équipe" data-en="Our team">Notre équipe</p><div class="texte"><h2 data-fr="Voici l&#x27;équipe qui a porté les expéditions de 2008 à 2017 : ses membres permanents, et tous les membres contributeurs qui nous ont assistés ponctuellement." data-en="Meet the team that carried the expeditions from 2008 to 2017: its permanent members, and all the contributing members who helped us along the way.">Voici l'équipe qui a porté les expéditions de 2008 à 2017 : ses membres permanents, et tous les membres contributeurs qui nous ont assistés ponctuellement.</h2></div></div>
+<div class="groupe">
+  <div class="tete-section"><p class="kicker" data-fr="Comité scientifique" data-en="Scientific committee">Comité scientifique</p><h2 class="h2" data-fr="Comité scientifique" data-en="Scientific committee">Comité scientifique</h2></div>
+  <div class="profils">
+    <div class="profil"><div class="ph"><img src="images/equipe/Aurelie_Colomb.webp" alt="Aurélie Colomb" loading="lazy"></div><div class="tx"><p class="role" data-fr="Membre du comité scientifique" data-en="Scientific committee member">Membre du comité scientifique</p><h3>Aurélie COLOMB</h3><p class="bio" data-fr="Chercheuse en Chimie Atmosphérique Globale et maître de conférence à l&#x27;Université Clermont Auvergne, elle est aussi enseignante-chercheuse au Laboratoire de Météorologie Physique (LaMP) et à l&#x27;Observatoire de Physique du Globe de Clermont-Ferrand (OPGC). C&#x27;est aussi une aventurière, associant toujours la science à ses expéditions." data-en="Researcher in Global Atmospheric Chemistry and lecturer at Clermont Auvergne University, she is also a researcher at the Laboratory of Physical Meteorology (LaMP) and the Observatory of Physics of the Globe of Clermont-Ferrand (OPGC). She is also an adventurer, always combining science with her expeditions.">Chercheuse en Chimie Atmosphérique Globale et maître de conférence à l'Université Clermont Auvergne, elle est aussi enseignante-chercheuse au Laboratoire de Météorologie Physique (LaMP) et à l'Observatoire de Physique du Globe de Clermont-Ferrand (OPGC). C'est aussi une aventurière, associant toujours la science à ses expéditions.</p></div></div>
+    <div class="profil"><div class="ph"><img src="images/equipe/Valerie-Gros-2.webp" alt="Valérie Gros" loading="lazy"></div><div class="tx"><p class="role" data-fr="Membre du comité scientifique" data-en="Scientific committee member">Membre du comité scientifique</p><h3>Valérie GROS</h3><p class="bio" data-fr="Directrice de recherche CNRS au Laboratoire des Sciences du Climat et de l&#x27;Environnement LSCE, elle est aussi responsable de l&#x27;équipe de chimie atmosphérique expérimentale. Elle fait partie de l&#x27;équipe depuis le début, aidant à façonner les programmes scientifiques de Wings for Science." data-en="CNRS Research Director at the Laboratory of Climate and Environmental Sciences (LSCE), she also leads the experimental atmospheric chemistry team. She has been part of the team from the start, helping shape Wings for Science&#x27;s scientific programmes.">Directrice de recherche CNRS au Laboratoire des Sciences du Climat et de l'Environnement LSCE, elle est aussi responsable de l'équipe de chimie atmosphérique expérimentale. Elle fait partie de l'équipe depuis le début, aidant à façonner les programmes scientifiques de Wings for Science.</p></div></div>
   </div>
 </div>
-<div id="site-footer"></div>
-<script src="footer.js?v=20260505b"></script>
-<script src="lang.js?v=20260505b"></script>
-<script src="shared.js?v=20260505b"></script>
+<div class="groupe">
+  <div class="tete-section"><p class="kicker" data-fr="Équipe opérationnelle" data-en="Operational team">Équipe opérationnelle</p><h2 class="h2" data-fr="Équipe opérationnelle" data-en="Operational team">Équipe opérationnelle</h2></div>
+  <div class="profils">
+    <div class="profil"><div class="ph"><img src="images/equipe/ernest.avif" alt="Ernest Kirpach" loading="lazy"></div><div class="tx"><p class="role" data-fr="Météorologue" data-en="Meteorologist">Météorologue</p><h3>Ernest KIRPACH</h3><p class="bio" data-fr="Diplômé en météorologie, Ernest a travaillé pendant de nombreuses années à l&#x27;aéroport international de Luxembourg en tant que météorologue. C&#x27;est aussi un pilote privé et un enseignant en météorologie aéronautique." data-en="A meteorology graduate, Ernest worked for many years at Luxembourg International Airport as a meteorologist. He is also a private pilot and an instructor in aeronautical meteorology.">Diplômé en météorologie, Ernest a travaillé pendant de nombreuses années à l'aéroport international de Luxembourg en tant que météorologue. C'est aussi un pilote privé et un enseignant en météorologie aéronautique.</p></div></div>
+    <div class="profil"><div class="ph"><img src="images/equipe/kasia kolo.avif" alt="Katarzyna Kolodziejczyk" loading="lazy"></div><div class="tx"><p class="role" data-fr="Responsable réseaux sociaux" data-en="Social media manager">Responsable réseaux sociaux</p><h3>Katarzyna KOLODZIEJCZYK</h3><p class="bio" data-fr="Cette globetrotteuse vient de Pologne, a vécu aux États-Unis, puis a travaillé en Slovaquie, en Autriche et au Luxembourg. Fondatrice de Fail Learn Succeed Forum, elle sait construire et animer des communautés." data-en="This globetrotter comes from Poland, lived in the United States, then worked in Slovakia, Austria and Luxembourg. Founder of Fail Learn Succeed Forum, she knows how to build and lead communities.">Cette globetrotteuse vient de Pologne, a vécu aux États-Unis, puis a travaillé en Slovaquie, en Autriche et au Luxembourg. Fondatrice de Fail Learn Succeed Forum, elle sait construire et animer des communautés.</p></div></div>
+    <div class="profil"><div class="ph"><img src="images/equipe/rebecca.avif" alt="Rébecca Rotnemer" loading="lazy"></div><div class="tx"><p class="role" data-fr="Responsable médicale" data-en="Medical officer">Responsable médicale</p><h3>Rébecca ROTNEMER</h3><p class="bio" data-fr="Médecin aux multiples spécialités, Rébecca travaille en cabinet privé ainsi qu&#x27;aux urgences hospitalières. Elle est également élue au Conseil de l&#x27;Ordre. Elle suit les pilotes lors de chaque expédition." data-en="A doctor with multiple specialities, Rébecca works in private practice and in hospital emergency departments. She also serves on the Medical Council. She supports the pilots during every expedition.">Médecin aux multiples spécialités, Rébecca travaille en cabinet privé ainsi qu'aux urgences hospitalières. Elle est également élue au Conseil de l'Ordre. Elle suit les pilotes lors de chaque expédition.</p></div></div>
+  </div>
+</div>
+<div class="groupe">
+  <div class="tete-section"><p class="kicker" data-fr="Soutien logistique" data-en="Logistical support">Soutien logistique</p><h2 class="h2" data-fr="Soutien logistique" data-en="Logistical support">Soutien logistique</h2></div>
+  <div class="profils">
+    <a class="profil" href="https://www.la-guilde.org" target="_blank" rel="noopener"><div class="ph logo"><img src="images/equipe/logo-la-guilde1.avif" alt="La Guilde" loading="lazy"></div><div class="tx"><p class="role" data-fr="Soutien logistique" data-en="Logistical support">Soutien logistique</p><h3>La Guilde</h3><p class="bio" data-fr="Grande ONG basée à Paris, portant le statut d&#x27;utilité publique. Son expérience globale en collaboration locale est très utile pour nos objectifs." data-en="Large Paris-based NGO with public utility status. Their global experience in local collaboration is very useful for our goals.">Grande ONG basée à Paris, portant le statut d'utilité publique. Son expérience globale en collaboration locale est très utile pour nos objectifs.</p></div></a>
+    <a class="profil" href="https://www.prepare2go.com" target="_blank" rel="noopener"><div class="ph logo"><img src="images/logos/partenaires/p2go.webp" alt="Prepare 2 Go" loading="lazy"></div><div class="tx"><p class="role" data-fr="Soutien logistique" data-en="Logistical support">Soutien logistique</p><h3>Prepare 2 Go</h3><p class="bio" data-fr="Équipe internationale basée en Belgique, spécialisée dans la logistique en milieux extrêmes. Ils sont capables de sortir des personnes et du matériel de n&#x27;importe où !" data-en="International team based in Belgium, specialising in logistics in extreme environments. They can extract people and equipment from anywhere!">Équipe internationale basée en Belgique, spécialisée dans la logistique en milieux extrêmes. Ils sont capables de sortir des personnes et du matériel de n'importe où !</p></div></a>
+  </div>
+</div>
+</section>
+<a class="suivante wrap" href="partenaires.html">
+  <img src="images/accueil/aile-nuages-1920.webp" srcset="images/accueil/aile-nuages-900.webp 900w, images/accueil/aile-nuages-1920.webp 1920w" sizes="100vw" alt="" loading="lazy">
+  <div><p class="kicker" data-fr="Notre réseau · 03" data-en="Our network · 03">Notre réseau · 03</p><h2 data-fr="Partenaires et sponsors" data-en="Partners and sponsors">Partenaires et sponsors</h2></div>
+  <span class="rond" aria-hidden="true" style="display:inline-flex;align-items:center;justify-content:center">→</span>
+</a>
+</main>
+<div id="r-pied"></div>
+<script src="lang.js?v=20261104c" defer></script>
+
 </body>
 </html>
