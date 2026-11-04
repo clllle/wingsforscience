@@ -1,27 +1,43 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <base href="/">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Page introuvable – Wings for Science</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="preload" as="font" type="font/woff2" href="fonts/raleway-400-latin.woff2" crossorigin>
-  <link rel="preload" as="font" type="font/woff2" href="fonts/merriweather-300-latin.woff2" crossorigin>
-  <link rel="stylesheet" href="style.css?v=20261022h">
+  <link rel="stylesheet" href="refonte.css?v=20261104c">
+<link rel="stylesheet" href="ancien.css?v=20261104c">
+<style>
+
+
+</style>
+<meta name="theme-color" content="#0b1622">
 </head>
 <body>
-<header id="site-header"></header>
-<script src="header.js?v=20260505b"></script>
+<div id="r-entete"></div>
+<script src="refonte.js?v=20261104c"></script>
 
-<div style="max-width:600px;margin:120px auto;padding:40px;text-align:center;">
+<main>
+<section class="p-heros">
+  <img src="images/accueil/andes-1920.webp" srcset="images/accueil/andes-900.webp 900w, images/accueil/andes-1920.webp 1920w" sizes="100vw" alt="" style="object-position:50% 50%">
+  <div class="contenu wrap">
+    <p class="kicker" data-fr="Erreur 404" data-en="Error 404">Erreur 404</p>
+    <h1 data-fr="Cette page n&#x27;existe pas &lt;em&gt;ou a été déplacée&lt;/em&gt;" data-en="This page doesn&#x27;t exist &lt;em&gt;or has been moved&lt;/em&gt;">Cette page n'existe pas <em>ou a été déplacée</em></h1>
+  </div>
+</section>
+<div class="ancien">
+<div style="max-width:600px;margin:0 auto;padding:64px 20px;text-align:center;">
   <h1 style="font-family:'Merriweather',serif;font-size:72px;font-weight:300;color:var(--accent);margin-bottom:16px;">404</h1>
   <p style="font-size:18px;color:var(--text-muted);margin-bottom:32px;" data-fr="Cette page n'existe pas ou a été déplacée." data-en="This page doesn't exist or has been moved.">Cette page n'existe pas ou a été déplacée.</p>
   <a href="index.html" style="display:inline-block;padding:12px 28px;border:1px solid var(--accent);color:var(--accent);font-weight:700;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-radius:4px;" data-fr="Retour à l'accueil →" data-en="Back to home →">Retour à l'accueil →</a>
 </div>
 
-<div id="site-footer"></div>
-<script src="footer.js?v=20260505b"></script>
-<script src="lang.js?v=20260505b"></script>
-<script src="shared.js?v=20260505b"></script>
+</div>
+</main>
+<div id="r-pied"></div>
+<div class="ancien ancien-fin">
+<script src="lang.js?v=20261104c"></script>
+</div>
 </body>
 </html>

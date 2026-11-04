@@ -14,54 +14,54 @@
   <meta property="og:locale" content="fr_FR">
   <meta property="og:locale:alternate" content="en_GB">
   <link rel="canonical" href="https://www.wingsforscience.com/actu.html">
-  <link rel="preload" as="font" type="font/woff2" href="fonts/raleway-400-latin.woff2" crossorigin>
-  <link rel="preload" as="font" type="font/woff2" href="fonts/merriweather-300-latin.woff2" crossorigin>
-  <link rel="stylesheet" href="style.css?v=20261022h">
-  <style>
-    .blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:3px;margin-top:40px;}
-    .blog-card{display:flex;flex-direction:column;background:rgba(14,26,40,0.55);border:1px solid rgba(95,168,211,0.08);text-decoration:none;transition:border-color 0.25s,transform 0.2s;overflow:hidden;}
-    .blog-card:hover{border-color:rgba(95,168,211,0.35);transform:translateY(-3px);}
-    .blog-card-img-wrap{overflow:hidden;}
-    .blog-card-img{width:100%;aspect-ratio:4/3;object-fit:cover;filter:brightness(0.95) saturate(1);transition:filter 0.4s,transform 0.5s;display:block;}
-    .blog-card:hover .blog-card-img{filter:brightness(1.1) saturate(1.1);transform:scale(1.04);}
-    .blog-card-body{padding:20px;flex:1;display:flex;flex-direction:column;}
-    .blog-card-title{font-family:Merriweather,serif;font-size:15px;font-weight:300;line-height:1.5;color:var(--white);margin-bottom:10px;}
-    .blog-card-excerpt{font-size:12.5px;line-height:1.75;color:var(--text-muted);flex:1;}
-    
+  <link rel="stylesheet" href="refonte.css?v=20261104c">
+<link rel="stylesheet" href="ancien.css?v=20261104c">
+<style>
+.ancien .blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:3px;margin-top:40px;}
+.ancien .blog-card{display:flex;flex-direction:column;background:rgba(14,26,40,0.55);border:1px solid rgba(95,168,211,0.08);text-decoration:none;transition:border-color 0.25s,transform 0.2s;overflow:hidden;}
+.ancien .blog-card:hover{border-color:rgba(95,168,211,0.35);transform:translateY(-3px);}
+.ancien .blog-card-img-wrap{overflow:hidden;}
+.ancien .blog-card-img{width:100%;aspect-ratio:4/3;object-fit:cover;filter:brightness(0.95) saturate(1);transition:filter 0.4s,transform 0.5s;display:block;}
+.ancien .blog-card:hover .blog-card-img{filter:brightness(1.1) saturate(1.1);transform:scale(1.04);}
+.ancien .blog-card-body{padding:20px;flex:1;display:flex;flex-direction:column;}
+.ancien .blog-card-title{font-family:Merriweather,serif;font-size:15px;font-weight:300;line-height:1.5;color:var(--white);margin-bottom:10px;}
+.ancien .blog-card-excerpt{font-size:12.5px;line-height:1.75;color:var(--text-muted);flex:1;}
+.ancien .video-thumb{position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;}
+.ancien .video-thumb img{width:100%;height:100%;object-fit:cover;}
+.ancien .video-thumb .play-icon{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;background:rgba(0,0,0,0.6);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;pointer-events:none;transition:opacity 0.3s;}
+.ancien .video-thumb iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;}
+.ancien .video-thumb:hover .play-icon{opacity:0;}
+.ancien .blog-card-more{display:inline-flex;align-items:center;gap:5px;margin-top:14px;font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);}
+.ancien .blog-card:hover 
     .video-thumb{position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;}
-    .video-thumb img{width:100%;height:100%;object-fit:cover;}
-    .video-thumb .play-icon{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;background:rgba(0,0,0,0.6);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;pointer-events:none;transition:opacity 0.3s;}
-    .video-thumb iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;}
-    .video-thumb:hover .play-icon{opacity:0;}
-    .blog-card-more{display:inline-flex;align-items:center;gap:5px;margin-top:14px;font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);}
-    .blog-card:hover 
-    .video-thumb{position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;}
-    .video-thumb img{width:100%;height:100%;object-fit:cover;}
-    .video-thumb .play-icon{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;background:rgba(0,0,0,0.6);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;pointer-events:none;transition:opacity 0.3s;}
-    .video-thumb iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;}
-    .video-thumb:hover .play-icon{opacity:0;}
-    .blog-card-more{color:var(--accent2);}
-    .blog-card.hidden-card{display:none;}
-    .load-more-wrap{text-align:center;margin:40px 0 20px;}
-    .load-more-btn{background:none;border:1px solid var(--accent);color:var(--accent);padding:12px 36px;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:background 0.3s,color 0.3s;border-radius:2px;}
-    .load-more-btn:hover{background:var(--accent);color:var(--bg);}
+.ancien .video-thumb img{width:100%;height:100%;object-fit:cover;}
+.ancien .video-thumb .play-icon{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;background:rgba(0,0,0,0.6);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;pointer-events:none;transition:opacity 0.3s;}
+.ancien .video-thumb iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;}
+.ancien .video-thumb:hover .play-icon{opacity:0;}
+.ancien .blog-card-more{color:var(--accent2);}
+.ancien .blog-card.hidden-card{display:none;}
+.ancien .load-more-wrap{text-align:center;margin:40px 0 20px;}
+.ancien .load-more-btn{background:none;border:1px solid var(--accent);color:var(--accent);padding:12px 36px;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:background 0.3s,color 0.3s;border-radius:2px;}
+.ancien .load-more-btn:hover{background:var(--accent);color:var(--bg);}
+.ancien .article-body p{ font-size: 15px; line-height: 1.85; color: var(--text-muted); margin-bottom: 20px; }
+.ancien .article-body h3{ color: var(--white); }
 
-    .article-body p { font-size: 15px; line-height: 1.85; color: var(--text-muted); margin-bottom: 20px; }
-    .article-body h3 { color: var(--white); }
 </style>
+  
+<meta name="theme-color" content="#0b1622">
 </head>
 <body>
-<header id="site-header"></header>
-<script src="header.js?v=20260505b"></script>
-<section id="main-content" class="page-hero">
-  <img class="page-hero-bg-img" src="images/wix_import/hero_actu.webp" alt="" aria-hidden="true">
-  <div class="page-hero-overlay"></div>
-  <div class="page-hero-content">
-    <span class="section-tag" data-fr="Blog" data-en="Blog">Blog</span>
-    <h1 class="page-hero-title" data-fr="Notre carnet de route" data-en="Our Logbook">Notre carnet de route</h1>
-    <p class="page-hero-sub" data-fr="Récits de missions, nouvelles du terrain et actualités de l'association" data-en="Mission stories, field news and association updates">Récits de missions, nouvelles du terrain et actualités de l'association</p>
+<div id="r-entete"></div>
+<script src="refonte.js?v=20261104c"></script>
+<main>
+<section class="p-heros">
+  <img src="images/accueil/lac-amarrage-1920.webp" srcset="images/accueil/lac-amarrage-900.webp 900w, images/accueil/lac-amarrage-1920.webp 1920w" sizes="100vw" alt="Le Super Pétrel amarré sur un lac de Patagonie" style="object-position:50% 50%">
+  <div class="contenu wrap">
+    <p class="kicker" data-fr="Carnet de route" data-en="Logbook">Carnet de route</p>
+    <h1 data-fr="Récits de missions &lt;em&gt;et nouvelles du terrain&lt;/em&gt;" data-en="Mission stories &lt;em&gt;and news from the field&lt;/em&gt;">Récits de missions <em>et nouvelles du terrain</em></h1>
   </div>
 </section>
+<div class="ancien">
 <div class="content-section" style="opacity:1;transform:none;"><div class="content-inner" style="opacity:1;transform:none;">
   <div class="blog-grid">
       <a class="blog-card" href="posts/tribune-confinement.html">
@@ -914,9 +914,11 @@ document.querySelectorAll('.video-thumb').forEach(function(el){
   </div>
 </div>
 
-<div id="site-footer"></div>
-<script src="footer.js?v=20260505b"></script>
-<script src="lang.js?v=20260505b"></script>
-<script src="shared.js?v=20260505b"></script>
+</div>
+</main>
+<div id="r-pied"></div>
+<div class="ancien ancien-fin">
+<script src="lang.js?v=20261104c"></script>
+</div>
 </body>
 </html>
