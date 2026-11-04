@@ -1,285 +1,190 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Conférences – Wings for Science</title>
-  <meta name="description" content="Conferences et interventions de Wings for Science dans les ecoles, universites et evenements publics pour sensibiliser a la science et l'environnement.">
-  <meta property="og:title" content="Conferences - Wings for Science">
-  <meta property="og:description" content="Conferences et interventions dans les ecoles, universites et evenements publics.">
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://www.wingsforscience.com/conferences.html">
-  <meta property="og:image" content="images/wix_import/category_conferences.webp">
-  <meta property="og:locale" content="fr_FR">
-  <meta property="og:locale:alternate" content="en_GB">
-  <link rel="canonical" href="https://www.wingsforscience.com/conferences.html">
-  <link rel="preload" as="font" type="font/woff2" href="fonts/raleway-400-latin.woff2" crossorigin>
-  <link rel="preload" as="font" type="font/woff2" href="fonts/merriweather-300-latin.woff2" crossorigin>
-  <link rel="stylesheet" href="style.css?v=20261022h">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conférences – Wings for Science</title>
+<meta name="description" content="Plus de 100 conférences de Wings for Science dans les écoles, universités et événements publics, en français, anglais, espagnol et portugais.">
+<meta property="og:title" content="Conférences – Wings for Science">
+<meta property="og:description" content="Plus de 100 conférences de Wings for Science dans les écoles, universités et événements publics, en français, anglais, espagnol et portugais.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.wingsforscience.com/conferences.html">
+<meta property="og:image" content="images/logo_wfs.webp">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_GB">
+<link rel="canonical" href="https://www.wingsforscience.com/conferences.html">
+<link rel="alternate" hreflang="fr" href="https://www.wingsforscience.com/conferences.html?lang=fr">
+<link rel="alternate" hreflang="en" href="https://www.wingsforscience.com/conferences.html?lang=en">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#0b1622">
+<link rel="stylesheet" href="refonte.css?v=20261104c">
+<style>
+
+.conf-intro{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:56px;align-items:center}
+.conf-intro p.lead{margin:0;font-family:var(--serif);font-weight:300;font-size:clamp(19px,1.6vw,23px);line-height:1.6;color:var(--encre)}
+.video-grand{position:relative;display:block;width:100%;border:0;padding:0;border-radius:10px;overflow:hidden;cursor:pointer;background:#000;aspect-ratio:16/10}
+.video-grand img{width:100%;height:100%;object-fit:cover;opacity:.75;transition:opacity .3s}
+.video-grand:hover img{opacity:.95}
+.video-grand .jouer{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:#fff;font-weight:700;font-family:var(--sans)}
+.video-grand .jouer i{width:72px;height:72px;border-radius:999px;background:#fff;color:var(--nuit);display:flex;align-items:center;justify-content:center;font-style:normal}
+.video-grand .leg{position:absolute;left:0;right:0;bottom:0;padding:30px 18px 14px;background:linear-gradient(transparent,rgba(11,22,34,.85));color:#fff;font-size:14px;text-align:left}
+.tableau{background:#fff;border-radius:10px;max-height:720px;overflow:auto}
+.confs{width:100%;border-collapse:collapse;font-size:15px}
+.confs th{position:sticky;top:0;background:var(--nuit);color:#fff;text-align:left;font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:14px 16px}
+.confs td{padding:13px 16px;border-bottom:1px solid #ece5d9;color:var(--gris)}
+.confs td:first-child{color:var(--encre);font-weight:600}
+.confs tr:hover td{background:#faf7f1}
+.lt{display:inline-block;min-width:34px;text-align:center;padding:3px 8px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.06em}
+.lt.fr{background:#e4eff7;color:#1f5f8b}.lt.en{background:#f6ecd9;color:#8a6420}.lt.es{background:#e2f3ea;color:#2c7a52}.lt.pt{background:#f6e2e2;color:#9a4545}.lt.multi{background:#ece6f6;color:#5d4a8c}
+.leg-langues{display:flex;gap:10px 20px;flex-wrap:wrap;justify-content:center;margin-top:20px;font-size:14px;color:var(--gris)}
+@media (max-width:900px){.conf-intro{grid-template-columns:1fr;gap:32px}}
+@media (max-width:760px){.confs th:nth-child(3),.confs td:nth-child(3){display:none}.confs td,.confs th{padding:11px 10px}.tableau{max-height:600px}}
+
+</style>
 </head>
 <body>
-<header id="site-header"></header>
-<script src="header.js?v=20260505b"></script>
-<section id="main-content" class="page-hero">
-  <img class="page-hero-bg-img" src="images/wix_import/category_conferences.webp" alt="" aria-hidden="true">
-  <div class="page-hero-overlay"></div>
-  <div class="page-hero-content">
-    <span class="section-tag" data-fr="Nos actions — 02" data-en="Our actions — 02">Nos actions — 02</span>
-    <h1 class="page-hero-title" data-fr="Nos conférences" data-en="Our Conferences">Nos conférences</h1>
-    <p class="page-hero-sub" data-fr="Partager notre expérience auprès des élèves, des enseignants et du grand public." data-en="Sharing our experience with students, teachers and the general public.">Partager notre expérience auprès des élèves, des enseignants et du grand public.</p>
+<div id="r-entete"></div>
+<script src="refonte.js?v=20261104c"></script>
+<main>
+<section class="p-heros">
+  <img src="images/accueil/conferences-1920.webp" srcset="images/accueil/conferences-900.webp 900w, images/accueil/conferences-1920.webp 1920w" sizes="100vw" alt="Conférence dans une salle de classe" style="object-position:50% 50%">
+  <div class="contenu wrap">
+    <p class="kicker" data-fr="Nos actions · 02 — Conférences" data-en="Our actions · 02 — Talks">Nos actions · 02 — Conférences</p>
+    <h1 data-fr="Partager notre expérience &lt;em&gt;avec les élèves, les enseignants et le grand public&lt;/em&gt;" data-en="Sharing our experience &lt;em&gt;with pupils, teachers and the general public&lt;/em&gt;">Partager notre expérience <em>avec les élèves, les enseignants et le grand public</em></h1>
   </div>
 </section>
-<div class="content-section"><div class="content-inner narrow">
-    <p class="lead-text" data-fr="De l'Arctique aux volcans d'Indonésie, de la jungle amazonienne aux déserts d'Australie — nos conférences racontent tout ce que les films ne montrent pas. Comment on s'est fait fabriquer (et financer) deux ULM sur mesure en Slovénie et au Brésil, comment on a convaincu des scientifiques de nous faire confiance, comment on a traversé un ouragan aux Bahamas, comment on a survécu à un emprisonnement au Pakistan, comment on a évité à quelques secondes plusieurs crashs... On parle aussi de science, de géopolitique, de rencontres improbables, de rêves qu'on pensait impossibles. Chaque conférence est unique, adaptée au public : écoliers, étudiants, entrepreneurs, aventuriers. En français, anglais, espagnol ou portugais." data-en="From the Arctic to the volcanoes of Indonesia, from the Amazon jungle to the Australian deserts — our talks tell everything the films don't show. How we had two custom-built ultralights made (and funded) in Slovenia and Brazil, how we convinced scientists to trust us, how we flew through a hurricane in the Bahamas, how we survived an imprisonment in Pakistan, how we narrowly avoided several crashes... We also talk about science, geopolitics, unlikely encounters, and dreams we thought were impossible. Each talk is unique, tailored to the audience: schoolchildren, students, entrepreneurs, adventurers. In French, English, Spanish or Portuguese.">De l'Arctique aux volcans d'Indonésie, de la jungle amazonienne aux déserts d'Australie — nos conférences racontent tout ce que les films ne montrent pas. Comment on s'est fait fabriquer (et financer) deux ULM sur mesure en Slovénie et au Brésil, comment on a convaincu des scientifiques de nous faire confiance, comment on a traversé un ouragan aux Bahamas, comment on a survécu à un emprisonnement au Pakistan, comment on a évité à quelques secondes plusieurs crashs... On parle aussi de science, de géopolitique, de rencontres improbables, de rêves qu'on pensait impossibles. Chaque conférence est unique, adaptée au public : écoliers, étudiants, entrepreneurs, aventuriers. En français, anglais, espagnol ou portugais.</p>
-  </div></div>
-
-<!-- CARROUSEL CONFÉRENCES -->
-<div class="content-section" style="padding-top:0;padding-bottom:40px;">
-  <div class="content-inner">
-    <div style="text-align:center;margin-bottom:24px;">
-      <span class="section-tag" data-fr="En images" data-en="In pictures">En images</span>
+<section class="ivoire wrap section">
+  <div class="conf-intro">
+    <div>
+      <p class="kicker" data-fr="Plus de 100 conférences" data-en="Over 100 talks">Plus de 100 conférences</p>
+      <p class="lead" data-fr="De l&#x27;Arctique aux volcans d&#x27;Indonésie, de la jungle amazonienne aux déserts d&#x27;Australie — nos conférences racontent tout ce que les films ne montrent pas. Comment on s&#x27;est fait fabriquer (et financer) deux ULM sur mesure en Slovénie et au Brésil, comment on a convaincu des scientifiques de nous faire confiance, comment on a traversé un ouragan aux Bahamas, comment on a survécu à un emprisonnement au Pakistan, comment on a évité à quelques secondes plusieurs crashs... On parle aussi de science, de géopolitique, de rencontres improbables, de rêves qu&#x27;on pensait impossibles. Chaque conférence est unique, adaptée au public : écoliers, étudiants, entrepreneurs, aventuriers. En français, anglais, espagnol ou portugais." data-en="From the Arctic to the volcanoes of Indonesia, from the Amazon jungle to the Australian deserts — our talks tell everything the films don&#x27;t show. How we had two custom-built ultralights made (and funded) in Slovenia and Brazil, how we convinced scientists to trust us, how we flew through a hurricane in the Bahamas, how we survived an imprisonment in Pakistan, how we narrowly avoided several crashes... We also talk about science, geopolitics, unlikely encounters, and dreams we thought were impossible. Each talk is unique, tailored to the audience: schoolchildren, students, entrepreneurs, adventurers. In French, English, Spanish or Portuguese.">De l'Arctique aux volcans d'Indonésie, de la jungle amazonienne aux déserts d'Australie — nos conférences racontent tout ce que les films ne montrent pas. Comment on s'est fait fabriquer (et financer) deux ULM sur mesure en Slovénie et au Brésil, comment on a convaincu des scientifiques de nous faire confiance, comment on a traversé un ouragan aux Bahamas, comment on a survécu à un emprisonnement au Pakistan, comment on a évité à quelques secondes plusieurs crashs... On parle aussi de science, de géopolitique, de rencontres improbables, de rêves qu'on pensait impossibles. Chaque conférence est unique, adaptée au public : écoliers, étudiants, entrepreneurs, aventuriers. En français, anglais, espagnol ou portugais.</p>
+      <p style="margin:32px 0 0"><a class="btn btn-orange" href="contact.html?sujet=conference" data-fr="Organiser une conférence" data-en="Book a talk">Organiser une conférence</a></p>
     </div>
-    <style>
-      .conf-carousel{position:relative;width:100%;aspect-ratio:16/9;max-height:500px;border-radius:8px;overflow:hidden;}
-      .conf-slide{position:absolute;inset:0;opacity:0;transition:opacity 0.7s ease;}
-      .conf-slide.active{opacity:1;}
-      .conf-slide img{width:100%;height:100%;object-fit:cover;}
-      .conf-caption{position:absolute;bottom:0;left:0;right:0;padding:20px 28px;background:linear-gradient(transparent,rgba(0,0,0,0.75));color:#fff;z-index:2;}
-      .conf-caption-text{font-family:'Merriweather',serif;font-size:16px;font-weight:400;}
-      .conf-caption-loc{font-family:'Merriweather',serif;font-size:16px;font-weight:400;}
-      .conf-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:3;background:rgba(255,255,255,0.85);border:none;color:#1a2a3a;width:52px;height:52px;border-radius:50%;cursor:pointer;font-size:22px;font-weight:700;transition:background 0.3s,transform 0.3s;box-shadow:0 4px 12px rgba(0,0,0,0.3);}
-      .conf-btn:hover{background:#fff;transform:translateY(-50%) scale(1.12);box-shadow:0 6px 20px rgba(0,0,0,0.4);}
-      .conf-btn.prev{left:14px}.conf-btn.next{right:14px}
-      .conf-dots{position:absolute;bottom:10px;left:0;right:0;text-align:center;z-index:3;}
-      .conf-dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,0.3);margin:0 4px;cursor:pointer;transition:background 0.3s,transform 0.3s;border:1px solid rgba(255,255,255,0.15);}
-      .conf-dot.active{background:#fff;transform:scale(1.3);}
-      @media(max-width:700px){
-        .conf-carousel{aspect-ratio:auto;height:60vh;min-height:360px;max-height:520px;width:100vw;margin-left:calc(50% - 50vw);transform:none;border-radius:0;}
-        .conf-caption{padding:14px 18px;}
-        .conf-caption-loc{font-size:14px;}
-        .conf-btn{width:42px;height:42px;font-size:18px;}
-      }
-    </style>
-    <div class="conf-carousel" id="confCarousel">
-      <div class="conf-slide active"><img src="images/55 enfants tobalaba.webp" alt="55 enfants, Tobalaba, Chili"><div class="conf-caption"><div class="conf-caption-loc" data-fr="Tobalaba, Chili" data-en="Tobalaba, Chile">Tobalaba, Chili</div></div></div>
-      <div class="conf-slide"><img src="images/classe amhedabad.webp" alt="Classe à Ahmedabad, Inde"><div class="conf-caption"><div class="conf-caption-loc" data-fr="Ahmedabad, Inde" data-en="Ahmedabad, India">Ahmedabad, Inde</div></div></div>
-      <div class="conf-slide"><img src="images/classe osorno.webp" alt="Classe à Osorno, Chili"><div class="conf-caption"><div class="conf-caption-loc" data-fr="Osorno, Chili" data-en="Osorno, Chile">Osorno, Chili</div></div></div>
-      <div class="conf-slide"><img src="images/170 ayla.webp" alt="170 enfants, Ayla, Jordanie"><div class="conf-caption"><div class="conf-caption-loc" data-fr="Ayla, Jordanie" data-en="Ayla, Jordan">Ayla, Jordanie</div></div></div>
-      <div class="conf-slide"><img src="images/classe pakistan.jpg" alt="Classe au Pakistan"><div class="conf-caption"><div class="conf-caption-loc" data-fr="Karachi, Pakistan" data-en="Karachi, Pakistan">Karachi, Pakistan</div></div></div>
-      <div class="conf-slide"><img src="images/classe paletuviers 2.webp" alt="École des Paletuviers, Guyane"><div class="conf-caption"><div class="conf-caption-loc" data-fr="Trois-Paletuviers, Guyane française" data-en="Trois-Paletuviers, French Guiana">Trois-Paletuviers, Guyane française</div></div></div>
-      <div class="conf-slide"><img src="images/photo conf beyond.webp" alt="Conférence Beyond, Grand Rex, Paris"><div class="conf-caption"><div class="conf-caption-loc" data-fr="Beyond, Grand Rex, Paris" data-en="Beyond, Grand Rex, Paris">Beyond, Grand Rex, Paris</div></div></div>
-      <div class="conf-slide"><img src="images/lecture conf.jpg" alt="Lecture en conférence"><div class="conf-caption"><div class="conf-caption-loc" data-fr="Conférence" data-en="Conference">Conférence</div></div></div>
-      <div class="conf-slide"><img src="images/conf_education.webp" alt="Éducation à la science"><div class="conf-caption"><div class="conf-caption-loc" data-fr="Éducation à la science" data-en="Science education">Éducation à la science</div></div></div>
-      <button class="conf-btn prev" onclick="confNav(-1)">&#8592;</button>
-      <button class="conf-btn next" onclick="confNav(1)">&#8594;</button>
-      <div class="conf-dots" id="confDots"></div>
+    <div>
+      <p class="kicker" data-fr="Revivez l&#x27;une de nos conférences" data-en="Relive one of our talks">Revivez l'une de nos conférences</p>
+      <button class="video-grand" type="button" id="videoConf" aria-label="Voir la vidéo"><img src="images/conf_beyond_grand_rex.webp" alt="BEYOND les nouveaux aventuriers — Le Grand Rex"><span class="jouer"><i><svg width="22" height="22" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5v11l9-5.5z" fill="currentColor"/></svg></i><span data-fr="Voir la vidéo" data-en="Watch the video">Voir la vidéo</span></span><span class="leg" data-fr="BEYOND les nouveaux aventuriers — Le Grand Rex, Paris, 2018" data-en="BEYOND the new adventurers — Le Grand Rex, Paris, 2018">BEYOND les nouveaux aventuriers — Le Grand Rex, Paris, 2018</span></button>
     </div>
   </div>
-</div>
-
-<!-- TABLEAU DES CONFÉRENCES -->
-<div class="content-section" style="padding-top:0;">
-  <div class="content-inner">
-    <div style="text-align:center;margin-bottom:24px;">
-      <span class="section-tag" data-fr="Plus de 100 conférences" data-en="Over 100 talks">Plus de 100 conférences</span>
-    </div>
-    <h2 class="section-heading" style="text-align:center" data-fr="Sélection de conférences" data-en="A selection of talks">Sélection de conférences</h2>
-    <div style="display:flex;gap:8px;align-items:stretch;">
-    <div id="confTable" style="flex:1;max-height:500px;overflow-y:auto;border:1px solid rgba(95,168,211,0.1);border-radius:6px;">
-      <style>
-        .conf-table{width:100%;border-collapse:collapse;}
-        .conf-table thead{position:sticky;top:0;z-index:1;}
-        .conf-table th{padding:10px 14px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);text-align:left;background:var(--sky-mid);border-bottom:1px solid rgba(95,168,211,0.15);}
-        .conf-table td{padding:8px 14px;font-size:12px;color:var(--text-muted);border-bottom:1px solid rgba(95,168,211,0.04);}
-        .conf-table tr:hover{background:rgba(95,168,211,0.06);}
-        .conf-table tr{transition:background 0.3s;}
-        .conf-table tr.conf-active{background:rgba(95,168,211,0.12);border-left:3px solid var(--accent) !important;}
-        .conf-table tr.conf-active td{color:var(--accent) !important;font-weight:700 !important;font-size:13px !important;}
-        .lang-tag{display:inline-block;padding:3px 10px;border-radius:12px;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;line-height:1.4;}
-        .lang-tag.fr{background:rgba(95,168,211,0.2);color:#7fc4eb;border:1px solid rgba(95,168,211,0.4);}
-        .lang-tag.en{background:rgba(200,169,110,0.2);color:#d4b87a;border:1px solid rgba(200,169,110,0.4);}
-        .lang-tag.es{background:rgba(123,200,164,0.2);color:#9edcbe;border:1px solid rgba(123,200,164,0.4);}
-        .lang-tag.pt{background:rgba(200,130,130,0.2);color:#e0a0a0;border:1px solid rgba(200,130,130,0.4);}
-        .lang-tag.multi{background:rgba(180,160,220,0.2);color:#c0b0e0;border:1px solid rgba(180,160,220,0.4);}
-      </style>
-      <table class="conf-table">
-        <thead><tr>
-          <th data-fr="Entité" data-en="Organization">Entité</th>
-          <th data-fr="Pays" data-en="Country">Pays</th>
-          <th data-fr="Public" data-en="Audience">Public</th>
-          <th data-fr="Langue" data-en="Language">Langue</th>
-        </tr></thead>
-        <tbody>
-          <tr><td style="color:var(--off-white);">Collège Giroud</td><td data-fr="🇫🇷 France" data-en="🇫🇷 France">🇫🇷 France</td><td data-fr="2 classes de collégiens" data-en="2 middle school classes">2 classes de collégiens</td><td><span class="lang-tag fr">FR</span></td></tr>
-          <tr><td style="color:var(--off-white);">Mairie de Vincennes</td><td data-fr="🇫🇷 France" data-en="🇫🇷 France">🇫🇷 France</td><td data-fr="Grand public" data-en="General public">Grand public</td><td><span class="lang-tag fr">FR</span></td></tr>
-          <tr><td style="color:var(--off-white);">Collège Passeleu</td><td data-fr="🇫🇷 France" data-en="🇫🇷 France">🇫🇷 France</td><td data-fr="30 élèves de primaire" data-en="30 primary students">30 élèves de primaire</td><td><span class="lang-tag fr">FR</span></td></tr>
-          <tr><td style="color:var(--off-white);">Café de l'aventure</td><td data-fr="🇫🇷 France" data-en="🇫🇷 France">🇫🇷 France</td><td data-fr="50 adultes" data-en="50 adults">50 adultes</td><td><span class="lang-tag fr">FR</span></td></tr>
-          <tr><td style="color:var(--off-white);">Lycée Fausten Fleret</td><td data-fr="🇫🇷 Guadeloupe" data-en="🇫🇷 Guadeloupe">🇫🇷 Guadeloupe</td><td data-fr="30 élèves (15 ans)" data-en="30 students (15 yrs)">30 élèves (15 ans)</td><td><span class="lang-tag fr">FR</span></td></tr>
-          <tr><td style="color:var(--off-white);">Aéroclub de Martinique</td><td data-fr="🇫🇷 Martinique" data-en="🇫🇷 Martinique">🇫🇷 Martinique</td><td data-fr="10 adultes et élèves" data-en="10 adults and students">10 adultes et élèves</td><td><span class="lang-tag fr">FR</span></td></tr>
-          <tr><td style="color:var(--off-white);">Aéroclub de Cayenne</td><td data-fr="🇫🇷 Guyane" data-en="🇫🇷 French Guiana">🇫🇷 Guyane</td><td data-fr="10 adultes et élèves" data-en="10 adults and students">10 adultes et élèves</td><td><span class="lang-tag fr">FR</span></td></tr>
-          <tr><td style="color:var(--off-white);">Colegio Emprender</td><td data-fr="🇨🇱 Chili" data-en="🇨🇱 Chile">🇨🇱 Chili</td><td data-fr="100 jeunes élèves" data-en="100 young students">100 jeunes élèves</td><td><span class="lang-tag es">ES</span></td></tr>
-          <tr><td style="color:var(--off-white);">École française</td><td data-fr="🇨🇱 Chili" data-en="🇨🇱 Chile">🇨🇱 Chili</td><td data-fr="50 jeunes élèves" data-en="50 young students">50 jeunes élèves</td><td><span class="lang-tag es">ES</span></td></tr>
-          <tr><td style="color:var(--off-white);">École française de Silicon Valley</td><td data-fr="🇺🇸 USA" data-en="🇺🇸 USA">🇺🇸 USA</td><td data-fr="30 jeunes élèves" data-en="30 young students">30 jeunes élèves</td><td><span class="lang-tag fr">FR</span></td></tr>
-          <tr><td style="color:var(--off-white);">École primaire de Créteil</td><td data-fr="🇫🇷 France" data-en="🇫🇷 France">🇫🇷 France</td><td data-fr="60 jeunes élèves" data-en="60 young students">60 jeunes élèves</td><td><span class="lang-tag fr">FR</span></td></tr>
-          <tr><td style="color:var(--off-white);">Lycée Saint Aspais, Melun</td><td data-fr="🇫🇷 France" data-en="🇫🇷 France">🇫🇷 France</td><td data-fr="120 élèves (15 ans)" data-en="120 students (15 yrs)">120 élèves (15 ans)</td><td><span class="lang-tag fr">FR</span></td></tr>
-          <tr><td style="color:var(--off-white);">UNESCO</td><td data-fr="🇫🇷 France" data-en="🇫🇷 France">🇫🇷 France</td><td data-fr="15 adultes" data-en="15 adults">15 adultes</td><td><span class="lang-tag en">EN</span></td></tr>
-          <tr><td style="color:var(--off-white);">Guilde européenne du Raid</td><td data-fr="🇫🇷 France" data-en="🇫🇷 France">🇫🇷 France</td><td data-fr="150 adultes" data-en="150 adults">150 adultes</td><td><span class="lang-tag fr">FR</span></td></tr>
-          <tr><td style="color:var(--off-white);">Lycée Rocroy Saint Vincent de Paul</td><td data-fr="🇫🇷 France" data-en="🇫🇷 France">🇫🇷 France</td><td data-fr="60 élèves (15 ans)" data-en="60 students (15 yrs)">60 élèves (15 ans)</td><td><span class="lang-tag fr">FR</span></td></tr>
-          <tr><td style="color:var(--off-white);">IHEDN</td><td data-fr="🇫🇷 France" data-en="🇫🇷 France">🇫🇷 France</td><td data-fr="250 passionnés de science" data-en="250 science enthusiasts">250 passionnés de science</td><td><span class="lang-tag fr">FR</span></td></tr>
-          <tr><td style="color:var(--off-white);">Festival de St Yan</td><td data-fr="🇫🇷 France" data-en="🇫🇷 France">🇫🇷 France</td><td data-fr="30 adultes" data-en="30 adults">30 adultes</td><td><span class="lang-tag fr">FR</span></td></tr>
-          <tr><td style="color:var(--off-white);">CNRS — Festival du Film de Chercheurs</td><td data-fr="🇫🇷 France" data-en="🇫🇷 France">🇫🇷 France</td><td data-fr="100 chercheurs" data-en="100 researchers">100 chercheurs</td><td><span class="lang-tag fr">FR</span></td></tr>
-          <tr><td style="color:var(--off-white);">La Main à la Pâte — 5e séminaire international</td><td data-fr="🇫🇷 France" data-en="🇫🇷 France">🇫🇷 France</td><td data-fr="Enseignants et élus" data-en="Teachers and officials">Enseignants et élus</td><td><span class="lang-tag multi">FR/EN</span></td></tr>
-          <tr><td style="color:var(--off-white);">Observatoire d'Athènes — Rencontres de la Terre</td><td data-fr="🇬🇷 Grèce" data-en="🇬🇷 Greece">🇬🇷 Grèce</td><td data-fr="100 adultes et familles" data-en="100 adults and families">100 adultes et familles</td><td><span class="lang-tag en">EN</span></td></tr>
-          <tr><td style="color:var(--off-white);">Gulliver Travel — Irrawaddy River</td><td data-fr="🇲🇲 Myanmar" data-en="🇲🇲 Myanmar">🇲🇲 Myanmar</td><td data-fr="150 diplomates" data-en="150 diplomats">150 diplomates</td><td><span class="lang-tag en">EN</span></td></tr>
-          <tr><td style="color:var(--off-white);">Cité des Sciences — Auditorium</td><td data-fr="🇫🇷 France" data-en="🇫🇷 France">🇫🇷 France</td><td data-fr="380 adultes et enfants" data-en="380 adults and children">380 adultes et enfants</td><td><span class="lang-tag fr">FR</span></td></tr>
-          <tr><td style="color:var(--off-white);">Cité des Sciences — Auditorium</td><td data-fr="🇫🇷 France" data-en="🇫🇷 France">🇫🇷 France</td><td data-fr="380 adultes et enfants" data-en="380 adults and children">380 adultes et enfants</td><td><span class="lang-tag fr">FR</span></td></tr>
-          <tr><td style="color:var(--off-white);">Festival international du film d'aventure — Dijon</td><td data-fr="🇫🇷 France" data-en="🇫🇷 France">🇫🇷 France</td><td data-fr="1000 grand public" data-en="1000 general public">1000 grand public</td><td><span class="lang-tag fr">FR</span></td></tr>
-          <tr><td style="color:var(--off-white);">Festival international aéronautique — Gimont</td><td data-fr="🇫🇷 France" data-en="🇫🇷 France">🇫🇷 France</td><td data-fr="300 grand public" data-en="300 general public">300 grand public</td><td><span class="lang-tag fr">FR</span></td></tr>
-          <tr><td style="color:var(--off-white);">Institut Français du Proche Orient, Amman</td><td data-fr="🇯🇴 Jordanie" data-en="🇯🇴 Jordan">🇯🇴 Jordanie</td><td data-fr="60 adultes et 20 enfants" data-en="60 adults and 20 children">60 adultes et 20 enfants</td><td><span class="lang-tag multi">FR/EN</span></td></tr>
-          <tr><td style="color:var(--off-white);">Ayla Flying School, Aqaba</td><td data-fr="🇯🇴 Jordanie" data-en="🇯🇴 Jordan">🇯🇴 Jordanie</td><td data-fr="50 élèves" data-en="50 students">50 élèves</td><td><span class="lang-tag en">EN</span></td></tr>
-          <tr><td style="color:var(--off-white);">Asia English School, Ahmedabad</td><td data-fr="🇮🇳 Inde" data-en="🇮🇳 India">🇮🇳 Inde</td><td data-fr="50 élèves (12-14 ans)" data-en="50 students (12-14 yrs)">50 élèves (12-14 ans)</td><td><span class="lang-tag en">EN</span></td></tr>
-          <tr><td style="color:var(--off-white);">Andriya Vidyalaya, Space Application Centre</td><td data-fr="🇮🇳 Inde" data-en="🇮🇳 India">🇮🇳 Inde</td><td data-fr="200 élèves (11-14 ans)" data-en="200 students (11-14 yrs)">200 élèves (11-14 ans)</td><td><span class="lang-tag en">EN</span></td></tr>
-          <tr><td style="color:var(--off-white);">Physical Research Laboratory, Ahmedabad</td><td data-fr="🇮🇳 Inde" data-en="🇮🇳 India">🇮🇳 Inde</td><td data-fr="30 doctorants" data-en="30 PhD students">30 doctorants</td><td><span class="lang-tag en">EN</span></td></tr>
-          <tr><td style="color:var(--off-white);">Fakultas Geografi, Universitas Gadjah Mada</td><td data-fr="🇮🇩 Indonésie" data-en="🇮🇩 Indonesia">🇮🇩 Indonésie</td><td data-fr="30 chercheurs" data-en="30 researchers">30 chercheurs</td><td><span class="lang-tag en">EN</span></td></tr>
-          <tr><td style="color:var(--off-white);">Universitas Gadjah Mada, Yogyakarta</td><td data-fr="🇮🇩 Indonésie" data-en="🇮🇩 Indonesia">🇮🇩 Indonésie</td><td data-fr="30 élèves" data-en="30 students">30 élèves</td><td><span class="lang-tag en">EN</span></td></tr>
-          <tr><td style="color:var(--off-white);">Centre communautaire de Rupanco</td><td data-fr="🇨🇱 Chili" data-en="🇨🇱 Chile">🇨🇱 Chili</td><td data-fr="100 adultes" data-en="100 adults">100 adultes</td><td><span class="lang-tag es">ES</span></td></tr>
-          <tr><td style="color:var(--off-white);">Universidad de Los Lagos, Osorno</td><td data-fr="🇨🇱 Chili" data-en="🇨🇱 Chile">🇨🇱 Chili</td><td data-fr="30 adultes et enfants" data-en="30 adults and children">30 adultes et enfants</td><td><span class="lang-tag es">ES</span></td></tr>
-          <tr><td style="color:var(--off-white);">CIEN Austral, Puerto Montt</td><td data-fr="🇨🇱 Chili" data-en="🇨🇱 Chile">🇨🇱 Chili</td><td data-fr="50 adultes" data-en="50 adults">50 adultes</td><td><span class="lang-tag es">ES</span></td></tr>
-          <tr><td style="color:var(--off-white);">Univ. Adolfo Ibáñez, Santiago</td><td data-fr="🇨🇱 Chili" data-en="🇨🇱 Chile">🇨🇱 Chili</td><td data-fr="30 adultes" data-en="30 adults">30 adultes</td><td><span class="lang-tag es">ES</span></td></tr>
-          <tr><td style="color:var(--off-white);">Escuela Saint Lawrence, Tobalaba</td><td data-fr="🇨🇱 Chili" data-en="🇨🇱 Chile">🇨🇱 Chili</td><td data-fr="30 enfants" data-en="30 children">30 enfants</td><td><span class="lang-tag es">ES</span></td></tr>
-          <tr><td style="color:var(--off-white);">Escuela ECBI Federico Acevedo, Santiago</td><td data-fr="🇨🇱 Chili" data-en="🇨🇱 Chile">🇨🇱 Chili</td><td data-fr="30 enfants (8-12 ans)" data-en="30 children (8-12 yrs)">30 enfants (8-12 ans)</td><td><span class="lang-tag es">ES</span></td></tr>
-          <tr><td style="color:var(--off-white);">Escuela Rural Río Grande, Monte Patria</td><td data-fr="🇨🇱 Chili" data-en="🇨🇱 Chile">🇨🇱 Chili</td><td data-fr="50 enfants (6-13 ans)" data-en="50 children (6-13 yrs)">50 enfants (6-13 ans)</td><td><span class="lang-tag es">ES</span></td></tr>
-          <tr><td style="color:var(--off-white);">ALMA Observatory, San Pedro de Atacama</td><td data-fr="🇨🇱 Chili" data-en="🇨🇱 Chile">🇨🇱 Chili</td><td data-fr="50 adultes" data-en="50 adults">50 adultes</td><td><span class="lang-tag en">EN</span></td></tr>
-          <tr><td style="color:var(--off-white);">Escuela de Toconao, San Pedro de Atacama</td><td data-fr="🇨🇱 Chili" data-en="🇨🇱 Chile">🇨🇱 Chili</td><td data-fr="60 enfants (8-12 ans)" data-en="60 children (8-12 yrs)">60 enfants (8-12 ans)</td><td><span class="lang-tag es">ES</span></td></tr>
-          <tr><td style="color:var(--off-white);">La Casa de Cartón, Lima</td><td data-fr="🇵🇪 Pérou" data-en="🇵🇪 Peru">🇵🇪 Pérou</td><td data-fr="50 enfants" data-en="50 children">50 enfants</td><td><span class="lang-tag es">ES</span></td></tr>
-          <tr><td style="color:var(--off-white);">Conférence Skype — collège de Québec</td><td data-fr="🇨🇦 Canada" data-en="🇨🇦 Canada">🇨🇦 Canada</td><td data-fr="45 enfants (10 ans)" data-en="45 children (10 yrs)">45 enfants (10 ans)</td><td><span class="lang-tag fr">FR</span></td></tr>
-          <tr><td style="color:var(--off-white);">Univ. Antonio Ruiz de Montoya, Lima</td><td data-fr="🇵🇪 Pérou" data-en="🇵🇪 Peru">🇵🇪 Pérou</td><td data-fr="30 étudiants (master)" data-en="30 students (master)">30 étudiants (master)</td><td><span class="lang-tag es">ES</span></td></tr>
-          <tr><td style="color:var(--off-white);">Conférence Skype — collège de Wilwerwiltz</td><td data-fr="🇱🇺 Luxembourg" data-en="🇱🇺 Luxembourg">🇱🇺 Luxembourg</td><td data-fr="40 enfants (8-12 ans)" data-en="40 children (8-12 yrs)">40 enfants (8-12 ans)</td><td><span class="lang-tag fr">FR</span></td></tr>
-          <tr><td style="color:var(--off-white);">Univ. fédérale du Roraima, Boa Vista</td><td data-fr="🇧🇷 Brésil" data-en="🇧🇷 Brazil">🇧🇷 Brésil</td><td data-fr="50 étudiants" data-en="50 students">50 étudiants</td><td><span class="lang-tag es">ES</span></td></tr>
-          <tr><td style="color:var(--off-white);">Univ. Antonio Ruiz de Montoya, Lima</td><td data-fr="🇵🇪 Pérou" data-en="🇵🇪 Peru">🇵🇪 Pérou</td><td data-fr="35 étudiants (master)" data-en="35 students (master)">35 étudiants (master)</td><td><span class="lang-tag es">ES</span></td></tr>
-          <tr><td style="color:var(--off-white);">École primaire de Boa Vista</td><td data-fr="🇧🇷 Brésil" data-en="🇧🇷 Brazil">🇧🇷 Brésil</td><td data-fr="45 élèves (10 ans)" data-en="45 students (10 yrs)">45 élèves (10 ans)</td><td><span class="lang-tag pt">PT</span></td></tr>
-          <tr><td style="color:var(--off-white);">École pour adultes, Boa Vista</td><td data-fr="🇧🇷 Brésil" data-en="🇧🇷 Brazil">🇧🇷 Brésil</td><td data-fr="35 adultes" data-en="35 adults">35 adultes</td><td><span class="lang-tag pt">PT</span></td></tr>
-          <tr><td style="color:var(--off-white);">Collège de Regina</td><td data-fr="🇫🇷 Guyane française" data-en="🇫🇷 French Guiana">🇫🇷 Guyane française</td><td data-fr="60 élèves (14-16 ans)" data-en="60 students (14-16 yrs)">60 élèves (14-16 ans)</td><td><span class="lang-tag fr">FR</span></td></tr>
-          <tr><td style="color:var(--off-white);">École des Trois-Paletuviers</td><td data-fr="🇫🇷 Guyane française" data-en="🇫🇷 French Guiana">🇫🇷 Guyane française</td><td data-fr="40 enfants (4-13 ans)" data-en="40 children (4-13 yrs)">40 enfants (4-13 ans)</td><td><span class="lang-tag fr">FR</span></td></tr>
-          <tr><td style="color:var(--off-white);">École des Trois-Paletuviers</td><td data-fr="🇫🇷 Guyane française" data-en="🇫🇷 French Guiana">🇫🇷 Guyane française</td><td data-fr="40 enfants (4-13 ans)" data-en="40 children (4-13 yrs)">40 enfants (4-13 ans)</td><td><span class="lang-tag fr">FR</span></td></tr>
-          <tr><td style="color:var(--off-white);">IRD, salle de conférence</td><td data-fr="🇫🇷 Guyane française" data-en="🇫🇷 French Guiana">🇫🇷 Guyane française</td><td data-fr="50 enfants et adultes" data-en="50 children and adults">50 enfants et adultes</td><td><span class="lang-tag fr">FR</span></td></tr>
-          <tr><td style="color:var(--off-white);">Conférence de presse, aéroport de Findel</td><td data-fr="🇱🇺 Luxembourg" data-en="🇱🇺 Luxembourg">🇱🇺 Luxembourg</td><td data-fr="350 adultes et enfants" data-en="350 adults and children">350 adultes et enfants</td><td><span class="lang-tag fr">FR</span></td></tr>
-          <tr><td style="color:var(--off-white);">École de Wilwerwiltz</td><td data-fr="🇱🇺 Luxembourg" data-en="🇱🇺 Luxembourg">🇱🇺 Luxembourg</td><td data-fr="30 enfants" data-en="30 children">30 enfants</td><td><span class="lang-tag fr">FR</span></td></tr>
-          <tr><td style="color:var(--off-white);">École Jean Jaurès, Esch</td><td data-fr="🇱🇺 Luxembourg" data-en="🇱🇺 Luxembourg">🇱🇺 Luxembourg</td><td data-fr="30 enfants (7 ans)" data-en="30 children (7 yrs)">30 enfants (7 ans)</td><td><span class="lang-tag fr">FR</span></td></tr>
-          <tr><td style="color:var(--off-white);">Lycée Rocroy Saint Vincent de Paul</td><td data-fr="🇫🇷 France" data-en="🇫🇷 France">🇫🇷 France</td><td data-fr="60 étudiants" data-en="60 students">60 étudiants</td><td><span class="lang-tag fr">FR</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div style="display:flex;flex-direction:column;align-items:center;width:28px;gap:0;">
-      <button onclick="document.getElementById('confTable').scrollBy({top:-120,behavior:'smooth'})" style="background:rgba(95,168,211,0.1);border:1px solid rgba(95,168,211,0.25);color:var(--accent);width:28px;height:28px;border-radius:4px 4px 0 0;cursor:pointer;font-size:12px;transition:background 0.2s;border-bottom:none;" onmouseover="this.style.background='rgba(95,168,211,0.2)'" onmouseout="this.style.background='rgba(95,168,211,0.1)'">&#9650;</button>
-      <div style="flex:1;width:12px;background:rgba(95,168,211,0.15);border:1px solid rgba(95,168,211,0.25);border-radius:6px;margin:0 8px;"></div>
-      <button onclick="document.getElementById('confTable').scrollBy({top:120,behavior:'smooth'})" style="background:rgba(95,168,211,0.1);border:1px solid rgba(95,168,211,0.25);color:var(--accent);width:28px;height:28px;border-radius:0 0 4px 4px;cursor:pointer;font-size:12px;transition:background 0.2s;border-top:none;" onmouseover="this.style.background='rgba(95,168,211,0.2)'" onmouseout="this.style.background='rgba(95,168,211,0.1)'">&#9660;</button>
-    </div>
-    </div>
-    <div style="display:flex;gap:12px;align-items:center;justify-content:center;margin-top:16px;flex-wrap:wrap;">
-      <span class="lang-tag fr">FR</span><span style="font-size:11px;color:var(--text-muted);" data-fr="Français" data-en="French">Français</span>
-      <span class="lang-tag en">EN</span><span style="font-size:11px;color:var(--text-muted);" data-fr="Anglais" data-en="English">Anglais</span>
-      <span class="lang-tag es">ES</span><span style="font-size:11px;color:var(--text-muted);" data-fr="Espagnol" data-en="Spanish">Espagnol</span>
-      <span class="lang-tag pt">PT</span><span style="font-size:11px;color:var(--text-muted);" data-fr="Portugais" data-en="Portuguese">Portugais</span>
-    </div>
+</section>
+<section class="wrap section">
+  <div class="tete-section">
+    <p class="kicker" data-fr="En images" data-en="In pictures">En images</p>
+    <h2 class="h2" data-fr="Des salles de classe &lt;em&gt;du monde entier&lt;/em&gt;" data-en="Classrooms &lt;em&gt;around the world&lt;/em&gt;">Des salles de classe <em>du monde entier</em></h2>
   </div>
+  <div class="tuiles-photo" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+    <figure class="tuile-photo" style="aspect-ratio:4/3"><img src="images/55 enfants tobalaba.webp" alt="55 enfants, Tobalaba, Chili" loading="lazy"><figcaption><span data-fr="Tobalaba, Chili" data-en="Tobalaba, Chile">Tobalaba, Chili</span></figcaption></figure>
+    <figure class="tuile-photo" style="aspect-ratio:4/3"><img src="images/classe amhedabad.webp" alt="Classe à Ahmedabad, Inde" loading="lazy"><figcaption><span data-fr="Ahmedabad, Inde" data-en="Ahmedabad, India">Ahmedabad, Inde</span></figcaption></figure>
+    <figure class="tuile-photo" style="aspect-ratio:4/3"><img src="images/classe osorno.webp" alt="Classe à Osorno, Chili" loading="lazy"><figcaption><span data-fr="Osorno, Chili" data-en="Osorno, Chile">Osorno, Chili</span></figcaption></figure>
+    <figure class="tuile-photo" style="aspect-ratio:4/3"><img src="images/170 ayla.webp" alt="170 enfants, Ayla, Jordanie" loading="lazy"><figcaption><span data-fr="Ayla, Jordanie" data-en="Ayla, Jordan">Ayla, Jordanie</span></figcaption></figure>
+    <figure class="tuile-photo" style="aspect-ratio:4/3"><img src="images/classe pakistan.jpg" alt="Classe au Pakistan" loading="lazy"><figcaption><span data-fr="Karachi, Pakistan" data-en="Karachi, Pakistan">Karachi, Pakistan</span></figcaption></figure>
+    <figure class="tuile-photo" style="aspect-ratio:4/3"><img src="images/classe paletuviers 2.webp" alt="École des Paletuviers, Guyane" loading="lazy"><figcaption><span data-fr="Trois-Paletuviers, Guyane française" data-en="Trois-Paletuviers, French Guiana">Trois-Paletuviers, Guyane française</span></figcaption></figure>
+    <figure class="tuile-photo" style="aspect-ratio:4/3"><img src="images/photo conf beyond.webp" alt="Conférence Beyond, Grand Rex, Paris" loading="lazy"><figcaption><span data-fr="Beyond, Grand Rex, Paris" data-en="Beyond, Grand Rex, Paris">Beyond, Grand Rex, Paris</span></figcaption></figure>
+    <figure class="tuile-photo" style="aspect-ratio:4/3"><img src="images/lecture conf.jpg" alt="Lecture en conférence" loading="lazy"><figcaption><span data-fr="Conférence" data-en="Conference">Conférence</span></figcaption></figure>
+    <figure class="tuile-photo" style="aspect-ratio:4/3"><img src="images/conf_education.webp" alt="Éducation à la science" loading="lazy"><figcaption><span data-fr="Éducation à la science" data-en="Science education">Éducation à la science</span></figcaption></figure>
+  </div>
+</section>
+<section class="ivoire wrap section">
+  <div class="tete-section">
+    <p class="kicker" data-fr="Plus de 100 conférences" data-en="Over 100 talks">Plus de 100 conférences</p>
+    <h2 class="h2" data-fr="Sélection de conférences" data-en="A selection of talks">Sélection de conférences</h2>
+    <p class="chapo" data-fr="Une sélection de 57 interventions : la liste n’est pas exhaustive." data-en="A selection of 57 talks: this list is not exhaustive.">Une sélection de 57 interventions : la liste n’est pas exhaustive.</p>
+  </div>
+  <div class="tableau">
+    <table class="confs">
+      <thead><tr><th data-fr="Entité" data-en="Organisation">Entité</th><th data-fr="Pays" data-en="Country">Pays</th><th data-fr="Public" data-en="Audience">Public</th><th data-fr="Langue" data-en="Language">Langue</th></tr></thead>
+      <tbody>
+        <tr><td>Collège Giroud</td><td>🇫🇷 France</td><td data-fr="2 classes de collégiens" data-en="2 middle school classes">2 classes de collégiens</td><td><span class="lt fr">FR</span></td></tr>
+        <tr><td>Mairie de Vincennes</td><td>🇫🇷 France</td><td data-fr="Grand public" data-en="General public">Grand public</td><td><span class="lt fr">FR</span></td></tr>
+        <tr><td>Collège Passeleu</td><td>🇫🇷 France</td><td data-fr="30 élèves de primaire" data-en="30 primary students">30 élèves de primaire</td><td><span class="lt fr">FR</span></td></tr>
+        <tr><td>Café de l'aventure</td><td>🇫🇷 France</td><td data-fr="50 adultes" data-en="50 adults">50 adultes</td><td><span class="lt fr">FR</span></td></tr>
+        <tr><td>Lycée Fausten Fleret</td><td>🇫🇷 Guadeloupe</td><td data-fr="30 élèves (15 ans)" data-en="30 students (15 yrs)">30 élèves (15 ans)</td><td><span class="lt fr">FR</span></td></tr>
+        <tr><td>Aéroclub de Martinique</td><td>🇫🇷 Martinique</td><td data-fr="10 adultes et élèves" data-en="10 adults and students">10 adultes et élèves</td><td><span class="lt fr">FR</span></td></tr>
+        <tr><td>Aéroclub de Cayenne</td><td data-fr="🇫🇷 Guyane française" data-en="🇫🇷 French Guiana">🇫🇷 Guyane française</td><td data-fr="10 adultes et élèves" data-en="10 adults and students">10 adultes et élèves</td><td><span class="lt fr">FR</span></td></tr>
+        <tr><td>Colegio Emprender</td><td data-fr="🇨🇱 Chili" data-en="🇨🇱 Chile">🇨🇱 Chili</td><td data-fr="100 jeunes élèves" data-en="100 young students">100 jeunes élèves</td><td><span class="lt es">ES</span></td></tr>
+        <tr><td>École française</td><td data-fr="🇨🇱 Chili" data-en="🇨🇱 Chile">🇨🇱 Chili</td><td data-fr="50 jeunes élèves" data-en="50 young students">50 jeunes élèves</td><td><span class="lt es">ES</span></td></tr>
+        <tr><td>École française de Silicon Valley</td><td>🇺🇸 USA</td><td data-fr="30 jeunes élèves" data-en="30 young students">30 jeunes élèves</td><td><span class="lt fr">FR</span></td></tr>
+        <tr><td>École primaire de Créteil</td><td>🇫🇷 France</td><td data-fr="60 jeunes élèves" data-en="60 young students">60 jeunes élèves</td><td><span class="lt fr">FR</span></td></tr>
+        <tr><td>Lycée Saint Aspais, Melun</td><td>🇫🇷 France</td><td data-fr="120 élèves (15 ans)" data-en="120 students (15 yrs)">120 élèves (15 ans)</td><td><span class="lt fr">FR</span></td></tr>
+        <tr><td>UNESCO</td><td>🇫🇷 France</td><td data-fr="15 adultes" data-en="15 adults">15 adultes</td><td><span class="lt en">EN</span></td></tr>
+        <tr><td>Guilde européenne du Raid</td><td>🇫🇷 France</td><td data-fr="150 adultes" data-en="150 adults">150 adultes</td><td><span class="lt fr">FR</span></td></tr>
+        <tr><td>Lycée Rocroy Saint Vincent de Paul</td><td>🇫🇷 France</td><td data-fr="60 élèves (15 ans)" data-en="60 students (15 yrs)">60 élèves (15 ans)</td><td><span class="lt fr">FR</span></td></tr>
+        <tr><td>IHEDN</td><td>🇫🇷 France</td><td data-fr="250 passionnés de science" data-en="250 science enthusiasts">250 passionnés de science</td><td><span class="lt fr">FR</span></td></tr>
+        <tr><td>Festival de St Yan</td><td>🇫🇷 France</td><td data-fr="30 adultes" data-en="30 adults">30 adultes</td><td><span class="lt fr">FR</span></td></tr>
+        <tr><td>CNRS — Festival du Film de Chercheurs</td><td>🇫🇷 France</td><td data-fr="100 chercheurs" data-en="100 researchers">100 chercheurs</td><td><span class="lt fr">FR</span></td></tr>
+        <tr><td>La Main à la Pâte — 5e séminaire international</td><td>🇫🇷 France</td><td data-fr="Enseignants et élus" data-en="Teachers and officials">Enseignants et élus</td><td><span class="lt multi">FR/EN</span></td></tr>
+        <tr><td>Observatoire d'Athènes — Rencontres de la Terre</td><td data-fr="🇬🇷 Grèce" data-en="🇬🇷 Greece">🇬🇷 Grèce</td><td data-fr="100 adultes et familles" data-en="100 adults and families">100 adultes et familles</td><td><span class="lt en">EN</span></td></tr>
+        <tr><td>Gulliver Travel — Irrawaddy River</td><td>🇲🇲 Myanmar</td><td data-fr="150 diplomates" data-en="150 diplomats">150 diplomates</td><td><span class="lt en">EN</span></td></tr>
+        <tr><td>Cité des Sciences — Auditorium</td><td>🇫🇷 France</td><td data-fr="380 adultes et enfants" data-en="380 adults and children">380 adultes et enfants</td><td><span class="lt fr">FR</span></td></tr>
+        <tr><td>Cité des Sciences — Auditorium</td><td>🇫🇷 France</td><td data-fr="380 adultes et enfants" data-en="380 adults and children">380 adultes et enfants</td><td><span class="lt fr">FR</span></td></tr>
+        <tr><td>Festival international du film d'aventure — Dijon</td><td>🇫🇷 France</td><td data-fr="1000 grand public" data-en="1000 general public">1000 grand public</td><td><span class="lt fr">FR</span></td></tr>
+        <tr><td>Festival international aéronautique — Gimont</td><td>🇫🇷 France</td><td data-fr="300 grand public" data-en="300 general public">300 grand public</td><td><span class="lt fr">FR</span></td></tr>
+        <tr><td>Institut Français du Proche Orient, Amman</td><td data-fr="🇯🇴 Jordanie" data-en="🇯🇴 Jordan">🇯🇴 Jordanie</td><td data-fr="60 adultes et 20 enfants" data-en="60 adults and 20 children">60 adultes et 20 enfants</td><td><span class="lt multi">FR/EN</span></td></tr>
+        <tr><td>Ayla Flying School, Aqaba</td><td data-fr="🇯🇴 Jordanie" data-en="🇯🇴 Jordan">🇯🇴 Jordanie</td><td data-fr="50 élèves" data-en="50 students">50 élèves</td><td><span class="lt en">EN</span></td></tr>
+        <tr><td>Asia English School, Ahmedabad</td><td data-fr="🇮🇳 Inde" data-en="🇮🇳 India">🇮🇳 Inde</td><td data-fr="50 élèves (12-14 ans)" data-en="50 students (12-14 yrs)">50 élèves (12-14 ans)</td><td><span class="lt en">EN</span></td></tr>
+        <tr><td>Andriya Vidyalaya, Space Application Centre</td><td data-fr="🇮🇳 Inde" data-en="🇮🇳 India">🇮🇳 Inde</td><td data-fr="200 élèves (11-14 ans)" data-en="200 students (11-14 yrs)">200 élèves (11-14 ans)</td><td><span class="lt en">EN</span></td></tr>
+        <tr><td>Physical Research Laboratory, Ahmedabad</td><td data-fr="🇮🇳 Inde" data-en="🇮🇳 India">🇮🇳 Inde</td><td data-fr="30 doctorants" data-en="30 PhD students">30 doctorants</td><td><span class="lt en">EN</span></td></tr>
+        <tr><td>Fakultas Geografi, Universitas Gadjah Mada</td><td data-fr="🇮🇩 Indonésie" data-en="🇮🇩 Indonesia">🇮🇩 Indonésie</td><td data-fr="30 chercheurs" data-en="30 researchers">30 chercheurs</td><td><span class="lt en">EN</span></td></tr>
+        <tr><td>Universitas Gadjah Mada, Yogyakarta</td><td data-fr="🇮🇩 Indonésie" data-en="🇮🇩 Indonesia">🇮🇩 Indonésie</td><td data-fr="30 élèves" data-en="30 students">30 élèves</td><td><span class="lt en">EN</span></td></tr>
+        <tr><td>Centre communautaire de Rupanco</td><td data-fr="🇨🇱 Chili" data-en="🇨🇱 Chile">🇨🇱 Chili</td><td data-fr="100 adultes" data-en="100 adults">100 adultes</td><td><span class="lt es">ES</span></td></tr>
+        <tr><td>Universidad de Los Lagos, Osorno</td><td data-fr="🇨🇱 Chili" data-en="🇨🇱 Chile">🇨🇱 Chili</td><td data-fr="30 adultes et enfants" data-en="30 adults and children">30 adultes et enfants</td><td><span class="lt es">ES</span></td></tr>
+        <tr><td>CIEN Austral, Puerto Montt</td><td data-fr="🇨🇱 Chili" data-en="🇨🇱 Chile">🇨🇱 Chili</td><td data-fr="50 adultes" data-en="50 adults">50 adultes</td><td><span class="lt es">ES</span></td></tr>
+        <tr><td>Univ. Adolfo Ibáñez, Santiago</td><td data-fr="🇨🇱 Chili" data-en="🇨🇱 Chile">🇨🇱 Chili</td><td data-fr="30 adultes" data-en="30 adults">30 adultes</td><td><span class="lt es">ES</span></td></tr>
+        <tr><td>Escuela Saint Lawrence, Tobalaba</td><td data-fr="🇨🇱 Chili" data-en="🇨🇱 Chile">🇨🇱 Chili</td><td data-fr="30 enfants" data-en="30 children">30 enfants</td><td><span class="lt es">ES</span></td></tr>
+        <tr><td>Escuela ECBI Federico Acevedo, Santiago</td><td data-fr="🇨🇱 Chili" data-en="🇨🇱 Chile">🇨🇱 Chili</td><td data-fr="30 enfants (8-12 ans)" data-en="30 children (8-12 yrs)">30 enfants (8-12 ans)</td><td><span class="lt es">ES</span></td></tr>
+        <tr><td>Escuela Rural Río Grande, Monte Patria</td><td data-fr="🇨🇱 Chili" data-en="🇨🇱 Chile">🇨🇱 Chili</td><td data-fr="50 enfants (6-13 ans)" data-en="50 children (6-13 yrs)">50 enfants (6-13 ans)</td><td><span class="lt es">ES</span></td></tr>
+        <tr><td>ALMA Observatory, San Pedro de Atacama</td><td data-fr="🇨🇱 Chili" data-en="🇨🇱 Chile">🇨🇱 Chili</td><td data-fr="50 adultes" data-en="50 adults">50 adultes</td><td><span class="lt en">EN</span></td></tr>
+        <tr><td>Escuela de Toconao, San Pedro de Atacama</td><td data-fr="🇨🇱 Chili" data-en="🇨🇱 Chile">🇨🇱 Chili</td><td data-fr="60 enfants (8-12 ans)" data-en="60 children (8-12 yrs)">60 enfants (8-12 ans)</td><td><span class="lt es">ES</span></td></tr>
+        <tr><td>La Casa de Cartón, Lima</td><td data-fr="🇵🇪 Pérou" data-en="🇵🇪 Peru">🇵🇪 Pérou</td><td data-fr="50 enfants" data-en="50 children">50 enfants</td><td><span class="lt es">ES</span></td></tr>
+        <tr><td>Conférence Skype — collège de Québec</td><td>🇨🇦 Canada</td><td data-fr="45 enfants (10 ans)" data-en="45 children (10 yrs)">45 enfants (10 ans)</td><td><span class="lt fr">FR</span></td></tr>
+        <tr><td>Univ. Antonio Ruiz de Montoya, Lima</td><td data-fr="🇵🇪 Pérou" data-en="🇵🇪 Peru">🇵🇪 Pérou</td><td data-fr="30 étudiants (master)" data-en="30 students (master)">30 étudiants (master)</td><td><span class="lt es">ES</span></td></tr>
+        <tr><td>Conférence Skype — collège de Wilwerwiltz</td><td>🇱🇺 Luxembourg</td><td data-fr="40 enfants (8-12 ans)" data-en="40 children (8-12 yrs)">40 enfants (8-12 ans)</td><td><span class="lt fr">FR</span></td></tr>
+        <tr><td>Univ. fédérale du Roraima, Boa Vista</td><td data-fr="🇧🇷 Brésil" data-en="🇧🇷 Brazil">🇧🇷 Brésil</td><td data-fr="50 étudiants" data-en="50 students">50 étudiants</td><td><span class="lt es">ES</span></td></tr>
+        <tr><td>Univ. Antonio Ruiz de Montoya, Lima</td><td data-fr="🇵🇪 Pérou" data-en="🇵🇪 Peru">🇵🇪 Pérou</td><td data-fr="35 étudiants (master)" data-en="35 students (master)">35 étudiants (master)</td><td><span class="lt es">ES</span></td></tr>
+        <tr><td>École primaire de Boa Vista</td><td data-fr="🇧🇷 Brésil" data-en="🇧🇷 Brazil">🇧🇷 Brésil</td><td data-fr="45 élèves (10 ans)" data-en="45 students (10 yrs)">45 élèves (10 ans)</td><td><span class="lt pt">PT</span></td></tr>
+        <tr><td>École pour adultes, Boa Vista</td><td data-fr="🇧🇷 Brésil" data-en="🇧🇷 Brazil">🇧🇷 Brésil</td><td data-fr="35 adultes" data-en="35 adults">35 adultes</td><td><span class="lt pt">PT</span></td></tr>
+        <tr><td>Collège de Regina</td><td data-fr="🇫🇷 Guyane française" data-en="🇫🇷 French Guiana">🇫🇷 Guyane française</td><td data-fr="60 élèves (14-16 ans)" data-en="60 students (14-16 yrs)">60 élèves (14-16 ans)</td><td><span class="lt fr">FR</span></td></tr>
+        <tr><td>École des Trois-Paletuviers</td><td data-fr="🇫🇷 Guyane française" data-en="🇫🇷 French Guiana">🇫🇷 Guyane française</td><td data-fr="40 enfants (4-13 ans)" data-en="40 children (4-13 yrs)">40 enfants (4-13 ans)</td><td><span class="lt fr">FR</span></td></tr>
+        <tr><td>École des Trois-Paletuviers</td><td data-fr="🇫🇷 Guyane française" data-en="🇫🇷 French Guiana">🇫🇷 Guyane française</td><td data-fr="40 enfants (4-13 ans)" data-en="40 children (4-13 yrs)">40 enfants (4-13 ans)</td><td><span class="lt fr">FR</span></td></tr>
+        <tr><td>IRD, salle de conférence</td><td data-fr="🇫🇷 Guyane française" data-en="🇫🇷 French Guiana">🇫🇷 Guyane française</td><td data-fr="50 enfants et adultes" data-en="50 children and adults">50 enfants et adultes</td><td><span class="lt fr">FR</span></td></tr>
+        <tr><td>Conférence de presse, aéroport de Findel</td><td>🇱🇺 Luxembourg</td><td data-fr="350 adultes et enfants" data-en="350 adults and children">350 adultes et enfants</td><td><span class="lt fr">FR</span></td></tr>
+        <tr><td>École de Wilwerwiltz</td><td>🇱🇺 Luxembourg</td><td data-fr="30 enfants" data-en="30 children">30 enfants</td><td><span class="lt fr">FR</span></td></tr>
+        <tr><td>École Jean Jaurès, Esch</td><td>🇱🇺 Luxembourg</td><td data-fr="30 enfants (7 ans)" data-en="30 children (7 yrs)">30 enfants (7 ans)</td><td><span class="lt fr">FR</span></td></tr>
+        <tr><td>Lycée Rocroy Saint Vincent de Paul</td><td>🇫🇷 France</td><td data-fr="60 étudiants" data-en="60 students">60 étudiants</td><td><span class="lt fr">FR</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="leg-langues"><span><span class="lt fr">FR</span> <span data-fr="Français" data-en="French">Français</span></span><span><span class="lt en">EN</span> <span data-fr="Anglais" data-en="English">Anglais</span></span><span><span class="lt es">ES</span> <span data-fr="Espagnol" data-en="Spanish">Espagnol</span></span><span><span class="lt pt">PT</span> <span data-fr="Portugais" data-en="Portuguese">Portugais</span></span></p>
+</section>
+<section class="bandeau-cta wrap">
+  <img src="images/accueil/aile-nuages-1920.webp" srcset="images/accueil/aile-nuages-900.webp 900w, images/accueil/aile-nuages-1920.webp 1920w" sizes="100vw" alt="" loading="lazy">
+  <div class="contenu">
+    <h2 data-fr="Invitez-nous &lt;em&gt;dans votre établissement&lt;/em&gt;" data-en="Invite us &lt;em&gt;to your institution&lt;/em&gt;">Invitez-nous <em>dans votre établissement</em></h2>
+    <p data-fr="École, université, entreprise, festival : nous adaptons chaque conférence à son public." data-en="School, university, company, festival: we tailor each talk to its audience.">École, université, entreprise, festival : nous adaptons chaque conférence à son public.</p>
+    <div class="actions"><a class="btn btn-orange" href="contact.html?sujet=conference" data-fr="Organiser une conférence" data-en="Book a talk">Organiser une conférence</a></div>
+  </div>
+</section>
+<a class="suivante wrap" href="reportages.html">
+  <img src="images/accueil/films-1920.webp" srcset="images/accueil/films-900.webp 900w, images/accueil/films-1920.webp 1920w" sizes="100vw" alt="" loading="lazy">
+  <div><p class="kicker" data-fr="Nos actions · 03" data-en="Our actions · 03">Nos actions · 03</p><h2 data-fr="Nos reportages" data-en="Our documentaries">Nos reportages</h2></div>
+  <span class="rond" aria-hidden="true" style="display:inline-flex;align-items:center;justify-content:center">→</span>
+</a>
+<div class="visionneuse" id="visionneuse" role="dialog" aria-modal="true" aria-label="Vidéo">
+  <button class="rond fermer" type="button" aria-label="Fermer" id="visFermer">✕</button>
+  <div class="video" id="visVideo"></div>
 </div>
-
-  <div class="content-section" style="padding-top:0;"><div class="content-inner" style="max-width:800px;margin:0 auto;">
-    <div style="text-align:center;margin-bottom:24px;">
-      <span class="section-tag" data-fr="Revivez l'une de nos conférences" data-en="Relive one of our conferences">Revivez l'une de nos conférences</span>
-    </div>
-    <div onclick="openConfVideo()" style="position:relative;width:100%;border-radius:8px;overflow:hidden;cursor:pointer;aspect-ratio:16/9;">
-      <img src="images/conf_beyond_grand_rex.webp" alt="BEYOND les nouveaux aventuriers — Le Grand Rex" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.75) saturate(0.8);transition:filter 0.4s;" onmouseover="this.style.filter='brightness(1) saturate(1.15)'" onmouseout="this.style.filter='brightness(0.75) saturate(0.8)'">
-      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;">
-        <div style="width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,0.9);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.3);">
-          <div style="width:0;height:0;border-top:14px solid transparent;border-bottom:14px solid transparent;border-left:22px solid var(--accent);margin-left:4px;"></div>
-        </div>
-        <span style="color:#fff;font-size:14px;font-weight:600;text-shadow:0 2px 8px rgba(0,0,0,0.5);" data-fr="Voir la vidéo" data-en="Watch the video">Voir la vidéo</span>
-      </div>
-    </div>
-    <!-- Modal vidéo conférence -->
-    <div class="modal-overlay" id="confModal" onclick="closeConfOutside(event)">
-      <button class="modal-close" aria-label="Fermer" onclick="closeConf()">✕</button>
-      <div class="modal-box">
-        <div class="modal-embed" id="confEmbed" style="position:relative;">
-          <iframe id="confVideo" src="" allowfullscreen allow="autoplay; encrypted-media"></iframe>
-        </div>
-        <div class="modal-info">
-          <div class="modal-series" data-fr="BEYOND les nouveaux aventuriers — Le Grand Rex, Paris, 2018" data-en="BEYOND the new adventurers — Le Grand Rex, Paris, 2018">BEYOND les nouveaux aventuriers — Le Grand Rex, Paris, 2018</div>
-        </div>
-      </div>
-    </div>
-    <div style="margin-top:40px;text-align:center;">
-      <p style="color:var(--text-muted);" data-fr="Pour organiser une conférence dans votre établissement :" data-en="To organise a conference at your institution:">Pour organiser une conférence dans votre établissement :</p>
-      <a class="btn btn-primary" href="contact.html" style="margin-top:12px;" data-fr="Nous contacter →" data-en="Contact us →">Nous contacter →</a>
-    </div>
-  </div></div>
-<div id="site-footer"></div>
-<script src="footer.js?v=20260505b"></script>
-<script src="lang.js?v=20260505b"></script>
-<script src="shared.js?v=20260505b"></script>
+</main>
+<div id="r-pied"></div>
+<script src="lang.js?v=20261104c" defer></script>
 <script>
-/* ── Conference Carousel ── */
-(function(){
-  var carousel=document.getElementById('confCarousel');
-  if(!carousel)return;
-  var slides=carousel.querySelectorAll('.conf-slide');
-  var dotsEl=document.getElementById('confDots');
-  var idx=0,timer;
-  slides.forEach(function(s,i){
-    var d=document.createElement('span');
-    d.className='conf-dot'+(i===0?' active':'');
-    d.onclick=function(){show(i);resetTimer();};
-    dotsEl.appendChild(d);
-  });
-  function show(i){
-    idx=i;
-    slides.forEach(function(s,j){s.classList.toggle('active',j===i);});
-    dotsEl.querySelectorAll('.conf-dot').forEach(function(d,j){d.classList.toggle('active',j===i);});
-  }
-  function resetTimer(){clearInterval(timer);timer=setInterval(function(){show((idx+1)%slides.length);},5000);}
-  window.confNav=function(d){show((idx+d+slides.length)%slides.length);resetTimer();};
-  show(0);
-  timer=setInterval(function(){show((idx+1)%slides.length);},5000);
-})();
+document.addEventListener('DOMContentLoaded',function(){
+  var vis=document.getElementById('visionneuse'),vv=document.getElementById('visVideo');
+  function fermer(){vis.classList.remove('ouverte');vv.innerHTML='';document.body.style.overflow='';}
+  document.getElementById('videoConf').addEventListener('click',function(){vv.innerHTML='<iframe src="https://drive.google.com/file/d/1b5UbymyTxQCZ0iqXX0lUg5WcNKLrBQzG/preview" allow="autoplay; fullscreen" allowfullscreen title="BEYOND — Le Grand Rex"></iframe>';vis.classList.add('ouverte');document.body.style.overflow='hidden';});
+  document.getElementById('visFermer').addEventListener('click',fermer);
+  vis.addEventListener('click',function(e){if(e.target===vis)fermer();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')fermer();});
+});
 </script>
-<script>
-/* ── Highlight row based on scroll position ── */
-(function(){
-  var panel=document.getElementById('confTable');
-  if(!panel)return;
-  var rows=panel.querySelectorAll('tbody tr');
-  if(!rows.length)return;
-  function highlight(){
-    var scrollTop=panel.scrollTop;
-    var scrollMax=panel.scrollHeight-panel.clientHeight;
-    var ratio=scrollMax>0?scrollTop/scrollMax:0;
-    var idx=Math.round(ratio*(rows.length-1));
-    rows.forEach(function(r){r.classList.remove('conf-active');});
-    rows[idx].classList.add('conf-active');
-  }
-  panel.addEventListener('scroll',highlight);
-  highlight();
-})();
-</script>
-<script>
-function openConfVideo(){
-  var src='https://drive.google.com/file/d/1b5UbymyTxQCZ0iqXX0lUg5WcNKLrBQzG/preview';
-  var embed=document.getElementById('confEmbed');
-  embed.innerHTML='<div onclick="closeConf()" style="position:absolute;top:0;left:0;right:0;height:50px;cursor:pointer;z-index:20;background:linear-gradient(rgba(0,0,0,0.6),transparent);display:flex;align-items:center;justify-content:flex-end;padding-right:16px;"><span style="color:#fff;font-size:24px;font-weight:700;">✕ Fermer</span></div><iframe src="'+src+'" allowfullscreen allow="autoplay; encrypted-media" style="width:100%;height:100%;border:none;display:block;"></iframe>';
-  document.getElementById('confModal').classList.add('open');
-  document.body.style.overflow='hidden';
-}
-function closeConf(){
-  document.getElementById('confModal').classList.remove('open');
-  document.getElementById('confEmbed').innerHTML='';
-  document.body.style.overflow='';
-}
-function closeConfOutside(e){if(e.target===document.getElementById('confModal'))closeConf();}
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeConf();});
-</script>
-
 </body>
 </html>

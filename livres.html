@@ -14,18 +14,13 @@
   <meta property="og:locale" content="fr_FR">
   <meta property="og:locale:alternate" content="en_GB">
   <link rel="canonical" href="https://www.wingsforscience.com/livres.html">
-  <link rel="preload" as="font" type="font/woff2" href="fonts/raleway-400-latin.woff2" crossorigin>
-  <link rel="preload" as="font" type="font/woff2" href="fonts/merriweather-300-latin.woff2" crossorigin>
-  <link rel="stylesheet" href="style.css?v=20261022h">
-  <style>
-    /* ── BOOK 3D SCENE ── */
-    .books-showcase { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-top: 48px; }
-    @media(max-width:960px) { .books-showcase { grid-template-columns: 1fr; gap: 48px; } }
-
-    .book-scene { perspective: 1200px; display: flex; flex-direction: column; align-items: center; }
-
-    /* 3D Book wrapper */
-    .book-3d {
+  <link rel="stylesheet" href="refonte.css?v=20261104c">
+<link rel="stylesheet" href="ancien.css?v=20261104c">
+<style>
+.ancien .books-showcase{ display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-top: 48px; }
+@media(max-width:960px){.ancien .books-showcase{ grid-template-columns: 1fr; gap: 48px; }}
+.ancien .book-scene{ perspective: 1200px; display: flex; flex-direction: column; align-items: center; }
+.ancien .book-3d{
       position: relative; width: 240px; height: 360px;
       -webkit-transform-style: preserve-3d;
       transform-style: preserve-3d;
@@ -33,12 +28,10 @@
       cursor: pointer;
       transform: rotateY(-30deg) rotateX(5deg) translateZ(20px);
     }
-    .book-scene:hover .book-3d {
+.ancien .book-scene:hover .book-3d{
       transform: rotateY(0deg) rotateX(0deg) translateZ(0px);
     }
-
-    /* Front cover */
-    .book-3d .book-cover {
+.ancien .book-3d .book-cover{
       position: absolute; inset: 0;
       border-radius: 2px 10px 10px 2px;
       overflow: hidden;
@@ -50,45 +43,38 @@
         inset -3px 0 8px rgba(0,0,0,0.15),
         inset 0 0 2px rgba(255,255,255,0.05);
     }
-    .book-3d .book-cover img { width: 100%; height: 100%; object-fit: cover; }
-    /* Subtle light reflection on cover */
-    .book-3d .book-cover::after {
+.ancien .book-3d .book-cover img{ width: 100%; height: 100%; object-fit: cover; }
+.ancien .book-3d .book-cover::after{
       content: '';
       position: absolute; inset: 0;
       background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 40%, transparent 60%, rgba(0,0,0,0.08) 100%);
       pointer-events: none;
       transition: opacity 0.8s;
     }
-    .book-scene:hover .book-3d .book-cover::after {
+.ancien .book-scene:hover .book-3d .book-cover::after{
       background: linear-gradient(120deg, rgba(255,255,255,0.18) 0%, transparent 50%, rgba(0,0,0,0.12) 100%);
     }
-
-    /* Stacked page layers for real 3D thickness */
-    .book-3d .book-page-layer {
+.ancien .book-3d .book-page-layer{
       position: absolute; inset: 2px 0 2px 8px;
       border-radius: 1px 6px 6px 1px;
     }
-    .book-3d .book-page-layer:nth-child(1) { background: #e8e0d5; transform: translateZ(30px); }
-    .book-3d .book-page-layer:nth-child(2) { background: #f0ebe4; transform: translateZ(24px); }
-    .book-3d .book-page-layer:nth-child(3) { background: #e4ddd4; transform: translateZ(18px); }
-    .book-3d .book-page-layer:nth-child(4) { background: #ede7df; transform: translateZ(12px); }
-    .book-3d .book-page-layer:nth-child(5) { background: #e0d8cd; transform: translateZ(6px); }
-    .book-3d .book-page-layer:nth-child(6) { background: #d8d0c5; transform: translateZ(0px); }
-    .book-3d .book-page-layer:nth-child(7) { background: #e2dad0; transform: translateZ(-6px); }
-    .book-3d .book-page-layer:nth-child(8) { background: #dbd3c8; transform: translateZ(-12px); }
-    .book-3d .book-page-layer:nth-child(9) { background: #d5cdc2; transform: translateZ(-18px); }
-
-    /* Back cover */
-    .book-3d .book-back {
+.ancien .book-3d .book-page-layer:nth-child(1){ background: #e8e0d5; transform: translateZ(30px); }
+.ancien .book-3d .book-page-layer:nth-child(2){ background: #f0ebe4; transform: translateZ(24px); }
+.ancien .book-3d .book-page-layer:nth-child(3){ background: #e4ddd4; transform: translateZ(18px); }
+.ancien .book-3d .book-page-layer:nth-child(4){ background: #ede7df; transform: translateZ(12px); }
+.ancien .book-3d .book-page-layer:nth-child(5){ background: #e0d8cd; transform: translateZ(6px); }
+.ancien .book-3d .book-page-layer:nth-child(6){ background: #d8d0c5; transform: translateZ(0px); }
+.ancien .book-3d .book-page-layer:nth-child(7){ background: #e2dad0; transform: translateZ(-6px); }
+.ancien .book-3d .book-page-layer:nth-child(8){ background: #dbd3c8; transform: translateZ(-12px); }
+.ancien .book-3d .book-page-layer:nth-child(9){ background: #d5cdc2; transform: translateZ(-18px); }
+.ancien .book-3d .book-back{
       position: absolute; inset: 0;
       background: linear-gradient(90deg, #3a3028, #2a2018);
       border-radius: 2px 8px 8px 2px;
       transform: translateZ(-24px);
       box-shadow: -4px 4px 12px rgba(0,0,0,0.5);
     }
-
-    /* Spine (left edge) */
-    .book-3d .book-spine {
+.ancien .book-3d .book-spine{
       position: absolute; left: 0; top: 0; width: 60px; height: 100%;
       background: linear-gradient(90deg, #4a3828, #3a2a1e, #4a3828);
       transform: rotateY(90deg) translateZ(0px);
@@ -96,22 +82,15 @@
       border-radius: 3px 0 0 3px;
       box-shadow: inset 0 0 8px rgba(0,0,0,0.4), inset 2px 0 4px rgba(255,255,255,0.05);
     }
-    /* Spine gold line detail */
-    .book-3d .book-spine::after {
+.ancien .book-3d .book-spine::after{
       content: '';
       position: absolute; top: 12%; left: 50%; width: 2px; height: 76%;
       background: rgba(200,169,110,0.3);
       transform: translateX(-50%);
       border-radius: 1px;
     }
-
-    /* Hide unused elements */
-    .book-3d .book-pages,
-    .book-3d .book-top,
-    .book-3d .book-bottom { display: none; }
-
-    /* Dynamic shadow beneath the book */
-    .book-scene::after {
+.ancien .book-3d .book-pages, .ancien .book-3d .book-top, .ancien .book-3d .book-bottom{ display: none; }
+.ancien .book-scene::after{
       content: '';
       display: block;
       width: 200px; height: 20px;
@@ -120,14 +99,12 @@
       border-radius: 50%;
       transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
-    .book-scene:hover::after {
+.ancien .book-scene:hover::after{
       width: 240px; height: 14px;
       margin-top: 28px;
       background: radial-gradient(ellipse, rgba(0,0,0,0.25) 0%, transparent 70%);
     }
-
-    /* Glow effect on hover */
-    .book-scene:hover .book-3d::after {
+.ancien .book-scene:hover .book-3d::after{
       content: '';
       position: absolute; inset: -12px;
       background: radial-gradient(ellipse at 30% 50%, rgba(95,168,211,0.1), transparent 70%);
@@ -135,34 +112,28 @@
       z-index: -1;
       animation: bookGlow 2.5s ease-in-out infinite alternate;
     }
-    @keyframes bookGlow {
+@keyframes bookGlow{
       from { opacity: 0.4; } to { opacity: 1; }
     }
-
-    /* Book info */
-    .book-info { text-align: center; margin-top: 32px; max-width: 360px; }
-    .book-info .book-tag {
+.ancien .book-info{ text-align: center; margin-top: 32px; max-width: 360px; }
+.ancien .book-info .book-tag{
       display: inline-block; padding: 4px 16px;
       border: 1px solid var(--accent); border-radius: 20px;
       font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
       color: var(--accent); margin-bottom: 14px;
     }
-    .book-info h2 {
+.ancien .book-info h2{
       font-family: 'Merriweather', serif; font-weight: 300; font-size: 22px;
       color: var(--white); margin-bottom: 12px; line-height: 1.4;
     }
-    .book-info .book-desc {
+.ancien .book-info .book-desc{
       font-size: 14px; color: var(--text-muted); line-height: 1.8; margin-bottom: 6px;
     }
-    .book-info .book-edition {
+.ancien .book-info .book-edition{
       font-size: 12px; color: var(--text-muted); opacity: 0.7; margin-bottom: 24px;
     }
-
-    /* Buttons row */
-    .book-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-
-    /* ── PAGE-FLIP EXTRACT BUTTON ── */
-    .btn-extract {
+.ancien .book-buttons{ display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.ancien .btn-extract{
       position: relative; display: inline-flex; align-items: center; gap: 10px;
       padding: 12px 24px;
       background: linear-gradient(135deg, rgba(95,168,211,0.12), rgba(95,168,211,0.06));
@@ -172,121 +143,105 @@
       text-decoration: none;
       transition: all 0.3s; overflow: hidden;
     }
-    .btn-extract:hover {
+.ancien .btn-extract:hover{
       background: rgba(95,168,211,0.18);
       border-color: var(--accent);
       transform: translateY(-2px);
       box-shadow: 0 8px 24px rgba(95,168,211,0.2);
     }
-
-    /* Page-flip icon animation */
-    .flip-icon {
+.ancien .flip-icon{
       position: relative; width: 28px; height: 32px; perspective: 300px;
     }
-    .flip-icon .page {
+.ancien .flip-icon .page{
       position: absolute; width: 14px; height: 100%;
       border-radius: 0 3px 3px 0;
       transform-origin: left center;
       transition: transform 0.4s ease;
     }
-    .flip-icon .page-back { left: 0; background: #e8e0d5; z-index: 1; }
-    .flip-icon .page-mid  { left: 0; background: #d4c8b8; z-index: 2; transform: rotateY(0); }
-    .flip-icon .page-front { left: 0; background: var(--accent); z-index: 3; transform: rotateY(0); }
-    .flip-icon .page-cover {
+.ancien .flip-icon .page-back{ left: 0; background: #e8e0d5; z-index: 1; }
+.ancien .flip-icon .page-mid{ left: 0; background: #d4c8b8; z-index: 2; transform: rotateY(0); }
+.ancien .flip-icon .page-front{ left: 0; background: var(--accent); z-index: 3; transform: rotateY(0); }
+.ancien .flip-icon .page-cover{
       position: absolute; left: -4px; top: -1px; width: 18px; height: calc(100% + 2px);
       background: linear-gradient(90deg, var(--accent), #4a90b8);
       border-radius: 2px 0 0 2px; z-index: 0;
     }
-
-    .btn-extract:hover .page-front { transform: rotateY(-160deg); transition-delay: 0s; }
-    .btn-extract:hover .page-mid   { transform: rotateY(-130deg); transition-delay: 0.1s; }
-    .btn-extract:hover .page-back  { transform: rotateY(-100deg); transition-delay: 0.2s; }
-
-    /* ── DEDICACE / PHOTO SECTION ── */
-    .dedicace-section {
+.ancien .btn-extract:hover .page-front{ transform: rotateY(-160deg); transition-delay: 0s; }
+.ancien .btn-extract:hover .page-mid{ transform: rotateY(-130deg); transition-delay: 0.1s; }
+.ancien .btn-extract:hover .page-back{ transform: rotateY(-100deg); transition-delay: 0.2s; }
+.ancien .dedicace-section{
       position: relative; overflow: hidden;
       background: linear-gradient(135deg, rgba(14,26,40,0.8), rgba(26,42,58,0.6));
       border-top: 1px solid rgba(95,168,211,0.08);
       border-bottom: 1px solid rgba(95,168,211,0.08);
     }
-    .dedicace-inner {
+.ancien .dedicace-inner{
       display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
     }
-    @media(max-width:960px) { .dedicace-inner { grid-template-columns: 1fr; } }
-    .dedicace-img {
+@media(max-width:960px){.ancien .dedicace-inner{ grid-template-columns: 1fr; }}
+.ancien .dedicace-img{
       width: 100%; border-radius: 10px;
       box-shadow: 0 12px 40px rgba(0,0,0,0.4);
       transition: transform 0.5s;
     }
-    .dedicace-img:hover { transform: scale(1.02) rotate(-0.5deg); }
-    .dedicace-text h2 {
+.ancien .dedicace-img:hover{ transform: scale(1.02) rotate(-0.5deg); }
+.ancien .dedicace-text h2{
       font-family: 'Merriweather', serif; font-weight: 300; font-size: 28px;
       color: var(--white); margin-bottom: 20px; line-height: 1.4;
     }
-    .dedicace-text blockquote {
+.ancien .dedicace-text blockquote{
       font-family: 'Merriweather', serif; font-style: italic;
       font-size: 16px; line-height: 1.8; color: var(--off-white);
       border-left: 3px solid var(--accent); padding-left: 20px; margin: 24px 0;
     }
-
-    /* ── EDITION LOGOS ── */
-    .editions-bar {
+.ancien .editions-bar{
       display: flex; align-items: center; justify-content: center;
       gap: 40px; flex-wrap: wrap; padding: 24px 0;
       opacity: 0.6; transition: opacity 0.3s;
     }
-    .editions-bar:hover { opacity: 1; }
-    .editions-bar img { height: 40px; filter: brightness(0) invert(1); opacity: 0.7; }
-
-    /* ── PRESS QUOTE CARDS — improved ── */
-    .press-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;}
-    .press-card{
+.ancien .editions-bar:hover{ opacity: 1; }
+.ancien .editions-bar img{ height: 40px; filter: brightness(0) invert(1); opacity: 0.7; }
+.ancien .press-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;}
+.ancien .press-card{
       padding:28px; background:rgba(14,26,40,0.5);
       border:1px solid rgba(95,168,211,0.1); border-radius:10px;
       display:flex; flex-direction:column;
       transition: all 0.3s; text-decoration: none;
     }
-    .press-card:hover{
+.ancien .press-card:hover{
       border-color:rgba(95,168,211,0.35);
       transform:translateY(-4px);
       box-shadow: 0 12px 32px rgba(0,0,0,0.3);
       background:rgba(95,168,211,0.06);
     }
-    .press-source{font-size:14px;font-weight:700;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
-    .press-source::before { content:''; display:inline-block; width:4px; height:4px; border-radius:50%; background:var(--accent); }
-    .press-quote{font-family:'Merriweather',serif;font-size:13px;font-style:italic;line-height:1.8;color:var(--off-white);flex:1;}
-    .press-link{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-top:18px;opacity:0.7;transition:opacity 0.3s;}
-    .press-card:hover .press-link{opacity:1;}
-
-    /* ── FLOATING DECORATION ── */
-    .books-deco {
+.ancien .press-source{font-size:14px;font-weight:700;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.ancien .press-source::before{ content:''; display:inline-block; width:4px; height:4px; border-radius:50%; background:var(--accent); }
+.ancien .press-quote{font-family:'Merriweather',serif;font-size:13px;font-style:italic;line-height:1.8;color:var(--off-white);flex:1;}
+.ancien .press-link{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-top:18px;opacity:0.7;transition:opacity 0.3s;}
+.ancien .press-card:hover .press-link{opacity:1;}
+.ancien .books-deco{
       position: absolute; width: 300px; height: 300px; border-radius: 50%;
       background: radial-gradient(circle, rgba(95,168,211,0.06), transparent 70%);
       pointer-events: none;
     }
-
-  /* Extraits des livres — version texte lisible sur mobile */
-  .extrait-text{font-family:'Merriweather',Georgia,serif;color:#1d1d1d;background:#fbf8f3;font-size:16.5px;line-height:1.7;padding:56px 20px 32px;text-align:left;hyphens:auto;-webkit-hyphens:auto}
-  .extrait-text .extrait-book{font-family:inherit;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#7a6f63;margin:0 0 18px}
-  .extrait-text h3{font-family:inherit;font-weight:400;font-size:24px;line-height:1.3;margin:0 0 24px;color:#111}
-  .extrait-text h3 span{display:block;font-size:15px;color:#7a6f63;margin-bottom:4px}
-  .extrait-text p{margin:0 0 1em}
-  .extrait-text p.extrait-break{margin-top:1.8em}
-  .extrait-text ul{margin:0 0 1em;padding-left:1.2em}
-  .extrait-text li{margin-bottom:.5em}
-  .extrait-text sup{font-size:.7em;line-height:0;color:#8a5a2b}
-  .extrait-text sup.ord{color:inherit}
-  .extrait-text .extrait-cont{text-align:center;color:#7a6f63}
-  .extrait-text .extrait-notes{font-size:13.5px;line-height:1.55;color:#4a4540;border-top:1px solid #d9d0c4;padding-top:14px;margin:24px 0 0;padding-left:1.6em}
-  .extrait-text .extrait-encadre{border:1px solid #cfc4b5;background:#f2ece2;padding:16px 16px 4px;margin:28px 0 8px;font-family:-apple-system,'Helvetica Neue',Arial,sans-serif;font-size:15px;line-height:1.6}
-  .extrait-text .extrait-encadre h4{font-size:16px;line-height:1.35;margin:0 0 6px;color:#111}
-  .extrait-text .extrait-auteur{font-weight:600;margin-bottom:12px}
-  .extrait-switch{text-align:center;margin:0;padding:6px 20px 28px;background:#fbf8f3;font-size:14px}
-  .extrait-switch a{color:#2d6a96;font-weight:600}
-  </style>
-<style>
-  /* ── MAGAZINE 3D ── */
-  .mag-scene {
+.ancien .extrait-text{font-family:'Merriweather',Georgia,serif;color:#1d1d1d;background:#fbf8f3;font-size:16.5px;line-height:1.7;padding:56px 20px 32px;text-align:left;hyphens:auto;-webkit-hyphens:auto}
+.ancien .extrait-text .extrait-book{font-family:inherit;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#7a6f63;margin:0 0 18px}
+.ancien .extrait-text h3{font-family:inherit;font-weight:400;font-size:24px;line-height:1.3;margin:0 0 24px;color:#111}
+.ancien .extrait-text h3 span{display:block;font-size:15px;color:#7a6f63;margin-bottom:4px}
+.ancien .extrait-text p{margin:0 0 1em}
+.ancien .extrait-text p.extrait-break{margin-top:1.8em}
+.ancien .extrait-text ul{margin:0 0 1em;padding-left:1.2em}
+.ancien .extrait-text li{margin-bottom:.5em}
+.ancien .extrait-text sup{font-size:.7em;line-height:0;color:#8a5a2b}
+.ancien .extrait-text sup.ord{color:inherit}
+.ancien .extrait-text .extrait-cont{text-align:center;color:#7a6f63}
+.ancien .extrait-text .extrait-notes{font-size:13.5px;line-height:1.55;color:#4a4540;border-top:1px solid #d9d0c4;padding-top:14px;margin:24px 0 0;padding-left:1.6em}
+.ancien .extrait-text .extrait-encadre{border:1px solid #cfc4b5;background:#f2ece2;padding:16px 16px 4px;margin:28px 0 8px;font-family:-apple-system,'Helvetica Neue',Arial,sans-serif;font-size:15px;line-height:1.6}
+.ancien .extrait-text .extrait-encadre h4{font-size:16px;line-height:1.35;margin:0 0 6px;color:#111}
+.ancien .extrait-text .extrait-auteur{font-weight:600;margin-bottom:12px}
+.ancien .extrait-switch{text-align:center;margin:0;padding:6px 20px 28px;background:#fbf8f3;font-size:14px}
+.ancien .extrait-switch a{color:#2d6a96;font-weight:600}
+.ancien .mag-scene{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -294,7 +249,7 @@
     padding: 40px 60px;
     overflow: hidden;
   }
-  .mag-book {
+.ancien .mag-book{
     position: relative;
     width: 340px;
     height: 440px;
@@ -304,16 +259,14 @@
     transform-style: preserve-3d;
     transition: transform 0.9s cubic-bezier(0.4, 0.05, 0.15, 0.97);
   }
-  .mag-book.opened {
+.ancien .mag-book.opened{
     transform: translateX(170px);
   }
-  @media(max-width:600px) {
-    .mag-scene { padding: 20px 10px; }
-    .mag-book, .mag-nav, .mag-arrow, .mag-scene > p { display: none !important; }
-    .mag-mobile-slider { display: flex !important; }
-  }
-  .mag-mobile-slider { display: none; position: relative; display: none; flex-direction: column; align-items: center; justify-content: center; min-height: 350px; }
-  .mag-mobile-card {
+@media(max-width:600px){.ancien .mag-scene{ padding: 20px 10px; }
+.ancien .mag-book, .ancien .mag-nav, .ancien .mag-arrow, .ancien .mag-scene > p{ display: none !important; }
+.ancien .mag-mobile-slider{ display: flex !important; }}
+.ancien .mag-mobile-slider{ display: none; position: relative; display: none; flex-direction: column; align-items: center; justify-content: center; min-height: 350px; }
+.ancien .mag-mobile-card{
     background: linear-gradient(145deg, #f8f5f0, #efe9e0);
     color: #1a2a3a; border-radius: 8px; padding: 28px 24px;
     text-align: center; display: none;
@@ -322,19 +275,17 @@
     width: 100%;
     box-sizing: border-box;
   }
-  .mag-mobile-card.mob-active { display: flex; flex-direction: column; align-items: center; }
-  .mag-mobile-card .mag-quote-mark { font-size: 36px; color: var(--accent); opacity: 0.3; }
-  .mag-mobile-card .mag-text { font-size: 13px; line-height: 1.6; margin: 10px 0; font-style: italic; }
-  .mag-mobile-card .mag-source { font-size: 12px; font-weight: 700; color: var(--accent); margin-top: 8px; }
-  .mag-mobile-card .mag-read-btn {
+.ancien .mag-mobile-card.mob-active{ display: flex; flex-direction: column; align-items: center; }
+.ancien .mag-mobile-card .mag-quote-mark{ font-size: 36px; color: var(--accent); opacity: 0.3; }
+.ancien .mag-mobile-card .mag-text{ font-size: 13px; line-height: 1.6; margin: 10px 0; font-style: italic; }
+.ancien .mag-mobile-card .mag-source{ font-size: 12px; font-weight: 700; color: var(--accent); margin-top: 8px; }
+.ancien .mag-mobile-card .mag-read-btn{
     margin-top: 12px; padding: 6px 16px; font-size: 10px; font-weight: 700;
     letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent);
     background: transparent; border: 1px solid var(--accent); border-radius: 20px;
     cursor: pointer;
   }
-
-  /* Each page: 2 faces */
-  .mag-page {
+.ancien .mag-page{
     position: absolute;
     inset: 0;
     -webkit-transform-style: preserve-3d;
@@ -343,26 +294,20 @@
     transition: transform 0.9s cubic-bezier(0.4, 0.05, 0.15, 0.97);
     cursor: pointer;
   }
-  .mag-page.flipped {
+.ancien .mag-page.flipped{
     transform: rotateY(-180deg);
   }
-
-  /* Z-index stacking: cover on top, last page at bottom */
-  #magPage0 { z-index: 7; }
-  #magPage1 { z-index: 6; }
-  #magPage2 { z-index: 5; }
-  #magPage3 { z-index: 4; }
-  #magPage4 { z-index: 3; }
-  #magPage5 { z-index: 2; }
-  #magPage6 { z-index: 1; }
-
-  /* When flipped, put it on top so its back face is clickable */
-  .mag-page.flipped { z-index: 10 !important; }
-  .mag-page.flipped .mag-page-front { pointer-events: none; visibility: hidden; opacity: 0; }
-  .mag-page.flipped .mag-page-back { visibility: visible; opacity: 1; }
-
-  /* Front & back faces */
-  .mag-page-front, .mag-page-back {
+.ancien #magPage0{ z-index: 7; }
+.ancien #magPage1{ z-index: 6; }
+.ancien #magPage2{ z-index: 5; }
+.ancien #magPage3{ z-index: 4; }
+.ancien #magPage4{ z-index: 3; }
+.ancien #magPage5{ z-index: 2; }
+.ancien #magPage6{ z-index: 1; }
+.ancien .mag-page.flipped{ z-index: 10 !important; }
+.ancien .mag-page.flipped .mag-page-front{ pointer-events: none; visibility: hidden; opacity: 0; }
+.ancien .mag-page.flipped .mag-page-back{ visibility: visible; opacity: 1; }
+.ancien .mag-page-front, .ancien .mag-page-back{
     position: absolute;
     inset: 0;
     -webkit-backface-visibility: hidden;
@@ -375,12 +320,12 @@
     justify-content: center;
     overflow: hidden;
   }
-  .mag-page-front {
+.ancien .mag-page-front{
     background: linear-gradient(145deg, #f8f5f0, #efe9e0);
     color: #1a2a3a;
     box-shadow: inset -2px 0 8px rgba(0,0,0,0.06), 2px 4px 16px rgba(0,0,0,0.15);
   }
-  .mag-page-back {
+.ancien .mag-page-back{
     background: linear-gradient(145deg, #f5f1ec, #ece6dc);
     color: #1a2a3a;
     -webkit-transform: rotateY(180deg);
@@ -389,9 +334,7 @@
     opacity: 0;
     box-shadow: inset 2px 0 8px rgba(0,0,0,0.06), -2px 4px 16px rgba(0,0,0,0.15);
   }
-
-  /* Spine fold line */
-  .mag-page-front::before, .mag-page-back::before {
+.ancien .mag-page-front::before, .ancien .mag-page-back::before{
     content: '';
     position: absolute;
     left: 0; top: 0; bottom: 0;
@@ -399,90 +342,86 @@
     background: linear-gradient(90deg, rgba(0,0,0,0.08), transparent);
     pointer-events: none;
   }
-  .mag-page-back::before {
+.ancien .mag-page-back::before{
     left: auto; right: 0;
     background: linear-gradient(270deg, rgba(0,0,0,0.08), transparent);
   }
-
-  /* ── COVER DESIGN ── */
-  .mag-cover-front {
+.ancien .mag-cover-front{
     background: #0d2540 !important;
     color: #f5f0eb !important;
     border: 1px solid rgba(95,168,211,0.2);
     padding: 0 !important;
   }
-  .mag-cover-front::before { display: none; }
-  .mag-cover-bg {
+.ancien .mag-cover-front::before{ display: none; }
+.ancien .mag-cover-bg{
     position: absolute; inset: 0;
     width: 100%; height: 100%;
     object-fit: cover;
     opacity: 0.4;
   }
-  .mag-cover-overlay {
+.ancien .mag-cover-overlay{
     position: absolute; inset: 0;
     background: linear-gradient(180deg, rgba(13,37,64,0.3) 0%, rgba(13,37,64,0.85) 60%, rgba(13,37,64,0.95) 100%);
   }
-  .mag-cover-content {
+.ancien .mag-cover-content{
     position: relative; z-index: 1;
     display: flex; flex-direction: column;
     align-items: center; justify-content: center;
     height: 100%; padding: 32px;
   }
-  .mag-cover-tag {
+.ancien .mag-cover-tag{
     font-size: 9px; font-weight: 700; letter-spacing: 0.22em;
     color: #fff;
     background: var(--accent);
     padding: 5px 16px; border-radius: 20px;
     margin-bottom: 24px;
   }
-  .mag-cover-title {
+.ancien .mag-cover-title{
     font-family: 'Merriweather', serif;
     font-size: 32px; font-weight: 400;
     line-height: 1.3; text-align: center;
     margin-bottom: 10px;
     color: #fff;
   }
-  .mag-cover-stars {
+.ancien .mag-cover-stars{
     font-size: 18px; color: #f0c040;
     letter-spacing: 4px;
     margin-bottom: 16px;
   }
-  .mag-cover-sub {
+.ancien .mag-cover-sub{
     font-size: 11px; letter-spacing: 0.18em;
     text-transform: uppercase; color: var(--accent);
     margin-bottom: 24px;
   }
-  .mag-cover-count {
+.ancien .mag-cover-count{
     font-size: 11px; color: rgba(245,240,235,0.5);
     margin-bottom: 20px;
   }
-  .mag-cover-cta {
+.ancien .mag-cover-cta{
     font-size: 13px; font-weight: 600; color: #fff;
     background: rgba(95,168,211,0.2);
     border: 1px solid rgba(95,168,211,0.5);
     padding: 8px 20px; border-radius: 6px;
     animation: coverPulse 2s ease-in-out infinite;
   }
-  @keyframes coverPulse {
+@keyframes coverPulse{
     0%, 100% { opacity: 0.7; transform: scale(1); }
     50% { opacity: 1; transform: scale(1.03); }
   }
-
-  /* ── PAGE CONTENT ── */
-  .mag-page-num {
+.ancien .mag-page-num{
     position: absolute;
     top: 16px; right: 20px;
     font-size: 10px; font-weight: 600;
     color: rgba(26,42,58,0.3);
     letter-spacing: 0.08em;
   }
-  .mag-quote-mark {
+.ancien .mag-quote-mark{
     font-family: 'Merriweather', serif;
     font-size: 64px; line-height: 0.6;
     color: var(--accent); opacity: 0.3;
     margin-bottom: 12px;
   }
-  .mag-text {
+.ancien .mag-text{
     font-family: 'Merriweather', serif;
     font-size: 15px; font-style: italic;
     line-height: 1.85; text-align: center;
@@ -490,14 +429,14 @@
     max-width: 260px;
     margin-bottom: 24px;
   }
-  .mag-source-logo {
+.ancien .mag-source-logo{
     max-width: 120px;
     max-height: 36px;
     object-fit: contain;
     margin-bottom: 10px;
     opacity: 0.7;
   }
-  .mag-read-btn {
+.ancien .mag-read-btn{
     margin-top: 10px;
     padding: 6px 16px;
     font-size: 10px;
@@ -513,46 +452,41 @@
     position: relative;
     z-index: 5;
   }
-  .mag-read-btn:hover {
+.ancien .mag-read-btn:hover{
     background: var(--accent);
     color: #1a2a3a;
     transform: scale(1.05);
     box-shadow: 0 2px 8px rgba(95,168,211,0.4);
   }
-  /* Article modal uses global .modal-overlay from style.css */
-  .mag-source {
+.ancien .mag-source{
     font-size: 12px; font-weight: 700;
     letter-spacing: 0.1em; text-transform: uppercase;
     color: var(--accent);
     padding-top: 12px;
     border-top: 2px solid rgba(95,168,211,0.2);
   }
-
-  /* ── LAST PAGE (stays open) ── */
-  .mag-last-page {
+.ancien .mag-last-page{
     background: linear-gradient(145deg, #f8f5f0, #efe9e0) !important;
     color: #1a2a3a !important;
     text-align: center;
   }
-  .mag-last-page::before { display: none; }
-  .mag-last-icon {
+.ancien .mag-last-page::before{ display: none; }
+.ancien .mag-last-icon{
     font-size: 36px; margin-bottom: 16px;
     opacity: 0.6;
   }
-  .mag-last-title {
+.ancien .mag-last-title{
     font-family: 'Merriweather', serif;
     font-size: 18px; font-weight: 400;
     color: #1a2a3a;
     margin-bottom: 12px;
   }
-  .mag-last-sub {
+.ancien .mag-last-sub{
     font-size: 13px; color: #5a6a7a;
     line-height: 1.7; max-width: 240px;
     margin-bottom: 8px;
   }
-
-  /* ── ARROWS ── */
-  .mag-arrow {
+.ancien .mag-arrow{
     position: absolute;
     top: 50%; transform: translateY(-50%);
     width: 48px; height: 48px;
@@ -565,21 +499,17 @@
     transition: all 0.25s;
     z-index: 10;
   }
-  .mag-arrow:hover {
+.ancien .mag-arrow:hover{
     background: var(--accent);
     color: #fff;
     border-color: var(--accent);
     transform: translateY(-50%) scale(1.1);
   }
-  .mag-prev { left: 0; }
-  .mag-next { right: 0; }
-  @media(max-width:600px) {
-    .mag-prev { left: -8px; }
-    .mag-next { right: -8px; }
-  }
-
-  /* Shadow under the magazine */
-  .mag-book::after {
+.ancien .mag-prev{ left: 0; }
+.ancien .mag-next{ right: 0; }
+@media(max-width:600px){.ancien .mag-prev{ left: -8px; }
+.ancien .mag-next{ right: -8px; }}
+.ancien .mag-book::after{
     content: '';
     position: absolute;
     bottom: -20px; left: 20px; right: 20px;
@@ -587,20 +517,24 @@
     background: radial-gradient(ellipse, rgba(0,0,0,0.3), transparent 70%);
     border-radius: 50%;
   }
+
 </style>
+  
+
+<meta name="theme-color" content="#0b1622">
 </head>
 <body>
-<header id="site-header"></header>
-<script src="header.js?v=20260505b"></script>
-<section id="main-content" class="page-hero">
-  <img class="page-hero-bg-img" src="images/lecture conf.jpg" alt="" aria-hidden="true">
-  <div class="page-hero-overlay"></div>
-  <div class="page-hero-content">
-    <span class="section-tag" data-fr="Nos actions — 04" data-en="Our actions — 04">Nos actions — 04</span>
-    <h1 class="page-hero-title" data-fr="Nos livres" data-en="Our Books">Nos livres</h1>
-    <p class="page-hero-sub" data-fr="Deux récits d'aventures scientifiques pour le grand public." data-en="Two science adventure stories for the general public.">Deux récits d'aventures scientifiques pour le grand public.</p>
+<div id="r-entete"></div>
+<script src="refonte.js?v=20261104c"></script>
+<main>
+<section class="p-heros">
+  <img src="images/accueil/livres-1920.webp" srcset="images/accueil/livres-900.webp 900w, images/accueil/livres-1920.webp 1920w" sizes="100vw" alt="Couverture du livre Un tour du monde pas comme les autres" style="object-position:50% 50%">
+  <div class="contenu wrap">
+    <p class="kicker" data-fr="Nos actions · 04 — Livres" data-en="Our actions · 04 — Books">Nos actions · 04 — Livres</p>
+    <h1 data-fr="Deux récits d&#x27;aventures scientifiques &lt;em&gt;pour le grand public&lt;/em&gt;" data-en="Two science adventure stories &lt;em&gt;for the general public&lt;/em&gt;">Deux récits d'aventures scientifiques <em>pour le grand public</em></h1>
   </div>
 </section>
+<div class="ancien">
 <!-- ── INTRO ── -->
 <div class="content-section">
   <div class="content-inner narrow" style="text-align:center;">
@@ -1019,8 +953,15 @@
 })();
 </script>
 
-<div id="site-footer"></div>
-<script src="footer.js?v=20260505b"></script>
+</div>
+<a class="suivante wrap" href="presse.html">
+  <img src="images/accueil/presse-1920.webp" srcset="images/accueil/presse-900.webp 900w, images/accueil/presse-1920.webp 1920w" sizes="100vw" alt="" loading="lazy">
+  <div><p class="kicker" data-fr="Nos actions · 05" data-en="Our actions · 05">Nos actions · 05</p><h2 data-fr="Ils parlent de nous" data-en="In the press">Ils parlent de nous</h2></div>
+  <span class="rond" aria-hidden="true" style="display:inline-flex;align-items:center;justify-content:center">→</span>
+</a>
+</main>
+<div id="r-pied"></div>
+<div class="ancien ancien-fin">
 <!-- Extraits des livres en version texte (affichés sur mobile à la place des pages scannées) -->
 <template id="txt-extrait_chapitre15">
 <article class="extrait-text">
@@ -1101,8 +1042,7 @@
     </div>
   </div>
 </div>
-<script src="lang.js?v=20260505b"></script>
-<script src="shared.js?v=20260505b"></script>
+<script src="lang.js?v=20261104c"></script>
 <script>
 function openArticle(key,showPages){
   // Articles hébergés localement (images/articles/) — plus de dépendance à Google Drive
@@ -1147,5 +1087,6 @@ function mobSlide(dir){
   document.getElementById('mobNext').style.visibility=mobIdx>=mobCards.length-1?'hidden':'visible';
 }
 </script>
+</div>
 </body>
 </html>

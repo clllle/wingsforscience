@@ -14,50 +14,44 @@
   <meta property="og:locale" content="fr_FR">
   <meta property="og:locale:alternate" content="en_GB">
   <link rel="canonical" href="https://www.wingsforscience.com/presse.html">
-  <link rel="preload" as="font" type="font/woff2" href="fonts/raleway-400-latin.woff2" crossorigin>
-  <link rel="preload" as="font" type="font/woff2" href="fonts/merriweather-300-latin.woff2" crossorigin>
-  <link rel="stylesheet" href="style.css?v=20261022h">
-  <style>
-    @media(max-width:700px){
-      /* Boutons rapatriés à l'intérieur du cadre */
-      .press-carousel button[onclick^="pressNav"]{
+  <link rel="stylesheet" href="refonte.css?v=20261104c">
+<link rel="stylesheet" href="ancien.css?v=20261104c">
+<style>
+@media(max-width:700px){.ancien .press-carousel button[onclick^="pressNav"]{
         left:auto !important;right:auto !important;
         background:rgba(0,0,0,0.55) !important;border:1px solid rgba(255,255,255,0.25) !important;color:#fff !important;
       }
-      .press-carousel button[onclick="pressNav(-1)"]{left:8px !important;}
-      .press-carousel button[onclick="pressNav(1)"]{right:8px !important;}
-      /* Vidéo TV en pleine largeur (cohérent avec les autres carrousels) */
-      .press-carousel{
+.ancien .press-carousel button[onclick="pressNav(-1)"]{left:8px !important;}
+.ancien .press-carousel button[onclick="pressNav(1)"]{right:8px !important;}
+.ancien .press-carousel{
         max-width:none !important;
         width:100vw !important;
         margin-left:calc(50% - 50vw) !important;
         margin-right:0 !important;
         transform:none;
       }
-      .press-carousel-main{border-radius:0 !important;}
-      /* Icones décoratifs (TV/presse/radio) réduits ou cachés pour libérer la largeur des titres */
-      .content-section img[src*="icon_tv"],
-      .content-section img[src*="icon_presse"],
-      .content-section img[src*="icon_radio"]{
+.ancien .press-carousel-main{border-radius:0 !important;}
+.ancien .content-section img[src*="icon_tv"], .ancien .content-section img[src*="icon_presse"], .ancien .content-section img[src*="icon_radio"]{
         width:70px !important;
       }
-      /* Nuage de texte "presse en parle" prend toute la largeur dispo */
-      #textCloud{max-width:none !important;padding:24px 14px !important;gap:8px 14px !important;max-height:560px;-webkit-mask-image:linear-gradient(#000 80%,transparent);mask-image:linear-gradient(#000 80%,transparent);}
-    }
-  </style>
+.ancien #textCloud{max-width:none !important;padding:24px 14px !important;gap:8px 14px !important;max-height:560px;-webkit-mask-image:linear-gradient(#000 80%,transparent);mask-image:linear-gradient(#000 80%,transparent);}}
+
+</style>
+  
+<meta name="theme-color" content="#0b1622">
 </head>
 <body>
-<header id="site-header"></header>
-<script src="header.js?v=20260505b"></script>
-<section id="main-content" class="page-hero">
-  <img class="page-hero-bg-img" src="images/wix_import/category_presse.webp" alt="" aria-hidden="true">
-  <div class="page-hero-overlay"></div>
-  <div class="page-hero-content">
-    <span class="section-tag" data-fr="Nos actions — 05" data-en="Our actions — 05">Nos actions — 05</span>
-    <h1 class="page-hero-title" data-fr="La presse en parle" data-en="In the Press">La presse en parle</h1>
-    <p class="page-hero-sub" data-fr="TV, radio et presse écrite — relayer le message des scientifiques." data-en="TV, radio and print press — relaying the message of scientists.">TV, radio et presse écrite — relayer le message des scientifiques.</p>
+<div id="r-entete"></div>
+<script src="refonte.js?v=20261104c"></script>
+<main>
+<section class="p-heros">
+  <img src="images/accueil/presse-1920.webp" srcset="images/accueil/presse-900.webp 900w, images/accueil/presse-1920.webp 1920w" sizes="100vw" alt="Interview radio sur un plateau" style="object-position:50% 50%">
+  <div class="contenu wrap">
+    <p class="kicker" data-fr="Nos actions · 05 — Presse" data-en="Our actions · 05 — Press">Nos actions · 05 — Presse</p>
+    <h1 data-fr="Ils parlent &lt;em&gt;de nos expéditions&lt;/em&gt;" data-en="They talk &lt;em&gt;about our expeditions&lt;/em&gt;">Ils parlent <em>de nos expéditions</em></h1>
   </div>
 </section>
+<div class="ancien">
 <div class="content-section"><div class="content-inner">
     <div style="display:flex;align-items:center;gap:24px;margin-bottom:24px;">
     <div style="flex:1;">
@@ -157,18 +151,15 @@
         <img src="images/icon_presse.webp" alt="Presse écrite" style="width:180px;height:auto;flex-shrink:0;opacity:0.5;" loading="lazy">
       </div>
     </div>
-    <style>
-
-      #textCloud .media-word:hover{opacity:1 !important;transform:translateY(-2px);}
-      #textCloud:hover{border-color:rgba(95,168,211,0.35) !important;}
-      #textCloud::before {
+    <style>.ancien #textCloud .media-word:hover{opacity:1 !important;transform:translateY(-2px);}
+.ancien #textCloud:hover{border-color:rgba(95,168,211,0.35) !important;}
+.ancien #textCloud::before{
         content:"PRESSE PRESS PRENSA STAMPA IMPRENSA PRESSE PRESS PRENSA STAMPA IMPRENSA PRESSE PRESS PRENSA STAMPA IMPRENSA PRESSE PRESS PRENSA STAMPA IMPRENSA PRESSE PRESS PRENSA STAMPA IMPRENSA PRESSE PRESS PRENSA STAMPA IMPRENSA PRESSE PRESS PRENSA STAMPA IMPRENSA PRESSE PRESS PRENSA STAMPA IMPRENSA PRESSE PRESS PRENSA STAMPA IMPRENSA PRESSE PRESS PRENSA STAMPA IMPRENSA PRESSE PRESS PRENSA STAMPA IMPRENSA PRESSE PRESS PRENSA STAMPA IMPRENSA";
         position:absolute;top:0;left:0;right:0;bottom:0;
         font-size:14px;letter-spacing:4px;line-height:1.8;
         color:rgba(95,168,211,0.04);font-weight:800;
         word-break:break-all;overflow:hidden;pointer-events:none;z-index:0;
-      }
-    </style>
+      }</style>
     <div id="textCloud" style="position:relative;width:100%;max-width:800px;height:420px;margin:24px auto 0;border-radius:8px;background:rgba(20,32,48,0.97);border:1px solid rgba(95,168,211,0.1);overflow:hidden;cursor:pointer;" onclick="openPresse()">
     </div>
     <a href="#" onclick="openPresse();return false;" style="display:block;text-align:center;margin-top:16px;font-size:14px;color:var(--accent);font-weight:600;text-decoration:none;transition:opacity .2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'" data-fr="Cliquez pour voir les 434 articles →" data-en="Click to see all 434 articles →">Cliquez pour voir les 434 articles →</a>
@@ -430,10 +421,16 @@
       </div>
     </div>
 
-<div id="site-footer"></div>
-<script src="footer.js?v=20260505b"></script>
-<script src="lang.js?v=20260505b"></script>
-<script src="shared.js?v=20260505b"></script>
+</div>
+<a class="suivante wrap" href="confondateurs.html">
+  <img src="images/accueil/equipage-1920.webp" srcset="images/accueil/equipage-900.webp 900w, images/accueil/equipage-1920.webp 1920w" sizes="100vw" alt="" loading="lazy">
+  <div><p class="kicker" data-fr="Notre réseau" data-en="Our network">Notre réseau</p><h2 data-fr="Les cofondateurs et parrains" data-en="Co-founders and patrons">Les cofondateurs et parrains</h2></div>
+  <span class="rond" aria-hidden="true" style="display:inline-flex;align-items:center;justify-content:center">→</span>
+</a>
+</main>
+<div id="r-pied"></div>
+<div class="ancien ancien-fin">
+<script src="lang.js?v=20261104c"></script>
 <script>
 function openPresse(){
   document.getElementById('presseModal').style.display='flex';
@@ -445,5 +442,6 @@ function closePresse(){
 }
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closePresse();});
 </script>
+</div>
 </body>
 </html>
