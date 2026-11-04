@@ -158,7 +158,10 @@ em{font-style:italic}
 .donnees-tete em{color:var(--ciel)}
 .cartes-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
 .carte-donnee{display:flex;flex-direction:column;gap:14px}
-.carte-donnee .img{border-radius:8px;overflow:hidden;height:420px}
+.carte-donnee .img{border-radius:8px;overflow:hidden;height:300px}
+.cartes-4{row-gap:40px}
+.chapo-donnees{margin:20px 0 0;font-size:19px;line-height:1.6;color:#c9d3dc}
+.lien-missions{margin:48px 0 0;text-align:center}
 .carte-donnee img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
 .carte-donnee:hover img{transform:scale(1.05)}
 .carte-donnee .lieu{margin:0;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ciel)}
@@ -466,6 +469,7 @@ em{font-style:italic}
   <div class="donnees-tete">
     <p class="kicker" data-fr="Sur le terrain" data-en="In the field">Sur le terrain</p>
     <h2 class="h2" data-fr="Les données que les chercheurs ne pouvaient pas atteindre, &lt;em&gt;nous sommes allés les chercher.&lt;/em&gt;" data-en="The data researchers could not reach, &lt;em&gt;we went and got it.&lt;/em&gt;">Les données que les chercheurs ne pouvaient pas atteindre, <em>nous sommes allés les chercher.</em></h2>
+    <p class="chapo-donnees" data-fr="Quelques exemples parmi nos 34 missions scientifiques, sur 5 continents." data-en="A few examples among our 34 scientific missions, across 5 continents.">Quelques exemples parmi nos 34 missions scientifiques, sur 5 continents.</p>
   </div>
   <div class="cartes-4">
     <article class="carte-donnee">
@@ -488,7 +492,28 @@ em{font-style:italic}
       <p class="lieu" data-fr="Glacier Upsala · Argentine" data-en="Upsala Glacier · Argentina">Glacier Upsala · Argentine</p>
       <h3 data-fr="Glaciers en 3D" data-en="Glaciers in 3D">Glaciers en 3D</h3>
     </article>
+    <article class="carte-donnee">
+      <div class="img"><img src="images/accueil/parana-900.webp" alt="L'ULM survole les méandres du fleuve Paraná" loading="lazy"></div>
+      <p class="lieu" data-fr="Rio Paraná · Brésil" data-en="Paraná River · Brazil">Rio Paraná · Brésil</p>
+      <h3 data-fr="Harpies et prélèvements d’eau" data-en="Harpy eagles and water sampling">Harpies et prélèvements d’eau</h3>
+    </article>
+    <article class="carte-donnee">
+      <div class="img"><img src="images/survol_caral_supe_perou.webp" alt="Vue aérienne de la cité antique de Caral" loading="lazy"></div>
+      <p class="lieu" data-fr="Caral · Pérou" data-en="Caral · Peru">Caral · Pérou</p>
+      <h3 data-fr="Archéologie aérienne" data-en="Aerial archaeology">Archéologie aérienne</h3>
+    </article>
+    <article class="carte-donnee">
+      <div class="img"><img src="images/accueil/cachalots-900.webp" alt="Une maman cachalot et son petit en surface" loading="lazy"></div>
+      <p class="lieu" data-fr="Samos · Grèce" data-en="Samos · Greece">Samos · Grèce</p>
+      <h3 data-fr="Mammifères marins" data-en="Marine mammals">Mammifères marins</h3>
+    </article>
+    <article class="carte-donnee">
+      <div class="img"><img src="images/accueil/banado-900.webp" alt="Oiseaux au-dessus de la zone humide du Bañado La Estrella" loading="lazy"></div>
+      <p class="lieu" data-fr="Bañado La Estrella · Argentine" data-en="Bañado La Estrella · Argentina">Bañado La Estrella · Argentine</p>
+      <h3 data-fr="Zones humides" data-en="Wetlands">Zones humides</h3>
+    </article>
   </div>
+  <p class="lien-missions"><a class="btn btn-contour" href="campagne-scientifique.html#liste" data-fr="Voir les 34 missions →" data-en="See all 34 missions →">Voir les 34 missions →</a></p>
 </section>
 
 <!-- ══ PILIERS ══ -->
