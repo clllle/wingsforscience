@@ -29,7 +29,7 @@
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#0b1622">
-<link rel="stylesheet" href="refonte.css?v=20261104c">
+<link rel="stylesheet" href="refonte.css?v=20261104d">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <style>
 
@@ -40,16 +40,16 @@
 .legende-carte i{display:inline-block;width:28px;border-top:3px solid}
 .legende-carte b{display:inline-block;width:14px;height:14px;border-radius:50%;background:#ff5f3f;border:2px solid #fff}
 .wfs-popup .leaflet-popup-content{margin:14px 16px}
-.missions{width:100%;border-collapse:collapse;background:#fff;border-radius:10px;overflow:hidden;font-size:15px}
-.missions th{position:sticky;top:0;background:var(--nuit);color:#fff;text-align:left;font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:14px 16px}
-.missions td{padding:16px;border-bottom:1px solid #ece5d9;vertical-align:top;color:var(--gris);line-height:1.5}
-.missions tr:hover td{background:#faf7f1}
-.missions .per{white-space:nowrap;font-weight:700;color:var(--ciel-fonce)}
-.missions .lieu strong{display:block;color:var(--encre);font-size:16px}
-.missions .lieu span{font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--gris-2)}
-.missions .liens{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
-.missions .liens button,.missions .liens a{font:700 12px var(--sans);border:1px solid var(--ciel-fonce);color:var(--ciel-fonce);background:#fff;border-radius:999px;padding:6px 12px;cursor:pointer;text-decoration:none}
-.missions .liens button:hover,.missions .liens a:hover{background:var(--ciel-fonce);color:#fff}
+.tab-missions{width:100%;border-collapse:collapse;background:#fff;border-radius:10px;overflow:hidden;font-size:15px}
+.tab-missions th{position:sticky;top:0;background:var(--nuit);color:#fff;text-align:left;font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:14px 16px}
+.tab-missions td{padding:16px;border-bottom:1px solid #ece5d9;vertical-align:top;color:var(--gris);line-height:1.5}
+.tab-missions tr:hover td{background:#faf7f1}
+.tab-missions .per{white-space:nowrap;font-weight:700;color:var(--ciel-fonce)}
+.tab-missions .lieu strong{display:block;color:var(--encre);font-size:16px}
+.tab-missions .lieu span{font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--gris-2)}
+.tab-missions .liens{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.tab-missions .liens button,.tab-missions .liens a{font:700 12px var(--sans);border:1px solid var(--ciel-fonce);color:var(--ciel-fonce);background:#fff;border-radius:999px;padding:6px 12px;cursor:pointer;text-decoration:none}
+.tab-missions .liens button:hover,.tab-missions .liens a:hover{background:var(--ciel-fonce);color:#fff}
 .tableau-missions{max-height:760px;overflow:auto;border-radius:10px;box-shadow:0 1px 0 var(--ivoire-ligne)}
 .docs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .doc{display:flex;gap:18px;align-items:flex-start;text-align:left;width:100%;background:var(--nuit-2);border:1px solid var(--ligne);border-radius:10px;padding:20px;color:#fff;font-family:var(--sans);cursor:pointer;transition:border-color .2s,transform .2s;scroll-margin-top:120px}
@@ -65,19 +65,19 @@
 @media (max-width:760px){
   #wfsMissionsMap{height:460px}
   .tableau-missions{max-height:none;box-shadow:none;background:none}
-  .missions,.missions tbody,.missions tr,.missions td{display:block;width:100%}
-  .missions thead{display:none}
-  .missions{background:none}
-  .missions tr{background:#fff;border-radius:10px;margin-bottom:10px;padding:6px 0}
-  .missions td{border:0;padding:6px 16px}
-  .missions td[data-l]::before{content:attr(data-l);display:block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ciel-fonce)}
+  .tab-missions,.tab-missions tbody,.tab-missions tr,.tab-missions td{display:block;width:100%}
+  .tab-missions thead{display:none}
+  .tab-missions{background:none}
+  .tab-missions tr{background:#fff;border-radius:10px;margin-bottom:10px;padding:6px 0}
+  .tab-missions td{border:0;padding:6px 16px}
+  .tab-missions td[data-l]::before{content:attr(data-l);display:block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ciel-fonce)}
 }
 
 </style>
 </head>
 <body>
 <div id="r-entete"></div>
-<script src="refonte.js?v=20261104c"></script>
+<script src="refonte.js?v=20261104d"></script>
 <main>
 <section class="p-heros">
   <img src="images/accueil/fossiles-1920.webp" srcset="images/accueil/fossiles-900.webp 900w, images/accueil/fossiles-1920.webp 1920w" sizes="100vw" alt="L&#x27;ULM survole le désert de Patagonie au-dessus d&#x27;un gisement de fossiles" style="object-position:50% 50%">
@@ -126,7 +126,7 @@
     <h2 class="h2" data-fr="Liste complète &lt;em&gt;des 34 missions&lt;/em&gt;" data-en="Complete list &lt;em&gt;of the 34 missions&lt;/em&gt;">Liste complète <em>des 34 missions</em></h2>
   </div>
   <div class="tableau-missions">
-    <table class="missions">
+    <table class="tab-missions">
       <thead><tr><th data-fr="Période" data-en="Period">Période</th><th data-fr="Lieu" data-en="Location">Lieu</th><th data-fr="Partenaire scientifique" data-en="Scientific partner">Partenaire scientifique</th><th data-fr="Mission scientifique" data-en="Scientific mission">Mission scientifique</th><th data-fr="Objectif" data-en="Objective">Objectif</th></tr></thead>
       <tbody id="missionsTbody"></tbody>
     </table>

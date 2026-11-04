@@ -88,6 +88,14 @@ em{font-style:italic}
 .sous-menu a:hover{background:#e7f2fa;color:var(--ciel-fonce)}
 .langue{background:none;cursor:pointer;font-family:var(--sans);color:#fff;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.08em;padding:9px 13px;border:1px solid rgba(255,255,255,.55);border-radius:999px;margin-left:6px}
 .nav .btn-orange{margin-left:10px;padding:13px 22px;font-size:14px}
+.soutien{display:inline-flex;align-items:center;gap:8px;margin-left:10px;padding:9px 16px;border:1px solid rgba(255,255,255,.5);border-radius:999px;color:#fff;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;white-space:nowrap;transition:background .2s,color .2s,border-color .2s}
+.soutien svg{color:#f3a38c;transition:color .2s}
+.soutien:hover{background:#fff;color:var(--nuit);border-color:#fff}
+.soutien:hover svg{color:var(--orange)}
+.menu-mobile .soutien{margin:28px 0 0;justify-content:center;padding:14px;font-size:14px}
+.nav-lien,.logo span{white-space:nowrap}
+.sommaire{top:var(--h-entete,72px)!important}
+@media (max-width:1480px){.nav{gap:2px}.nav .nav-lien{padding:10px 10px;font-size:13px}.nav .soutien{padding:8px 13px;font-size:12px}}
 .burger{display:none;width:48px;height:48px;border-radius:999px;border:1px solid rgba(255,255,255,.6);background:rgba(11,22,34,.3);color:#fff;align-items:center;justify-content:center;cursor:pointer}
 
 /* menu mobile */
@@ -274,7 +282,7 @@ em{font-style:italic}
   .cartes-4,.actions-4{grid-template-columns:repeat(2,minmax(0,1fr))}
   .logos{grid-template-columns:repeat(5,minmax(0,1fr))}
 }
-@media (max-width:900px){
+@media (max-width:1300px){
   .nav{display:none}
   .burger{display:inline-flex}
 }
@@ -360,7 +368,7 @@ em{font-style:italic}
     </div>
     <a class="nav-lien" href="actu.html" data-fr="Carnet de route" data-en="Logbook">Carnet de route</a>
     <button class="langue lang-toggle" type="button" onclick="setLang(window.currentLang==='fr'?'en':'fr')" aria-label="Changer de langue / Switch language">FR</button>
-    <a class="btn btn-orange" href="contact.html#soutenir" data-fr="Nous soutenir" data-en="Support us">Nous soutenir</a>
+    <a class="soutien" href="contact.html#soutenir"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.5-9.2C1 8.3 3.3 5 6.6 5c2 0 3.6 1.1 4.4 2.7.8-1.6 2.4-2.7 4.4-2.7 3.3 0 5.6 3.3 4.1 6.8C19.5 16.4 12 21 12 21z" fill="currentColor"/></svg><span data-fr="Nous soutenir" data-en="Support us">Nous soutenir</span></a>
   </nav>
   <button class="burger" type="button" aria-label="Ouvrir le menu" aria-controls="menuMobile" aria-expanded="false" id="burger">
     <svg aria-hidden="true" width="20" height="14" viewBox="0 0 20 14"><path d="M1 1h18M1 7h18M1 13h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -392,7 +400,7 @@ em{font-style:italic}
   <a class="lien-simple" href="actu.html" data-fr="Carnet de route" data-en="Logbook">Carnet de route</a>
   <a class="lien-simple" href="contact.html">Contact</a>
   <button class="lien-simple lang-toggle" type="button" style="background:none;border:0;border-bottom:1px solid var(--ligne);text-align:left;width:100%;cursor:pointer" onclick="setLang(window.currentLang==='fr'?'en':'fr')">FR</button>
-  <a class="btn btn-orange" href="contact.html#soutenir" data-fr="Nous soutenir" data-en="Support us">Nous soutenir</a>
+  <a class="soutien" href="contact.html#soutenir"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.5-9.2C1 8.3 3.3 5 6.6 5c2 0 3.6 1.1 4.4 2.7.8-1.6 2.4-2.7 4.4-2.7 3.3 0 5.6 3.3 4.1 6.8C19.5 16.4 12 21 12 21z" fill="currentColor"/></svg><span data-fr="Nous soutenir" data-en="Support us">Nous soutenir</span></a>
 </div>
 
 <main>
@@ -618,15 +626,12 @@ em{font-style:italic}
     <img src="images/logos/partenaires/sos_malus.webp" alt="SOS Malus" loading="lazy">
     <span data-fr="Sponsor principal · Financement des expéditions et assurances" data-en="Main sponsor · Expedition funding and insurance">Sponsor principal · Financement des expéditions et assurances</span>
   </div>
-  <div class="sponsor-principal sponsor-argent">
-    <b class="mot-logo">BERINGER</b>
-    <span data-fr="Sponsor argent · Roues et freins" data-en="Silver sponsor · Wheels and brakes">Sponsor argent · Roues et freins</span>
-  </div>
-  <div class="logos">
+    <div class="logos">
     <div><img src="images/logos/partenaires/zodiac_aerospace.webp" alt="Zodiac Aerospace" loading="lazy"></div>
     <div><img src="images/logos/partenaires/dynon.webp" alt="Dynon Avionics" loading="lazy"></div>
     <div><img src="images/logos/partenaires/duc_helices.webp" alt="DUC Hélices" loading="lazy"></div>
     <div><img src="images/logos/partenaires/scoda.webp" alt="Scoda Aeronautica" loading="lazy"></div>
+    <div><span class="texte-logo">BERINGER</span></div>
     <div><img src="images/logos/partenaires/white_rose.webp" alt="White Rose Aviation" loading="lazy"></div>
     <div><img src="images/logos/partenaires/finesse_max.webp" alt="Finesse Max" loading="lazy"></div>
     <div><img src="images/logos/partenaires/bose.webp" alt="Bose" loading="lazy"></div>
