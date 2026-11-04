@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Par des Expéditions aéronautiques – Wings for Science</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Deux expéditions, deux ULM modifiés sur mesure : un tour du monde complet, puis la traversée des Amériques d'Ushuaïa aux Grands Lacs canadiens.">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" as="image" href="images/super_petrel_vol_montagnes_patagonie.webp">
+<link rel="stylesheet" href="refonte.css?v=20261104">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+/* ── HÉROS DE PAGE ── */
+.p-heros{position:relative;height:78vh;min-height:520px;max-height:820px;overflow:hidden;display:flex;align-items:flex-end}
+.p-heros>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 45%}
+.p-heros::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,22,34,.55) 0%,rgba(11,22,34,0) 25%,rgba(11,22,34,.2) 45%,rgba(11,22,34,.85) 100%),linear-gradient(90deg,rgba(11,22,34,.5) 0%,rgba(11,22,34,0) 70%)}
+.p-heros .contenu{position:relative;z-index:2;padding-bottom:64px;max-width:980px;text-shadow:0 2px 18px rgba(0,0,0,.5)}
+.p-heros .kicker{color:#fff}
+.p-heros h1{font-size:clamp(38px,5.4vw,76px);line-height:1.08;color:#fff;letter-spacing:-.02em}
+.p-heros h1 em{color:#d4ecfa}
+/* ── SOMMAIRE COLLANT ── */
+.sommaire{position:sticky;top:72px;z-index:30;background:var(--ivoire);border-bottom:1px solid var(--ivoire-ligne);display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.sommaire::-webkit-scrollbar{display:none}
+.sommaire a{flex:0 0 auto;padding:18px 16px;color:var(--encre);text-decoration:none;font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-bottom:3px solid transparent}
+.sommaire a:hover,.sommaire a.actif{border-bottom-color:var(--ciel-fonce);color:var(--ciel-fonce)}
+/* ── INTRO ── */
+.intro{display:flex;gap:24px 64px;flex-wrap:wrap;max-width:1100px;margin:0 auto}
+.intro .kicker{flex:0 0 180px;margin-top:10px}
+.intro .texte{flex:1 1 300px;min-width:0}
+.intro h2{font-size:clamp(26px,3vw,42px);line-height:1.3}
+.intro h2 em{color:var(--ciel-fonce)}
+.intro p{margin:28px 0 0;max-width:680px;font-size:19px;line-height:1.7;color:var(--gris)}
+/* ── AVION ── */
+.avion{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:56px;align-items:start}
+.avion.inverse{grid-template-columns:minmax(0,1fr) minmax(0,1.35fr)}
+.avion.inverse .carrousel{order:2}
+.carrousel{position:relative;border-radius:10px;overflow:hidden;aspect-ratio:4/3;background:var(--nuit-2)}
+.carrousel .diapo{position:absolute;inset:0;margin:0;opacity:0;transition:opacity .9s}
+.carrousel .diapo.active{opacity:1}
+.carrousel img{width:100%;height:100%;object-fit:cover}
+.carrousel .barre{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:flex-end;justify-content:space-between;gap:12px;padding:40px 16px 16px;background:linear-gradient(transparent,rgba(11,22,34,.85));color:#fff;font-size:14px}
+.carrousel .barre .leg{min-width:0}
+.carrousel .barre .cpt{display:block;font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--ciel-clair);margin-top:4px}
+.carrousel .fl{display:flex;gap:8px;flex:0 0 auto}
+.avion .num{margin:0 0 14px;font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ciel)}
+.avion h2{font-size:clamp(30px,3.2vw,46px);line-height:1.15}
+.avion .texte{margin:22px 0 0;font-size:18px;line-height:1.7;color:#d3dce5}
+.fiche{margin:32px 0 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--ligne)}
+.fiche div{padding:14px 0;border-bottom:1px solid var(--ligne)}
+.fiche div:nth-child(odd){padding-right:16px}
+.fiche dt{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ciel)}
+.fiche dd{margin:4px 0 0;font-family:var(--serif);font-weight:300;font-size:22px;color:#fff}
+.avion .btn{margin-top:32px}
+/* étapes */
+.etapes{margin-top:56px;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:32px}
+.etapes[hidden]{display:none}
+.etapes .bloc{background:var(--nuit-2);border:1px solid var(--ligne);border-radius:10px;padding:24px}
+.etapes h3{font-size:24px;margin-bottom:8px}
+.etapes .legende-tags{margin:0 0 16px;font-size:14px;color:#b6c2cf;display:flex;gap:16px;flex-wrap:wrap}
+.etapes ol{list-style:none;margin:0;padding:0 6px 0 0;max-height:440px;overflow-y:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:24px;align-content:start}
+.etapes li{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:15px;min-width:0}
+.etapes .n{flex:0 0 26px;font-size:12px;color:#93a2b1;text-align:right}
+.etapes .v{flex:1;min-width:0}
+.tag{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:999px;font-size:11px;font-weight:700}
+.tag.s{background:rgba(142,198,232,.18);color:var(--ciel);border:1px solid rgba(142,198,232,.45)}
+.tag.e{background:rgba(123,200,164,.18);color:#9edcbe;border:1px solid rgba(123,200,164,.45)}
+.video-vignette{position:relative;display:block;width:100%;border:0;padding:0;border-radius:8px;overflow:hidden;cursor:pointer;background:#000;margin-top:16px}
+.video-vignette img{width:100%;aspect-ratio:16/10;object-fit:cover;opacity:.8;transition:opacity .3s}
+.video-vignette:hover img{opacity:1}
+.video-vignette span{position:absolute;inset:0;margin:auto;width:64px;height:64px;border-radius:999px;background:#fff;color:var(--nuit);display:flex;align-items:center;justify-content:center}
+/* bande photo */
+.bande{position:relative;height:72vh;min-height:460px;max-height:760px;overflow:hidden;display:flex;align-items:flex-end}
+.bande>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.bande::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,22,34,0) 50%,rgba(11,22,34,.8) 100%)}
+.bande p{position:relative;z-index:1;margin:0;padding-bottom:48px;max-width:760px;font-family:var(--serif);font-weight:300;font-style:italic;font-size:clamp(20px,2.2vw,30px);line-height:1.45;color:#fff}
+.bande p strong{display:block;font-family:var(--sans);font-style:normal;font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ciel-clair);margin-bottom:12px}
+/* sponsors aéronautiques */
+.sponsors-tete{max-width:820px;margin-bottom:48px}
+.sponsors-tete p{margin:22px 0 0;font-size:19px;line-height:1.7;color:var(--gris)}
+.equipements{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.equipement{background:#fff;border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:14px}
+.equipement.principal{grid-column:span 2;flex-direction:row;align-items:center;gap:24px}
+.equipement .logo-e{height:72px;display:flex;align-items:center}
+.equipement.principal .logo-e{height:96px;flex:0 0 auto}
+.equipement .logo-e img{max-height:100%;max-width:170px;object-fit:contain}
+.equipement .logo-e .mot{font-size:20px;font-weight:700;letter-spacing:.06em;color:var(--nuit)}
+.equipement strong{font-size:16px;color:var(--encre)}
+.equipement span{display:block;font-size:15px;line-height:1.5;color:var(--gris)}
+/* carte */
+.carte-tete{text-align:center;max-width:780px;margin:0 auto 40px}
+#expMap{height:560px;border-radius:10px;overflow:hidden;background:#dfe7ec}
+.carte-legende{display:flex;justify-content:center;gap:12px 28px;flex-wrap:wrap;margin:22px 0 0;font-size:15px;color:#d3dce5}
+.carte-legende span{display:inline-flex;align-items:center;gap:10px}
+.carte-legende i{display:inline-block;width:28px;height:0;border-top:3px solid}
+.carte-lien{text-align:center;margin-top:32px}
+/* page suivante */
+.suivante{position:relative;display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:300px;overflow:hidden;color:#fff;text-decoration:none}
+.suivante>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.suivante:hover>img{transform:scale(1.04)}
+.suivante::before{content:"";position:absolute;inset:0;background:rgba(11,22,34,.55);z-index:1}
+.suivante>*:not(img){position:relative;z-index:2}
+.suivante .kicker{color:var(--ciel-clair)}
+.suivante h2{font-size:clamp(28px,3.4vw,48px)}
+.suivante .rond{width:64px;height:64px;font-size:24px;flex:0 0 auto}
+@media (max-width:1000px){
+  .avion,.avion.inverse,.etapes{grid-template-columns:1fr;gap:32px}
+  .avion.inverse .carrousel{order:0}
+  .equipements{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:760px){
+  .sommaire{top:68px}
+  .sommaire a{padding:14px 12px;font-size:12px}
+  .p-heros{height:70vh;min-height:480px}
+  .p-heros .contenu{padding-bottom:40px}
+  .intro p{font-size:17px}
+  .avion .texte{font-size:16px}
+  .fiche dd{font-size:19px}
+  .etapes ol{grid-template-columns:1fr;max-height:360px}
+  .bande{height:60vh;min-height:380px}
+  .equipements{grid-template-columns:1fr}
+  .equipement.principal{grid-column:auto;flex-direction:column;align-items:flex-start}
+  #expMap{height:420px}
+  .suivante{min-height:240px}
+}
+</style>
+</head>
+<body>
+<div id="r-entete"></div>
+<script src="refonte.js?v=20261104"></script>
+
+<main>
+<section class="p-heros">
+  <img src="images/super_petrel_vol_montagnes_patagonie.webp" alt="Le Super Pétrel en vol devant les montagnes de Patagonie">
+  <div class="contenu wrap">
+    <p class="kicker" data-fr="Notre mission · 02 — Explorer" data-en="Our mission · 02 — Explore">Notre mission · 02 — Explorer</p>
+    <h1 data-fr="Des expéditions aéronautiques <em>pour protéger la planète</em>" data-en="Aeronautical expeditions <em>to protect the planet</em>">Des expéditions aéronautiques <em>pour protéger la planète</em></h1>
+  </div>
+</section>
+
+<nav class="sommaire wrap" aria-label="Sommaire de la page">
+  <a href="#avions" data-fr="Nos avions" data-en="Our aircraft">Nos avions</a>
+  <a href="#tour-du-monde" data-fr="Le tour du monde" data-en="Round the world">Le tour du monde</a>
+  <a href="#ameriques" data-fr="La traversée des Amériques" data-en="Crossing the Americas">La traversée des Amériques</a>
+  <a href="#equipements" data-fr="Équipés sur mesure" data-en="Custom-equipped">Équipés sur mesure</a>
+  <a href="#carte" data-fr="Les trajets sur la carte" data-en="Routes on the map">Les trajets sur la carte</a>
+</nav>
+
+<section class="ivoire wrap section" id="avions">
+  <div class="intro">
+    <p class="kicker" data-fr="Nos avions" data-en="Our aircraft">Nos avions</p>
+    <div class="texte">
+      <h2 data-fr="Deux ULM, chacun <em>modifié sur mesure pour nos expéditions.</em>" data-en="Two microlights, each <em>custom-modified for our expeditions.</em>">Deux ULM, chacun <em>modifié sur mesure pour nos expéditions.</em></h2>
+      <p data-fr="Réservoirs supplémentaires et fonctions additionnelles, fournis par le constructeur et par nos sponsors aéronautiques : chaque avion a été conçu pour acquérir les données scientifiques nouvelles qui permettront aux scientifiques de mieux étudier, comprendre et protéger notre planète — tout en réduisant au maximum notre impact sur l'environnement." data-en="Extra fuel tanks and additional features, supplied by the manufacturer and our aviation sponsors: each aircraft was designed to acquire new scientific data that will help scientists better study, understand and protect our planet — while minimising our environmental impact.">Réservoirs supplémentaires et fonctions additionnelles, fournis par le constructeur et par nos sponsors aéronautiques : chaque avion a été conçu pour acquérir les données scientifiques nouvelles qui permettront aux scientifiques de mieux étudier, comprendre et protéger notre planète — tout en réduisant au maximum notre impact sur l'environnement.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap section" id="tour-du-monde" style="scroll-margin-top:130px">
+  <div class="avion">
+    <div class="carrousel" data-carrousel>
+      <figure class="diapo active"><img src="images/equipe_wfs_kulusuk.webp" data-alt-en="The Wings for Science team with the Pipistrel, Kulusuk, Greenland" alt="Équipe Wings for Science devant le Pipistrel, Kulusuk, Groenland"></figure>
+<figure class="diapo"><img src="images/pipistrel_virus_cascade_islande_hd.webp" data-alt-en="Pipistrel Virus by the Seljalandsfoss waterfall, Iceland" alt="Pipistrel Virus devant la cascade Seljalandsfoss, Islande" loading="lazy"></figure>
+<figure class="diapo"><img src="images/pipistrel_virus_equipe_desert.webp" data-alt-en="Adrien and Clémentine with the Pipistrel Virus" alt="Adrien et Clémentine devant le Pipistrel Virus" loading="lazy"></figure>
+<figure class="diapo"><img src="images/pipistrel_virus_survol_kuala_lumpur.webp" data-alt-en="Pipistrel Virus flying over Kuala Lumpur" alt="Pipistrel Virus survolant Kuala Lumpur" loading="lazy"></figure>
+<figure class="diapo"><img src="images/pipistrel_virus_ombre_piste.webp" data-alt-en="The Pipistrel Virus&#39;s shadow on a runway" alt="Ombre du Pipistrel Virus sur une piste" loading="lazy"></figure>
+<figure class="diapo"><img src="images/avion_seljalandsfoss_islande.webp" data-alt-en="Pipistrel Virus by Seljalandsfoss, Iceland" alt="Pipistrel Virus devant Seljalandsfoss, Islande" loading="lazy"></figure>
+<figure class="diapo"><img src="images/avion_wfs_lac_eyre_australie_meridionale.webp" data-alt-en="Pipistrel Virus above Lake Eyre, Australia" alt="Pipistrel Virus au-dessus du lac Eyre, Australie" loading="lazy"></figure>
+<figure class="diapo"><img src="images/pilote_avion_wfs_aeroport_perou.webp" data-alt-en="Clémentine and the Pipistrel Virus in Peru" alt="Clémentine et le Pipistrel Virus au Pérou" loading="lazy"></figure>
+<figure class="diapo"><img src="images/avion_wfs_cratere_toondina_australie.webp" data-alt-en="Pipistrel Virus flying over Toondina crater, Australia" alt="Pipistrel Virus survolant le cratère Toondina, Australie" loading="lazy"></figure>
+<figure class="diapo"><img src="images/pipistrel_virus_cockpit.avif" data-alt-en="Pipistrel Virus cockpit" alt="Cockpit du Pipistrel Virus" loading="lazy"></figure>
+<figure class="diapo"><img src="images/pipistrel_virus_bourget.avif" data-alt-en="Pipistrel Virus at the Paris Air Show, Le Bourget" alt="Pipistrel Virus au Salon du Bourget" loading="lazy"></figure>
+      <div class="barre"><div class="leg"><span class="txt"></span><span class="cpt"></span></div><div class="fl"><button class="rond" type="button" data-pas="-1" aria-label="Photo précédente">←</button><button class="rond" type="button" data-pas="1" aria-label="Photo suivante">→</button></div></div>
+    </div>
+    <div>
+      <p class="num" data-fr="Aéronef 01 — Le tour du monde" data-en="Aircraft 01 — Round the world">Aéronef 01 — Le tour du monde</p>
+      <h2 data-fr="Pipistrel Virus SW S80, entièrement modifié" data-en="Pipistrel Virus SW S80, fully modified">Pipistrel Virus SW S80, entièrement modifié</h2>
+      <p class="texte" data-fr="Fabriqué dans l'usine Pipistrel d'Ajdovščina, en Slovénie, ce Virus a été conçu spécifiquement pour notre tour du monde par l'équipe d'ingénieurs du constructeur. Facilement pilotable et démontable, il ne consomme que 12 litres à l'heure." data-en="Built at the Pipistrel factory in Ajdovščina, Slovenia, this Virus was designed specifically for our round-the-world trip by the manufacturer's engineering team. Easy to fly and to dismantle, it burns only 12 litres per hour.">Fabriqué dans l'usine Pipistrel d'Ajdovščina, en Slovénie, ce Virus a été conçu spécifiquement pour notre tour du monde par l'équipe d'ingénieurs du constructeur. Facilement pilotable et démontable, il ne consomme que 12 litres à l'heure.</p>
+      <dl class="fiche">
+        <div><dt data-fr="Dates" data-en="Dates">Dates</dt><dd data-fr="Juin 2012 – juin 2013" data-en="June 2012 – June 2013">Juin 2012 – juin 2013</dd></div>
+        <div><dt data-fr="Fabricant" data-en="Manufacturer">Fabricant</dt><dd>Pipistrel</dd></div>
+        <div><dt data-fr="Distance parcourue" data-en="Distance covered">Distance parcourue</dt><dd>54 000 km</dd></div>
+        <div><dt data-fr="Heures de vol" data-en="Flight hours">Heures de vol</dt><dd>450 h</dd></div>
+        <div><dt data-fr="Pays survolés" data-en="Countries overflown">Pays survolés</dt><dd>50</dd></div>
+        <div><dt data-fr="Étapes réalisées" data-en="Stages completed">Étapes réalisées</dt><dd>120</dd></div>
+        <div><dt data-fr="Vitesse de croisière" data-en="Cruise speed">Vitesse de croisière</dt><dd>120 kts</dd></div>
+        <div><dt data-fr="Consommation" data-en="Fuel consumption">Consommation</dt><dd>12 L/h</dd></div>
+      </dl>
+      <button class="btn btn-blanc" type="button" id="voirEtapes" aria-expanded="false" aria-controls="etapes"><span data-fr="Voir les étapes du tour du monde" data-en="See the stages of the round-the-world trip">Voir les étapes du tour du monde</span> <span aria-hidden="true">↓</span></button>
+    </div>
+  </div>
+  <div class="etapes" id="etapes" hidden>
+    <div class="bloc">
+      <h3 data-fr="Les principales étapes du tour du monde" data-en="Main stages of the round-the-world trip">Les principales étapes du tour du monde</h3>
+      <p class="legende-tags"><span><span class="tag s">S</span> <span data-fr="Mission scientifique" data-en="Scientific mission">Mission scientifique</span></span><span><span class="tag e">E</span> <span data-fr="Action d'éducation" data-en="Education outreach">Action d'éducation</span></span></p>
+      <ol>
+<li><span class="n">1</span><span class="v" data-fr="Luxembourg" data-en="Luxembourg">Luxembourg</span><span class="tag s" title="Science">S</span><span class="tag e" title="Éducation">E</span></li>
+<li><span class="n">2</span><span class="v" data-fr="Aérodrome de Meaux-Esbly" data-en="Meaux-Esbly Airfield">Aérodrome de Meaux-Esbly</span></li>
+<li><span class="n">3</span><span class="v" data-fr="Le Touquet, France" data-en="Le Touquet, France">Le Touquet, France</span></li>
+<li><span class="n">4</span><span class="v" data-fr="Stornoway, UK" data-en="Stornoway, UK">Stornoway, UK</span></li>
+<li><span class="n">5</span><span class="v" data-fr="Egilsstaðir, Iceland" data-en="Egilsstaðir, Iceland">Egilsstaðir, Iceland</span></li>
+<li><span class="n">6</span><span class="v" data-fr="Northeast, Iceland" data-en="Northeast, Iceland">Northeast, Iceland</span></li>
+<li><span class="n">7</span><span class="v" data-fr="Vestmannaeyjar, Iceland" data-en="Vestmannaeyjar, Iceland">Vestmannaeyjar, Iceland</span><span class="tag s" title="Science">S</span></li>
+<li><span class="n">8</span><span class="v" data-fr="Reykjanesbær, Iceland" data-en="Reykjanesbær, Iceland">Reykjanesbær, Iceland</span></li>
+<li><span class="n">9</span><span class="v" data-fr="Kulusuk, Greenland" data-en="Kulusuk, Greenland">Kulusuk, Greenland</span></li>
+<li><span class="n">10</span><span class="v" data-fr="Narsarsuaq, Greenland" data-en="Narsarsuaq, Greenland">Narsarsuaq, Greenland</span></li>
+<li><span class="n">11</span><span class="v" data-fr="Nuuk, Greenland" data-en="Nuuk, Greenland">Nuuk, Greenland</span><span class="tag s" title="Science">S</span></li>
+<li><span class="n">12</span><span class="v" data-fr="Ilulissat, Greenland" data-en="Ilulissat, Greenland">Ilulissat, Greenland</span></li>
+<li><span class="n">13</span><span class="v" data-fr="Iqaluit, Canada" data-en="Iqaluit, Canada">Iqaluit, Canada</span></li>
+<li><span class="n">14</span><span class="v" data-fr="Kuujjuaq, Canada" data-en="Kuujjuaq, Canada">Kuujjuaq, Canada</span></li>
+<li><span class="n">15</span><span class="v" data-fr="Schefferville, Canada" data-en="Schefferville, Canada">Schefferville, Canada</span></li>
+<li><span class="n">16</span><span class="v" data-fr="Mingan, Canada" data-en="Mingan, Canada">Mingan, Canada</span><span class="tag s" title="Science">S</span></li>
+<li><span class="n">17</span><span class="v" data-fr="Havre-Saint-Pierre, Canada" data-en="Havre-Saint-Pierre, Canada">Havre-Saint-Pierre, Canada</span></li>
+<li><span class="n">18</span><span class="v" data-fr="Port-Menier, Canada" data-en="Port-Menier, Canada">Port-Menier, Canada</span></li>
+<li><span class="n">19</span><span class="v" data-fr="Halifax, Canada" data-en="Halifax, Canada">Halifax, Canada</span></li>
+<li><span class="n">20</span><span class="v" data-fr="Percé, Canada" data-en="Percé, Canada">Percé, Canada</span></li>
+<li><span class="n">21</span><span class="v" data-fr="Bonaventure, Canada" data-en="Bonaventure, Canada">Bonaventure, Canada</span></li>
+<li><span class="n">22</span><span class="v" data-fr="Saint-Antoine-de-l’Isle-aux-Grues, Canada" data-en="Saint-Antoine-de-l’Isle-aux-Grues, Canada">Saint-Antoine-de-l’Isle-aux-Grues, Canada</span></li>
+<li><span class="n">23</span><span class="v" data-fr="Québec, Canada" data-en="Quebec City, Canada">Québec, Canada</span><span class="tag s" title="Science">S</span><span class="tag e" title="Éducation">E</span></li>
+<li><span class="n">24</span><span class="v" data-fr="Saint-Hyacinthe, Canada" data-en="Saint-Hyacinthe, Canada">Saint-Hyacinthe, Canada</span></li>
+<li><span class="n">25</span><span class="v" data-fr="Burlington, VT, USA" data-en="Burlington, VT, USA">Burlington, VT, USA</span></li>
+<li><span class="n">26</span><span class="v" data-fr="Norfolk, VA, USA" data-en="Norfolk, VA, USA">Norfolk, VA, USA</span></li>
+<li><span class="n">27</span><span class="v" data-fr="Sanford, FL, USA" data-en="Sanford, FL, USA">Sanford, FL, USA</span></li>
+<li><span class="n">28</span><span class="v" data-fr="Sebring, FL, USA" data-en="Sebring, FL, USA">Sebring, FL, USA</span></li>
+<li><span class="n">29</span><span class="v" data-fr="Nassau, Bahamas" data-en="Nassau, Bahamas">Nassau, Bahamas</span></li>
+<li><span class="n">30</span><span class="v" data-fr="Great Exuma, Bahamas" data-en="Great Exuma, Bahamas">Great Exuma, Bahamas</span></li>
+<li><span class="n">31</span><span class="v" data-fr="Aguadilla, Porto Rico" data-en="Aguadilla, Puerto Rico">Aguadilla, Porto Rico</span></li>
+<li><span class="n">32</span><span class="v" data-fr="Sint Maarten" data-en="Sint Maarten">Sint Maarten</span></li>
+<li><span class="n">33</span><span class="v" data-fr="Saint-François, Guadeloupe" data-en="Saint-François, Guadeloupe">Saint-François, Guadeloupe</span></li>
+<li><span class="n">34</span><span class="v" data-fr="Scarborough, Trinité-et-Tobago" data-en="Scarborough, Trinidad and Tobago">Scarborough, Trinité-et-Tobago</span></li>
+<li><span class="n">35</span><span class="v" data-fr="Port of Spain, Trinité-et-Tobago" data-en="Port of Spain, Trinidad and Tobago">Port of Spain, Trinité-et-Tobago</span></li>
+<li><span class="n">36</span><span class="v" data-fr="Cayenne, Guyane française" data-en="Cayenne, French Guiana">Cayenne, Guyane française</span><span class="tag s" title="Science">S</span></li>
+<li><span class="n">37</span><span class="v" data-fr="Regina, Guyane française" data-en="Regina, French Guiana">Regina, Guyane française</span><span class="tag e" title="Éducation">E</span></li>
+<li><span class="n">38</span><span class="v" data-fr="Boa Vista, Brésil" data-en="Boa Vista, Brazil">Boa Vista, Brésil</span><span class="tag e" title="Éducation">E</span></li>
+<li><span class="n">39</span><span class="v" data-fr="Fonte Boa, Brésil" data-en="Fonte Boa, Brazil">Fonte Boa, Brésil</span><span class="tag e" title="Éducation">E</span></li>
+<li><span class="n">40</span><span class="v" data-fr="Tabatinga, Brésil" data-en="Tabatinga, Brazil">Tabatinga, Brésil</span><span class="tag e" title="Éducation">E</span></li>
+<li><span class="n">41</span><span class="v" data-fr="Leticia, Colombie" data-en="Leticia, Colombia">Leticia, Colombie</span></li>
+<li><span class="n">42</span><span class="v" data-fr="Iquitos, Pérou" data-en="Iquitos, Peru">Iquitos, Pérou</span></li>
+<li><span class="n">43</span><span class="v" data-fr="Tarapoto, Pérou" data-en="Tarapoto, Peru">Tarapoto, Pérou</span></li>
+<li><span class="n">44</span><span class="v" data-fr="Chiclayo, Pérou" data-en="Chiclayo, Peru">Chiclayo, Pérou</span></li>
+<li><span class="n">45</span><span class="v" data-fr="Trujillo, Pérou" data-en="Trujillo, Peru">Trujillo, Pérou</span></li>
+<li><span class="n">46</span><span class="v" data-fr="Lima, Pérou" data-en="Lima, Peru">Lima, Pérou</span><span class="tag e" title="Éducation">E</span></li>
+<li><span class="n">47</span><span class="v" data-fr="Barranca, Pérou" data-en="Barranca, Peru">Barranca, Pérou</span><span class="tag s" title="Science">S</span></li>
+<li><span class="n">48</span><span class="v" data-fr="Pisco, Pérou" data-en="Pisco, Peru">Pisco, Pérou</span></li>
+<li><span class="n">49</span><span class="v" data-fr="Ica, Pérou" data-en="Ica, Peru">Ica, Pérou</span></li>
+<li><span class="n">50</span><span class="v" data-fr="Nazca, Pérou" data-en="Nazca, Peru">Nazca, Pérou</span></li>
+<li><span class="n">51</span><span class="v" data-fr="Arequipa, Pérou" data-en="Arequipa, Peru">Arequipa, Pérou</span></li>
+<li><span class="n">52</span><span class="v" data-fr="Arica, Chili" data-en="Arica, Chile">Arica, Chili</span><span class="tag e" title="Éducation">E</span></li>
+<li><span class="n">53</span><span class="v" data-fr="Antofagasta, Chili" data-en="Antofagasta, Chile">Antofagasta, Chili</span></li>
+<li><span class="n">54</span><span class="v" data-fr="San Pedro de Atacama, Chili" data-en="San Pedro de Atacama, Chile">San Pedro de Atacama, Chili</span><span class="tag e" title="Éducation">E</span></li>
+<li><span class="n">55</span><span class="v" data-fr="Ovalle, Chili" data-en="Ovalle, Chile">Ovalle, Chili</span></li>
+<li><span class="n">56</span><span class="v" data-fr="Santiago, Chili" data-en="Santiago, Chile">Santiago, Chili</span><span class="tag s" title="Science">S</span></li>
+<li><span class="n">57</span><span class="v" data-fr="Osorno, Chili" data-en="Osorno, Chile">Osorno, Chili</span><span class="tag s" title="Science">S</span><span class="tag e" title="Éducation">E</span></li>
+<li><span class="n">58</span><span class="v" data-fr="San Antonio, Chili" data-en="San Antonio, Chile">San Antonio, Chili</span></li>
+<li><span class="n">59</span><span class="v" data-fr="Kaiwaka, Nouvelle-Zélande" data-en="Kaiwaka, New Zealand">Kaiwaka, Nouvelle-Zélande</span></li>
+<li><span class="n">60</span><span class="v" data-fr="Melbourne, Australie" data-en="Melbourne, Australia">Melbourne, Australie</span><span class="tag s" title="Science">S</span></li>
+<li><span class="n">61</span><span class="v" data-fr="Broken Hill, Australie" data-en="Broken Hill, Australia">Broken Hill, Australie</span></li>
+<li><span class="n">62</span><span class="v" data-fr="Coober Pedy, Australie" data-en="Coober Pedy, Australia">Coober Pedy, Australie</span></li>
+<li><span class="n">63</span><span class="v" data-fr="Hermannsburg, Australie" data-en="Hermannsburg, Australia">Hermannsburg, Australie</span></li>
+<li><span class="n">64</span><span class="v" data-fr="Kings Canyon, Australie" data-en="Kings Canyon, Australia">Kings Canyon, Australie</span></li>
+<li><span class="n">65</span><span class="v" data-fr="Tnorala, Australie" data-en="Tnorala Conservation Reserve, Australia">Tnorala, Australie</span></li>
+<li><span class="n">66</span><span class="v" data-fr="Uluru, Australie" data-en="Uluru, Australia">Uluru, Australie</span></li>
+<li><span class="n">67</span><span class="v" data-fr="Wolfe Creek, Australie" data-en="Wolfe Creek, Australia">Wolfe Creek, Australie</span></li>
+<li><span class="n">68</span><span class="v" data-fr="Fitzroy Crossing, Australie" data-en="Fitzroy Crossing, Australia">Fitzroy Crossing, Australie</span></li>
+<li><span class="n">69</span><span class="v" data-fr="Broome, Australie" data-en="Broome, Australia">Broome, Australie</span></li>
+<li><span class="n">70</span><span class="v" data-fr="Kupang, Indonésie" data-en="Kupang, Indonesia">Kupang, Indonésie</span></li>
+<li><span class="n">71</span><span class="v" data-fr="Pulau Bajo, Indonésie" data-en="Pulau Bajo, Indonesia">Pulau Bajo, Indonésie</span></li>
+<li><span class="n">72</span><span class="v" data-fr="Bali, Indonésie" data-en="Bali, Indonesia">Bali, Indonésie</span></li>
+<li><span class="n">73</span><span class="v" data-fr="Yogyakarta, Indonésie" data-en="Yogyakarta, Indonesia">Yogyakarta, Indonésie</span></li>
+<li><span class="n">74</span><span class="v" data-fr="Bandung, Indonésie" data-en="Bandung, Indonesia">Bandung, Indonésie</span></li>
+<li><span class="n">75</span><span class="v" data-fr="Krakatoa, Indonésie" data-en="Krakatoa, Indonesia">Krakatoa, Indonésie</span><span class="tag s" title="Science">S</span></li>
+<li><span class="n">76</span><span class="v" data-fr="Palembang, Indonésie" data-en="Palembang, Indonesia">Palembang, Indonésie</span></li>
+<li><span class="n">77</span><span class="v" data-fr="Kuala Lumpur, Malaisie" data-en="Kuala Lumpur, Malaysia">Kuala Lumpur, Malaisie</span></li>
+<li><span class="n">78</span><span class="v" data-fr="Penang, Malaisie" data-en="Penang, Malaysia">Penang, Malaisie</span></li>
+<li><span class="n">79</span><span class="v" data-fr="Phuket, Thaïlande" data-en="Phuket, Thailand">Phuket, Thaïlande</span></li>
+<li><span class="n">80</span><span class="v" data-fr="Yangon, Birmanie" data-en="Yangon, Myanmar">Yangon, Birmanie</span></li>
+<li><span class="n">81</span><span class="v" data-fr="Kolkata, Inde" data-en="Kolkata, India">Kolkata, Inde</span></li>
+<li><span class="n">82</span><span class="v" data-fr="Khajuraho, Inde" data-en="Khajuraho, India">Khajuraho, Inde</span><span class="tag e" title="Éducation">E</span></li>
+<li><span class="n">83</span><span class="v" data-fr="Ahmedabad, Inde" data-en="Ahmedabad, India">Ahmedabad, Inde</span><span class="tag e" title="Éducation">E</span></li>
+<li><span class="n">84</span><span class="v" data-fr="Karachi, Pakistan" data-en="Karachi, Pakistan">Karachi, Pakistan</span><span class="tag e" title="Éducation">E</span></li>
+<li><span class="n">85</span><span class="v" data-fr="Mascate, Oman" data-en="Muscat, Oman">Mascate, Oman</span></li>
+<li><span class="n">86</span><span class="v" data-fr="Dubaï, EAU" data-en="Dubai, UAE">Dubaï, EAU</span></li>
+<li><span class="n">87</span><span class="v" data-fr="Sir Bani Yas, EAU" data-en="Sir Bani Yas Island, UAE">Sir Bani Yas, EAU</span></li>
+<li><span class="n">88</span><span class="v" data-fr="Abu Dhabi, EAU" data-en="Abu Dhabi, UAE">Abu Dhabi, EAU</span></li>
+<li><span class="n">89</span><span class="v" data-fr="Riyad, Arabie Saoudite" data-en="Riyadh, Saudi Arabia">Riyad, Arabie Saoudite</span></li>
+<li><span class="n">90</span><span class="v" data-fr="Amman, Jordanie" data-en="Amman, Jordan">Amman, Jordanie</span><span class="tag s" title="Science">S</span><span class="tag e" title="Éducation">E</span></li>
+<li><span class="n">91</span><span class="v" data-fr="Pétra, Jordanie" data-en="Petra, Jordan">Pétra, Jordanie</span><span class="tag s" title="Science">S</span></li>
+<li><span class="n">92</span><span class="v" data-fr="Aqaba, Jordanie" data-en="Aqaba, Jordan">Aqaba, Jordanie</span><span class="tag s" title="Science">S</span></li>
+<li><span class="n">93</span><span class="v" data-fr="Samos, Grèce" data-en="Samos, Greece">Samos, Grèce</span><span class="tag s" title="Science">S</span></li>
+<li><span class="n">94</span><span class="v" data-fr="Corfou, Grèce" data-en="Corfu, Greece">Corfou, Grèce</span></li>
+<li><span class="n">95</span><span class="v" data-fr="Ajdovščina, Slovénie" data-en="Ajdovščina, Slovenia">Ajdovščina, Slovénie</span></li>
+<li><span class="n">96</span><span class="v" data-fr="Cannes, France" data-en="Cannes, France">Cannes, France</span></li>
+<li><span class="n">97</span><span class="v" data-fr="Le Bourget, France (ARRIVÉE)" data-en="Le Bourget, France (ARRIVAL)">Le Bourget, France (ARRIVÉE)</span></li>
+      </ol>
+    </div>
+    <div class="bloc">
+      <h3 data-fr="Arrivée au Bourget" data-en="Arrival at Le Bourget">Arrivée au Bourget</h3>
+      <p style="margin:0;color:#b6c2cf" data-fr="Atterrissage officiel au Salon international aéronautique du Bourget" data-en="Official landing at the Paris International Air Show">Atterrissage officiel au Salon international aéronautique du Bourget</p>
+      <button class="video-vignette" type="button" id="videoBourget" aria-label="Voir la vidéo de l'arrivée au Bourget"><img src="images/arrivee_bourget.avif" alt="Arrivée au Bourget" loading="lazy"><span><svg aria-hidden="true" width="18" height="18" viewBox="0 0 14 14"><path d="M3 1.5v11l9-5.5z" fill="currentColor"/></svg></span></button>
+    </div>
+  </div>
+</section>
+
+<section class="bande">
+  <img src="images/accueil/andes-1920.webp" srcset="images/accueil/andes-900.webp 900w, images/accueil/andes-1920.webp 1920w" sizes="100vw" alt="La cordillère des Andes dans la brume, vue depuis le cockpit" loading="lazy">
+  <p class="wrap"><strong data-fr="Cordillère des Andes · Chili" data-en="Andes Cordillera · Chile">Cordillère des Andes · Chili</strong><span data-fr="Depuis le cockpit, la cordillère apparaît dans la brume. Ces reliefs isolés abritent des biotopes que la science commence à peine à cataloguer." data-en="From the cockpit, the mountain range emerges through the mist. These remote reliefs host biotopes science is only beginning to catalogue.">Depuis le cockpit, la cordillère apparaît dans la brume. Ces reliefs isolés abritent des biotopes que la science commence à peine à cataloguer.</span></p>
+</section>
+
+<section class="wrap section" id="ameriques" style="scroll-margin-top:130px">
+  <div class="avion inverse">
+    <div>
+      <p class="num" data-fr="Aéronef 02 — La traversée des Amériques" data-en="Aircraft 02 — Crossing the Americas">Aéronef 02 — La traversée des Amériques</p>
+      <h2 data-fr="Super Pétrel LS, hydravion amphibie" data-en="Super Pétrel LS, amphibious seaplane">Super Pétrel LS, hydravion amphibie</h2>
+      <p class="texte" data-fr="Notre « maison volante et flottante », dont nous avons pris possession au Brésil, près de São Paulo. De janvier 2016 à novembre 2017, elle nous a portés d'Ushuaïa, au bout de la Terre de Feu, jusqu'aux Grands Lacs canadiens. Son design, une baleine, a été choisi à partir des propositions d'une classe d'élèves de primaire qui suivait l'expédition." data-en="Our &quot;flying and floating home&quot;, which we collected in Brazil, near São Paulo. From January 2016 to November 2017, it carried us from Ushuaia, at the tip of Tierra del Fuego, to the Canadian Great Lakes. Its design, a whale, was chosen from proposals by a primary school class following the expedition.">Notre « maison volante et flottante », dont nous avons pris possession au Brésil, près de São Paulo. De janvier 2016 à novembre 2017, elle nous a portés d'Ushuaïa, au bout de la Terre de Feu, jusqu'aux Grands Lacs canadiens. Son design, une baleine, a été choisi à partir des propositions d'une classe d'élèves de primaire qui suivait l'expédition.</p>
+      <dl class="fiche">
+        <div><dt data-fr="Dates" data-en="Dates">Dates</dt><dd data-fr="Janvier 2016 – novembre 2017" data-en="January 2016 – November 2017">Janvier 2016 – novembre 2017</dd></div>
+        <div><dt data-fr="Fabricant" data-en="Manufacturer">Fabricant</dt><dd>Scoda Aeronáutica <small style="display:block;font-family:var(--sans);font-size:13px;color:#93a2b1" data-fr="(ex-Edra Aeronáutica)" data-en="(formerly Edra Aeronáutica)">(ex-Edra Aeronáutica)</small></dd></div>
+        <div><dt data-fr="Trajet" data-en="Route">Trajet</dt><dd data-fr="Ushuaïa → Grands Lacs" data-en="Ushuaia → Great Lakes">Ushuaïa → Grands Lacs</dd></div>
+        <div><dt data-fr="Type" data-en="Type">Type</dt><dd data-fr="Hydravion amphibie" data-en="Amphibious seaplane">Hydravion amphibie</dd></div>
+        <div><dt data-fr="Vitesse de croisière" data-en="Cruise speed">Vitesse de croisière</dt><dd>90 kts</dd></div>
+        <div><dt data-fr="Consommation" data-en="Fuel consumption">Consommation</dt><dd>18 L/h</dd></div>
+      </dl>
+      <a class="btn btn-blanc" href="actu.html" data-fr="Lire le carnet de route" data-en="Read the logbook">Lire le carnet de route</a>
+    </div>
+    <div class="carrousel" data-carrousel>
+      <figure class="diapo active"><img src="images/super_petrel_equipe_salinas.webp" data-alt-en="The team on the Super Petrel LS, Salinas Grandes" alt="Équipe sur le Super Petrel LS, Salinas Grandes"></figure>
+<figure class="diapo"><img src="images/super_petrel_amarre_lac_patagonie.webp" data-alt-en="Super Petrel LS moored on a lake in Patagonia" alt="Super Petrel LS amarré sur un lac en Patagonie" loading="lazy"></figure>
+<figure class="diapo"><img src="images/super_petrel_cockpit.avif" data-alt-en="Super Petrel LS cockpit" alt="Cockpit du Super Petrel LS" loading="lazy"></figure>
+<figure class="diapo"><img src="images/super_petrel_usa2.avif" data-alt-en="Super Petrel LS flying over the United States" alt="Super Petrel LS survolant les États-Unis" loading="lazy"></figure>
+<figure class="diapo"><img src="images/super_petrel_vol_lac_patagonie.webp" data-alt-en="Super Petrel LS flying over a lake in Patagonia" alt="Super Petrel LS en vol au-dessus d'un lac de Patagonie" loading="lazy"></figure>
+<figure class="diapo"><img src="images/super_petrel_lac_reflet_patagonie.webp" data-alt-en="Super Petrel LS on a lake, reflection, Patagonia" alt="Super Petrel LS posé sur un lac, reflet, Patagonie" loading="lazy"></figure>
+<figure class="diapo"><img src="images/super_petrel_vol_parana_bresil.webp" data-alt-en="Super Petrel LS flying over the Paraná" alt="Super Petrel LS en vol au-dessus du Paraná" loading="lazy"></figure>
+<figure class="diapo"><img src="images/super_petrel_vol_glacier_groenland.webp" data-alt-en="Super Petrel LS above the glaciers" alt="Super Petrel LS au-dessus des glaciers" loading="lazy"></figure>
+<figure class="diapo"><img src="images/super_petrel_vol_montagnes_patagonie.webp" data-alt-en="Super Petrel LS flying past the mountains" alt="Super Petrel LS en vol devant les montagnes" loading="lazy"></figure>
+<figure class="diapo"><img src="images/super_petrel_vol_face_montagnes.webp" data-alt-en="Super Petrel LS in flight, head-on" alt="Super Petrel LS en vol de face" loading="lazy"></figure>
+<figure class="diapo"><img src="images/super_petrel_equipe_riviere.webp" data-alt-en="The team standing on the Super Petrel LS" alt="Équipe debout sur le Super Petrel LS" loading="lazy"></figure>
+<figure class="diapo"><img src="images/super_petrel_amerrissage_islande.webp" data-alt-en="Super Petrel LS landing on water in Iceland" alt="Super Petrel LS amerrissant en Islande" loading="lazy"></figure>
+<figure class="diapo"><img src="images/super_petrel_usa.avif" data-alt-en="Super Petrel LS in the United States" alt="Super Petrel LS aux États-Unis" loading="lazy"></figure>
+<figure class="diapo"><img src="images/super_petrel_amazonie.avif" data-alt-en="Super Petrel LS on a mission in the Amazon" alt="Super Petrel LS en mission en Amazonie" loading="lazy"></figure>
+      <div class="barre"><div class="leg"><span class="txt"></span><span class="cpt"></span></div><div class="fl"><button class="rond" type="button" data-pas="-1" aria-label="Photo précédente">←</button><button class="rond" type="button" data-pas="1" aria-label="Photo suivante">→</button></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="ivoire wrap section" id="equipements" style="scroll-margin-top:130px">
+  <div class="sponsors-tete">
+    <p class="kicker" data-fr="Équipés sur mesure" data-en="Custom-equipped">Équipés sur mesure</p>
+    <h2 class="h2" data-fr="Avec nos sponsors aéronautiques" data-en="With our aviation sponsors">Avec nos sponsors aéronautiques</h2>
+    <p data-fr="Hélice, GPS, roues et freins, casques, matériel de survie, secours d'urgence, assurances : chaque avion a été préparé pour voler loin et longtemps, au-dessus des océans et des déserts." data-en="Propeller, GPS, wheels and brakes, headsets, survival gear, emergency rescue, insurance: each aircraft was prepared to fly far and for long periods, over oceans and deserts.">Hélice, GPS, roues et freins, casques, matériel de survie, secours d'urgence, assurances : chaque avion a été préparé pour voler loin et longtemps, au-dessus des océans et des déserts.</p>
+  </div>
+  <div class="equipements">
+    <div class="equipement principal"><div class="logo-e"><img src="images/logos/partenaires/sos_malus.webp" alt="SOS Malus" loading="lazy"></div><div><strong data-fr="Sponsor principal" data-en="Main sponsor">Sponsor principal</strong><span data-fr="Financement des expéditions et assurances" data-en="Expedition funding and insurance">Financement des expéditions et assurances</span></div></div>
+    <div class="equipement"><div class="logo-e"><span class="mot">PIPISTREL</span></div><div><strong>Pipistrel</strong><span data-fr="Constructeur du Virus" data-en="Manufacturer of the Virus">Constructeur du Virus</span></div></div>
+    <div class="equipement"><div class="logo-e"><img src="images/logos/partenaires/scoda.webp" alt="Scoda Aeronáutica" loading="lazy"></div><div><strong>Scoda Aeronáutica</strong><span data-fr="Constructeur de l'hydravion" data-en="Seaplane manufacturer">Constructeur de l'hydravion</span></div></div>
+    <div class="equipement"><div class="logo-e"><img src="images/logos/partenaires/finesse_max.webp" alt="Finesse Max" loading="lazy"></div><div><strong>Finesse Max</strong><span data-fr="Revendeur Pipistrel" data-en="Pipistrel dealer">Revendeur Pipistrel</span></div></div>
+    <div class="equipement"><div class="logo-e"><img src="images/logos/partenaires/duc_helices.webp" alt="DUC Hélices" loading="lazy"></div><div><strong>DUC Hélices</strong><span data-fr="Hélice" data-en="Propeller">Hélice</span></div></div>
+    <div class="equipement"><div class="logo-e"><img src="images/logos/partenaires/dynon.webp" alt="Dynon Avionics" loading="lazy"></div><div><strong>Dynon</strong><span>GPS</span></div></div>
+    <div class="equipement"><div class="logo-e"><span class="mot">BERINGER</span></div><div><strong>Beringer</strong><span data-fr="Roues et freins" data-en="Wheels and brakes">Roues et freins</span></div></div>
+    <div class="equipement"><div class="logo-e"><img src="images/logos/partenaires/bose.webp" alt="Bose" loading="lazy"></div><div><strong>Bose</strong><span data-fr="Casques" data-en="Headsets">Casques</span></div></div>
+    <div class="equipement"><div class="logo-e"><img src="images/logos/partenaires/zodiac_aerospace.webp" alt="Zodiac Aerospace" loading="lazy"></div><div><strong>Zodiac Aerospace</strong><span data-fr="Matériel de survie : combinaisons, gilets, canots de sauvetage" data-en="Survival gear: suits, life jackets, life rafts">Matériel de survie : combinaisons, gilets, canots de sauvetage</span></div></div>
+    <div class="equipement"><div class="logo-e"><img src="images/logos/partenaires/white_rose.webp" alt="White Rose Aviation" loading="lazy"></div><div><strong>White Rose Aviation</strong><span data-fr="Secours d'urgence" data-en="Emergency rescue">Secours d'urgence</span></div></div>
+  </div>
+  <p class="lien-tous"><a href="partenaires.html" data-fr="Voir tous nos partenaires et sponsors →" data-en="See all our partners and sponsors →">Voir tous nos partenaires et sponsors →</a></p>
+</section>
+
+<section class="wrap section" id="carte" style="scroll-margin-top:130px">
+  <div class="carte-tete">
+    <p class="kicker" data-fr="Les trajets réalisés" data-en="Routes completed">Les trajets réalisés</p>
+    <h2 class="h2" data-fr="100 000 km au-dessus de la planète" data-en="100,000 km above the planet">100 000 km au-dessus de la planète</h2>
+  </div>
+  <div id="expMap" role="region" aria-label="Carte des trajets"></div>
+  <p class="carte-legende">
+    <span><i style="border-color:#5fa8d3"></i><span data-fr="Tour du monde (Pipistrel Virus)" data-en="Round the world (Pipistrel Virus)">Tour du monde (Pipistrel Virus)</span></span>
+    <span><i style="border-color:#c8a96e;border-top-style:dashed"></i><span data-fr="Traversée du Pacifique (bateau)" data-en="Pacific crossing (boat)">Traversée du Pacifique (bateau)</span></span>
+    <span><i style="border-color:#7bc8a4"></i><span data-fr="Traversée des Amériques (Super Pétrel)" data-en="Crossing the Americas (Super Pétrel)">Traversée des Amériques (Super Pétrel)</span></span>
+  </p>
+  <p class="carte-lien"><a class="btn btn-contour" href="campagne-scientifique.html#carte-missions" data-fr="Voir les missions scientifiques sur la carte →" data-en="See the scientific missions on the map →">Voir les missions scientifiques sur la carte →</a></p>
+</section>
+
+<a class="suivante wrap" href="sensibilisation.html">
+  <img src="images/accueil/crepuscule-1920.webp" srcset="images/accueil/crepuscule-900.webp 900w, images/accueil/crepuscule-1920.webp 1920w" sizes="100vw" alt="" loading="lazy">
+  <div><p class="kicker" data-fr="Page suivante · 03" data-en="Next page · 03">Page suivante · 03</p><h2 data-fr="Sensibiliser le plus grand nombre" data-en="Raising public awareness">Sensibiliser le plus grand nombre</h2></div>
+  <span class="rond" aria-hidden="true" style="display:inline-flex;align-items:center;justify-content:center">→</span>
+</a>
+</main>
+
+<div id="r-pied"></div>
+
+<div class="visionneuse" id="visionneuse" role="dialog" aria-modal="true" aria-label="Vidéo">
+  <button class="rond fermer" type="button" aria-label="Fermer" id="visFermer">✕</button>
+  <div class="video" id="visVideo"></div>
+</div>
+
+<script src="lang.js?v=20261104" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  // Carrousels
+  document.querySelectorAll('[data-carrousel]').forEach(function(c){
+    var d=[].slice.call(c.querySelectorAll('.diapo')),i=0,t,txt=c.querySelector('.txt'),cpt=c.querySelector('.cpt');
+    function aff(n){d[i].classList.remove('active');i=(n+d.length)%d.length;d[i].classList.add('active');var im=d[i].querySelector('img');im.loading='eager';
+      var nx=d[(i+1)%d.length].querySelector('img');nx.loading='eager';txt.textContent=(document.documentElement.lang==='en'&&im.dataset.altEn)?im.dataset.altEn:im.alt;cpt.textContent=(i+1)+' / '+d.length;}
+    function go(){clearInterval(t);if(!matchMedia('(prefers-reduced-motion: reduce)').matches)t=setInterval(function(){aff(i+1);},6000);}
+    c.querySelectorAll('[data-pas]').forEach(function(b){b.addEventListener('click',function(){aff(i+ +b.dataset.pas);go();});});
+    aff(0);go();
+  });
+  // Étapes
+  var bt=document.getElementById('voirEtapes'),et=document.getElementById('etapes');
+  bt.addEventListener('click',function(){var o=et.hidden;et.hidden=!o;bt.setAttribute('aria-expanded',o);if(o)et.scrollIntoView({behavior:'smooth',block:'start'});});
+  // Vidéo du Bourget
+  var vis=document.getElementById('visionneuse'),vv=document.getElementById('visVideo'),dern;
+  function fermer(){vis.classList.remove('ouverte');vv.innerHTML='';document.body.style.overflow='';if(dern)dern.focus();}
+  document.getElementById('videoBourget').addEventListener('click',function(){dern=this;vv.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/cqcXs-pBWSA?autoplay=1&rel=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Arrivée au Bourget"></iframe>';vis.classList.add('ouverte');document.body.style.overflow='hidden';document.getElementById('visFermer').focus();});
+  document.getElementById('visFermer').addEventListener('click',fermer);
+  vis.addEventListener('click',function(e){if(e.target===vis)fermer();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&vis.classList.contains('ouverte'))fermer();});
+  // Sommaire : section active
+  var liens=[].slice.call(document.querySelectorAll('.sommaire a'));
+  if('IntersectionObserver' in window){var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)liens.forEach(function(a){a.classList.toggle('actif',a.getAttribute('href')==='#'+e.target.id);});});},{rootMargin:'-40% 0px -55% 0px'});
+    liens.forEach(function(a){var s=document.querySelector(a.getAttribute('href'));if(s)obs.observe(s);});}
+});
+// Carte (Leaflet, chargé en différé)
+window.addEventListener('load',function(){
+  if(!window.L)return;
+  var map=L.map('expMap',{scrollWheelZoom:false,zoomControl:true}).setView([20,-20],2);
+  L.tileLayer('https://basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png?key=cb1_4rxj_1_0467cc3332a31680cdec9da4',{
+    attribution:'© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, © <a href="https://carto.com/attributions">CARTO</a>',maxZoom:19
+  }).addTo(map);
+  var routes = [
+    {name:"Pipistrel Virus SW",color:"#5fa8d3",dash:null,coords:[[45.892231,13.92443],[45.94548,13.65838],[46.072159,13.61562],[46.170139,13.74023],[46.314289,13.47119],[46.380859,13.72356],[46.432461,13.75553],[46.398731,13.83161],[45.9217,13.85088],[45.838188,13.65186],[45.849209,13.55764],[45.91613,13.57988],[45.98035,13.43661],[46.06287,13.31339],[46.120369,13.31135],[46.204659,13.04723],[46.175091,13.00684],[46.162201,13.03999],[46.037842,13.14594],[45.923592,12.46762],[46.020039,12.28454],[46.577518,12.48694],[46.717838,12.24343],[46.778641,11.72099],[46.915771,11.45937],[47.186378,11.39944],[47.251041,11.32411],[47.293652,11.25839],[47.48753,11.23863],[47.635059,10.88814],[47.575272,10.74406],[47.87883,9.66573],[48.291512,8.95703],[48.348808,8.95041],[48.385132,8.54776],[48.809181,7.82402],[49.59362,6.24424],[49.080681,7.91523],[49.602711,6.1807],[49.714401,5.9908],[49.813271,6.10024],[49.582298,6.19942],[48.789082,7.79184],[46.839249,4.00572],[46.521191,3.41936],[45.637932,-1.15325],[45.57753,-1.19193],[45.62294,-0.98761],[46.69437,1.79809],[47.294479,2.58784],[47.371361,3.31385],[47.579449,3.80087],[47.859669,4.60546],[47.866089,5.36625],[47.805431,6.40235],[48.114738,7.11454],[48.604141,7.30808],[49.630692,6.18935],[49.33342,4.62376],[49.09087,4.23076],[48.961048,2.82679],[48.892021,2.86084],[49.445358,3.0563],[49.640709,2.98416],[49.735401,3.17491],[49.81789,2.94233],[50.081699,3.01358],[50.50663,1.59959],[51.290699,1.31546],[51.885769,1.51998],[52.62524,0.58049],[53.041019,0.32904],[54.796982,-1.65708],[55.165272,-1.59022],[56.23024,-2.92456],[56.406219,-3.51005],[56.584911,-3.531],[58.231651,-6.33276],[61.008381,-10.01492],[64.845573,-13.86851],[65.045464,-13.59784],[65.215881,-14.30377],[65.708588,-14.22363],[66.235481,-15.99562],[66.1894,-17.13026],[64.977943,-16.821461],[64.285156,-19.2141],[63.471008,-20.27301],[63.313271,-20.529369],[63.62236,-19.62215],[63.491779,-20.38476],[63.940971,-22.557819],[64.0289,-22.6481],[65.392418,-34.541191],[65.820007,-35.269501],[65.766541,-35.925091],[65.646713,-36.422958],[65.654671,-36.938801],[65.52317,-37.355301],[63.321442,-41.757462],[63.35099,-42.02544],[61.44532,-44.963711],[61.376919,-44.823631],[61.131592,-45.466221],[61.926441,-48.923771],[62.0979,-49.160351],[62.42691,-50.119591],[64.160118,-51.72298],[64.536133,-51.424438],[65.420624,-51.71159],[65.514313,-52.472488],[66.686028,-52.544071],[66.91581,-52.1772],[68.659988,-51.333542],[69.139107,-49.57016],[69.21003,-51.155941],[68.013847,-60.77232],[67.213997,-62.526329],[65.87912,-66.14917],[65.281967,-66.908829],[63.770119,-68.485321],[63.422791,-68.39431],[61.04438,-69.590889],[60.548691,-69.640823],[60.493759,-69.802032],[57.134319,-68.115822],[55.166538,-67.04937],[54.74165,-67.217796],[54.747311,-66.714767],[50.29203,-64.122032],[50.14257,-65.339157],[49.9874,-65.33683],[50.191669,-63.801041],[50.052689,-63.82795],[49.865471,-65.057587],[49.126869,-63.106491],[48.980461,-61.56498],[49.902721,-63.215672],[50.199551,-64.467712],[49.874039,-65.299492],[49.541611,-64.929398],[50.01263,-64.188713],[50.149639,-64.283409],[46.519039,-64.463516],[44.761761,-63.333832],[46.374901,-63.041401],[48.07806,-65.081039],[48.94725,-67.167824],[46.868679,-70.982452],[47.254471,-70.775261],[47.228378,-70.718086],[45.583328,-73.01667],[42.15538,-73.954338],[41.218021,-74.619019],[38.691711,-75.35788],[36.911041,-76.162338],[33.369579,-79.334908],[32.809349,-81.007042],[30.191971,-81.465317],[30.181299,-81.301933],[28.7931,-81.198288],[28.38286,-81.651749],[27.45455,-81.356354],[25.75728,-79.190399],[25.09594,-77.497139],[24.683029,-76.771339],[24.01215,-76.406403],[23.618679,-75.928299],[21.609791,-72.021317],[20.77006,-70.598068],[19.55324,-69.560722],[18.477301,-67.119171],[18.171869,-63.046539],[17.643579,-63.24057],[16.4513,-61.529301],[14.44507,-60.73621],[12.43541,-61.603779],[11.22108,-60.587551],[10.34694,-61.254959],[8.73353,-61.472759],[7.06244,-58.8885],[5.85273,-54.118061],[4.91892,-52.30835],[4.35375,-52.09433],[4.88569,-52.368038],[4.64806,-51.886478],[4.41433,-51.677841],[4.15106,-51.684711],[4.24495,-51.888618],[4.51026,-51.922401],[4.48273,-51.714451],[4.57133,-51.92086],[4.6516,-51.782982],[4.80754,-53.635281],[4.77874,-54.998631],[5.16343,-59.198078],[5.30426,-59.287029],[5.10425,-59.551762],[5.17283,-60.189201],[2.74292,-60.732029],[1.70454,-61.20451],[0.17276,-62.714561],[-0.10691,-63.603512],[-1.47342,-64.330193],[-2.50917,-65.836769],[-2.48751,-65.991829],[-3.35679,-67.903168],[-3.58192,-67.995461],[-4.05446,-69.378563],[-4.40666,-69.383049],[-3.97848,-69.508598],[-3.99377,-69.822517],[-4.30125,-70.022041],[-3.80915,-73.257111],[-5.9557,-75.725998],[-6.51679,-76.343246],[-6.47446,-77.302017],[-6.63327,-77.69989],[-6.61607,-78.13929],[-6.63629,-78.35318],[-6.60085,-78.443001],[-6.60909,-78.632401],[-6.6876,-78.731369],[-6.63627,-79.25592],[-6.77008,-79.795479],[-7.91101,-79.303329],[-8.60829,-78.755913],[-9.55797,-78.313072],[-10.26549,-77.978172],[-10.69307,-77.868958],[-10.87772,-77.505241],[-12.00246,-77.07164],[-10.88831,-77.705994],[-10.61757,-77.691818],[-10.79202,-77.478706],[-10.23513,-76.999039],[-10.86923,-77.403908],[-11.1213,-77.22998],[-11.20601,-77.622688],[-13.20664,-76.248032],[-13.85832,-76.270699],[-13.84991,-76.330193],[-16.446621,-71.531982],[-18.43792,-70.45092],[-20.50935,-69.967522],[-21.8207,-69.708252],[-22.730591,-68.560181],[-23.604259,-70.444328],[-25.839439,-70.356438],[-30.50548,-71.103508],[-32.657875,-70.620117],[-37.405075,-73.081055],[-41.442726,-73.564453],[-41.934978,-72.905273],[-38.582527,-72.993164],[-34.415974,-71.850586],[-34.307144,-72.070312]]},
+    {name:"Pacifique (bateau)",color:"#c8a96e",dash:"8 6",coords:[[-33.83392,-72.333984],[-28.921631,-86.835938],[-27.371767,-96.679688],[-27.137367,-109.335938],[-17.371611,-150.040283],[-36.826874,175.03418],[-38.065392,145.195312],[-37.71859,145.195312]]},
+    {name:"Pipistrel Virus SW",color:"#5fa8d3",dash:null,coords:[[-38.37611,145.50293],[-31.9708,141.394043],[-29.391741,138.262924],[-29.27681,136.571045],[-28.59416,136.417236],[-25.353951,131.011963],[-18.895889,126.166992],[-16.17247,123.662102],[-16.9307,122.431641],[-10.20681,123.618156],[-8.58102,121.794434],[-8.64619,119.772942],[-8.79822,115.158691],[-7.29708,112.741692],[-7.71099,110.368652],[-7.31888,109.094231],[-7.03547,107.687981],[-6.42448,105.424797],[-3.18439,104.765617],[3.03081,101.711418],[6.24977,99.558098],[7.84161,98.393547],[13.28271,98.393547],[16.63619,96.240227],[20.550501,92.416992],[22.51255,87.978508],[24.946211,78.376457],[22.958389,72.685539],[24.886431,66.972649],[23.56398,58.491211],[24.226919,56.733391],[25.582081,56.403801],[23.82555,57.172852],[23.40276,58.31543],[24.146749,56.03027],[25.423429,55.546871],[24.387119,54.360352],[24.24696,52.75634],[24.487141,52.734371],[24.507139,54.338371],[24.84656,51.723629],[25.91852,51.547852],[26.431219,50.581051],[24.806681,46.80175],[27.566719,41.50634],[31.334869,37.41943],[31.72349,36.095581],[32.082569,35.88134],[31.128189,35.639641],[30.429729,35.771481],[30.29701,35.419922],[29.516109,35.090328],[30.25906,35.705559],[30.637911,35.354],[29.668961,35.046379],[29.458731,35.55175],[29.70713,35.046379],[29.209709,34.848629],[31.01527,33.837891],[33.082329,31.970209],[34.50655,29.750971],[36.42128,28.0371],[36.82687,27.147209],[38.134556,22.587891],[39.50404,20.390625],[41.442726,19.511719],[43.452919,16.347656],[45.58329,13.974609],[45.151054,11.162109],[44.339565,9.492188],[43.452919,6.943359],[44.087585,4.570313],[46.739861,4.833984],[49.267803,2.724609]]},
+    {name:"Super Petrel",color:"#7bc8a4",dash:null,coords:[[-22.4165913,-47.6490684],[-22.592754,-48.2753222],[-25.516517,-48.4630932],[-26.2429437,-48.6061666],[-27.575196,-48.5846789],[-27.7404596,-49.1175463],[-27.8959824,-48.8923965],[-27.5800586,-48.6066515],[-25.3768035,-51.3797565],[-25.5049091,-54.4557844],[-26.7967246,-54.2584863],[-27.8309653,-55.621054],[-29.1721851,-58.010858],[-28.5132772,-57.1263021],[-28.8696645,-57.7471025],[-29.1769693,-58.0548019],[-30.7231979,-59.6701911],[-31.620652,-60.2472373],[-31.9753142,-60.7197289],[-32.9070461,-60.6047246],[-32.6762582,-60.30804],[-32.8979131,-60.258688],[-36.144022,-62.1079597],[-37.1266005,-62.7351743],[-40.6407603,-65.2126537],[-43.2386881,-65.2549477],[-45.2734327,-67.426761],[-51.6844145,-69.2400202],[-54.0555214,-68.8031484],[-54.7859945,-68.4063077],[-54.9823506,-68.4443525],[-53.807455,-67.6209505],[-51.6844145,-69.2400202],[-50.2907509,-72.3234941],[-50.1796106,-73.0075673],[-49.874483,-73.2213698],[-50.1433689,-73.2082829],[-50.0373759,-72.9286802],[-50.2907509,-72.3234941],[-46.4244265,-71.7383258],[-45.8992758,-71.6476713],[-45.6030077,-71.9618673],[-45.4189542,-72.7705962],[-46.1084375,-73.1997562],[-45.9946542,-73.3900999],[-45.4189542,-72.7705962],[-46.1418078,-73.2767749],[-46.0161493,-73.3021234],[-46.5959377,-73.7673628],[-46.7055805,-73.6846432],[-45.7566936,-73.5451556],[-45.4017885,-72.8650009],[-45.2193996,-73.4617905],[-44.5486806,-73.3511248],[-43.6758136,-72.9465462],[-43.0989139,-73.5383879],[-42.9081109,-72.6713936],[-42.7572015,-72.8646035],[-42.4660224,-73.7072069],[-42.3869538,-73.298807],[-42.1283167,-73.4147266],[-41.815876,-73.091248],[-41.446461,-72.8939026],[-41.2718882,-72.9479485],[-40.5637638,-73.0597277],[-40.8388774,-72.4865851],[-40.4126699,-71.9061706],[-40.5363352,-73.0163504],[-40.3319189,-72.7891221],[-41.446461,-72.8939026],[-40.9990984,-71.9757348],[-41.1216035,-71.3083599],[-42.3666485,-69.8742286],[-43.1632248,-67.312337],[-43.2133078,-65.5132829],[-44.3985155,-65.2289016],[-45.8093722,-67.5380992],[-44.9708226,-67.380759],[-43.1855474,-65.3557016],[-42.6585541,-64.3396733],[-40.6193911,-66.1060713],[-38.8928774,-67.9866743],[-32.7680113,-68.9742872],[-29.3919484,-66.8274255],[-26.2543399,-64.5957898],[-23.6796645,-63.8653326],[-24.3397727,-60.8550734],[-25.2838985,-59.0291847],[-25.4111385,-60.3403468],[-25.6481157,-59.4876128],[-23.993302,-61.9535123],[-26.3472664,-58.5649433],[-25.4267947,-54.4391131],[-23.9535154,-54.0417604],[-22.8210375,-53.7130276],[-23.0764273,-43.0550715],[-19.4505866,-44.1933688],[-8.0534379,-42.2881943],[-4.8880786,-42.7215697],[-2.6061675,-41.5424672],[-2.0871724,-44.1609533],[-1.3012663,-48.5032584],[0.1000106,-51.0725477],[4.6551168,-51.8192462],[7.023165,-58.1633711],[11.9906916,-61.0524647],[16.4609616,-61.4590297],[18.6647022,-70.6702118],[22.2866532,-72.6177207],[24.4533029,-75.2620655],[26.6996313,-78.4020513],[27.4875658,-80.1906772],[27.4686376,-81.2849336],[28.6213941,-81.8214274],[29.1915357,-80.9616174],[37.9324281,-84.4343383],[39.2623768,-86.4942005],[41.1798437,-87.7525136],[42.8767297,-87.861766],[43.5627549,-88.6313513],[45.1015849,-93.1294875],[49.071547,-97.1833599],[51.1768124,-99.8816442],[54.7637152,-101.7841994],[59.3620493,-105.599272],[59.4314516,-108.4744058],[62.3850057,-115.5007845],[64.9278656,-111.8675263],[65.3362134,-114.3957703],[62.3850057,-115.5007845],[58.6856307,-111.2554387],[56.757546,-111.3171933],[51.1265094,-114.1130305],[47.7754597,-117.198347],[46.0451161,-120.8349815],[44.5950083,-121.5107668],[43.8623981,-121.1691698],[44.1142395,-122.553745],[44.2717823,-123.4106786],[43.9672326,-123.2952312],[43.7635175,-123.2154525],[43.272234,-123.0371435],[43.7899602,-123.2239111],[43.272234,-123.0371435],[42.55308,-121.948242],[40.279526,-119.926758],[38.719805,-118.828125],[36.7038037,-118.0269795],[35.38905,-117.905273],[34.81794,-117.184134],[35.38905,-117.905273],[36.7038037,-118.0269795],[37.673303,-118.4378683],[38.719805,-118.828125],[39.4947287,-119.3794013],[40.279526,-119.926758],[40.9704307,-120.5214235],[42.55308,-121.948242],[42.9011429,-122.4703282],[43.272234,-123.0371435],[44.2717823,-123.4106786],[44.871443,-122.827148],[46.860191,-121.464844],[47.5320379,-122.1679692],[47.9229829,-122.2807066],[48.283193,-122.783203],[44.871443,-122.827148],[42.6082128,-121.939481]]}
+  ];
+  routes.forEach(function(r){var o={color:r.color,weight:3,opacity:.9};if(r.dash)o.dashArray=r.dash;L.polyline(r.coords,o).bindPopup('<strong>'+r.name+'</strong>').addTo(map);});
+});
+</script>
+</body>
+</html>
