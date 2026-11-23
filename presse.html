@@ -157,7 +157,7 @@
         <div style="flex:1;">
           <span class="section-tag" data-fr="📰 Presse écrite et en ligne" data-en="📰 Newspapers and online">📰 Presse écrite et en ligne</span>
           <h2 style="font-family:Merriweather,serif;font-weight:300;font-size:28px;color:var(--white);margin:12px 0 8px;" data-fr="Presse écrite" data-en="Newspapers">Presse écrite</h2>
-          <p style="font-size:14px;color:var(--text-muted);" data-fr="435 articles dans plus de 60 médias à travers le monde" data-en="435 articles in over 60 media outlets worldwide">435 articles dans plus de 60 médias à travers le monde</p>
+          <p style="font-size:14px;color:var(--text-muted);" data-fr="455 articles dans plus de 60 médias à travers le monde" data-en="455 articles in over 60 media outlets worldwide">455 articles dans plus de 60 médias à travers le monde</p>
         </div>
         <img src="images/icon_presse.webp" alt="Presse écrite" style="width:180px;height:auto;flex-shrink:0;opacity:0.5;" loading="lazy">
       </div>
@@ -173,7 +173,7 @@
       }</style>
     <div id="textCloud" style="position:relative;width:100%;max-width:800px;height:420px;margin:24px auto 0;border-radius:8px;background:rgba(20,32,48,0.97);border:1px solid rgba(95,168,211,0.1);overflow:hidden;cursor:pointer;" onclick="openPresse()">
     </div>
-    <a href="#" onclick="openPresse();return false;" style="display:block;text-align:center;margin-top:16px;font-size:14px;color:var(--accent);font-weight:600;text-decoration:none;transition:opacity .2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'" data-fr="Cliquez pour voir les 435 articles →" data-en="Click to see all 435 articles →">Cliquez pour voir les 435 articles →</a>
+    <a href="#" onclick="openPresse();return false;" style="display:block;text-align:center;margin-top:16px;font-size:14px;color:var(--accent);font-weight:600;text-decoration:none;transition:opacity .2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'" data-fr="Cliquez pour voir les 455 articles →" data-en="Click to see all 455 articles →">Cliquez pour voir les 455 articles →</a>
     <div id="presseModal" style="display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,0.8);justify-content:center;align-items:center;" onclick="if(event.target===this)closePresse()">
       <div style="position:relative;width:90%;height:85%;max-width:1200px;background:var(--sky);border-radius:8px;overflow:hidden;">
         <button onclick="closePresse()" style="position:absolute;top:12px;right:16px;background:rgba(0,0,0,0.5);border:2px solid rgba(255,255,255,0.4);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;cursor:pointer;z-index:20;">&times;</button>
@@ -297,7 +297,22 @@
         {t:"FRANCE CULTURE",s:14,fw:"700",c:"#5fa8d3"},
         {t:"LE MOUV'",s:13,fw:"600",c:"#f5f0eb"},
         {t:"FRANCE BLEU",s:15,fw:"700",c:"#5fa8d3"},
-        {t:"ECONOMÍA SUSTENTABLE",s:11,fw:"600",c:"#f5f0eb"}
+        {t:"ECONOMÍA SUSTENTABLE",s:11,fw:"600",c:"#f5f0eb"},
+        {t:"PSC BLOG",s:11,fw:"600",c:"#5fa8d3"},
+        {t:"ECHOSCIENCES OCCITANIE",s:11,fw:"600",c:"#f5f0eb"},
+        {t:"NAZOLOGY",s:11,fw:"600",c:"#5fa8d3"},
+        {t:"SPACE.COM",s:11,fw:"600",c:"#f5f0eb"},
+        {t:"PORTAL INNOVA",s:11,fw:"600",c:"#5fa8d3"},
+        {t:"DIARIO ESTRATEGIA",s:11,fw:"600",c:"#f5f0eb"},
+        {t:"LA NACIÓN",s:11,fw:"600",c:"#5fa8d3"},
+        {t:"YAHOO NOTICIAS",s:11,fw:"600",c:"#f5f0eb"},
+        {t:"PROYUNGAS",s:11,fw:"600",c:"#5fa8d3"},
+        {t:"CQAP",s:11,fw:"600",c:"#f5f0eb"},
+        {t:"CANAL 12 MISIONES",s:11,fw:"600",c:"#5fa8d3"},
+        {t:"TOUR INNOVACIÓN",s:11,fw:"600",c:"#f5f0eb"},
+        {t:"PROVINCIA DE MISIONES",s:11,fw:"600",c:"#5fa8d3"},
+        {t:"TOULOUSE INFOS",s:11,fw:"600",c:"#f5f0eb"},
+        {t:"DIARIO JORNADA",s:11,fw:"600",c:"#5fa8d3"}
       ];
       var box = document.getElementById('textCloud');
       // Mur des médias : noms rangés en lignes centrées, sans chevauchement (remplace le nuage flottant illisible)
